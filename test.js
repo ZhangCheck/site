@@ -54,97 +54,110 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 (lib.Symbol2 = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
+	// Layer 2
+	this.shape = new cjs.Shape();
+	this.shape.graphics.f().s("#33CCCC").ss(1,1,1).p("AAAmUIAAMp");
+	this.shape.setTransform(-146.3,74.7);
+
+	this.timeline.addTween(cjs.Tween.get(this.shape).wait(1));
+
 	// Layer 1
-	this.text = new cjs.Text("66度", "13px 'Trebuchet MS'", "#FFFFFF");
+	this.text = new cjs.Text("0", "13px 'Trebuchet MS'", "#FFFFFF");
 	this.text.lineHeight = 17;
-	this.text.lineWidth = 28;
+	this.text.lineWidth = 19;
 	this.text.parent = this;
-	this.text.setTransform(-33.4,98.1);
+	this.text.setTransform(-234.7,70.8);
+
+	this.text_1 = new cjs.Text("66度", "13px 'Trebuchet MS'", "#FFFFFF");
+	this.text_1.lineHeight = 17;
+	this.text_1.lineWidth = 28;
+	this.text_1.parent = this;
+	this.text_1.setTransform(-33.4,98.1);
 
 	this.instance = new lib.Symbol1();
 	this.instance.parent = this;
 	this.instance.setTransform(-11.6,75.6,1.503,1.517,-24.2,0,0,0.3,0.6);
 	this.instance.alpha = 0.461;
 
-	this.text_1 = new cjs.Text("108", "13px 'Trebuchet MS'", "#FFFFFF");
-	this.text_1.lineHeight = 17;
-	this.text_1.lineWidth = 29;
-	this.text_1.parent = this;
-	this.text_1.setTransform(-102.7,75.1);
-
-	this.text_2 = new cjs.Text("40", "13px 'Trebuchet MS'", "#FFFFFF");
+	this.text_2 = new cjs.Text("108", "13px 'Trebuchet MS'", "#FFFFFF");
 	this.text_2.lineHeight = 17;
-	this.text_2.lineWidth = 17;
+	this.text_2.lineWidth = 29;
 	this.text_2.parent = this;
-	this.text_2.setTransform(-4.6,67.1);
+	this.text_2.setTransform(-102.7,75.1);
 
-	this.text_3 = new cjs.Text("43", "13px 'Trebuchet MS'", "#FFFFFF");
+	this.text_3 = new cjs.Text("40", "13px 'Trebuchet MS'", "#FFFFFF");
 	this.text_3.lineHeight = 17;
-	this.text_3.lineWidth = 100;
+	this.text_3.lineWidth = 17;
 	this.text_3.parent = this;
-	this.text_3.setTransform(119.5,59.1);
+	this.text_3.setTransform(-4.6,67.1);
 
-	this.text_4 = new cjs.Text("100", "13px 'Trebuchet MS'", "#FFFFFF");
+	this.text_4 = new cjs.Text("43", "13px 'Trebuchet MS'", "#FFFFFF");
 	this.text_4.lineHeight = 17;
-	this.text_4.lineWidth = 31;
+	this.text_4.lineWidth = 100;
 	this.text_4.parent = this;
-	this.text_4.setTransform(36.5,-19.4,1.519,1.519);
+	this.text_4.setTransform(119.5,59.1);
 
-	this.text_5 = new cjs.Text("116", "13px 'Trebuchet MS'", "#FFFFFF");
+	this.text_5 = new cjs.Text("100", "13px 'Trebuchet MS'", "#FFFFFF");
 	this.text_5.lineHeight = 17;
-	this.text_5.lineWidth = 44;
+	this.text_5.lineWidth = 31;
 	this.text_5.parent = this;
-	this.text_5.setTransform(-34,-97.8,1.519,1.519);
+	this.text_5.setTransform(36.5,-19.4,1.519,1.519);
 
-	this.text_6 = new cjs.Text("33", "13px 'Trebuchet MS'", "#FFFFFF");
+	this.text_6 = new cjs.Text("116", "13px 'Trebuchet MS'", "#FFFFFF");
 	this.text_6.lineHeight = 17;
-	this.text_6.lineWidth = 20;
+	this.text_6.lineWidth = 44;
 	this.text_6.parent = this;
-	this.text_6.setTransform(-141.1,83);
+	this.text_6.setTransform(-34,-97.8,1.519,1.519);
 
-	this.text_7 = new cjs.Text("49", "13px 'Trebuchet MS'", "#FFFFFF");
+	this.text_7 = new cjs.Text("33", "13px 'Trebuchet MS'", "#FFFFFF");
 	this.text_7.lineHeight = 17;
-	this.text_7.lineWidth = 19;
+	this.text_7.lineWidth = 20;
 	this.text_7.parent = this;
-	this.text_7.setTransform(-63.1,25.3);
+	this.text_7.setTransform(-161,89.9);
 
-	this.text_8 = new cjs.Text("86", "13px 'Trebuchet MS'", "#FFFFFF");
+	this.text_8 = new cjs.Text("49", "13px 'Trebuchet MS'", "#FFFFFF");
 	this.text_8.lineHeight = 17;
-	this.text_8.lineWidth = 31;
+	this.text_8.lineWidth = 19;
 	this.text_8.parent = this;
-	this.text_8.setTransform(-97.6,-14.1,1.519,1.519);
+	this.text_8.setTransform(-241.7,27);
 
-	this.text_9 = new cjs.Text("110", "13px 'Trebuchet MS'", "#FFFFFF");
+	this.text_9 = new cjs.Text("86", "13px 'Trebuchet MS'", "#FFFFFF");
 	this.text_9.lineHeight = 17;
-	this.text_9.lineWidth = 41;
+	this.text_9.lineWidth = 31;
 	this.text_9.parent = this;
-	this.text_9.setTransform(-133.6,-111.9,1.519,1.519);
+	this.text_9.setTransform(-245.1,-14.1,1.519,1.519);
 
-	this.text_10 = new cjs.Text("79", "13px 'Trebuchet MS'", "#FFFFFF");
+	this.text_10 = new cjs.Text("110", "13px 'Trebuchet MS'", "#FFFFFF");
 	this.text_10.lineHeight = 17;
-	this.text_10.lineWidth = 16;
+	this.text_10.lineWidth = 41;
 	this.text_10.parent = this;
-	this.text_10.setTransform(-19.1,46.6);
+	this.text_10.setTransform(-132.4,-126,1.519,1.519);
 
-	this.text_11 = new cjs.Text("80", "13px 'Trebuchet MS'", "#FFFFFF");
+	this.text_11 = new cjs.Text("79", "13px 'Trebuchet MS'", "#FFFFFF");
 	this.text_11.lineHeight = 17;
-	this.text_11.lineWidth = 31;
+	this.text_11.lineWidth = 16;
 	this.text_11.parent = this;
-	this.text_11.setTransform(-143.6,37.7,1.519,1.519);
+	this.text_11.setTransform(-19.1,46.6);
 
-	this.text_12 = new cjs.Text("100", "13px 'Trebuchet MS'", "#FFFFFF");
+	this.text_12 = new cjs.Text("81", "13px 'Trebuchet MS'", "#FFFFFF");
 	this.text_12.lineHeight = 17;
 	this.text_12.lineWidth = 31;
 	this.text_12.parent = this;
-	this.text_12.setTransform(-200.6,-25.3,1.519,1.519);
+	this.text_12.setTransform(-170,31.1,1.519,1.519);
 
-	this.shape = new cjs.Shape();
-	this.shape.graphics.f().s("#33CCCC").ss(1,1,1).p("A3ZAJIimAAA3ZiCIAACLIAAFsIiWAAAsjyvIAARRAoSAJIvHAAADrNlIC9hPIACgBICyGUIEEAAAEAGUICqGBIDShYAEAGcICoF6ICFEtQhXAWAPBQIB1AAIACAEIACADAuPMEIAABbIEXAAAuSMEIADAAIQ+AAAuPGHIAAF9AuPSpIAAAHAuPSpIV0AAAuPNfIAAFKA5vNfICWAAIAAAGA3ZF1IAAHqIJKAAAiWF1I1DAAAItRDIAtBmIACAAIAAAEAaALCIAAGsAC0ssIAASQAM3hDIAAPn");
-	this.shape.setTransform(-55.1,-4.1);
+	this.text_13 = new cjs.Text("100", "13px 'Trebuchet MS'", "#FFFFFF");
+	this.text_13.lineHeight = 17;
+	this.text_13.lineWidth = 31;
+	this.text_13.parent = this;
+	this.text_13.setTransform(-254.8,-43.1,1.519,1.519);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape},{t:this.text_12},{t:this.text_11},{t:this.text_10},{t:this.text_9},{t:this.text_8},{t:this.text_7},{t:this.text_6},{t:this.text_5},{t:this.text_4},{t:this.text_3},{t:this.text_2},{t:this.text_1},{t:this.instance},{t:this.text}]}).wait(1));
+	this.shape_1 = new cjs.Shape();
+	this.shape_1.graphics.f().s("#33CCCC").ss(1,1,1).p("A3ZiCIAACLIimAAAsjyvIAARRAoSAJIvHAAIAAFsIiWAAAGoMWIACgBIDShYADrNlIC9hPICFEtIAtBmIACAEAEAGcICoF6AEAGUICqGBICyGUIAAAEIACADAuSMEIRBAAAuPSpIV0AAIB1AAIACAAIEEAAA3ZNfIAAAGA5vNfICWAAA3ZF1IAAHqINhAAAiWF1I1DAAAaALCIAAGsAItRDQhXAWAPBQAM3hDIAAPnAC0ssIAASQ");
+	this.shape_1.setTransform(-55.1,-4.1);
 
-}).prototype = getMCSymbolPrototype(lib.Symbol2, new cjs.Rectangle(-222.4,-125.1,444,250.3), null);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape_1},{t:this.text_13},{t:this.text_12},{t:this.text_11},{t:this.text_10},{t:this.text_9},{t:this.text_8},{t:this.text_7},{t:this.text_6},{t:this.text_5},{t:this.text_4},{t:this.text_3},{t:this.text_2},{t:this.instance},{t:this.text_1},{t:this.text}]}).wait(1));
+
+}).prototype = getMCSymbolPrototype(lib.Symbol2, new cjs.Rectangle(-257.9,-129.1,479.4,254.3), null);
 
 
 // stage content:
@@ -187,7 +200,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/微信图片_20170629132041.jpg?1498726508199", id:"微信图片_20170629132041"}
+		{src:"images/微信图片_20170629132041.jpg?1498730921490", id:"微信图片_20170629132041"}
 	],
 	preloads: []
 };
