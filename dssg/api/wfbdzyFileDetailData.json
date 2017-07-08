@@ -1,0 +1,46 @@
+{
+    "success": true,
+    "data":{
+        "metadataDetail":{
+                "wjbm":"GHJ-5525232",
+                "wjmc":"疏浚信息",
+                "zy":"我是摘要",
+                "ys":"ZNB",
+                "themeType":"治安",
+                "departmentType":"公安",
+                "dylx":"已审批",
+                "sjtgf":"江苏省公安厅",
+                "sjtgfdz":"楼后面",
+                "fbyy":"楼后面"
+
+        },
+      "pzdyqx":{
+        "pzgxcl": [{
+          "dispatchModel":"周期模式",
+          "startTime":"2016-12-12 12:30",
+          "jgzq":"12"
+        }],
+        "wjgxdjpz":[
+          {
+            "level":"一级",
+            "startTime":"2016-12-12 12:30",
+            "jgzq":"12"
+          }
+        ]
+      },
+      "gxwjxx":[
+        {
+          "name":"2016年XXXX行政处罚信息",
+          "type":"doc",
+          "size":"32K",
+          "updateTime":"2016-11-30 09:00"
+        }
+      ],
+      "zysqdyxx":{
+        "fbyy":"XXXXXXX",
+        "proposer":"XXXXXXX"
+      }
+    }
+
+
+}

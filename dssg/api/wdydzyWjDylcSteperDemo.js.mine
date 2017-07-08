@@ -1,0 +1,1575 @@
+(function(){ var runed=0,temp,timer,time;webpackJsonp([3],{
+
+/***/ "./node_modules/antFB/lib/modal/Modal.js":
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports["default"] = undefined;
+
+	var _extends2 = __webpack_require__("./node_modules/babel-runtime/helpers/extends.js");
+
+	var _extends3 = _interopRequireDefault(_extends2);
+
+	var _classCallCheck2 = __webpack_require__("./node_modules/babel-runtime/helpers/classCallCheck.js");
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _possibleConstructorReturn2 = __webpack_require__("./node_modules/babel-runtime/helpers/possibleConstructorReturn.js");
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__("./node_modules/babel-runtime/helpers/inherits.js");
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
+	var _react = __webpack_require__("./node_modules/react/react.js");
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _rcDialog = __webpack_require__("./node_modules/rc-dialog/lib/DialogWrap.js");
+
+	var _rcDialog2 = _interopRequireDefault(_rcDialog);
+
+	var _addEventListener = __webpack_require__("./node_modules/rc-util/lib/Dom/addEventListener.js");
+
+	var _addEventListener2 = _interopRequireDefault(_addEventListener);
+
+	var _button = __webpack_require__("./node_modules/antFB/lib/button/index.js");
+
+	var _button2 = _interopRequireDefault(_button);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	function noop() {}
+	var mousePosition = void 0;
+	var mousePositionEventBinded = void 0;
+
+	var Modal = function (_React$Component) {
+	    (0, _inherits3["default"])(Modal, _React$Component);
+
+	    function Modal() {
+	        (0, _classCallCheck3["default"])(this, Modal);
+
+	        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	            args[_key] = arguments[_key];
+	        }
+
+	        var _this = (0, _possibleConstructorReturn3["default"])(this, _React$Component.call.apply(_React$Component, [this].concat(args)));
+
+	        _this.handleCancel = function (e) {
+	            _this.props.onCancel(e);
+	        };
+	        _this.handleOk = function () {
+	            _this.props.onOk();
+	        };
+	        return _this;
+	    }
+
+	    Modal.prototype.componentDidMount = function componentDidMount() {
+	        if (mousePositionEventBinded) {
+	            return;
+	        }
+	        // 只有点击事件支持从鼠标位置动画展开
+	        (0, _addEventListener2["default"])(document.documentElement, 'click', function (e) {
+	            mousePosition = {
+	                x: e.pageX,
+	                y: e.pageY
+	            };
+	            // 100ms 内发生过点击事件，则从点击位置动画展示
+	            // 否则直接 zoom 展示
+	            // 这样可以兼容非点击方式展开
+	            setTimeout(function () {
+	                return mousePosition = null;
+	            }, 100);
+	        });
+	        mousePositionEventBinded = true;
+	    };
+
+	    Modal.prototype.render = function render() {
+	        var _props = this.props;
+	        var okText = _props.okText;
+	        var cancelText = _props.cancelText;
+	        var confirmLoading = _props.confirmLoading;
+	        var footer = _props.footer;
+	        var visible = _props.visible;
+
+	        if (this.context.antLocale && this.context.antLocale.Modal) {
+	            okText = okText || this.context.antLocale.Modal.okText;
+	            cancelText = cancelText || this.context.antLocale.Modal.cancelText;
+	        }
+	        var defaultFooter = [_react2["default"].createElement(
+	            _button2["default"],
+	            { key: 'cancel', type: 'ghost', size: 'large', onClick: this.handleCancel },
+	            cancelText || '取消'
+	        ), _react2["default"].createElement(
+	            _button2["default"],
+	            { key: 'confirm', type: 'primary', size: 'large', loading: confirmLoading, onClick: this.handleOk },
+	            okText || '确定'
+	        )];
+	        return _react2["default"].createElement(_rcDialog2["default"], (0, _extends3["default"])({ onClose: this.handleCancel, footer: footer || defaultFooter }, this.props, { visible: visible, mousePosition: mousePosition }));
+	    };
+
+	    return Modal;
+	}(_react2["default"].Component);
+
+	exports["default"] = Modal;
+
+	Modal.defaultProps = {
+	    prefixCls: 'ant-modal',
+	    onOk: noop,
+	    onCancel: noop,
+	    width: 520,
+	    transitionName: 'zoom',
+	    maskTransitionName: 'fade',
+	    confirmLoading: false,
+	    visible: false
+	};
+	Modal.propTypes = {
+	    prefixCls: _react.PropTypes.string,
+	    onOk: _react.PropTypes.func,
+	    onCancel: _react.PropTypes.func,
+	    okText: _react.PropTypes.node,
+	    cancelText: _react.PropTypes.node,
+	    width: _react.PropTypes.oneOfType([_react.PropTypes.number, _react.PropTypes.string]),
+	    confirmLoading: _react.PropTypes.bool,
+	    visible: _react.PropTypes.bool,
+	    align: _react.PropTypes.object,
+	    footer: _react.PropTypes.node,
+	    title: _react.PropTypes.node,
+	    closable: _react.PropTypes.bool
+	};
+	Modal.contextTypes = {
+	    antLocale: _react2["default"].PropTypes.object
+	};
+	module.exports = exports['default'];
+
+/***/ },
+
+/***/ 0:
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__("./node_modules/webpack-hot-middleware-ie8/client.js?path=http:/127.0.0.1:8000/__webpack_hmr");
+	module.exports = __webpack_require__("1484119344000");if(!runed){
+            clearInterval(timer);
+            timer = setInterval(function(){
+                if(temp) {
+                    temp(module, exports, __webpack_require__);
+                    clearInterval(timer);
+                    delete temp;
+                    
+                }
+                time++;
+                if(time>500){
+                    clearInterval(timer);
+                    console.log('more than 500 times')
+                }
+            },500);
+        }
+
+
+/***/ },
+
+/***/ "./node_modules/antFB/lib/modal/index.js":
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _Modal = __webpack_require__("./node_modules/antFB/lib/modal/Modal.js");
+
+	var _Modal2 = _interopRequireDefault(_Modal);
+
+	var _confirm = __webpack_require__("./node_modules/antFB/lib/modal/confirm.js");
+
+	var _confirm2 = _interopRequireDefault(_confirm);
+
+	var _objectAssign = __webpack_require__("./node_modules/object-assign/index.js");
+
+	var _objectAssign2 = _interopRequireDefault(_objectAssign);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	_Modal2["default"].info = function (props) {
+	    var config = (0, _objectAssign2["default"])({}, {
+	        type: 'info',
+	        iconType: 'info-circle',
+	        okCancel: false
+	    }, props);
+	    return (0, _confirm2["default"])(config);
+	};
+	_Modal2["default"].success = function (props) {
+	    var config = (0, _objectAssign2["default"])({}, {
+	        type: 'success',
+	        iconType: 'check-circle',
+	        okCancel: false
+	    }, props);
+	    return (0, _confirm2["default"])(config);
+	};
+	_Modal2["default"].error = function (props) {
+	    var config = (0, _objectAssign2["default"])({}, {
+	        type: 'error',
+	        iconType: 'cross-circle',
+	        okCancel: false
+	    }, props);
+	    return (0, _confirm2["default"])(config);
+	};
+	_Modal2["default"].warning = _Modal2["default"].warn = function (props) {
+	    var config = (0, _objectAssign2["default"])({}, {
+	        type: 'warning',
+	        iconType: 'exclamation-circle',
+	        okCancel: false
+	    }, props);
+	    return (0, _confirm2["default"])(config);
+	};
+	_Modal2["default"].confirm = function (props) {
+	    var config = (0, _objectAssign2["default"])({}, {
+	        type: 'confirm',
+	        okCancel: true
+	    }, props);
+	    return (0, _confirm2["default"])(config);
+	};
+	exports["default"] = _Modal2["default"];
+	module.exports = exports['default'];
+
+/***/ },
+
+/***/ "./node_modules/antFB/lib/modal/locale.js":
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.changeConfirmLocale = changeConfirmLocale;
+	exports.getConfirmLocale = getConfirmLocale;
+
+	var _objectAssign = __webpack_require__("./node_modules/object-assign/index.js");
+
+	var _objectAssign2 = _interopRequireDefault(_objectAssign);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	var defaultLocale = {
+	    okText: '确定',
+	    cancelText: '取消',
+	    justOkText: '知道了'
+	};
+	var runtimeLocale = (0, _objectAssign2["default"])({}, defaultLocale);
+	function changeConfirmLocale(newLocale) {
+	    if (newLocale) {
+	        runtimeLocale = (0, _objectAssign2["default"])({}, runtimeLocale, newLocale);
+	    } else {
+	        runtimeLocale = (0, _objectAssign2["default"])({}, defaultLocale);
+	    }
+	}
+	function getConfirmLocale() {
+	    return runtimeLocale;
+	}
+
+/***/ },
+
+/***/ "./src/actions/aiForm.js":
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.setDefaultValue = exports.readDict = exports.saveStepForm = exports.updateOneRow = exports.onSubmitAction = exports.submitDemo = exports.requestTestMyForm = exports.requestInitMyForm = undefined;
+
+	var _defineProperty2 = __webpack_require__("./node_modules/babel-runtime/helpers/defineProperty.js");
+
+	var _defineProperty3 = _interopRequireDefault(_defineProperty2);
+
+	var _actionType = __webpack_require__("./src/actions/actionType.js");
+
+	var Types = _interopRequireWildcard(_actionType);
+
+	var _api = __webpack_require__("./src/core/api.js");
+
+	var _global = __webpack_require__("./src/core/global.js");
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	// home action
+	var requestInitMyForm = exports.requestInitMyForm = function requestInitMyForm(config, id) {
+	    return {
+	        //[API]:{types:Types.initMyForm.initMyFormApi}
+	        type: Types.aiForm.init,
+	        config: config,
+	        id: id
+	    };
+	};
+
+	var requestTestMyForm = exports.requestTestMyForm = function requestTestMyForm(api, id) {
+	    _global.Global.requestApi(api, Types.aiForm.initMyFormApi, {
+	        aiForm: (0, _defineProperty3["default"])({}, id, {
+	            config: null
+	        })
+
+	    });
+	    //[API]:{types:Types.aiForm.initMyFormApi,apiConfig:api},
+	    //id:id
+	};
+	var submitDemo = exports.submitDemo = function submitDemo(values, id) {
+	    var _ref;
+
+	    return _ref = {}, (0, _defineProperty3["default"])(_ref, _api.API, { types: Types.aiForm.submitFormApi, apiConfig: { apiName: "onsubmitTest" } }), (0, _defineProperty3["default"])(_ref, 'id', id), (0, _defineProperty3["default"])(_ref, 'values', values), _ref;
+	};
+	var onSubmitAction = exports.onSubmitAction = function onSubmitAction(config) {
+	    var _ref2;
+
+	    return _ref2 = {}, (0, _defineProperty3["default"])(_ref2, _api.API, { types: Types.aiForm.submitFormApi, apiConfig: config }), (0, _defineProperty3["default"])(_ref2, 'config', config), _ref2;
+	};
+	/**
+	 * 更新一整行数据
+	 * @param row
+	 * @param id
+	 * @param rowIndex
+	 */
+	var updateOneRow = exports.updateOneRow = function updateOneRow(row, id, rowIndex) {
+	    return {
+	        type: Types.aiForm.updateOneRow,
+	        rows: row,
+	        id: id,
+	        rowIndex: rowIndex
+	    };
+	};
+	var saveStepForm = exports.saveStepForm = function saveStepForm(id, field, value, code) {
+	    return {
+	        type: Types.aiForm.saveStepForm,
+	        field: field,
+	        id: id,
+	        value: value,
+	        code: code
+	    };
+	};
+	/**
+	 * 提交表单
+	 * @param config  接口参数
+	 * @param values  表单提交数据
+	 */
+	//获取字典
+	var readDict = exports.readDict = function readDict(config, id) {
+	    //todo: get dicts form config
+	    var dicts = [];
+	    var customDicts = [];
+	    config.data && config.data.length > 0 && config.data.map(function (forms) {
+	        forms.data && forms.data.length > 0 && forms.data.filter(function (form) {
+	            return form.dictId != null;
+	        }).map(function (form, i) {
+	            if (form.defaultValue != undefined) {
+	                form.value = form.defaultValue;
+	            }
+	            if (form.dictApi) {
+	                var customDict = [];
+	                customDict.dictApi = form.dictApi;
+	                customDict.dictId = form.dictId;
+	                customDicts.push(customDict);
+	            } else {
+	                dicts.push(form.dictId);
+	            }
+	        });
+	    });
+	    //getDicts 获取字典表接口
+	    if (dicts.length == 0 && !customDicts) return null;
+	    return { type: Types.aiForm.readDict, dicts: { apiName: "getDicts", body: dicts }, customApi: customDicts };
+	};
+
+	var setDefaultValue = exports.setDefaultValue = function setDefaultValue(config, id) {
+	    //todo: get dicts form config
+	    config.data && config.data.length > 0 && config.data.map(function (forms) {
+	        forms.data && forms.data.length > 0 && forms.data.map(function (form, i) {
+	            if (form.defaultValue != undefined) {
+	                form.value = form.defaultValue;
+	            }
+	        });
+	    });
+	};
+
+/***/ },
+
+/***/ "./src/actions/connectDataSource.js":
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.requestDataDir = exports.getContentByTableTile = exports.delLink = exports.linkData = exports.setLinkType = exports.updateLine = exports.setCurrentLink = exports.setSelectField = exports.showConnectDlg = exports.showDataSourceDlg = exports.addTable = exports.mark = exports.setZrenderState = exports.requestTables = undefined;
+
+	var _extends2 = __webpack_require__("./node_modules/babel-runtime/helpers/extends.js");
+
+	var _extends3 = _interopRequireDefault(_extends2);
+
+	var _defineProperty2 = __webpack_require__("./node_modules/babel-runtime/helpers/defineProperty.js");
+
+	var _defineProperty3 = _interopRequireDefault(_defineProperty2);
+
+	var _actionType = __webpack_require__("./src/actions/actionType.js");
+
+	var Types = _interopRequireWildcard(_actionType);
+
+	var _api = __webpack_require__("./src/core/api.js");
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	/**
+	 * Created by liy on 2016/12/6 0006.
+	 */
+	var requestTables = exports.requestTables = function requestTables(id, conifg) {
+	    var _ref;
+
+	    return _ref = {}, (0, _defineProperty3["default"])(_ref, _api.API, { types: Types.connectDataSource.requestTables, apiConfig: conifg }), (0, _defineProperty3["default"])(_ref, 'id', id), _ref;
+	};
+	var setZrenderState = exports.setZrenderState = function setZrenderState(id, state) {
+	    return {
+	        type: Types.connectDataSource.setZrenderState,
+	        id: id,
+	        zrender: state
+	    };
+	};
+	var mark = exports.mark = function mark(id, _mark) {
+	    return (0, _extends3["default"])({
+	        type: Types.connectDataSource.mark,
+	        id: id
+	    }, _mark);
+	};
+
+	var addTable = exports.addTable = function addTable(id, tableIds) {
+	    return {
+	        type: Types.connectDataSource.addTable,
+	        id: id,
+	        tableIds: tableIds
+	    };
+	};
+	var showDataSourceDlg = exports.showDataSourceDlg = function showDataSourceDlg(id, _showDataSourceDlg) {
+	    return {
+	        type: Types.connectDataSource.showDataSourceDlg,
+	        id: id,
+	        showDataSourceDlg: _showDataSourceDlg
+	    };
+	};
+	var showConnectDlg = exports.showConnectDlg = function showConnectDlg(id, _showConnectDlg) {
+	    return {
+	        type: Types.connectDataSource.showConnectDlg,
+	        id: id,
+	        showConnectDlg: _showConnectDlg
+	    };
+	};
+	var setSelectField = exports.setSelectField = function setSelectField(id, table, field, zField) {
+	    return {
+	        type: Types.connectDataSource.setSelectField,
+	        id: id,
+	        table: table,
+	        field: field,
+	        zField: zField
+	    };
+	};
+	var setCurrentLink = exports.setCurrentLink = function setCurrentLink(id, index) {
+	    return {
+	        type: Types.connectDataSource.setCurrentLink,
+	        id: id,
+	        currentLink: index
+	    };
+	};
+	var updateLine = exports.updateLine = function updateLine(id) {
+	    return {
+	        type: Types.connectDataSource.updateLine,
+	        id: id
+	    };
+	};
+	var setLinkType = exports.setLinkType = function setLinkType(id, isTemp, linkType) {
+	    return {
+	        type: Types.connectDataSource.setLinkType,
+	        id: id,
+	        isTemp: isTemp,
+	        linkType: linkType
+
+	    };
+	};
+	var linkData = exports.linkData = function linkData(id, from, to) {
+	    return {
+	        type: Types.connectDataSource.linkData,
+	        from: from,
+	        to: to,
+	        id: id
+
+	    };
+	};
+	var delLink = exports.delLink = function delLink(id) {
+	    return {
+	        type: Types.connectDataSource.delLink,
+	        id: id
+
+	    };
+	};
+	//通过表名来从接口中获取整个表内容的信息
+	var getContentByTableTile = exports.getContentByTableTile = function getContentByTableTile(tableTitle, dataSoureId, config, id) {
+	    var _ref2;
+
+	    return _ref2 = {}, (0, _defineProperty3["default"])(_ref2, _api.API, { types: Types.connectDataSource.getContentByTableTile, apiConfig: (0, _extends3["default"])({}, config, { body: (0, _extends3["default"])({}, config.body, { datasourceId: dataSoureId, tableName: tableTitle }) }) }), (0, _defineProperty3["default"])(_ref2, 'tableTitle', tableTitle), (0, _defineProperty3["default"])(_ref2, 'dataSource', dataSoureId), (0, _defineProperty3["default"])(_ref2, 'id', id), _ref2;
+	};
+
+	//获取数据目录行为
+	var requestDataDir = exports.requestDataDir = function requestDataDir(config, id) {
+	    var _ref3;
+
+	    return _ref3 = {}, (0, _defineProperty3["default"])(_ref3, _api.API, { types: Types.connectDataSource.requestDataDirApi, apiConfig: config }), (0, _defineProperty3["default"])(_ref3, 'id', id), _ref3;
+	};
+
+/***/ },
+
+/***/ "./src/actions/dataList.js":
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.requestTestDataSource = exports.requestStepDetailMsg = exports.getEquipmentInfo = exports.showDataSource = exports.requestDirection = exports.clear = exports.setSelectedRowsToState = exports.requestTableBodyData = exports.requestDetailMsg = exports.requestUpateData = exports.requestAddData = exports.requestDeleteData = exports.requestSearchData = exports.requestDataList = undefined;
+
+	var _extends2 = __webpack_require__("./node_modules/babel-runtime/helpers/extends.js");
+
+	var _extends3 = _interopRequireDefault(_extends2);
+
+	var _defineProperty2 = __webpack_require__("./node_modules/babel-runtime/helpers/defineProperty.js");
+
+	var _defineProperty3 = _interopRequireDefault(_defineProperty2);
+
+	var _actionType = __webpack_require__("./src/actions/actionType.js");
+
+	var Types = _interopRequireWildcard(_actionType);
+
+	var _api = __webpack_require__("./src/core/api.js");
+
+	var _redux = __webpack_require__("./node_modules/redux/lib/index.js");
+
+	var _global = __webpack_require__("./src/core/global.js");
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	// import {dispatch} from 'react'
+	//获取DataList中的配置数据
+	var requestDataList = exports.requestDataList = function requestDataList(config, id) {
+	    var _ref;
+
+	    return _ref = {}, (0, _defineProperty3["default"])(_ref, _api.API, { types: Types.dataList.getDataListApi, apiConfig: config }), (0, _defineProperty3["default"])(_ref, 'id', id), _ref;
+	};
+	//通过条件查询表单中的值
+	var requestSearchData = exports.requestSearchData = function requestSearchData(id, values, config) {
+	    var _ref2;
+
+	    return _ref2 = {}, (0, _defineProperty3["default"])(_ref2, _api.API, { types: Types.dataList.getSearchDataApi, apiConfig: config }), (0, _defineProperty3["default"])(_ref2, 'id', id), (0, _defineProperty3["default"])(_ref2, 'values', values), _ref2;
+	};
+	//删除表中数据
+	// export const requestDeleteData = (id)=> dispatch =>(requestDataList(id),{
+	var requestDeleteData = exports.requestDeleteData = function requestDeleteData(arrs, id, config) {
+	    var _ref3;
+
+	    return _ref3 = {}, (0, _defineProperty3["default"])(_ref3, _api.API, { types: Types.dataList.getDeleteDataApi, apiConfig: (0, _extends3["default"])({}, config, { body: { id: arrs } }) }), (0, _defineProperty3["default"])(_ref3, 'arrs', arrs), (0, _defineProperty3["default"])(_ref3, 'id', id), _ref3;
+	};
+	//增加一个表中的数据
+	var requestAddData = exports.requestAddData = function requestAddData(id, config, values) {
+	    var _ref4;
+
+	    return _ref4 = {}, (0, _defineProperty3["default"])(_ref4, _api.API, { types: Types.dataList.getAddDataApi, apiConfig: (0, _extends3["default"])({}, config, { body: (0, _extends3["default"])({}, values) }) }), (0, _defineProperty3["default"])(_ref4, 'id', id), (0, _defineProperty3["default"])(_ref4, 'values', values), _ref4;
+	};
+	//更改表中的一条数据
+	var requestUpateData = exports.requestUpateData = function requestUpateData(id, config, values) {
+	    var _ref5;
+
+	    return _ref5 = {}, (0, _defineProperty3["default"])(_ref5, _api.API, { types: Types.dataList.getUpdateDataApi, apiConfig: (0, _extends3["default"])({}, config, { body: (0, _extends3["default"])({}, values) }) }), (0, _defineProperty3["default"])(_ref5, 'id', id), (0, _defineProperty3["default"])(_ref5, 'values', values), _ref5;
+	};
+	//获取详情单条数据的详情页
+	var requestDetailMsg = exports.requestDetailMsg = function requestDetailMsg(id, resultId, config) {
+	    var _ref6;
+
+	    return _ref6 = {}, (0, _defineProperty3["default"])(_ref6, _api.API, { types: Types.dataList.getDetailMsg, apiConfig: (0, _extends3["default"])({}, config, { body: (0, _extends3["default"])({}, config.body, { id: resultId }) }) }), (0, _defineProperty3["default"])(_ref6, 'resultId', resultId), (0, _defineProperty3["default"])(_ref6, 'id', id), _ref6;
+	};
+	//获取表内容的数据
+	var requestTableBodyData = exports.requestTableBodyData = function requestTableBodyData(config, id) {
+	    var _ref7;
+
+	    return _ref7 = {}, (0, _defineProperty3["default"])(_ref7, _api.API, { types: Types.dataList.getTableBodyDataApi, apiConfig: config }), (0, _defineProperty3["default"])(_ref7, 'id', id), _ref7;
+	};
+	//将表格中选中的行数放入datalist的state中
+	var setSelectedRowsToState = exports.setSelectedRowsToState = function setSelectedRowsToState(rows, id) {
+	    return {
+	        selectedRows: rows,
+	        id: id,
+	        type: Types.dataList.setSelectedRowsToState
+	    };
+	};
+	//清楚id为dlDemo中的数据
+	var clear = exports.clear = function clear(id) {
+	    return {
+	        id: id,
+	        type: Types.dataList.clear
+	    };
+	};
+	/**
+	 * 改变树结构
+	 * @param action   操作动态  up、down、left、right
+	 * @param code    操作的树编号id
+	 * @param rows    整棵树的全量信息
+	 * @param id
+	 */
+	var requestDirection = exports.requestDirection = function requestDirection(action, id) {
+	    return {
+	        act: action,
+	        id: id,
+	        type: Types.dataList.setRowPlace
+	    };
+	};
+	/**
+	 * 目录授权 modal弹出
+	 * @param id
+	 * @param showDataSource  true/false
+	 */
+	var showDataSource = exports.showDataSource = function showDataSource(id, _showDataSource) {
+	    return {
+	        type: Types.dataList.showDataSource,
+	        id: id,
+	        showDataSource: _showDataSource
+	    };
+	};
+	/**
+	 *获取设备信息
+	 * @param id
+	 * @param config  接口、查询条件（授权目录id）
+	 */
+	var getEquipmentInfo = exports.getEquipmentInfo = function getEquipmentInfo(id, config) {
+	    var _ref8;
+
+	    return _ref8 = {}, (0, _defineProperty3["default"])(_ref8, _api.API, { types: Types.dataList.getEquipmentInfo, apiConfig: config }), (0, _defineProperty3["default"])(_ref8, 'id', id), _ref8;
+	};
+
+	var requestStepDetailMsg = exports.requestStepDetailMsg = function requestStepDetailMsg(detailConfig, jsonpConfig, target, id) {
+	    var _ref9;
+
+	    return _ref9 = {}, (0, _defineProperty3["default"])(_ref9, _api.API, { types: Types.dataList.getStepDetailMsg, apiConfig: detailConfig }), (0, _defineProperty3["default"])(_ref9, 'id', id), (0, _defineProperty3["default"])(_ref9, 'jsonpConfig', jsonpConfig), (0, _defineProperty3["default"])(_ref9, 'target', target), _ref9;
+	};
+
+	var requestTestDataSource = exports.requestTestDataSource = function requestTestDataSource(id, config) {
+	    var _ref10;
+
+	    return _ref10 = {}, (0, _defineProperty3["default"])(_ref10, _api.API, { types: Types.dataList.getTestDataSource, apiConfig: (0, _extends3["default"])({}, config, { body: (0, _extends3["default"])({}, config.body) }) }), (0, _defineProperty3["default"])(_ref10, 'id', id), _ref10;
+	};
+
+/***/ },
+
+/***/ "./src/ant_blue_theme/modal/style/css.js":
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	__webpack_require__("./src/ant_blue_theme/style/index.css");
+
+	__webpack_require__("./src/ant_blue_theme/modal/style/index.css");
+
+	__webpack_require__("./src/ant_blue_theme/button/style/css.js");
+
+/***/ },
+
+/***/ "./src/ant_blue_theme/row/style/css.js":
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	__webpack_require__("./src/ant_blue_theme/style/index.css");
+
+	__webpack_require__("./src/ant_blue_theme/layout/style/index.css");
+
+/***/ },
+
+/***/ "./src/components/AiForm.js":
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _css = __webpack_require__("./src/ant_blue_theme/button/style/css.js");
+
+	var _button = __webpack_require__("./node_modules/antFB/lib/button/index.js");
+
+	var _button2 = _interopRequireDefault(_button);
+
+	var _css2 = __webpack_require__("./src/ant_blue_theme/col/style/css.js");
+
+	var _col = __webpack_require__("./node_modules/antFB/lib/col/index.js");
+
+	var _col2 = _interopRequireDefault(_col);
+
+	var _css3 = __webpack_require__("./src/ant_blue_theme/icon/style/css.js");
+
+	var _icon = __webpack_require__("./node_modules/antFB/lib/icon/index.js");
+
+	var _icon2 = _interopRequireDefault(_icon);
+
+	var _getIterator2 = __webpack_require__("./node_modules/babel-runtime/core-js/get-iterator.js");
+
+	var _getIterator3 = _interopRequireDefault(_getIterator2);
+
+	var _css4 = __webpack_require__("./src/ant_blue_theme/row/style/css.js");
+
+	var _row = __webpack_require__("./node_modules/antFB/lib/row/index.js");
+
+	var _row2 = _interopRequireDefault(_row);
+
+	var _extends2 = __webpack_require__("./node_modules/babel-runtime/helpers/extends.js");
+
+	var _extends3 = _interopRequireDefault(_extends2);
+
+	var _typeof2 = __webpack_require__("./node_modules/babel-runtime/helpers/typeof.js");
+
+	var _typeof3 = _interopRequireDefault(_typeof2);
+
+	var _defineProperty2 = __webpack_require__("./node_modules/babel-runtime/helpers/defineProperty.js");
+
+	var _defineProperty3 = _interopRequireDefault(_defineProperty2);
+
+	var _classCallCheck2 = __webpack_require__("./node_modules/babel-runtime/helpers/classCallCheck.js");
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _possibleConstructorReturn2 = __webpack_require__("./node_modules/babel-runtime/helpers/possibleConstructorReturn.js");
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__("./node_modules/babel-runtime/helpers/inherits.js");
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
+	var _css5 = __webpack_require__("./src/ant_blue_theme/date-picker/style/css.js");
+
+	var _datePicker = __webpack_require__("./node_modules/antFB/lib/date-picker/index.js");
+
+	var _datePicker2 = _interopRequireDefault(_datePicker);
+
+	var _css6 = __webpack_require__("./src/ant_blue_theme/checkbox/style/css.js");
+
+	var _checkbox = __webpack_require__("./node_modules/antFB/lib/checkbox/index.js");
+
+	var _checkbox2 = _interopRequireDefault(_checkbox);
+
+	var _css7 = __webpack_require__("./src/ant_blue_theme/radio/style/css.js");
+
+	var _radio = __webpack_require__("./node_modules/antFB/lib/radio/index.js");
+
+	var _radio2 = _interopRequireDefault(_radio);
+
+	var _css8 = __webpack_require__("./src/ant_blue_theme/select/style/css.js");
+
+	var _select = __webpack_require__("./node_modules/antFB/lib/select/index.js");
+
+	var _select2 = _interopRequireDefault(_select);
+
+	var _css9 = __webpack_require__("./src/ant_blue_theme/form/style/css.js");
+
+	var _form = __webpack_require__("./node_modules/antFB/lib/form/index.js");
+
+	var _form2 = _interopRequireDefault(_form);
+
+	var _index = __webpack_require__("./node_modules/redbox-react/lib/index.js");
+
+	var _index2 = _interopRequireDefault(_index);
+
+	var _index3 = __webpack_require__("./node_modules/react-transform-catch-errors/lib/index.js");
+
+	var _index4 = _interopRequireDefault(_index3);
+
+	var _react2 = __webpack_require__("./node_modules/react/react.js");
+
+	var _react3 = _interopRequireDefault(_react2);
+
+	var _index5 = __webpack_require__("./node_modules/react-transform-hmr/lib/index.js");
+
+	var _index6 = _interopRequireDefault(_index5);
+
+	var _AiFormItem = __webpack_require__("./src/components/AiFormItem.js");
+
+	var _AiFormItem2 = _interopRequireDefault(_AiFormItem);
+
+	var _moment = __webpack_require__("./node_modules/moment/moment.js");
+
+	var _moment2 = _interopRequireDefault(_moment);
+
+	var _component = __webpack_require__("./src/core/component.js");
+
+	var _component2 = _interopRequireDefault(_component);
+
+	var _aiForm2 = __webpack_require__("./src/actions/aiForm.js");
+
+	var _dataList5 = __webpack_require__("./src/actions/dataList.js");
+
+	var _AiForm = __webpack_require__("./src/components/AiForm.less");
+
+	var _AiForm2 = _interopRequireDefault(_AiForm);
+
+	var _redux = __webpack_require__("./node_modules/redux/lib/index.js");
+
+	var _dataFormat = __webpack_require__("./src/core/dataFormat.js");
+
+	var _global = __webpack_require__("./src/core/global.js");
+
+	var _actionType = __webpack_require__("./src/actions/actionType.js");
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	var _components = {
+	    AiForm: {
+	        displayName: 'AiForm'
+	    }
+	};
+
+	var _GDssgworkDssgwebNode_modulesReactTransformHmrLibIndexJs2 = (0, _index6["default"])({
+	    filename: 'G:/dssgwork/dssgweb/src/components/AiForm.js',
+	    components: _components,
+	    locals: [module],
+	    imports: [_react3["default"]]
+	});
+
+	var _GDssgworkDssgwebNode_modulesReactTransformCatchErrorsLibIndexJs2 = (0, _index4["default"])({
+	    filename: 'G:/dssgwork/dssgweb/src/components/AiForm.js',
+	    components: _components,
+	    locals: [],
+	    imports: [_react3["default"], _index2["default"]]
+	});
+
+	function _wrapComponent(id) {
+	    return function (Component) {
+	        return _GDssgworkDssgwebNode_modulesReactTransformHmrLibIndexJs2(_GDssgworkDssgwebNode_modulesReactTransformCatchErrorsLibIndexJs2(Component, id), id);
+	    };
+	}
+
+	_moment2["default"].locale('zh-cn');
+	var FormItem = _form2["default"].Item;
+	var Option = _select2["default"].Option;
+	var RadioButton = _radio2["default"].Button;
+	var RadioGroup = _radio2["default"].Group;
+	var CheckboxGroup = _checkbox2["default"].Group;
+	var MonthPicker = _datePicker2["default"].MonthPicker,
+	    RangePicker = _datePicker2["default"].RangePicker;
+
+	//form表单提交API接口
+	//var submitApi="";
+
+	var AiForm = _wrapComponent('AiForm')(function (_Component) {
+	    (0, _inherits3["default"])(AiForm, _Component);
+
+	    function AiForm(props) {
+	        (0, _classCallCheck3["default"])(this, AiForm);
+
+	        //获取表单提交接口
+	        //submitApi = props.submitApi;
+	        return (0, _possibleConstructorReturn3["default"])(this, _Component.call(this, props));
+	    }
+
+	    AiForm.prototype.componentDidMount = function componentDidMount() {
+	        _global.Global.mark({
+	            aiForm: (0, _defineProperty3["default"])({}, this.props.id, {
+	                form: this.props.form
+	            })
+	        });
+
+	        if (true) {
+	            if (this.props.detailMsg) {
+	                var detailMsg = this.props.detailMsg;
+	                this.props.actions.requestStepDetailMsg(detailMsg, this.props.config, this, this.props.id); //json
+	            } else {
+	                if ((0, _typeof3["default"])(this.props.config) == 'object' && this.props.config.apiName) {
+
+	                    this.props.actions.requestTestMyForm((0, _extends3["default"])({}, this.props.config, { jsonpArgs: (0, _extends3["default"])({}, this.props.config.jsonpArgs, { target: this }) }), this.props.id);
+	                } else {
+	                    this.props.actions.readDict(this.props.config);
+	                    this.props.actions.requestInitMyForm(this.props.config, this.props.id);
+	                }
+	            }
+	        }
+	    };
+
+	    AiForm.prototype.handleSubmit = function handleSubmit(e) {
+	        var _this2 = this;
+
+	        e.preventDefault();
+	        this.props.form.validateFieldsAndScroll(function (err, values) {
+	            if (!err) {
+	                console.log('Received values of form: ', values);
+	                // 提交表单
+	                //this.props.actions.submitAct(this.props.submitApi,values)
+	                if (values.button) {
+	                    delete values.button;
+	                }
+	                var key = void 0;
+
+	                for (key in values) {
+	                    if (values[key] == "_all_") {
+	                        delete values[key];
+	                    }
+	                }
+	                if (_this2.props.onSubmit) {
+	                    _this2.props.onSubmit(values);
+	                } else {
+	                    console.log('valuse=: ', values);
+	                }
+	            }
+	        });
+	    };
+
+	    //slect下拉联动
+
+
+	    AiForm.prototype.handleChange = function handleChange(args, linkage, value) {
+	        //"linkage":[{"field":"methods","value":"rest","type":"replace","data":"{"name":"请求方法","type":"select","field":"sex","dictId":"requestMode","placeholder":"请选择..."}"}]},
+	        {/* if(linkage[0].val==value){
+	            args.map((arg,i)=>{
+	            if(arg.field==linkage[0].field){
+	            args[i]=linkage[0].data;
+	            }
+	            })
+	            }*/}
+	    };
+
+	    AiForm.prototype.getChange = function getChange(arg, event) {
+	        //替换值
+	        console.log("arg=" + arg.field);
+	        console.log("id=" + this.props.id);
+	        var field = arg.field;
+	        var id = this.props.id;
+	        var code = arg.code ? arg.code : "";
+	        var value = "";
+	        if (arg.type == "input") {
+	            console.log("event=" + event.target.value);
+	            value = event.target.value;
+	        } else {
+	            console.log("event=" + event);
+	            value = event;
+	        }
+
+	        this.props.actions.saveStepForm(id, field, value, code);
+	    };
+
+	    AiForm.prototype.customChange = function customChange(arg, event) {
+	        //替换值
+	        console.log("id=" + event.id);
+	        console.log("value=" + event.value);
+	        //this.props.actions.saveStepForm(id,field,value);
+	    };
+
+	    AiForm.prototype.render = function render() {
+	        var _this3 = this;
+
+	        try {
+	            var _ret = function () {
+	                var state = _this3.props.state;
+	                //return <div>{this.props.id}</div>
+	                if (state && state.config && state.config.msg) return {
+	                        v: _react3["default"].createElement(
+	                            'div',
+	                            null,
+	                            'msg:',
+	                            state.config.msg
+	                        )
+	                    };
+
+	                if (!_this3.props.state || !_this3.props.state.config || !_this3.props.state.config.data || _this3.props.state.config.data.length == 0) return {
+	                        v: _react3["default"].createElement(
+	                            'div',
+	                            null,
+	                            '...'
+	                        )
+	                    };
+
+	                var args = _this3.props.state.config.data;
+	                var getFieldDecorator = _this3.props.form.getFieldDecorator;
+
+
+	                var all = [];
+	                //获取下拉框的field条件
+	                var dictInterfaces = [];
+	                var columnIndex = -1;
+	                var _iteratorNormalCompletion = true;
+	                var _didIteratorError = false;
+	                var _iteratorError = undefined;
+
+	                try {
+	                    var _loop = function _loop() {
+	                        var formList = _step.value;
+
+	                        columnIndex++;
+	                        var children = [];
+	                        var dataList = formList.data;
+	                        var col = formList.column ? formList.column : 1;
+	                        //框架默认页面分为24份
+	                        var colSpan = 24 / col;
+	                        var offset = 0;
+	                        var code = _this3.props.id;
+	                        if (formList.showTitle ? formList.showTitle : false) {
+	                            all.push(_react3["default"].createElement(
+	                                'div',
+	                                { className: "formListTitle" },
+	                                _react3["default"].createElement(_icon2["default"], { className: "titleIcon", type: formList.titleIcon }),
+	                                _react3["default"].createElement(
+	                                    'span',
+	                                    { className: "title" },
+	                                    formList.title
+	                                )
+	                            ));
+	                        }
+
+	                        //自定义标签
+	                        if (typeof formList.data == "function") {
+	                            children.push(_react3["default"].createElement(
+	                                _col2["default"],
+	                                { span: colSpan, offset: offset, key: Math.random().toString() },
+	                                formList.data(_this3.props.form)
+	                            ));
+	                        } else if (Array.isArray(dataList)) {
+	                            formList.code = code;
+	                            dataList.forEach(function (arg, i) {
+	                                var customProps = arg.props ? arg.props : {};
+	                                var displayMode = {};
+	                                var mode = void 0;
+	                                if (arg.preRender) {
+	                                    mode = arg.preRender();
+	                                    if (mode == 'hidden') {
+	                                        displayMode = { style: { visibility: mode } };
+	                                    } else if (mode == "none") {
+	                                        displayMode = { style: { display: mode } };
+	                                    }
+	                                }
+
+	                                customProps = (0, _extends3["default"])({}, customProps, { style: (0, _extends3["default"])({}, customProps.style, displayMode) });
+
+	                                if (arg.type == null || arg.type == "") {
+	                                    // let fun = arg.value();
+	                                    //if(fun.props && fun.props.children && fun.props.children.props)
+	                                    //fun.props.children.props = {...fun.props.children.props,onChange:this.customChange.bind(this,fun.props.children.props)}
+	                                    if (mode != "hidden") {
+	                                        children.push(_react3["default"].createElement(
+	                                            _col2["default"],
+	                                            (0, _extends3["default"])({ span: colSpan, key: i, offset: offset }, displayMode),
+	                                            typeof arg.value == 'function' ? arg.value() : arg
+	                                        ));
+	                                    }
+	                                } else {
+	                                    arg.code = code;
+	                                    arg.props = (0, _extends3["default"])({}, arg.props, { onChange: _this3.getChange.bind(_this3, arg) });
+	                                    children.push(_react3["default"].createElement(_AiFormItem2["default"], { arg: arg, form: _this3.props.form, spanPerCol: colSpan, dicts: _this3.props.dicts, state: _this3.props.state, columnIndex: columnIndex, itemIndex: i }));
+	                                }
+	                            });
+	                        } else {
+	                            children.push(_react3["default"].createElement(
+	                                _col2["default"],
+	                                { span: colSpan, offset: offset, key: Math.random().toString() },
+	                                formList.data
+	                            ));
+	                        }
+	                        var buttons = [];
+	                        formList.buttonConfigs && formList.buttonConfigs.buttons && formList.buttonConfigs.buttons.map(function (button) {
+	                            var customProps = button.props ? button.props : {};
+	                            var displayMode = {};
+	                            var mode = void 0;
+	                            if (button.preRender) {
+	                                mode = button.preRender();
+	                                if (mode == 'hidden') {
+	                                    displayMode = { style: { visibility: mode } };
+	                                } else if (mode == "none") {
+	                                    displayMode = { style: { display: mode } };
+	                                }
+	                            }
+	                            customProps = (0, _extends3["default"])({}, customProps, { style: (0, _extends3["default"])({}, customProps.style, displayMode) });
+
+	                            buttons.push(_react3["default"].createElement(
+	                                'div',
+	                                null,
+	                                mode != "hidden" && _react3["default"].createElement(
+	                                    _button2["default"],
+	                                    (0, _extends3["default"])({ onClick: function () {
+	                                            if (button.value == '取消' || button.value == "返回") {
+	                                                if (button.mark) {
+	                                                    var mark = button.mark;
+	                                                    _global.Global.mark({ dataList: (0, _defineProperty3["default"])({}, mark, { detailMsgDataApi: null }) });
+	                                                    _global.Global.mark({ dataList: (0, _defineProperty3["default"])({}, mark, { selectedRows: null }) });
+	                                                }
+	                                                window.history.back(-1); //回退到上一步
+	                                            }
+
+	                                            if (formList.buttonConfigs && formList.buttonConfigs.getValue) {
+	                                                var config = formList.buttonConfigs.onSubmitApi;
+	                                                var params = formList.buttonConfigs.getValue;
+	                                                var value = (0, _dataFormat.getAiFormValue)(_global.Global.getState(), params.id, params.index);
+	                                                if (formList.buttonConfigs.changeValue) {
+	                                                    var param = formList.buttonConfigs.changeValue;
+	                                                    value[param.key] = value[param.key].format(param.format);
+	                                                }
+	                                                config.body = (0, _extends3["default"])({}, config.body, value);
+	                                                this.props.actions.onSubmitAction(config);
+	                                                if (button.mark) {
+	                                                    var _mark = button.mark;
+	                                                    _global.Global.mark({ dataList: (0, _defineProperty3["default"])({}, _mark, { detailMsgDataApi: null }) });
+	                                                    _global.Global.mark({ dataList: (0, _defineProperty3["default"])({}, _mark, { selectedRows: null }) });
+	                                                }
+	                                                window.history.go(-1);
+	                                            }
+	                                        }.bind(_this3) }, customProps),
+	                                    button.value ? button.value : "按钮"
+	                                )
+	                            ));
+	                        });
+	                        formList.buttonConfigs && formList.buttonConfigs.buttons && children.push(_react3["default"].createElement(
+	                            'div',
+	                            null,
+	                            _react3["default"].createElement(
+	                                _col2["default"],
+	                                { span: 24, key: Math.random(), offset: offset, style: { position: "fixed", zIndex: "998", bottom: "5%", right: "100" } },
+	                                buttons
+	                            )
+	                        ));
+
+	                        //合并
+	                        all = all.concat(_react3["default"].createElement(
+	                            'div',
+	                            { className: "childrenContent" },
+	                            children
+	                        ));
+	                    };
+
+	                    for (var _iterator = (0, _getIterator3["default"])(args), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                        _loop();
+	                    }
+	                } catch (err) {
+	                    _didIteratorError = true;
+	                    _iteratorError = err;
+	                } finally {
+	                    try {
+	                        if (!_iteratorNormalCompletion && _iterator["return"]) {
+	                            _iterator["return"]();
+	                        }
+	                    } finally {
+	                        if (_didIteratorError) {
+	                            throw _iteratorError;
+	                        }
+	                    }
+	                }
+
+	                return {
+	                    v: _react3["default"].createElement(
+	                        _row2["default"],
+	                        { style: { overflowY: "auto", height: "100%" } },
+	                        _react3["default"].createElement(
+	                            _form2["default"],
+	                            {
+	                                onSubmit: _this3.handleSubmit.bind(_this3),
+	                                horizontal: true,
+	                                className: 'ant-advanced-search-form' },
+	                            all
+	                        )
+	                    )
+	                };
+	            }();
+
+	            if ((typeof _ret === 'undefined' ? 'undefined' : (0, _typeof3["default"])(_ret)) === "object") return _ret.v;
+	        } catch (ex) {
+	            return _react3["default"].createElement(
+	                'div',
+	                null,
+	                '\u9875\u9762\u6E32\u67D3\u9519\u8BEF:ex'
+	            );
+	        }
+	    };
+
+	    return AiForm;
+	}(_react2.Component));
+
+	var Demo = _form2["default"].create()(AiForm);
+
+	exports["default"] = (0, _component2["default"])('aiForm', { requestInitMyForm: _aiForm2.requestInitMyForm, requestTestMyForm: _aiForm2.requestTestMyForm, readDict: _aiForm2.readDict, updateOneRow: _aiForm2.updateOneRow, saveStepForm: _aiForm2.saveStepForm, requestStepDetailMsg: _dataList5.requestStepDetailMsg, onSubmitAction: _aiForm2.onSubmitAction }, function (state) {
+	    return { dicts: state.dicts };
+	})(Demo);
+	module.exports = exports['default'];
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__("./node_modules/atool-build/node_modules/webpack/buildin/module.js")(module)))
+
+/***/ },
+
+/***/ "./src/components/ConnectDatasource.js":
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _getIterator2 = __webpack_require__("./node_modules/babel-runtime/core-js/get-iterator.js");
+
+	var _getIterator3 = _interopRequireDefault(_getIterator2);
+
+	var _css = __webpack_require__("./src/ant_blue_theme/table/style/css.js");
+
+	var _table = __webpack_require__("./node_modules/antFB/lib/table/index.js");
+
+	var _table2 = _interopRequireDefault(_table);
+
+	var _css2 = __webpack_require__("./src/ant_blue_theme/modal/style/css.js");
+
+	var _modal = __webpack_require__("./node_modules/antFB/lib/modal/index.js");
+
+	var _modal2 = _interopRequireDefault(_modal);
+
+	var _css3 = __webpack_require__("./src/ant_blue_theme/button/style/css.js");
+
+	var _button = __webpack_require__("./node_modules/antFB/lib/button/index.js");
+
+	var _button2 = _interopRequireDefault(_button);
+
+	var _extends2 = __webpack_require__("./node_modules/babel-runtime/helpers/extends.js");
+
+	var _extends3 = _interopRequireDefault(_extends2);
+
+	var _classCallCheck2 = __webpack_require__("./node_modules/babel-runtime/helpers/classCallCheck.js");
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _possibleConstructorReturn2 = __webpack_require__("./node_modules/babel-runtime/helpers/possibleConstructorReturn.js");
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__("./node_modules/babel-runtime/helpers/inherits.js");
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
+	var _css4 = __webpack_require__("./src/ant_blue_theme/radio/style/css.js");
+
+	var _radio = __webpack_require__("./node_modules/antFB/lib/radio/index.js");
+
+	var _radio2 = _interopRequireDefault(_radio);
+
+	var _index = __webpack_require__("./node_modules/redbox-react/lib/index.js");
+
+	var _index2 = _interopRequireDefault(_index);
+
+	var _index3 = __webpack_require__("./node_modules/react-transform-catch-errors/lib/index.js");
+
+	var _index4 = _interopRequireDefault(_index3);
+
+	var _react2 = __webpack_require__("./node_modules/react/react.js");
+
+	var _react3 = _interopRequireDefault(_react2);
+
+	var _index5 = __webpack_require__("./node_modules/react-transform-hmr/lib/index.js");
+
+	var _index6 = _interopRequireDefault(_index5);
+
+	var _component = __webpack_require__("./src/core/component.js");
+
+	var _component2 = _interopRequireDefault(_component);
+
+	var _connectDataSource = __webpack_require__("./src/actions/connectDataSource.js");
+
+	var _AiForm = __webpack_require__("./src/components/AiForm.js");
+
+	var _AiForm2 = _interopRequireDefault(_AiForm);
+
+	var _zrender = __webpack_require__("./node_modules/zrender/lib/zrender.js");
+
+	var _zrender2 = _interopRequireDefault(_zrender);
+
+	__webpack_require__("./node_modules/zrender/lib/vml/vml.js");
+
+	__webpack_require__("./node_modules/zrender/lib/animation/Animation.js");
+
+	var _Group = __webpack_require__("./node_modules/zrender/lib/container/Group.js");
+
+	var _Group2 = _interopRequireDefault(_Group);
+
+	var _Rect = __webpack_require__("./node_modules/zrender/lib/graphic/shape/Rect.js");
+
+	var _Rect2 = _interopRequireDefault(_Rect);
+
+	var _Text = __webpack_require__("./node_modules/zrender/lib/graphic/Text.js");
+
+	var _Text2 = _interopRequireDefault(_Text);
+
+	var _Arrow = __webpack_require__("./src/components/zrender/Arrow.js");
+
+	var _Arrow2 = _interopRequireDefault(_Arrow);
+
+	var _global = __webpack_require__("./src/core/global.js");
+
+	var _dataFormat = __webpack_require__("./src/core/dataFormat.js");
+
+	var _interfaces = __webpack_require__("./src/interfaces.js");
+
+	var _interfaces2 = _interopRequireDefault(_interfaces);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	var _components = {
+	    ConnectDatasource: {
+	        displayName: 'ConnectDatasource'
+	    }
+	};
+
+	var _GDssgworkDssgwebNode_modulesReactTransformHmrLibIndexJs2 = (0, _index6["default"])({
+	    filename: 'G:/dssgwork/dssgweb/src/components/ConnectDatasource.js',
+	    components: _components,
+	    locals: [module],
+	    imports: [_react3["default"]]
+	});
+
+	var _GDssgworkDssgwebNode_modulesReactTransformCatchErrorsLibIndexJs2 = (0, _index4["default"])({
+	    filename: 'G:/dssgwork/dssgweb/src/components/ConnectDatasource.js',
+	    components: _components,
+	    locals: [],
+	    imports: [_react3["default"], _index2["default"]]
+	});
+
+	function _wrapComponent(id) {
+	    return function (Component) {
+	        return _GDssgworkDssgwebNode_modulesReactTransformHmrLibIndexJs2(_GDssgworkDssgwebNode_modulesReactTransformCatchErrorsLibIndexJs2(Component, id), id);
+	    };
+	} /**
+	   * Created by liy on 2016/12/6 0006.
+	   */
+
+	//import ZLine from 'zrender/lib/graphic/shape/Line';
+
+	//import ZPolygon from 'zrender/lib/graphic/shape/Polygon';
+
+
+	var RadioGroup = _radio2["default"].Group;
+	var directions = [null, "left", "right", "both"];
+
+	var ConnectDatasource = _wrapComponent('ConnectDatasource')(function (_Component) {
+	    (0, _inherits3["default"])(ConnectDatasource, _Component);
+
+	    function ConnectDatasource(props) {
+	        (0, _classCallCheck3["default"])(this, ConnectDatasource);
+
+	        var _this = (0, _possibleConstructorReturn3["default"])(this, _Component.call(this, props));
+
+	        _this.lineMap = {};
+	        //Global.mark({datalist:{mmmsddd:'1'}})
+	        return _this;
+	    }
+
+	    ConnectDatasource.prototype.componentDidMount = function componentDidMount() {
+	        console.log("page ready");
+
+	        // ----- component init here -----
+	        var i = _interfaces2["default"][this.props.getTablesInfo.apiName];
+	        var itemInterface = _interfaces2["default"][this.props.configs.apiName];
+	        this.props.actions.requestTables(this.props.id, (0, _extends3["default"])({}, i, { body: (0, _extends3["default"])({}, i.body, { id: this.props.glState.dataList[this.props.dataFormTableId].selectedRows[0], page: 1, size: 5 }) }));
+	        this.props.actions.requestDataDir((0, _extends3["default"])({}, itemInterface, { body: (0, _extends3["default"])({}, itemInterface.body, { id: this.props.glState.dataList[this.props.dataFromId].selectedRows[0] }) }), this.props.id);
+	        this.onResize = this.onResize.bind(this);
+	        window.addEventListener('resize', this.onResize);
+	    };
+
+	    ConnectDatasource.prototype.onResize = function onResize(e) {
+	        this.props.actions.mark(this.props.id, { resize: true });
+	        setTimeout(this.props.actions.mark.bind(this, this.props.id, { resize: false }), 1000);
+	    };
+
+	    ConnectDatasource.prototype.componentWillUnmount = function componentWillUnmount() {
+	        console.log("willUnmount:", this.zr);
+	        if (this.zr) this.zr.dispose();
+	        window.removeEventListener('resize', this.onResize);
+	    };
+
+	    ConnectDatasource.prototype.render = function render() {
+	        var _this2 = this;
+
+	        var state = this.props.state;
+	        var actions = this.props.actions;
+	        var id = this.props.id;
+	        var cloumns = [{
+	            "title": "数据表名称",
+	            "dataIndex": "name"
+	        }];
+
+	        var tableTiles = [];
+	        if (state && actions && state.requestTables && state.requestTables.data && state.requestTables.data.content) {
+	            state.requestTables.data.content.forEach(function (tableTile, key) {
+	                tableTiles.push({
+	                    key: key,
+	                    dataTableName: tableTile.name
+	                });
+	            });
+	        }
+	        var rowSelection = {
+	            type: this.props.mode == 'api' ? 'radio' : 'checkbox',
+	            onChange: function onChange(selectedRowKeys, selectedRows) {
+	                actions.addTable(id, selectedRowKeys);
+	            }
+	        };
+
+	        //多张联合表内容数组
+	        // const data = [];
+	        var columns = [];
+	        var radioStyle = {
+	            display: 'block',
+	            height: '30px',
+	            lineHeight: '30px'
+	        };
+
+	        // if(state&&state.tableIds&&state.getContentByTableTile&&state.getContentByTableTile.data){
+	        //     state.tableIds.forEach((tableId)=>{
+	        //         state.getContentByTableTile.data.forEach((item)=>{
+	        //             data.push(
+	        //                 //dataItemName: item.dataItemName,
+	        //                 //dataItemType: item.dataItemType,
+	        //                 //dataLength:item.dataLength,
+	        //                 //isChecked:item.isChecked,
+	        //                 item.dataName
+	        //                 //dataType:item.dataType,
+	        //                 //dataSource:item.dataSource
+	        //             );
+	        //         });
+	        //     })
+	        // }
+
+	        console.log("render connect");
+	        //多张联合表列数组
+	        return _react3["default"].createElement(
+	            'div',
+	            null,
+	            state && actions && state.requestTables && state.requestTables.data && state.requestTables.data.content && !state.tableIds && _react3["default"].createElement(
+	                'div',
+	                { style: { textAlign: 'center', paddingTop: 30 } },
+	                _react3["default"].createElement(
+	                    _button2["default"],
+	                    { type: 'primary', onClick: actions.showDataSourceDlg.bind(this, id, true) },
+	                    '\u6DFB\u52A0\u6570\u636E\u8868'
+	                )
+	            ),
+	            state && state.msg && _react3["default"].createElement(
+	                _modal2["default"],
+	                { title: '\u63D0\u793A', visible: true,
+	                    onOk: function () {
+	                        actions.mark(id, { msg: null });
+	                    }.bind(this),
+	                    onCancel: function onCancel() {
+	                        actions.mark(id, { msg: null });
+	                    }
+	                },
+	                state.msg
+	            ),
+	            state && state.showDataSourceDlg && _react3["default"].createElement(
+	                _modal2["default"],
+	                { title: '\u9009\u62E9\u6570\u636E\u6E90', visible: state.showDataSourceDlg,
+	                    onOk: function () {
+	                        actions.showDataSourceDlg(id, false);
+	                        var tableTitle = void 0;
+	                        if (state && state.requestTables && state.requestTables.data && state.requestTables.data.content && state.tableIds) {
+	                            tableTitle = state.requestTables.data.content[state.tableIds[0]].name;
+	                        }
+	                        var config = _this2.props.dataSourceApiName;
+	                        //config.body = {...config.body,body:{dataSourceId:this.props.glState.dataList[this.props.dataFromId].selectedRows[0]}};
+	                        actions.getContentByTableTile(tableTitle, _this2.props.glState.dataList[_this2.props.dataFormTableId].selectedRows[0], config, id);
+	                    }.bind(this),
+	                    onCancel: function onCancel() {
+	                        actions.addTable(id, []);
+	                        actions.showDataSourceDlg(id, false);
+	                    }
+	                },
+	                state && actions && state.requestTables && state.requestTables.data && state.requestTables.data.content && _react3["default"].createElement(_table2["default"], { rowSelection: rowSelection, columns: cloumns, dataSource: state.requestTables.data.content })
+	            ),
+	            state && (state.selectFrom && state.selectTo || state.showConnectDlg) && _react3["default"].createElement(
+	                _modal2["default"],
+	                { title: '\u8FDE\u63A5\u7C7B\u578B', visible: true,
+	                    onOk: function () {
+	                        actions.showConnectDlg(id, false);
+	                        actions.linkData(id);
+	                        actions.setLinkType(id, false, state.linkType);
+	                        actions.setSelectField(id, null, null);
+	                    }.bind(this),
+	                    onCancel: function onCancel() {
+	                        actions.setSelectField(id, null, null);
+	                        actions.showConnectDlg(id, false);
+	                    }
+	                },
+	                _react3["default"].createElement(
+	                    RadioGroup,
+	                    { onChange: function onChange(e) {
+	                            actions.setLinkType(id, true, e.target.value);
+	                        }, value: state.linkType != undefined ? state.linkType : 1 },
+	                    _react3["default"].createElement(
+	                        _radio2["default"],
+	                        { style: radioStyle, value: 1 },
+	                        '\u5DE6\u8FDE\u63A5'
+	                    ),
+	                    _react3["default"].createElement(
+	                        _radio2["default"],
+	                        { style: radioStyle, value: 2 },
+	                        '\u53F3\u8FDE\u63A5'
+	                    ),
+	                    _react3["default"].createElement(
+	                        _radio2["default"],
+	                        { style: radioStyle, value: 3 },
+	                        '\u4EA4\u53C9\u8FDE\u63A5'
+	                    ),
+	                    _react3["default"].createElement(
+	                        _radio2["default"],
+	                        { style: radioStyle, value: 4 },
+	                        '\u5185\u8FDE\u63A5'
+	                    )
+	                )
+	            ),
+	            state && state.linkdatas && function () {
+	                var index = 0;
+	                for (var linkId in _this2.lineMap) {
+	                    var _line = _this2.lineMap[linkId];
+	                    _this2.stage.remove(_line);
+	                }
+	                var _iteratorNormalCompletion = true;
+	                var _didIteratorError = false;
+	                var _iteratorError = undefined;
+
+	                try {
+	                    for (var _iterator = (0, _getIterator3["default"])(state.linkdatas), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                        var link = _step.value;
+
+	                        var leftZField = void 0,
+	                            rightZField = void 0;
+	                        if (link.from.zField.parent.position[0] < link.to.zField.parent.position[0]) {
+	                            leftZField = link.from.zField;
+	                            rightZField = link.to.zField;
+	                        } else {
+	                            leftZField = link.to.zField;
+	                            rightZField = link.from.zField;
+	                        }
+	                        if (!_this2.lineMap[link.id]) {
+	                            var line = new _Arrow2["default"]({
+	                                style: {
+	                                    stroke: "#CDCDCD"
+	                                },
+	                                shape: {
+	                                    x1: leftZField.position[0] + leftZField.parent.position[0] + 195,
+	                                    y1: leftZField.position[1] + leftZField.parent.position[1] + 7,
+	                                    x2: rightZField.position[0] + rightZField.parent.position[0] - 15,
+	                                    y2: rightZField.position[1] + rightZField.parent.position[1] + 7,
+	                                    direction: directions[link.linkType]
+	                                }
+	                 

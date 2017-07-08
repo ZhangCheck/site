@@ -1,0 +1,29 @@
+{
+  "success": true,
+  "code": "0",
+  "message": "success",
+  "data": {
+    "content": [
+      {
+        "name": "res_category",
+        "desc": "本地分类表; 支持树型结构，元数据在使用时从分类库中选择"
+      },
+      {
+        "name": "res_center_category",
+        "desc": "中心分类表; 支持树型结构，元数据在使用时从分类库中选择"
+      },
+      {
+        "name": "res_center_company",
+        "desc": "中心单位表; 支持树型结构，提供给设备入网时使用"
+      }
+    ],
+    "last": true,
+    "totalPages": "2",
+    "totalElements": "10",
+    "numberOfElements": "5",
+    "first": false,
+    "sort": null,
+    "size": "5",
+    "number": "1"
+  }
+}

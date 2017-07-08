@@ -1,0 +1,45 @@
+{
+    "success": true,
+    "data": {
+      "metadataDetail": {
+        "restitle": "GHJ-5525232",
+        "abstracts": "疏浚信息",
+        "keyword": "我是摘要",
+        "subjectcarategory": "ZNB",
+        "departmentCarategory": "治安",
+        "departmentType": "公安",
+        "resourceType": "已审批",
+        "rporgname": "江苏省公安厅",
+        "address": "楼后面"
+      },
+      "gxwjxx": [
+        {
+          "id": 1,
+          "fileName": "资源名称",
+          "fileType": "资源英文名称",
+          "fileSize": "资源编码",
+          "lastUpdateTime": "资源类型"
+        }
+      ],
+      "wjgxdjpz": [
+        {
+          "id": 1,
+          "fileLevel": "一级"
+        }
+      ],
+      "gxzqpz": {
+        "ddpz": [
+          {
+            "id":"1",
+            "dispatchModel": "周期模式",
+            "startTime": "2016-12-12 12:30",
+            "intervelCircle": "12"
+          }
+        ]
+      },
+      "zysqdyxx":{
+        "applyUser":"申请人是谁"
+      }
+    }
+
+}

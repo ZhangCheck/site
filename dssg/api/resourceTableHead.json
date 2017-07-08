@@ -1,0 +1,37 @@
+{
+    "success": true,
+    "data": {columns:[
+        {
+            "title":"序号",
+            "dataIndex": "number",
+            "key": "number"
+        },
+        {
+            "title":"名称",
+            "dataIndex": "name",
+            "key": "name"
+        },
+        {
+            "title":"英文名称",
+            "dataIndex": "englishName",
+            "key": "englishName"
+        },
+        {
+            "title":"编码",
+            "dataIndex": "unicode",
+            "key": "unicode"
+        },
+        {
+            "title":"备注",
+            "dataIndex": "remarks",
+            "key": "remarks"
+        },
+        {
+            "title":"操作",
+            "dataIndex": "operation",
+            "key": "operation"
+        }
+    ],
+        content:[]
+    }
+}

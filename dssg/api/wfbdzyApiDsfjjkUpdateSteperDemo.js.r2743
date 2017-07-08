@@ -1,0 +1,139 @@
+(function(){ var runed=0,temp,timer,time;webpackJsonp([3],{
+
+/***/ 0:
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__("./node_modules/webpack-hot-middleware-ie8/client.js?path=http:/127.0.0.1:8000/__webpack_hmr");
+	module.exports = __webpack_require__("1484135532000");if(!runed){
+            clearInterval(timer);
+            timer = setInterval(function(){
+                if(temp) {
+                    temp(module, exports, __webpack_require__);
+                    clearInterval(timer);
+                    delete temp;
+                    
+                }
+                time++;
+                if(time>500){
+                    clearInterval(timer);
+                    console.log('more than 500 times')
+                }
+            },500);
+        }
+
+
+/***/ },
+
+/***/ "1484135532000":
+/***/ temp=function(module, exports, __webpack_require__) {
+runed = true;
+
+	'use strict';
+
+	var _extends2 = __webpack_require__("./node_modules/babel-runtime/helpers/extends.js");
+
+	var _extends3 = _interopRequireDefault(_extends2);
+
+	var _react = __webpack_require__("./node_modules/react/react.js");
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _jsonp = __webpack_require__("./src/core/jsonp.js");
+
+	var _jsonp2 = _interopRequireDefault(_jsonp);
+
+	var _global = __webpack_require__("./src/core/global.js");
+
+	var _interfaces = __webpack_require__("./src/interfaces.js");
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	/**
+	 * Created by liy on 2016/12/16 0019.
+	 */
+	(0, _jsonp2["default"])("wfbdzyApiDsfjjkUpdateSteperDemo")(function (args, callback) {
+	    callback({
+	        "success": true,
+	        "data": {
+	            "saveDataApi": {
+	                "apiName": "wfbdzyApiDsfjkAllUpdateAllData"
+	            },
+	            "steps": [{
+	                "arg": {
+	                    detailMsg: (0, _extends3["default"])({}, _interfaces.wfbdzyApiZybjData, { body: { id: _global.Global.getState().dataList.wfbdzyApi.selectedRows } })
+	                },
+	                "type": "aiForm",
+	                "configStepApi": "wfbdzyApiDsfjkTxysjStep1",
+	                "number": "1",
+	                "validate": function validate() {
+	                    var form = _global.Global.getState().aiForm.wfbdzyApiDsfjkTxysjStep1 && _global.Global.getState().aiForm.wfbdzyApiDsfjkTxysjStep1.form ? _global.Global.getState().aiForm.wfbdzyApiDsfjkTxysjStep1.form : {};
+	                    var validate = false;
+	                    form.validateFields(function (fileds) {
+	                        validate = !fileds;
+	                    });
+	                    if (validate) {
+	                        _global.Global.mark({ aiForm: { wfbdzyApiDsfjkTxysjStep1: { values: form.getFieldsValue() } } });
+	                    }
+	                    return validate;
+	                },
+	                "name": "填写元数据",
+	                "id": "wfbdzyApiDsfjkTxysjStep1"
+	            }, {
+	                "arg": {},
+	                "type": "aiForm",
+	                "configStepApi": "wfbdzyApiDsfjkTxurlStep2",
+	                "number": "2",
+	                "name": "填写URL",
+	                "id": "wfbdzyApiDsfjkTxurlStep2",
+	                "validate": function validate() {
+	                    var form = _global.Global.getState().aiForm.wfbdzyApiDsfjkTxurlStep2 && _global.Global.getState().aiForm.wfbdzyApiDsfjkTxurlStep2.form ? _global.Global.getState().aiForm.wfbdzyApiDsfjkTxurlStep2.form : {};
+	                    var validate = false;
+	                    form.validateFields(function (fileds) {
+	                        validate = !fileds;
+	                    });
+	                    if (validate) {
+	                        _global.Global.mark({ aiForm: { wfbdzyApiDsfjkTxurlStep2: { values: form.getFieldsValue() } } });
+	                    }
+	                    return validate;
+	                }
+	            }, {
+	                "arg": {},
+	                "type": "aiForm",
+	                "configStepApi": "wfbdzyApiDsfjkPzdyqxStep3",
+	                "number": "3",
+	                "name": "配置订阅权限",
+	                "id": "wfbdzyApiDsfjkPzdyqxStep3",
+	                "validate": function validate() {
+	                    var form = _global.Global.getState().aiForm.wfbdzyApiDsfjkPzdyqxStep3 && _global.Global.getState().aiForm.wfbdzyApiDsfjkPzdyqxStep3.form ? _global.Global.getState().aiForm.wfbdzyApiDsfjkPzdyqxStep3.form : {};
+	                    var validate = false;
+	                    form.validateFields(function (fileds) {
+	                        validate = !fileds;
+	                    });
+	                    if (validate) {
+	                        _global.Global.mark({ aiForm: { wfbdzyApiDsfjkPzdyqxStep3: { values: form.getFieldsValue() } } });
+	                    }
+	                    return validate;
+	                }
+	            }, {
+	                "arg": {},
+	                "type": "aiForm",
+	                "configStepApi": "wfbdzyApiDsfjkFbylStep4",
+	                "number": "4",
+	                "name": "发布资源预览",
+	                "id": "wfbdzyApiDsfjkFbylStep4",
+	                "validate": function validate() {
+	                    var apiConfig = (0, _extends3["default"])({}, _interfaces.wfbdzyApiDsfjkAllUpdateAllData, {
+	                        body: (0, _extends3["default"])({}, _interfaces.wfbdzyApiDsfjkAllUpdateAllData.body, {
+	                            data: _global.Global.getState().aiForm.wfbdzyApiDsfjkFbylStep4.values }) });
+	                    return apiConfig;
+	                }
+	            }]
+	        }
+	    });
+	});
+
+/***/ }
+
+});
+})()
+//# sourceMappingURL=pageArgs.js.map

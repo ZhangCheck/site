@@ -1,0 +1,68 @@
+{
+  "success": true,
+  "code": "0",
+  "message": "success",
+  "data": {
+    "id": "1845dd5e5205413b97cb5f6a2d486e02",
+    "resName": "测试123",
+    "abstracts": "去问问企鹅",
+    "keyword": "qwew",
+    "themeType": "dba83ac5-4397-4790-a0af-d06a498e58c3",
+    "themeTypeName": null,
+    "departmentType": "ca276b97-3923-4d87-896d-66acc9ca5749",
+    "departmentTypeName": null,
+    "resType": "3",
+    "rporgname": "asdas",
+    "address": "asdsad",
+    "applyReason": "",
+    "dataSourceId": "3fe6290b3f7745bbbad2ceec5bce707c",
+    "dataTableView": null,
+    "tables": [
+      "res_category",
+      "res_center_category"
+    ],
+    "tableReleation": null,
+    "inParameterJson": [
+      {
+        "table": "res_category",
+        "name": "CATEGORY_TYPE",
+        "conditionExp": "=",
+        "type": "INT(11)",
+        "value": "",
+        "hiddenName": "CATEGORY_TYPE"
+      }
+    ],
+    "outParameterJson": [
+      {
+        "table": "res_category",
+        "name": "IDEX",
+        "showName": "IDEX",
+        "index": "1",
+        "type": "INT(11)",
+        "enable": "true"
+      },
+      {
+        "table": "res_category",
+        "name": "CATEGORY_TYPE",
+        "showName": "CATEGORY_TYPE",
+        "index": "2",
+        "type": "INT(11)",
+        "enable": "true"
+      },
+      {
+        "table": "res_category",
+        "name": "CODE",
+        "showName": "CODE",
+        "index": "3",
+        "type": "VARCHAR(50)",
+        "enable": "false"
+      }
+    ],
+    "serviceType": "webservice",
+    "functionName": null,
+    "apiUrl": null,
+    "apiDoc": null,
+    "resLevel": "2",
+    "apiSource": "local"
+  }
+}

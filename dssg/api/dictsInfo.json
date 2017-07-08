@@ -1,0 +1,38 @@
+{
+	"success": true,
+	"code": "0",
+	"message": "success",
+	"data": {
+		"content": [{
+			"id": "3ccba9708dc946f0b2710e3c5bdf3685",
+			"name": "主题分类",
+			"code": "01"
+		},
+		{
+			"id": "5bb10d670e39463b9236ef41c5035ad4",
+			"name": "部门分类",
+			"code": "02"
+
+		},
+		{
+			"id": "df2a1027f1dc4efd8dc052f4448327ba",
+			"name": "性别",
+			"code": "03"
+
+		},
+		{
+			"id": "6be728ef01c4413aa8bf7f0bc559519b",
+			"name": "行政区划",
+			"code": "04"
+
+		}],
+		"last": true,
+		"totalPages": "1",
+		"totalElements": "10",
+		"size": "10",
+		"number": "0",
+		"sort": null,
+		"numberOfElements": "10",
+		"first": true
+	}
+}

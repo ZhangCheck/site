@@ -1,0 +1,12 @@
+{
+    "success": true,
+    "data": [
+        {
+            "number":"6",
+            "name":"人员库",
+            "englishName":"People",
+            "unicode":"01",
+            "remarks":"人员信息"
+        }
+    ]
+}

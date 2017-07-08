@@ -1,0 +1,67 @@
+{
+    "success": true,
+    "data":[{
+        "id":1,
+        "key": 1,
+        "name": "人口管理类",
+        "code": "01",
+        "describe": "New York No. 1 Lake Park",
+        "children": [{
+            "id":11,
+            "key": 11,
+            "name": "常驻人口",
+            "code": "0101",
+            "describe": "New York No. 2 Lake Park"
+        }, {
+            "id":12,
+            "key": 12,
+            "name": "暂住人口",
+            "code": "0102",
+            "describe": "New York No. 3 Lake Park"
+        }]
+    }, {
+        "id":2,
+        "key": 2,
+        "name": "道路交通类",
+        "code": "02",
+        "describe": "Sidney No. 1 Lake Park",
+        "children": [{
+            "id":13,
+            "key": 13,
+            "name": "机动信息",
+            "code": "0201",
+            "describe": "New York No. 2 Lake Park"
+        }, {
+            "id":14,
+            "key": 14,
+            "name": "罚款信息",
+            "code": "0202",
+            "describe": "New York No. 3 Lake Park",
+            "children": [{
+                "id":15,
+                "key": 15,
+                "name": "金额",
+                "code": "020201",
+                "describe": "New York No. 2 Lake Park"
+            }, {
+                "id":16,
+                "key": 16,
+                "name": "对象",
+                "code": "020202",
+                "describe": "New York No. 3 Lake Park"
+            }]
+        }]
+    },{
+        "id":3,
+        "key": 3,
+        "name": "刑事犯罪类",
+        "code": "03",
+        "describe": "Sidney No. 1 Lake Park"
+    },{
+        "id":4,
+        "key": 4,
+        "name": "民事犯罪类",
+        "code": "04",
+        "describe": "Sidney No. 1 Lake Park"
+    }]
+}
