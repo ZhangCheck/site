@@ -1,0 +1,23 @@
+﻿.commentInput {
+    float: left;
+    width: 85%;
+}
+
+.pager {margin-left: 20%;}
+/*
+.navBar-wrap {
+    width:360px;
+}*/
+
+.dreamModule .dmCase{height: 76px;overflow: hidden;}
+#div_comment {
+    display:none;
+}
+
+.lastPage {
+    bottom:40%;
+}
+
+.dreamModule .iconInfo .msgIcon {
+    margin-left: 0px;
+}

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Hongkong 3qii Information Technology</title>
+<link href="css/common.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-1.7.2.min.js" type="text/javascript" language="javascript"></script>
+<script src="js/common.js" type="text/javascript" language="javascript"></script>
+<script type="text/javascript" language="javascript">
+$(function(){
+	var $div_li =$("#tab a");
+	$div_li.click(function(){
+		$(this).addClass("infotab_click") 
+			   .siblings().removeClass("infotab_click");  
+		var index =  $div_li.index(this);  
+		$("#tabcon > div") 
+				.eq(index).show()  
+				.siblings().hide(); 
+	}).hover(function(){
+		$(this).addClass("infotab_hover");
+	},function(){
+		$(this).removeClass("infotab_hover");
+	})
+})
+</script>
+</head>
+
+<body class="qii qiien">
+
+<!--头部-->
+<div class="head" id="head">
+     <div class="headmain"> 
+        <a href="index_en.html" class="logo"></a>
+        <div class="headdetail">
+              <p class="headnav">
+                 <a href="index_en.html">Home</a>
+                 <a href="3payer_en.html">Mobile Game<br>Payment</a>
+                 <a href="gaming3_en.html">Game<br>Publishing</a>
+                 <a href="channels3_en.html">Channel<br>League</a>
+                 <a href="http://www.3ucd.com/" target="_blank">Interaction<br>Design</a>
+              </p>
+              <p class="headlink">
+                <a href="about_en.html">About</a>
+                <em></em>
+                <a href="recruitment_en.html" class="head_click">Job</a>
+                <em></em>
+                <a href="contact_en.html">Contact</a>
+              </p>
+              <div class="headversion">
+                    <a href="javascript:void(0);">
+                      <span>ENGLISH</span>
+                      <em></em>
+                    </a>
+                    <ul>
+                      <li><a href="index.html">中文繁体</a></li>
+                      <li><a href="index_sim.html">中文简体</a></li>
+                      <li><a href="index_en.html">ENGLISH</a></li>
+                    </ul>
+              </div>
+        </div>
+     </div>
+</div>
+
+
+<!--内容-->
+<div class="middle"> 
+      <div class="recruitmenttitle">
+         <p>
+           <em></em>
+           <span>Treat Yourself with This Huge Opportunity to Make a Difference!</span>
+         </p>
+         <ul>
+            <li>3Qii is expanding and we are constantly providing our employees with diversified space and on-job training;</li>
+            <li>We are recruiting different UE designers so as to correspond with our expansion in Shenzhen, Beijing, Shanghai and Chengdu.</li>
+            <li>Join Us! Send your CV to hr@3qii.com</li>
+         </ul>
+      </div>
+      <div class="infotab"  id="tab">
+         <a href="javascript:void(0);" class="infotab_click">Top</a>
+         <a href="javascript:void(0);">Business</a>
+         <a href="javascript:void(0);">Develop</a>
+         <a href="javascript:void(0);">Design</a>
+         <a href="javascript:void(0);">Other</a>         
+      </div>
+      <div id="tabcon">
+          <div>
+             <div class="info">
+                 <div class="infotitle">
+                     <em></em>
+                     <span>Overseas Business Manager (Indonesia) </span>
+                 </div>
+                 <p>Responsibilities</p>
+                 <ul>
+                    <li>1. Integration of overseas billing channel of mobile market and game companies, publishing as an agent, extension of channels, pre-installation, developing and maintaining relationship with clients, contract signing, delivery, settlement and payment collection;</li>
+                    <li>2. Exploring the potential needs of important clients and providing them with satisfied solutions;</li>
+                    <li>3. Tracking potential clients on a regular basis, periodical sales status feedback and achieving the sales goals set by company;</li>
+                    <li>4. Following the whole sales process, responding the requirements of clients, handling the complaints of clients and solving problems for our clients. </li>
+                 </ul>
+                 <p>Requirements</p>
+                 <ul>
+                    <li>1. Bachelor’s degree and above, work more than one year since graduation, one year or more experience of the third party channel extension or pre-installation of mobile phone;</li>
+                    <li>2. Love for mobile internet industry, love for game industry, profound understanding and passion for mobile games and application products;</li>
+                    <li>3. Good cooperation ability, communication and coordination ability, high sense of responsibility and teamwork awareness and professional and entrepreneurial spirit;</li>
+                    <li>4. Work proactively, high executive ability and market extension ability;</li>
+                    <li>5. Chinese people who lives locally, familiar with Chinese, Indonesian, be good at English in aspects of listening, speaking, reading and writing;</li>
+                    <li>6. Familiar with Microsoft Office;</li>
+                    <li>7. People who has relevant experiences in famous mobile games companies as business extension or application stores is preferred;</li>
+                    <li>8. Proficient writing skills, be able to write all kinds all business documents independently.</li>
+                    <li>Please send your CV to hr@3qii.com</li>
+                 </ul>
+             </div>
+             <div class="info">
+                 <div class="infotitle">
+                     <em></em>
+                     <span>Front-End Developer</span>
+                 </div>
+                 <p>Responsibilities</p>
+                 <ul>
+                    <li>1. Proficiency of Java_script、HTML/HTML5/XML、CSS/CSS3、Ajax and other front-end development skills, familiar with W3C standards;</li>
+                    <li>2. Developing front-end web page of mobile platform via relevant skills of HTML5 according to design documents of products and visual files;</li>
+                    <li>3. Webpage design based on standards of HTML5.0 and program reusable UI components;</li>
+                    <li>4. Constantly optimizing front-end experience and page response speed, guarantee compatibility and enforcement efficiency;</li>
+                    <li>5. Cooperate with back-end developers on implementation scheme of technology and integration of applications and system.</li>
+                 </ul>
+                 <p>Requirements</p>
+                 <ul>
+                    <li>1. Proficiency of JQuery Mobile，Sencha Touch，PhoneGap and other cross-platform middleware framework of mobile application;</li>
+                    <li>2. Familiar with the key discrepancies of IE10, IE8, Google, Mozilla, Firefox, Safari and other browsers of PC;</li>
+                    <li>3. People who has experience of actual front-end web development of mobile platform and working experience of HTML5 is preferred;</li>
+                    <li>4. People who has development experience of android, iphone, ipad and other smart phone and tablet is preferred;</li>
+                    <li>5. People who has application development experience of WeChat public platform is preferred;</li>
+                    <li>6. Good logical thinking ability and teamwork ability, capacity of analyzing and solving problems quickly;</li>
+                    <li>7. Work proactively, practically and rigorously, strong sense of responsibility.</li>
+                    <li>Please send your CV to hr@3qii.com</li>
+                 </ul>
+             </div>
+             <div class="info">
+                 <div class="infotitle">
+                     <em></em>
+                     <span>User Interface Visual Designer</span>
+                 </div>
+                 <p>Responsibilities</p>
+                 <ul>
+                    <li>1. Deduction of visual style and complete its design for large-scale e-commerce website;</li>
+                    <li>2. Provide new product and new function of e-commence with creative plan and user interface design;</li>
+                    <li>3. Provide daily operating activities and function maintenance with visual support;</li>
+                    <li>4. Participate creative design of proactive products and realization of dynamic DEMO.</li>
+                 </ul>
+                 <p>Requirements</p>
+                 <ul>
+                    <li>1. Bachelor’s degree or above, 3 years or more relevant working experience of e-commence;</li>
+                    <li>2. Love for design, vast industry vision and stylish aesthetical standards;</li>
+                    <li>3. Profound design theory and adept design skills;</li>
+                    <li>4. Strong enforcement ability and desire for innovation;</li>
+                    <li>5. Talented novice or passionate senior designer;</li>
+                    <li>6. Passionate, proactive, eye for details, impressive learning capacity;</li>
+                    <li>7. Good oral expression ability and writing ability.</li>
+                    <li>Please send your CV to hr@3qii.com</li>
+                 </ul>
+             </div>
+             <div class="info">
+                 <div class="infotitle">
+                     <em></em>
+                     <span>User Experience Designer</span>
+                 </div>
+                 <p>Responsibilities</p>
+                 <ul>
+                    <li>1. Profound understanding of development of e-commence industry and product planning;</li>
+                    <li>2. Framework design of users’ behaviors and product information, guarantee the availability of product;</li>
+                    <li>3. Participate the planning and design of e-commence products, summarize users’ goals and tasks;</li>
+                    <li>4. Take part in user research, and optimize the design plan according to the results of it;</li>
+                    <li>5. Broach improvement plan for the availability testing and assessment of existing products, constantly optimize user experience of products;</li>
+                    <li>6. Join the formulation and implementation of interface specifications;</li>
+                    <li>7. Organize and build a team of user experience and cultivate the greener.</li>
+                 </ul>
+                 <p>Requirements</p>
+                 <ul>
+                    <li>1. Above Bachelor’s degree, relevant majors of industrial design, computer, psychology, College English Test Brand 4;</li>
+                    <li>2. More than 3 years of working experience of interactive design in website and software industry with successful cases;</li>
+                    <li>3. Familiar with relevant procedures of website construction, including website function analysis, user character analysis, prototype design, interface developing, availability testing and so on;</li>
+                    <li>4. Profound experience and understanding of e-commerce industry;</li>
+                    <li>5. Provide high-quality prototype of product, flow diagram and wireframe which can demonstrate the design plan expressly;</li>
+                    <li>6. Proficiency of all kinds of methods of interactive design, deep understanding and cognition of theory of interactive design;</li>
+                    <li>7. Profound insight of up-to-date interactive applications in the industry;</li>
+                    <li>8. Acute grasp of user experience and availability;</li>
+                    <li>9. Out-going, optimistic, be good at teaming up with people who have all kind of backgrounds;</li>
+                    <li>10. Passionate, proactive, eyes on details, impressive learning capacity;</li>
+                    <li>11. Good reading ability in English;</li>
+                    <li>Please send your CV to hr@3qii.com</li>
+                 </ul>
+             </div>             
+          </div>
+          <div class="infotabcon">
+             <div class="info">
+                 <div class="infotitle">
+                     <em></em>
+                     <span>Overseas Business Manager (Indonesia) </span>
+                 </div>
+                 <p>Responsibilities</p>
+                 <ul>
+                    <li>1. Integration of overseas billing channel of mobile market and game companies, publishing as an agent, extension of channels, pre-installation, developing and maintaining relationship with clients, contract signing, delivery, settlement and payment collection;</li>
+                    <li>2. Exploring the potential needs of important clients and providing them with satisfied solutions;</li>
+                    <li>3. Tracking potential clients on a regular basis, periodical sales status feedback and achieving the sales goals set by company;</li>
+                    <li>4. Following the whole sales process, responding the requirements of clients, handling the complaints of clients and solving problems for our clients. </li>
+                 </ul>
+                 <p>Requirements</p>
+                 <ul>
+                    <li>1. Bachelor’s degree and above, work more than one year since graduation, one year or more experience of the third party channel extension or pre-installation of mobile phone;</li>
+                    <li>2. Love for mobile internet industry, love for game industry, profound understanding and passion for mobile games and application products;</li>
+                    <li>3. Good cooperation ability, communication and coordination ability, high sense of responsibility and teamwork awareness and professional and entrepreneurial spirit;</li>
+                    <li>4. Work proactively, high executive ability and market extension ability;</li>
+                    <li>5. Chinese people who lives locally, familiar with Chinese, Indonesian, be good at English in aspects of listening, speaking, reading and writing;</li>
+                    <li>6. Familiar with Microsoft Office;</li>
+                    <li>7. People who has relevant experiences in famous mobile games companies as business extension or application stores is preferred;</li>
+                    <li>8. Proficient writing skills, be able to write all kinds all business documents independently.</li>
+                    <li>Please send your CV to hr@3qii.com</li>
+                 </ul>
+             </div>
+          </div>
+          <div class="infotabcon">
+             <div class="info">
+                 <div class="infotitle">
+                     <em></em>
+                     <span>Front-End Developer</span>
+                 </div>
+                 <p>Responsibilities</p>
+                 <ul>
+                    <li>1. Proficiency of Java_script、HTML/HTML5/XML、CSS/CSS3、Ajax and other front-end development skills, familiar with W3C standards;</li>
+                    <li>2. Developing front-end web page of mobile platform via relevant skills of HTML5 according to design documents of products and visual files;</li>
+                    <li>3. Webpage design based on standards of HTML5.0 and program reusable UI components;</li>
+                    <li>4. Constantly optimizing front-end experience and page response speed, guarantee compatibility and enforcement efficiency;</li>
+                    <li>5. Cooperate with back-end developers on implementation scheme of technology and integration of applications and system.</li>
+                 </ul>
+                 <p>Requirements</p>
+                 <ul>
+                    <li>1. Proficiency of JQuery Mobile，Sencha Touch，PhoneGap and other cross-platform middleware framework of mobile application;</li>
+                    <li>2. Familiar with the key discrepancies of IE10, IE8, Google, Mozilla, Firefox, Safari and other browsers of PC;</li>
+                    <li>3. People who has experience of actual front-end web development of mobile platform and working experience of HTML5 is preferred;</li>
+                    <li>4. People who has development experience of android, iphone, ipad and other smart phone and tablet is preferred;</li>
+                    <li>5. People who has application development experience of WeChat public platform is preferred;</li>
+                    <li>6. Good logical thinking ability and teamwork ability, capacity of analyzing and solving problems quickly;</li>
+                    <li>7. Work proactively, practically and rigorously, strong sense of responsibility.</li>
+                    <li>Please send your CV to hr@3qii.com</li>
+                 </ul>
+             </div>
+          </div>
+          <div class="infotabcon">
+             <div class="info">
+                 <div class="infotitle">
+                     <em></em>
+                     <span>User Interface Visual Designer</span>
+                 </div>
+                 <p>Responsibilities</p>
+                 <ul>
+                    <li>1. Deduction of visual style and complete its design for large-scale e-commerce website;</li>
+                    <li>2. Provide new product and new function of e-commence with creative plan and user interface design;</li>
+                    <li>3. Provide daily operating activities and function maintenance with visual support;</li>
+                    <li>4. Participate creative design of proactive products and realization of dynamic DEMO.</li>
+                 </ul>
+                 <p>Requirements</p>
+                 <ul>
+                    <li>1. Bachelor’s degree or above, 3 years or more relevant working experience of e-commence;</li>
+                    <li>2. Love for design, vast industry vision and stylish aesthetical standards;</li>
+                    <li>3. Profound design theory and adept design skills;</li>
+                    <li>4. Strong enforcement ability and desire for innovation;</li>
+                    <li>5. Talented novice or passionate senior designer;</li>
+                    <li>6. Passionate, proactive, eye for details, impressive learning capacity;</li>
+                    <li>7. Good oral expression ability and writing ability.</li>
+                    <li>Please send your CV to hr@3qii.com</li>
+                 </ul>
+             </div>
+          </div>
+          <div class="infotabcon">
+             <div class="info">
+                 <div class="infotitle">
+                     <em></em>
+                     <span>User Experience Designer</span>
+                 </div>
+                 <p>Responsibilities</p>
+                 <ul>
+                    <li>1. Profound understanding of development of e-commence industry and product planning;</li>
+                    <li>2. Framework design of users’ behaviors and product information, guarantee the availability of product;</li>
+                    <li>3. Participate the planning and design of e-commence products, summarize users’ goals and tasks;</li>
+                    <li>4. Take part in user research, and optimize the design plan according to the results of it;</li>
+                    <li>5. Broach improvement plan for the availability testing and assessment of existing products, constantly optimize user experience of products;</li>
+                    <li>6. Join the formulation and implementation of interface specifications;</li>
+                    <li>7. Organize and build a team of user experience and cultivate the greener.</li>
+                 </ul>
+                 <p>Requirements</p>
+                 <ul>
+                    <li>1. Above Bachelor’s degree, relevant majors of industrial design, computer, psychology, College English Test Brand 4;</li>
+                    <li>2. More than 3 years of working experience of interactive design in website and software industry with successful cases;</li>
+                    <li>3. Familiar with relevant procedures of website construction, including website function analysis, user character analysis, prototype design, interface developing, availability testing and so on;</li>
+                    <li>4. Profound experience and understanding of e-commerce industry;</li>
+                    <li>5. Provide high-quality prototype of product, flow diagram and wireframe which can demonstrate the design plan expressly;</li>
+                    <li>6. Proficiency of all kinds of methods of interactive design, deep understanding and cognition of theory of interactive design;</li>
+                    <li>7. Profound insight of up-to-date interactive applications in the industry;</li>
+                    <li>8. Acute grasp of user experience and availability;</li>
+                    <li>9. Out-going, optimistic, be good at teaming up with people who have all kind of backgrounds;</li>
+                    <li>10. Passionate, proactive, eyes on details, impressive learning capacity;</li>
+                    <li>11. Good reading ability in English;</li>
+                    <li>Please send your CV to hr@3qii.com</li>
+                 </ul>
+             </div> 
+          </div>
+       </div>
+</div>
+
+
+<!--底部-->
+<div class="bottom">
+	<div class="bottomdetail">
+       <div class="bottommain">
+            <ul>
+               <li class="bottomlogo"></li>
+               <li class="bottombold">Hongkong 3qii Information Technology Co.,Ltd.</li>
+               <li>Copyright 3qii.com. All rights reserved</li>
+               <li class="sitechoose">
+                   <a href="javascript:void(0);">
+                      <span>Family Sites</span>
+                      <em></em>
+                   </a>
+                   <dl>
+                      <dd><a href="http://3qii.com/">3qii.com</a></dd>
+                      <dd><a href="http://gaming3.com/">gaming3.com</a></dd>
+                      <dd><a href="http://3ucd.com/">3ucd.com</a></dd>
+                   </dl>
+               </li>
+            </ul>
+            <ul class="address address_hk">
+               <li class="addresspic addresspic_hk"></li>
+               <li class="addresslist">
+                 <dl class="bottombold">HQ (Hong Kong)</dl>
+                 <dl><em>Bussiness:</em><span>victor.hou@3qii.com</span></dl>
+                 <dl><em>Tel:</em><span>+86 400 728 6033</span></dl>
+                 <dl><em>Address:</em><span>Room 19, 10/F, Metro Centre I,32<br>Lam Hing Street, Kowloon Bay, Kowloon, Hong Kong</span></dl>
+               </li>
+            </ul>
+            <ul class="address address_nj">
+               <li class="addresspic addresspic_nj"></li>
+               <li class="addresslist">
+                 <dl class="bottombold">Mainland China (Nanjing)</dl>
+                 <dl><em>Bussiness:</em><span>victor.hou@3qii.com</span></dl>
+                 <dl><em>Tel:</em><span>+86 025 82211553</span></dl>
+                 <dl><em>Address:</em><span>Room 603, No.1 West Building,<br>23 Huashen Road, Nanjing, China</span></dl>
+               </li>
+            </ul> 
+       </div> 
+	</div>         
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template title="可爱女生相册模版" FacePic="user/username/albumname/cover.jpg" font="方正粗圆简体" scale="4.5" color="EEEEEE" userColor="EEEEEE" userScale="3" bgcolor="0x666666" isTitleSerial="true">
+	<mc url="net/dpdp/skins/sk41/photodetails.swf" title="bg" xpos="0" ypos="0" zindex="0" ></mc>
+</template>

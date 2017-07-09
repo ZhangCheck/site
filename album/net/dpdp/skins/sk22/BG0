@@ -1,0 +1,12 @@
+package net.dpdp.skins.sk22
+{
+	import net.dpdp.skins.sk19.BG;
+	
+	public class BG extends net.dpdp.skins.sk19.BG
+	{
+		public function BG()
+		{
+			super();
+		}
+	}
+}

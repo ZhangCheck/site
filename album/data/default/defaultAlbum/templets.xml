@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<templets>
+	 <list>
+	  <temp id="30" title="星空遐想" folder="../data/user/username/01/" /> 
+	  <temp id="29" title="圣诞-热力" folder="../data/user/username/02/" /> 
+	  <temp id="28" title="圣诞-冰雪" folder="../data/user/username/03/" /> 
+	  <temp id="28" title="圣诞-冰雪" folder="../data/user/username/04/" />
+	  <temp id="29" title="圣诞-热力" folder="../data/user/username/05/" /> 
+	  <temp id="28" title="圣诞-冰雪" folder="../data/user/username/06/" /> 
+	  <temp id="28" title="圣诞-冰雪" folder="../data/user/username/07/" />
+	  <temp id="29" title="圣诞-热力" folder="../data/user/username/08/" /> 
+	  <temp id="28" title="圣诞-冰雪" folder="../data/user/username/09/" /> 
+	  <temp id="28" title="圣诞-冰雪" folder="../data/user/username/10/" />
+	  <temp id="29" title="圣诞-热力" folder="../data/user/username/11/" /> 
+	  <temp id="28" title="圣诞-冰雪" folder="../data/user/username/12/" /> 
+	  <temp id="28" title="圣诞-冰雪" folder="../data/user/username/13/" />
+	  
+	 </list>
+ </templets>

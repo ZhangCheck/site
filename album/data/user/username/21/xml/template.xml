@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template title="iTunes" FacePic="user/username/albumname/cover.jpg" font="方正黑体简体" scale="4" color="FFFFFF" userColor="C2C2C2" userScale="2.5" bgcolor="0x666666" >
+	<mc url="net/dpdp/skins/sk21/bg.swf" title="bg" xpos="0" ypos="0" zindex="0" ></mc>
+	<mc url="net/dpdp/skins/sk21/photolist.swf" title="photo_list" xpos="0" ypos="0" zindex="1" ></mc>
+    <mc url="net/dpdp/skins/sk21/albumtitle.swf" title="album_title" xpos="0" ypos="0" zindex="3" ></mc>
+</template>

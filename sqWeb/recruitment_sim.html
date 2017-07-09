@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>recruitment</title>
+<link href="css/common.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-1.7.2.min.js" type="text/javascript" language="javascript"></script>
+<script src="js/common.js" type="text/javascript" language="javascript"></script>
+<script type="text/javascript" language="javascript">
+$(function(){
+	var $div_li =$("#tab a");
+	$div_li.click(function(){
+		$(this).addClass("infotab_click") 
+			   .siblings().removeClass("infotab_click");  
+		var index =  $div_li.index(this);  
+		$("#tabcon > div") 
+				.eq(index).show()  
+				.siblings().hide(); 
+	}).hover(function(){
+		$(this).addClass("infotab_hover");
+	},function(){
+		$(this).removeClass("infotab_hover");
+	})
+})
+</script>
+</head>
+
+<body class="qii font_simplified">
+
+<!--头部-->
+<div class="head" id="head">
+     <div class="headmain"> 
+        <a href="index_sim.html" class="logo"></a>
+        <div class="headdetail">
+              <p class="headnav">
+                 <a href="index_sim.html">首页</a>
+                 <a href="3payer_sim.html">手游支付</a>
+                 <a href="gaming3_sim.html">手游发行</a>
+                 <a href="channels3_sim.html">渠道联盟</a>
+                 <a href="http://www.3ucd.com/" target="_blank">交互设计</a>
+              </p>
+              <p class="headlink">
+                <a href="about_sim.html">关于</a>
+                <em></em>
+                <a href="recruitment_sim.html" class="head_click">招聘</a>
+                <em></em>
+                <a href="contact_sim.html">联系</a>
+              </p>
+              <div class="headversion">
+                    <a href="javascript:void(0);">
+                      <span>中文简体</span>
+                      <em></em>
+                    </a>
+                    <ul>
+                      <li><a href="index_en.html">ENGLISH</a></li>                    
+                      <li><a href="index_sim.html">中文简体</a></li>
+                      <li><a href="index.html">中文繁体</a></li>
+                    </ul>
+              </div>
+        </div>
+     </div>
+</div>
+
+<!--内容-->
+<div class="middle"> 
+      <div class="recruitmenttitle">
+         <p>
+           <em></em>
+           <span>给自己站在更大的舞台一个机会</span>
+         </p>
+         <ul>
+            <li>闪奇正在积极发展之中，我们一直为优秀人才提供多元化的空间和在职培养；</li>
+            <li>我们长期面向社会招募不同用户体验设计的专业人才，配合我们在深圳、北京、上海和成都设计中心的发展。</li>
+            <li>想加入我们的团队？快把简历发到 hr@3qii.com 吧！</li>
+         </ul>
+      </div>
+      <div class="infotab"  id="tab">
+         <a href="javascript:void(0);" class="infotab_click">最新</a>
+         <a href="javascript:void(0);">商务</a>
+         <a href="javascript:void(0);">开发</a>
+         <a href="javascript:void(0);">设计</a>
+         <a href="javascript:void(0);">其他</a>         
+      </div>
+      <div id="tabcon">
+          <div>
+             <div class="info">
+                 <div class="infotitle">
+                     <em></em>
+                     <span>海外商务经理（印度尼西亚）（1名）</span>
+                 </div>
+                 <p>职责</p>
+                 <ul>
+                    <li>1、负责面向东南亚地区的移动应用商店和游戏厂商的海外计费管道对接、代理发行、推广管道、线下预装和刷机业务规划、拓展、客户关系维系、合同签订 、交付、结算、回款；</li>
+                    <li>2、深度挖掘重点客户的潜在需求，为客户提供满意的解决方案；</li>
+                    <li>3、对潜在客户进行定期跟踪，定期回馈销售进度，完成公司销售目标；</li>
+                    <li>4、跟踪整个销售流程，响应客户要求，接受客户投诉，为客户解决问题。</li>
+                 </ul>
+                 <p>要求</p>
+                 <ul>
+                    <li>1、本科及以上学历，毕业一年以上，有一年以上第三方管道推广经验或者手机预装经验；</li>
+                    <li>2、热爱移动互联网行业，热爱游戏行业，对手机游戏及应用产品有深刻的认识和热情；</li>
+                    <li>3、具有良好的合作能力、沟通协调能力、高度的责任心以及团队合作意识和专业进取精神；</li>
+                    <li>4、工作积极主动，具有较强的执行力和市场拓展能力；</li>
+                    <li>5、当地华人，熟练使用中文、印度尼西亚语，英文听说读写良好；</li>
+                    <li>6、熟练使用office系列办公软件；</li>
+                    <li>7、有知名手机游戏公司商务拓展或者应用商店公司相关工作经验者优先；</li>
+                    <li>8、具有良好的文字功底，能够独立撰写各种商务档。</li>
+                    <li>简历请发至：hr@3qii.com</li>
+                 </ul>
+             </div>
+             <div class="info">
+                 <div class="infotitle">
+                     <em></em>
+                     <span>前端开发（若干）</span>
+                 </div>
+                 <p>职责</p>
+                 <ul>
+                    <li>1、熟练使用Java_script、HTML/HTML5/XML、CSS/CSS3、Ajax等前端开发技术,熟悉W3C标准；</li>
+                    <li>2、根据产品设计文文件和视觉文件，利用HTML5相关技术开发移动平台的web前端页面；</li>
+                    <li>3、基于HTML5.0标准进行页面制作，编写可复用的用户接口组件；</li>
+                    <li>4、持续的优化前端体验和页面响应速度，并保证兼容性和执行效率；</li>
+                    <li>5、配合后台工程师一起研讨技术实现方案，进行应用及系统整合。</li>
+                 </ul>
+                 <p>要求</p>
+                 <ul>
+                    <li>1、熟悉JQuery Mobile，Sencha Touch，PhoneGap等跨平台移动应用中间件框架；</li>
+                    <li>2、了解PC不同浏览器的差异重点IE10 IE8 Google Mozilla Firefox Safari 等；</li>
+                    <li>3、有实际移动平台web前端开发和HTML5实践工作经验优先考虑；</li>
+                    <li>4、有android、iphone、ipad等智慧手机和平板开发经验优先考虑；</li>
+                    <li>5、有微信公众平台应用开发经验者优先考虑；</li>
+                    <li>6、良好的逻辑思维能力和团队合作能力，有快速分析和解决问题的能力；</li>
+                    <li>7、工作积极主动，责任心强，工作踏实严谨。</li>
+                    <li>简历请发至：hr@3qii.com</li>
+                 </ul>
+             </div>
+             <div class="info">
+                 <div class="infotitle">
+                     <em></em>
+                     <span>视觉设计师</span>
+                 </div>
+                 <p>职责</p>
+                 <ul>
+                    <li>1、为大型电子商务网站进行视觉风格推导并完成设计方案；</li>
+                    <li>2、为电子商务新产品与新功能提供创意策划以及用户接口的设计方案；</li>
+                    <li>3、为日常的运营活动及功能维护提供视觉支持；</li>
+                    <li>4、参与前瞻性产品的创意设计和动态DEMO的实现。</li>
+                 </ul>
+                 <p>要求</p>
+                 <ul>
+                    <li>1、本科或以上学历，3年以上电子商务相关行业的工作经验；</li>
+                    <li>2、热爱设计、拥有宽广的行业视野与审美标准；</li>
+                    <li>3、深厚的设计理论与娴熟的设计技巧；</li>
+                    <li>4、强大的执行力与强烈的创新欲望；</li>
+                    <li>5、极具天赋的新人或激情不减的资深设计师；</li>
+                    <li>6、富有激情、积极主动、关注细节、学习能力强；</li>
+                    <li>7、良好的口头表达能力和写作能力。</li>
+                    <li>简历请发至：hr@3qii.com</li>
+                 </ul>
+             </div>
+             <div class="info">
+                 <div class="infotitle">
+                     <em></em>
+                     <span>交互设计师</span>
+                 </div>
+                 <p>职责</p>
+                 <ul>
+                    <li>1、对电子商务行业的发展及产品规划有较深刻的理解；</li>
+                    <li>2、设计用户行为及产品的信息构架，保证产品的可用性；</li>
+                    <li>3、参与电子商务产品规划构思，归纳用户目标，用户任务；</li>
+                    <li>4、参与使用者研究，根据使用者研究的结果对设计方案进行优化；</li>
+                    <li>5、对现有产品的可用性测试和评估提出改进方案，持续优化产品的用户体验；</li>
+                    <li>6、参与接口规范的制定与实施；</li>
+                    <li>7、参与组织建设交互设计团队，负责培养新人。</li>
+                 </ul>
+                 <p>要求</p>
+                 <ul>
+                    <li>1、本科以上学历，工业设计、计算机、心理学等相关专业，英语四级；</li>
+                    <li>2、3年以上的网页、软件行业交互设计工作经验，并有成功案例；</li>
+                    <li>3、熟悉网站构建的相关流程，包括网站功能分析、用户角色分析、原型设计、接口开发、易用性测试等；</li>
+                    <li>4、对电子商务行业有深入体验经验和理解；</li>
+                    <li>5、能够提供高质量的产品原型、流程图、线框图等清晰的表达设计方案；</li>
+                    <li>6、熟练运用交互设计各种方法，对交互设计理论有较深的了解和认识；</li>
+                    <li>7、对业界最新的交互应用有深入的见解；</li>
+                    <li>8、对用户体验和易用性有敏锐的把握能力；</li>
+                    <li>9、个性乐观开朗，善于和各种背景的人合作；</li>
+                    <li>10、富有激情、积极主动、关注细节、学习能力强；</li>
+                    <li>11、有良好的英语阅读能力；</li>
+                    <li>简历请发至：hr@3qii.com</li>
+                 </ul>
+             </div>     
+          </div>
+          <div class="infotabcon">
+             <div class="info">
+                 <div class="infotitle">
+                     <em></em>
+                     <span>海外商务经理（印度尼西亚）（1名）</span>
+                 </div>
+                 <p>职责</p>
+                 <ul>
+                    <li>1、负责面向东南亚地区的移动应用商店和游戏厂商的海外计费管道对接、代理发行、推广管道、线下预装和刷机业务规划、拓展、客户关系维系、合同签订 、交付、结算、回款；</li>
+                    <li>2、深度挖掘重点客户的潜在需求，为客户提供满意的解决方案；</li>
+                    <li>3、对潜在客户进行定期跟踪，定期回馈销售进度，完成公司销售目标；</li>
+                    <li>4、跟踪整个销售流程，响应客户要求，接受客户投诉，为客户解决问题。</li>
+                 </ul>
+                 <p>要求</p>
+                 <ul>
+                    <li>1、本科及以上学历，毕业一年以上，有一年以上第三方管道推广经验或者手机预装经验；</li>
+                    <li>2、热爱移动互联网行业，热爱游戏行业，对手机游戏及应用产品有深刻的认识和热情；</li>
+                    <li>3、具有良好的合作能力、沟通协调能力、高度的责任心以及团队合作意识和专业进取精神；</li>
+                    <li>4、工作积极主动，具有较强的执行力和市场拓展能力；</li>
+                    <li>5、当地华人，熟练使用中文、印度尼西亚语，英文听说读写良好；</li>
+                    <li>6、熟练使用office系列办公软件；</li>
+                    <li>7、有知名手机游戏公司商务拓展或者应用商店公司相关工作经验者优先；</li>
+                    <li>8、具有良好的文字功底，能够独立撰写各种商务档。</li>
+                    <li>简历请发至：hr@3qii.com</li>
+                 </ul>
+             </div>
+          </div>
+          <div class="infotabcon">
+             <div class="info">
+                 <div class="infotitle">
+                     <em></em>
+                     <span>前端开发（若干）</span>
+                 </div>
+                 <p>职责</p>
+                 <ul>
+                    <li>1、熟练使用Java_script、HTML/HTML5/XML、CSS/CSS3、Ajax等前端开发技术,熟悉W3C标准；</li>
+                    <li>2、根据产品设计文文件和视觉文件，利用HTML5相关技术开发移动平台的web前端页面；</li>
+                    <li>3、基于HTML5.0标准进行页面制作，编写可复用的用户接口组件；</li>
+                    <li>4、持续的优化前端体验和页面响应速度，并保证兼容性和执行效率；</li>
+                    <li>5、配合后台工程师一起研讨技术实现方案，进行应用及系统整合。</li>
+                 </ul>
+                 <p>要求</p>
+                 <ul>
+                    <li>1、熟悉JQuery Mobile，Sencha Touch，PhoneGap等跨平台移动应用中间件框架；</li>
+                    <li>2、了解PC不同浏览器的差异重点IE10 IE8 Google Mozilla Firefox Safari 等；</li>
+                    <li>3、有实际移动平台web前端开发和HTML5实践工作经验优先考虑；</li>
+                    <li>4、有android、iphone、ipad等智慧手机和平板开发经验优先考虑；</li>
+                    <li>5、有微信公众平台应用开发经验者优先考虑；</li>
+                    <li>6、良好的逻辑思维能力和团队合作能力，有快速分析和解决问题的能力；</li>
+                    <li>7、工作积极主动，责任心强，工作踏实严谨。</li>
+                    <li>简历请发至：hr@3qii.com</li>
+                 </ul>
+             </div>
+          </div>
+          <div class="infotabcon">
+             <div class="info">
+                 <div class="infotitle">
+                     <em></em>
+                     <span>视觉设计师</span>
+                 </div>
+                 <p>职责</p>
+                 <ul>
+                    <li>1、为大型电子商务网站进行视觉风格推导并完成设计方案；</li>
+                    <li>2、为电子商务新产品与新功能提供创意策划以及用户接口的设计方案；</li>
+                    <li>3、为日常的运营活动及功能维护提供视觉支持；</li>
+                    <li>4、参与前瞻性产品的创意设计和动态DEMO的实现。</li>
+                 </ul>
+                 <p>要求</p>
+                 <ul>
+                    <li>1、本科或以上学历，3年以上电子商务相关行业的工作经验；</li>
+                    <li>2、热爱设计、拥有宽广的行业视野与审美标准；</li>
+                    <li>3、深厚的设计理论与娴熟的设计技巧；</li>
+                    <li>4、强大的执行力与强烈的创新欲望；</li>
+                    <li>5、极具天赋的新人或激情不减的资深设计师；</li>
+                    <li>6、富有激情、积极主动、关注细节、学习能力强；</li>
+                    <li>7、良好的口头表达能力和写作能力。</li>
+                    <li>简历请发至：hr@3qii.com</li>
+                 </ul>
+             </div>
+          </div>
+          <div class="infotabcon">
+             <div class="info">
+                 <div class="infotitle">
+                     <em></em>
+                     <span>交互设计师</span>
+                 </div>
+                 <p>职责</p>
+                 <ul>
+                    <li>1、对电子商务行业的发展及产品规划有较深刻的理解；</li>
+                    <li>2、设计用户行为及产品的信息构架，保证产品的可用性；</li>
+                    <li>3、参与电子商务产品规划构思，归纳用户目标，用户任务；</li>
+                    <li>4、参与使用者研究，根据使用者研究的结果对设计方案进行优化；</li>
+                    <li>5、对现有产品的可用性测试和评估提出改进方案，持续优化产品的用户体验；</li>
+                    <li>6、参与接口规范的制定与实施；</li>
+                    <li>7、参与组织建设交互设计团队，负责培养新人。</li>
+                 </ul>
+                 <p>要求</p>
+                 <ul>
+                    <li>1、本科以上学历，工业设计、计算机、心理学等相关专业，英语四级；</li>
+                    <li>2、3年以上的网页、软件行业交互设计工作经验，并有成功案例；</li>
+                    <li>3、熟悉网站构建的相关流程，包括网站功能分析、用户角色分析、原型设计、接口开发、易用性测试等；</li>
+                    <li>4、对电子商务行业有深入体验经验和理解；</li>
+                    <li>5、能够提供高质量的产品原型、流程图、线框图等清晰的表达设计方案；</li>
+                    <li>6、熟练运用交互设计各种方法，对交互设计理论有较深的了解和认识；</li>
+                    <li>7、对业界最新的交互应用有深入的见解；</li>
+                    <li>8、对用户体验和易用性有敏锐的把握能力；</li>
+                    <li>9、个性乐观开朗，善于和各种背景的人合作；</li>
+                    <li>10、富有激情、积极主动、关注细节、学习能力强；</li>
+                    <li>11、有良好的英语阅读能力；</li>
+                    <li>简历请发至：hr@3qii.com</li>
+                 </ul>
+             </div>          
+          </div>
+       </div>
+</div>
+
+
+<!--底部-->
+<div class="bottom">
+	<div class="bottomdetail">
+       <div class="bottommain">
+            <ul>
+               <li class="bottomlogo"></li>
+               <li>香港闪奇信息技术有限公司</li>
+               <li>Copyright 3qii.com. All rights reserved</li>
+               <li class="sitechoose">
+                   <a href="javascript:void(0);">
+                      <span>Family Sites</span>
+                      <em></em>
+                   </a>
+                   <dl>
+                      <dd><a href="http://3qii.com/">3qii.com</a></dd>
+                      <dd><a href="http://gaming3.com/">gaming3.com</a></dd>
+                      <dd><a href="http://3ucd.com/">3ucd.com</a></dd>
+                   </dl>
+               </li>
+            </ul>
+            <ul class="address address_hk">
+               <li class="addresspic addresspic_hk"></li>
+               <li class="addresslist">
+                 <dl>总部（香港）</dl>
+                 <dl><em>商务：</em>victor.hou@3qii.com</dl>
+                 <dl><em>电话：</em>+86 400 728 6033</dl>
+                 <dl><em>地址：</em>香港九龙湾临兴街32号美罗中心一期10楼19室</dl>
+               </li>
+            </ul>
+            <ul class="address address_nj">
+               <li class="addresspic addresspic_nj"></li>
+               <li class="addresslist">
+                 <dl>中国办公室（南京）</dl>
+                 <dl><em>商务：</em>victor.hou@3qii.com</dl>
+                 <dl><em>电话：</em>+86 025 82211553</dl>
+                 <dl><em>地址：</em>江苏省南京市雨花台区花神大道23号1号楼西6楼</dl>
+               </li>
+            </ul> 
+       </div> 
+	</div>  
+</div>
+
+
+</body>
+</html>

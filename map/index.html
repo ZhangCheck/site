@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html style="height:100%;margin:0;padding:0">
+<head>
+<meta charset="UTF-8">
+<title>map</title>
+	<script src="js/fb_lib/require.js"></script>
+</head>
+
+<body style="background-color:#404a59;width:100%;height:100%;margin:0;padding:0;overflow:hidden;background-image: url(images/background.jpg)" ms-controller="mainCtl">
+<div class="header" style="display: none">{{addressName}}某平台运行态势图——流量分布</div>
+	<div id="dbTable" style="display: none;">
+		<h1>流量分布数据</h1>
+		<div class="debuger">
+			<ul>
+				<li ms-repeat="missles" ms-visible="legendState[el.series]"  ms-css-color="{{el.color}}"><span style="width:40px;">{{el.series}}</span> 从：<span class="address" ms-css-color="{{el.color}}">{{el.from}}</span>到：<span class="address" ms-css-color="{{el.color}}">{{el.to}}</span>流量：{{el.value}}</li>
+			</ul>
+		</div>
+		<div ms-widget="simplegrid, simplegridA, $simplegridAOpts"></div>
+	</div>
+	<div class="mapCon">
+		<div id="map" style="width:100%;height:100%"><div style="text-align: center;line-height: 100px;color:#fff;"> 加载中...</div></div>
+	</div>
+	<div class="back" style="display: none" ms-visible="addressName!='全国'" ms-click="readMapModel('china');">返回全国</div>
+</div>
+	<script src="libs/echarts.js"></script>
+	<script src="js/index.js"></script>
+</body>
+</html>
