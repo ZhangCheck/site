@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	<title>topologicalDiagram</title>
+	<link href="css/topologicalDiagram.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+	<script src="js/fb_lib/require.js"></script>
+	<script src="js/lib/easeljs-0.8.2.min.js"></script>
+	<!--<script src="js/lib/preloadjs-0.6.2.min.js"></script>-->
+	<script src="js/lib/tweenjs-0.5.1.min.js"></script>
+	<script src="js/lib/movieclip-0.7.1.min.js"></script>
+	<!--<script src="js/lib/jquery-1.11.1.js"></script>-->
+
+	<script src="js/main.js"></script>
+</head>
+<body>
+	<div class="topologicalDiagram" ms-controller="main">
+		<div class="top" style="display:none">
+		  <h1>四川公安移动警务平台运行态势图—通道运行状态<span>{{ new Date | date("yyyy 年 MM 月 dd 日")}}</span> </h1>
+		  <h2>
+		  	<span><i class="iconfont" style="color:#3cd7f9;">&#xe610;</i>终端用户数：<b style="font-weight:normal;color:#3cd7f9;">{{userNum}}</b></span>
+		  	<span><i class="iconfont" style="color:#fcce10;">&#xe620;</i>系统运行时长：<b style="font-weight:normal;color:#fcce10;">{{runTime}}</b></span>
+		  	<span><i class="iconfont" style="color:#98e839;">&#xe63c;</i>平台运行状态：<b style="font-weight:normal;color:#98e839;">{{station}}</b></span>
+		  	<span><i class="iconfont" style="color:#00cffc;">&#xe600;</i>应用访问量：<b style="font-weight:normal;color:#00cffc;">{{requests}}</b></span>			
+            <span id="flow">
+            	<form style="display:inline;">
+            		<input type="button" value="流量统计" onclick="switchBar()">           		
+            	</form>
+            </span>
+		  </h2>
+		</div>
+	 <!-- <script>
+		$(function(){
+			var cHeight = document.documentElement.clientHeight + 'px';
+			var oDiv = document.getElementById('analysis')
+			oDiv.style.top=cHeight;
+			$('#flow').click(function(){
+				$('#analysis').stop().animate({top:"100px"});
+			});
+			$('#fork').click(function(){
+				$('#analysis').stop().animate({top:cHeight});
+			});
+		})
+      </script>-->
+      
+	<canvas id="canvas" class="grab" onmousedown="mouseDown(event,this)" onmousemove="mouseMove(event)" onmouseup="mouseUp(event,this)" onmousewheel="mouseWheel(event)"></canvas>
+	 		<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+	 <div id="analysis" style="display:none">
+	 	<h1><img id="fork" src="images/fork.png" onclick="switchBar()"/></h1>
+	    <div id="main" ></div>
+	 </div>
+	  <!-- ECharts单文件引入 -->
+	  
+	  	
+
+</body>
+</html>
+

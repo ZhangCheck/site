@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template title="标题" FacePic="user/username/albumname/cover.jpg" font="方正粗圆简体" scale="4" color="22C8AE" userColor="FF9900" userScale="2.5" bgcolor="0x666666">
+	<mc url="net/dpdp/skins/sk1000/photodetails.swf" title="photo_details" xpos="0" ypos="0" zindex="1" ></mc>
+</template>

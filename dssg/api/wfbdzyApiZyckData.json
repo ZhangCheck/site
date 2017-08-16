@@ -1,0 +1,52 @@
+{
+    "success": true,
+    "code": "0",
+    "message": "success",
+    "data": {
+        "metadataDTO": {
+            "restitle": "wqeqe",
+            "abstracts": "qweqwe",
+            "rporgname": "qwewqe",
+            "address": "qweqwe",
+            "keyword": "qweqee",
+            "subjectcarategory": "HC测试主题分类",
+            "departmentCategory": null,
+            "reason": null,
+            "resourceType": "0"
+        },
+        "apiSource": "3d",
+        "requestParams": null,
+        "responseStruct": null,
+        "apiDescription": {
+            "address": "http://....",
+            "apiType": "webservice",
+            "methods": "queryUser,comparaHotelUser,QueryTraffic,queryUserByImages",
+            "documentName": null,
+            "documentUrl": null
+        },
+        "resLevel": "1",
+        "processRecordDTO": {
+            "id": "7b5976bbb6a34cbab9f58cb6fa99bbda",
+            "resourceId": "1c4bb6435c934018b80e32cab8c891f2",
+            "applyUser": "系统管理员",
+            "applyTime": "2017-01-17 10:08:14",
+            "applyReason": "qweqweqwe",
+            "reviewUser": null,
+            "reviewTime": null,
+            "reviewDesc": null,
+            "result": null,
+            "type": "0",
+            "effectiveData": null,
+            "deleteFlag": "-1"
+        },
+        "id": "1c4bb6435c934018b80e32cab8c891f2",
+        "resName": "wqeqe",
+        "resEname": null,
+        "resType": "3",
+        "resCode": null,
+        "themeType": "dba83ac5-4397-4790-a0af-d06a498e58c3",
+        "departmentType": "ca276b97-3923-4d87-896d-66acc9ca5749",
+        "themeTypeName": "HC测试主题分类",
+        "departmentTypeName": "HC测试部门分类"
+    }
+}

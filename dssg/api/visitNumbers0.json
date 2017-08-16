@@ -1,0 +1,11 @@
+{
+  "success": true,
+  "data": {
+    "titleData":{
+      "titleName":"访问次数",
+      "titleNumber":"300",
+      "iconType":"down"
+    },
+    "echartsData":[130, 90, 80, 134, 10, 100, 60]
+  }
+}

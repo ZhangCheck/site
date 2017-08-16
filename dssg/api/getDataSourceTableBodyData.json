@@ -1,0 +1,97 @@
+{
+    "success": true,
+    "code": "0",
+    "message": "success",
+    "data": {
+        "content": [
+            {
+                "name": "res_access_apply",
+                "desc": "资源访问申请表"
+            },
+            {
+                "name": "res_category",
+                "desc": "本地分类表; 支持树型结构，元数据在使用时从分类库中选择"
+            },
+            {
+                "name": "res_center_category",
+                "desc": "中心分类表; 支持树型结构，元数据在使用时从分类库中选择"
+            },
+            {
+                "name": "res_center_company",
+                "desc": "中心单位表; 支持树型结构，提供给设备入网时使用"
+            },
+            {
+                "name": "res_center_metadata",
+                "desc": "元数据表，根据元数据规范转化为一张元数据表。此表的code并未按数据库的字段规范来，是因为code采用了规范中的英文名称"
+            },
+            {
+                "name": "res_center_resource",
+                "desc": "中心资源目录表\r\n\r\n数据项(JSON结构化)\r\n文件列表(JSON结构化)\r\n"
+            },
+            {
+                "name": "res_company",
+                "desc": "本地单位表; 支持树型结构，提供给设备入网时使用"
+            },
+            {
+                "name": "res_custome_access_log",
+                "desc": "资源客户访问日志表"
+            },
+            {
+                "name": "res_data_source",
+                "desc": "数据源表"
+            },
+            {
+                "name": "res_flow_record",
+                "desc": "流量记录表\r\n文件类型时：下载次数，针对同一文件交换至多设备的情况，可以保存多次，正常交换至一个设备算一次；流"
+            },
+            {
+                "name": "res_metadata",
+                "desc": "元数据表，根据元数据规范转化为一张元数据表。此表的code并未按数据库的字段规范来，是因为code采用了规范中的英文名称"
+            },
+            {
+                "name": "res_operation_record",
+                "desc": "资源目录修改记录表"
+            },
+            {
+                "name": "res_process_record",
+                "desc": "资源共享发布、撤销过程记录表\r\n发布的申请、审批\r\n撤销的申请、审批\r\n"
+            },
+            {
+                "name": "res_resource",
+                "desc": "资源分部门内资源与共享资源两种，前期看基础的数据相关不大，暂时用一张表来存在，根据后续细化程度，如果相差较大或有不合适用"
+            },
+            {
+                "name": "res_resource_equipment_rel",
+                "desc": "中心目录授权关联表"
+            },
+            {
+                "name": "res_resource_item",
+                "desc": "资源明细表：存放与具体任务、配置相关的信息"
+            },
+            {
+                "name": "res_subscribe",
+                "desc": "设备A发起，A会产生一条发起记录\r\n设备B接收，B会生产一条接收记录"
+            },
+            {
+                "name": "res_subscribe_task_info",
+                "desc": "订阅任务信息表"
+            },
+            {
+                "name": "res_task_execute",
+                "desc": "交换任务运行表"
+            },
+            {
+                "name": "res_task_item",
+                "desc": "交换子任务表"
+            }
+        ],
+        "totalPages": "1",
+        "last": true,
+        "totalElements": "20",
+        "numberOfElements": "20",
+        "first": true,
+        "sort": null,
+        "size": "20",
+        "number": "0"
+    }
+}

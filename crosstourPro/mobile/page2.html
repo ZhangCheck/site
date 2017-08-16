@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    ">
+    <title>敢性出发</title>
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/portrait.css" media="all and (orientation:portrait)" rel="stylesheet">
+    <link href="css/landscape.css" media="all and (orientation:landscape)" rel="stylesheet">
+
+</head>
+<body class="bg">
+<div class="tl">
+    <!--左侧顶部logo-->
+    <a href="http://www.ghac.cn" target="_blank" class="ltLogo"><img class="img-responsive" src="images/ltLogo.png"
+                                                                     alt=""/></a>
+</div>
+<div class="tr">
+    <!--右侧顶部logo-->
+    <a href="http://www.ghac.cn/vehicles/honda/crosstour" target="_blank" class="rtLogo"><img class="img-responsive"
+                                                                                              src="images/vehicleLogo.png"
+                                                                                              alt=""/></a>
+    <a href="javascript:void(0)" class="bars fr"></a>
+</div>
+<div class="br">
+    <!--右侧底部-->
+    <img src="images/br.png" alt=""/>
+</div>
+<div id="nav">
+    <ul>
+        <li><a href="Crosstour1.aspx">首页</a></li>
+        <li class="active"><a href="page2.html">敢性出发</a></li>
+        <li><a href="page3.html">梦想世界</a></li>
+        <li><a href="javascript:void(0)" style="color: gray">星谈敢性</a></li>
+        <li><a href="page5.html">歌诗图</a></li>
+    </ul>
+    <div class="book-btn"><a href="##">即刻报名<em></em></a></div>
+</div>
+<div class="mainContent">
+    <div class="page2Txt">
+        <p class="v2PreTitle">你最大的梦想是什么？</p>
+
+        <p class="v2PreTitle">歌诗图现在揭晓第一个将被实现的敢性梦想……</p>
+
+        <div class="v2Subtitle">敢性行动第一击</div>
+        <img class="img-responsive" src="images/v2Title.png" alt="" />
+
+        <div class="parah-wrap">
+            <p>
+                一直追溯时光的印记，<br/>
+                找回初心，感受最纯粹的时间之旅。<br/>
+                敢性行动，出发筹备进行时……
+            </p>
+        </div>
+    </div>
+
+    <div class="v2BottomCon">
+        <img class="v2Bottom v_first" src="images/v2Bottom.png"/>
+        <img class="v2Bottom" src="images/v2BottomNal.png"/>
+    </div>
+</div>
+<div class="videowrap">
+    <div class="close"><img src="css/images/close.png" alt=""/></div>
+    <video controls>
+        <source src="video/mov_bbb.mp4" type="video/mp4"/>
+        <object data="video/mov_bbb.mp4">
+            <embed src="video/mov_bbb_clip.flv"/>
+        </object>
+    </video>
+</div>
+</div>
+<!-- 外部js -->
+<script src="js/frame/jquery-1.11.1.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+    $('.v2BottomCon').hover(function(){
+        $('.v2Bottom').hide();
+        $('.v2Bottom.v_first').show();
+    },function(){
+        $('.v2Bottom').show();
+        $('.v2Bottom.v_first').hide();
+    });
+</script>
+
+</body>
+</html>

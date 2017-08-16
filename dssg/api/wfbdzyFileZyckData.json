@@ -1,0 +1,46 @@
+{
+	"success": true,
+	"code": "0",
+	"message": "success",
+	"data": {
+		"id": "d7d2440d-52f7-417a-afd7-2cd10505458a",
+		"resName": "412",
+		"resEname": null,
+		"resType": "2",
+		"resCode": null,
+		"resLevel": "2",
+		"themeType": "3",
+		"themeTypeName": "一级测试",
+		"departmentType": "4",
+		"departmentTypeName": "部门测试1",
+		"fileJson": "[{\"updateDate\":\"2017-01-13 13:53:00\",\"size\":\"1024\",\"name\":\"test1.txt\",\"id\":\"b449283b-4c27-4757-9b1a-306d9069bb24\",\"type\":\"txt\"},{\"updateDate\":\"2017-01-13 13:53:00\",\"size\":\"1024\",\"name\":\"test10.txt\",\"id\":\"8bca2228-677f-4923-b5ad-ad3e3644bf9e\",\"type\":\"txt\"}]",
+		"dispatchStrategyJson": "{\"dispatchType\":1,\"beginTime\":\"2017-01-20 16:12\",\"cycle\":55,\"dateTypeMin\":1,\"dateTypeMax\":\"\",\"day\":\"\",\"hour\":\"\",\"second\":\"\"}",
+		"metadataDTO": {
+			"restitle": "412",
+			"abstracts": "412",
+			"rporgname": "412",
+			"address": "412",
+			"keyword": "412",
+			"subjectcarategory": "一级测试",
+			"departmentcategory": "部门测试1",
+			"reason": null,
+			"resourceType": "0"
+		},
+		"processRecordDTO": {
+			"id": "2df5dd1bc4e348fa908b740fc7262b97",
+			"resourceId": "d7d2440d-52f7-417a-afd7-2cd10505458a",
+			"applyUser": "admin@dssg1",
+			"applyTime": "2017-01-19 16:16:25",
+			"applyReason": "原因1",
+			"reviewUser": "admin@dssg1",
+			"reviewTime": "2017-01-19 16:17:17",
+			"reviewDesc": "意见1",
+			"result": "0",
+			"type": "0",
+			"effectiveData": null,
+			"deleteFlag": "-1"
+		},
+		"resSubscribeDTO": null,
+		"resourceItemDTO": null
+	}
+}

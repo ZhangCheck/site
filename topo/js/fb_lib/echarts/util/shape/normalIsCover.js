@@ -1,0 +1,1 @@
+define([],function(){return function(x,y){var originPos=this.transformCoordToLocal(x,y);x=originPos[0];y=originPos[1];return this.isCoverRect(x,y)}});

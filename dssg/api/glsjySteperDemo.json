@@ -1,0 +1,31 @@
+{
+    "success": true,
+    "data": {
+        "saveDataApi":{
+            "apiName":"glsjySaveAllData"
+        },
+        "steps":[
+            {
+                "type":"datalist",
+                "configStepApi":"glsjyStep1",
+                "number":"1",
+                "name":"选择数据源",
+                "id":"glsjyStep1"
+            },
+            {
+                "type":"datalist",
+                "configStepApi":"glsjyStep2",
+                "number":"2",
+                "name":"关联数据表",
+                "id":"glsjyStep2"
+            },
+            {
+                "type":"datalist",
+                "configStepApi":"glsjyStep3",
+                "number":"3",
+                "name":"数据预览",
+                "id":"glsjyStep3"
+            }
+        ]
+    }
+}

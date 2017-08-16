@@ -1,0 +1,104 @@
+(function(){ var runed=0,temp,timer,time;webpackJsonp([3],{
+
+/***/ 0:
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__("./node_modules/webpack-hot-middleware-ie8/client.js?path=http:/127.0.0.1:8000/__webpack_hmr");
+	module.exports = __webpack_require__("1484135530000");if(!runed){
+            clearInterval(timer);
+            timer = setInterval(function(){
+                if(temp) {
+                    temp(module, exports, __webpack_require__);
+                    clearInterval(timer);
+                    delete temp;
+                    
+                }
+                time++;
+                if(time>500){
+                    clearInterval(timer);
+                    console.log('more than 500 times')
+                }
+            },500);
+        }
+
+
+/***/ },
+
+/***/ "1484135530000":
+/***/ temp=function(module, exports, __webpack_require__) {
+runed = true;
+
+	'use strict';
+
+	var _react = __webpack_require__("./node_modules/react/react.js");
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _jsonp = __webpack_require__("./src/core/jsonp.js");
+
+	var _jsonp2 = _interopRequireDefault(_jsonp);
+
+	var _global = __webpack_require__("./src/core/global.js");
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	(0, _jsonp2["default"])("wfbdzyApiBdsjyXzsjyStep1")(function (args, callback) {
+	    var states = _global.Global.getState();
+	    var detailMsg = states.dataList.wfbdzyApi && states.dataList.wfbdzyApi.detailMsgDataApi && states.dataList.wfbdzyApi.detailMsgDataApi.data ? states.dataList.wfbdzyApi.detailMsgDataApi.data : {};
+	    callback({
+	        "success": true,
+	        "data": {
+	            "title": "",
+	            "table": {
+	                "primarykey": "id",
+	                "clounms": [{
+	                    "title": "数据源名称",
+	                    "dataIndex": "name",
+	                    "key": "name",
+	                    "width": 250
+	                }, {
+	                    "title": "IP地址",
+	                    "dataIndex": "ip",
+	                    "key": "ip",
+	                    "width": 250
+	                }, {
+	                    "title": "端口",
+	                    "dataIndex": "port",
+	                    "key": "port",
+	                    "width": 250
+	                }, {
+	                    "title": "数据源类型",
+	                    "dataIndex": "type",
+	                    "key": "type",
+	                    render: function render(text, record, index) {
+	                        if (record.type == 1) {
+	                            return '数据库';
+	                        } else {
+	                            return '文件';
+	                        }
+	                    }
+	                }],
+	                "body": { apiName: 'wfbdzySjkZyfbStep1TableData' } //暂定此接口
+	            },
+	            "list": {
+	                "view": null,
+	                "listApi": null,
+	                "saveApi": null
+	            },
+	            "add": {},
+	            "edit": {},
+	            "delete": {},
+	            "detail": {},
+	            "check": {
+	                "view": null,
+	                "checkApi": null
+	            }
+	        }
+	    });
+	});
+
+/***/ }
+
+});
+})()
+//# sourceMappingURL=pageArgs.js.map

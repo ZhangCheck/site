@@ -1,0 +1,10 @@
+{
+  "success": true,
+  "code": "0",
+  "message": "success",
+  "data": {
+    "subscibeTotal": "1",
+    "publishTotal": "0",
+    "cancelSharedTotal": "0"
+  }
+}

@@ -1,0 +1,19 @@
+window['jsonCallbackFunction']({
+	    "success": true,
+	    "data": [
+          {
+            "id": 1,
+            "text": "这是jsonp数据1",
+            "isComplete": true
+          },
+          {
+            "id": 2,
+            "text": "这是jsonp数据2"
+          },
+          {
+            "id": 3,
+            "text": "这是jsonp数据3"
+          }
+        ]
+	  
+})

@@ -1,0 +1,95 @@
+{
+  "success":"",
+  "error":"",
+  "data":[{
+    "name": "防火墙",
+    "icon":"images/firewall.png",
+    "collapse":false,
+    "children":[
+      {
+        "name":"移动VPN接入网关",
+        "ll":500,
+        "icon":"images/vpn.png",
+        "collapse":false,
+        "children":[
+          {
+            "name":"三层交换机",
+            "ll":300,
+            "icon":"images/Switch1.png",
+            "collapse":false,
+            "children":[{
+              "ll":100,
+              "name":"移动应用代理服务器",
+              "icon":"images/proxyserver.png"
+            },{
+              "ll":20,
+              "name":"移动应用管理系统",
+              "icon":"images/managementsystem.png",
+              "collapse":false,
+              "children":[
+                {
+                  "ll":300,
+                  "name":"隔离网闸",
+                  "icon":"images/Netgap.png",
+                  "collapse":false,
+                  "children":[
+                    {
+                      "ll":200,
+                      "state":"3",
+                      "name":"移动应用代理系统",
+                      "icon":"images/agentsystem.png",
+                      "collapse":false,
+                      "children":[
+                        {
+                          "ll":600,
+                          "name": "交换机",
+                          "icon": "images/Switch3.png",
+                          "collapse":false,
+                          "children":[
+                            {
+                              "ll":500,
+                              "state":"2",
+                              "name": "公安网业务系统",
+                              "icon": "images/servicesystem.png"
+                            },{
+                              "ll":20,
+                              "name": "移动警务业务系统",
+                              "icon": "images/servicesystem2.png"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }]
+          }
+        ]
+      },
+      {
+        "ll":100,
+        "name":"三层交换机",
+        "icon":"images/Switch2.png",
+        "collapse":false,
+        "children":[
+          {
+            "ll":20,
+            "icon":"images/telecom.png"
+          },{
+            "ll":30,
+            "icon":"images/CMCC.png"
+          },{
+            "ll":30,
+            "icon":"images/move.png"
+          }
+        ]
+      },
+      {
+        "ll":300,
+        "name":"消息服务器",
+        "icon":"images/Messageserver.png"
+      }
+    ]
+  }]
+}

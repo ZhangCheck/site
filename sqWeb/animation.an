@@ -1,0 +1,169 @@
+
+{
+
+	"expanded:images/dow.png":"nil",
+	"expanded:images/slidebox_in.png":"nil",
+	"expanded:images/channels.png":"nil",
+	"expanded:images/partnerhover04.png":"nil",
+	"Symbol_2-Default Timeline_mark_ms":"-1",
+	"expanded:images/payer.png":"nil",
+	"CompZoomFactor":"100",
+	"expanded:images/partnerhover02.png":"nil",
+	"nextElementColorIndex":"14",
+	"stage-Default Timeline_playhead_ms":"0",
+	"expanded:images/partner03.png":"nil",
+	"expanded:images/partner13.png":"nil",
+	"HTMLFileName":"animation.html",
+	"expanded:images/game.png":"nil",
+	"expanded:images/partnerhover06.png":"nil",
+	"symbol_Symbol_1":{
+		"element_${house3}":{
+			"timelineColor2":"0xd8b467",
+			"timelineColor3":"0x81714f",
+			"timelineColor":"0xffd46d"},
+		"element_${Rectangle2Copy4}":{
+			"timelineColor2":"0x5a558a",
+			"timelineColor3":"0x4a485e",
+			"animationEnabled":"true",
+			"timelineColor":"0x63599f"},
+		"element_${Rectangle2Copy5}":{
+			"timelineColor2":"0x107faa",
+			"timelineColor3":"0x295a6d",
+			"animationEnabled":"true",
+			"timelineColor":"0x008dc8"},
+		"element_${Rectangle2Copy}":{
+			"timelineColor2":"0xba5b89",
+			"timelineColor3":"0x734a5f",
+			"animationEnabled":"true",
+			"timelineColor":"0xdb619d"},
+		"element_${Rectangle2Copy6}":{
+			"timelineColor2":"0x1095d2",
+			"timelineColor3":"0x29647e",
+			"animationEnabled":"true",
+			"timelineColor":"0x00a9fa"},
+		"element_${Rectangle2Copy3}":{
+			"timelineColor2":"0xb099ce",
+			"timelineColor3":"0x70657c",
+			"animationEnabled":"true",
+			"timelineColor":"0xceaef4"},
+		"element_${Rectangle2Copy2}":{
+			"timelineColor2":"0xd35d6e",
+			"timelineColor3":"0x7e4b52",
+			"animationEnabled":"true",
+			"timelineColor":"0xfb657a"}},
+	"expanded:images/partnerhover05.png":"nil",
+	"expanded:images/slidebox_3pbottom.png":"nil",
+	"Symbol_2-Default Timeline_playhead_ms":"0",
+	"expanded:images/slidebox_chbottom.png":"nil",
+	"expanded:images/bottom.png":"nil",
+	"expanded:images/partner02.png":"nil",
+	"pref__general__AutoKeyframePropertiesArmed":"true",
+	"expanded:images/partnerhover09.png":"nil",
+	"expanded:images/house.png":"nil",
+	"expanded:images/partner01.png":"nil",
+	"usedBOM":"false",
+	"expanded:images/partner11.png":"nil",
+	"expanded:images/partner09.png":"nil",
+	"expanded:images/partnerhover11.png":"nil",
+	"expanded:images/gaming.png":"nil",
+	"expanded:images/slidebox_gabottom.png":"nil",
+	"expanded:images/partner07.png":"nil",
+	"expanded:images/partner12.png":"nil",
+	"expanded:images/partnerhover03.png":"nil",
+	"StageZoomFactor":"125",
+	"pixelsPerMs":"0.15289776858628",
+	"expanded:images/partner04.png":"nil",
+	"expanded:images/icon_design.png":"nil",
+	"expanded:images/slidebox_de.png":"nil",
+	"expanded:images/partnerhover07.png":"nil",
+	"expanded:images/partner10.png":"nil",
+	"expanded:images/partnerhover08.png":"nil",
+	"expanded:images/slidebox_3ptop.png":"nil",
+	"symbol_Symbol_2":{
+		"element_${wave}":{
+			"timelineColor2":"0x326a96",
+			"timelineColor3":"0x385063",
+			"animationEnabled":"true",
+			"timelineColor":"0x2f73ad"}},
+	"expanded:images/top.png":"nil",
+	"expanded:images/partnerhover10.png":"nil",
+	"expanded:images/partnerhover01.png":"nil",
+	"expanded:images/contact.png":"nil",
+	"expanded:images/partnerhover12.png":"nil",
+	"symbol_Symbol_3":{
+		"element_${word_index_t}":{
+			"timelineColor2":"0x4fa275",
+			"timelineColor3":"0x456a55",
+			"animationEnabled":"true",
+			"timelineColor":"0x50bd82"}},
+	"expanded:images/partnerhover13.png":"nil",
+	"expanded:images/business.png":"nil",
+	"expanded:images/about.png":"nil",
+	"expanded:images/service.png":"nil",
+	"expanded:images/partner06.png":"nil",
+	"expanded:images/partner08.png":"nil",
+	"symbol_stage":{
+		"dummyStageParentHeight":"600px",
+		"dummyStageParentWidth":"1000px",
+		"defaultStageParentHeight":"600px",
+		"element_${word_index_t}":{
+			"timelineColor2":"0x168c84",
+			"timelineColor3":"0x2a605c",
+			"animationEnabled":"false",
+			"timelineColor":"0x00a096"},
+		"defaultStageParentWidth":"1000px",
+		"element_${Symbol_2}":{
+			"timelineColor2":"0x81aa62",
+			"timelineColor3":"0x5b6c4d",
+			"animationEnabled":"true",
+			"timelineColor":"0x91c767"},
+		"element_${Stage}":{
+			"timelineColor2":"0xcbbd71",
+			"timelineColor3":"0x7b7652",
+			"timelineColor":"0xeedf79"},
+		"element_${Symbol_3}":{
+			"timelineColor2":"0x1aa38f",
+			"timelineColor3":"0x2a6a61",
+			"animationEnabled":"false",
+			"timelineColor":"0x00bda4"}},
+	"TransitionIdCounter":"92",
+	"pref__general__FilterNonAnimatedElements":"false",
+	"viewStartY":"0",
+	"expanded:images/partner05.png":"nil",
+	"expanded:images/house.svg":"nil",
+	"expanded:images/slidebox_chtop.png":"nil",
+	"expanded:images/triangle.svg":"nil",
+	"expanded:images/word_index_t.png":"nil",
+	"Symbol_1-Default Timeline_playhead_ms":"0",
+	"expanded:images/slidebox_gatop.png":"nil",
+	"ModelData":"{\
+\"stage\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
+   }},\
+\"Symbol_1\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
+   }},\
+\"Symbol_2\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
+   }},\
+\"Symbol_3\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
+   }},\
+\"Preloader\": {\
+   \"timelines\": {\
+\
+   }},\
+\"Down-level\": {\
+   \"timelines\": {\
+\
+   }}\
+}",
+	"Symbol_3-Default Timeline_playhead_ms":"0"}

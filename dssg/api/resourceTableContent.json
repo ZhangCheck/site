@@ -1,0 +1,23 @@
+{
+    "success": true,
+    "data": [
+        {
+            "key": "1",
+            "name": "XXX",
+            "subscribers": 500,
+            "flow": "500m"
+        },
+        {
+            "key": "2",
+            "name": "XXX",
+            "subscribers": 500,
+            "flow": "500m"
+        },
+        {
+            "key": "3",
+            "name": "XXX",
+            "subscribers": 500,
+            "flow": "500m"
+        }
+    ]
+}

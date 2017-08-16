@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" style="margin:0;padding:0;height:100%;font-family:'微软雅黑';background:#333333">
+
+<head>
+    <meta charset="UTF-8">
+    <title>多拍相册</title>
+    <script src="jquery-1.11.3.min.js"></script>
+	<style>
+		li{
+			cursor:pointer;
+		}
+		li.selected{
+			color:#F18AED;
+		}
+	</style>
+	<script>
+		$(function(){
+			$('li').click(function(){
+				$('li.selected').removeClass('selected');
+				$(this).addClass('selected');
+				$('#album').attr('src',$(this).attr('href'));
+			})
+		})
+	</script>
+</head>
+
+<body ms-controller="mainCtl"  style="margin:0;padding:0;height:100%;overflow:hidden;">
+	<div style="overflow-y:scroll;position:fixed;width:200px;top:0;bottom:0;left:0;background:#181818;color:#fff;line-height:32px;padding:0 20px 20px 20px">
+		<h4 style="padding-left:10px;">多拍相册</h4>
+		<ul>
+			<li href="PhotoGallery1.html" class='selected'>相册01</li>
+			<li href="PhotoGallery2.html">相册02</li>
+			<li href="PhotoGallery3.html">相册03</li>
+			<li href="PhotoGallery4.html">相册04</li>
+			<li href="PhotoGallery5.html">相册05</li>
+			<li href="PhotoGallery6.html">相册06</li>
+			<li href="PhotoGallery7.html">相册07</li>
+			<li href="PhotoGallery8.html">相册08</li>
+			<li href="PhotoGallery9.html">相册09</li>
+			<li href="PhotoGallery10.html">相册10</li>
+			<li href="PhotoGallery11.html">相册11</li>
+			<li href="PhotoGallery12.html">相册12</li>
+			<li href="PhotoGallery13.html">相册13</li>
+			<li href="PhotoGallery14.html">相册14</li>
+			<li href="PhotoGallery15.html">相册15</li>
+			<li href="PhotoGallery16.html">相册16</li>
+			<li href="PhotoGallery17.html">相册17</li>
+			<li href="PhotoGallery18.html">相册18</li>
+			<li href="PhotoGallery19.html">相册19</li>
+			<li href="PhotoGallery19.html">相册20</li>
+			<li href="PhotoGallery19.html">相册21</li>
+			<li href="PhotoGallery19.html">相册22</li>
+			<li href="PhotoGallery19.html">相册23</li>
+			<li href="PhotoGallery19.html">相册24</li>
+			<li href="PhotoGallery19.html">相册25</li>
+			<li href="PhotoGallery19.html">相册26</li>
+			<li href="PhotoGallery19.html">相册27</li>
+			<li href="PhotoGallery19.html">相册28</li>
+			<li href="PhotoGallery19.html">相册29</li>
+			<li href="PhotoGallery19.html">相册30</li>
+			<li href="PhotoGallery19.html">相册31</li>
+			<li href="PhotoGallery19.html">相册32</li>
+			<li href="PhotoGallery19.html">相册33</li>
+			<li href="PhotoGallery19.html">相册34</li>
+			<li href="PhotoGallery19.html">相册35</li>
+			<li href="PhotoGallery19.html">相册36</li>
+			<li href="PhotoGallery19.html">相册37</li>
+			<li href="PhotoGallery19.html">相册38</li>
+			<li href="PhotoGallery19.html">相册39</li>
+			<li href="PhotoGallery19.html">相册40</li>
+			<li href="PhotoGallery19.html">相册41</li>
+			<li href="PhotoGallery19.html">相册42</li>
+			<li href="PhotoGallery19.html">相册43</li>
+			<li href="PhotoGallery19.html">相册44</li>
+			<li href="PhotoGallery19.html">相册45</li>
+			<li href="PhotoGallery19.html">相册46</li>
+			<li href="PhotoGallery19.html">相册47</li>
+			<li href="PhotoGallery19.html">相册48</li>
+			<li href="PhotoGallery19.html">相册49</li>
+			<li href="PhotoGallery19.html">相册50</li>
+			<li href="PhotoGallery19.html">相册51</li>
+			<li href="PhotoGallery19.html">相册52</li>
+			<li href="PhotoGallery19.html">相册53</li>
+			<li href="PhotoGallery19.html">相册54</li>
+			<li href="PhotoGallery19.html">相册55</li>
+			<li href="PhotoGallery19.html">相册56</li>
+		</ul>
+	</div>
+	<div style="position:absolute;left:200px;right:0;height:100%">
+		<iframe id="album" style="width:100%;height:100%;border:none;" src="PhotoGallery1.html"></iframe>
+	</div>
+	
+	
+</body>
+</html>

@@ -1,0 +1,1 @@
+define(["require","../config"],function(require){var config=require("../config");return function(){if(0!==config.debugMode)if(1==config.debugMode)for(var k in arguments)throw new Error(arguments[k]);else if(config.debugMode>1)for(var k in arguments)console.log(arguments[k])}});

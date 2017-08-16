@@ -1,0 +1,40 @@
+{
+	"success": true,
+	"code": "0",
+	"message": "success",
+	"data": [
+		{
+			"children": [
+				{
+					"children": [
+						{
+							"label": "技侦支队",
+							"value": "ccc",
+							"key": "ccc"
+						}
+					],
+
+					"label": "南京公安局",
+					"value": "bbb",
+					"key": "bbb"
+				},
+				{
+					"children": [
+						{
+							"label": "南京社保",
+							"value": "eee",
+							"key": "eee"
+						}
+					],
+
+					"label": "行政单位",
+					"value": "ddd",
+					"key": "ddd"
+				}
+			],
+			"label": "全部",
+			"value": "aaa",
+			"key": "aaa"
+		}
+	]
+}

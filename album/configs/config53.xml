@@ -1,0 +1,27 @@
+﻿<root>
+	<loading enable="flase">
+		<vipLoading source="loading.jpg" navigator="http://www.dpdp.net"/>
+		<nomalLoading source="loading.jpg"  navigator="http://www.baidu.com"/>
+	</loading>
+	
+	<rightContent>
+		<item name='买衣服，就上"www.买衣网.com"' navigator="http://www.买衣网.com"/>
+	</rightContent>
+	
+	<enviroment>
+		<mainXmlUrl>data/user/username/53/xml/main.xml</mainXmlUrl>
+		<listXmlUrl>data/list.xml</listXmlUrl>
+		<musicXmlUrl>data/default/defaultAlbum/xml/music.xml</musicXmlUrl>
+		<tempXmlUrl>data/user/username/53/xml/template.xml</tempXmlUrl>
+		<defaultPic>template/defaultPicture/list.xml</defaultPic>
+		<templateServerPath></templateServerPath>
+		<homePagePath>http://www.dpdp.net/m/homepage.php</homePagePath>
+		<fontServer></fontServer>
+	</enviroment>
+	
+	<viewConfig>
+		<controlLink name='买衣网' link="http://www.买衣网.com"/>
+		<showTitle2 value="false"/>
+	</viewConfig>
+</root>
+	

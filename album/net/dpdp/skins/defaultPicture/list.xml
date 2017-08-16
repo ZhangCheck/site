@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<photo title="呵呵，哈哈，我来了测试相册模版" uid="22">
+<pic photo_id="0" url="1.jpg" title="呵呵，哈哈，我来了6" perfix="net/dpdp/skins/defaultPicture/"  author="" dispdate="2005/07/31 10:14:43" jpg_width="640" jpg_height="480" Manufacturer="SONY" Model="CYBERSHOT" Software="ACD Systems Digital Imaging" ShotDate="2005:07:31 10:14:43" ApertureFNumber="f/4.0" ExposureTime="10/400" ExposureBiasValue="0/10 EV" ISOSpeedRatings="100" FocalLength="97/10 mm"><![CDATA[测试的介绍文字1 ]]></pic>
+<pic photo_id="0" url="2.jpg" title="呵呵，哈哈，我来了5" perfix="net/dpdp/skins/defaultPicture/"  author="" dispdate="2005/07/31 10:14:43" jpg_width="640" jpg_height="480" Manufacturer="SONY" Model="CYBERSHOT" Software="ACD Systems Digital Imaging" ShotDate="2005:07:31 10:14:43" ApertureFNumber="f/4.0" ExposureTime="10/400" ExposureBiasValue="0/10 EV" ISOSpeedRatings="100" FocalLength="97/10 mm"><![CDATA[测试的介绍文字2 ]]></pic>
+<pic photo_id="0" url="3.jpg" title="呵呵，哈哈，我来了4" perfix="net/dpdp/skins/defaultPicture/"  author="" dispdate="2005/07/31 10:14:43" jpg_width="640" jpg_height="480" Manufacturer="SONY" Model="CYBERSHOT" Software="ACD Systems Digital Imaging" ShotDate="2005:07:31 10:14:43" ApertureFNumber="f/4.0" ExposureTime="10/400" ExposureBiasValue="0/10 EV" ISOSpeedRatings="100" FocalLength="97/10 mm"><![CDATA[测试的介绍文字3 ]]></pic>
+</photo>
