@@ -1,0 +1,28 @@
+{
+  "success": true,
+  "code": "0",
+  "message": "success",
+  "data": {
+    "id": "1",
+    "name": "dssg",
+    "type": "1",
+    "dbType": "MYSQL",
+    "dbVersion": "1",
+    "dbInstanceName": "dssg",
+    "dbConnection": "111",
+    "ip": "192.168.30.216",
+    "port": "3306",
+    "username": "root",
+    "password": "root",
+    "ftpType": "1",
+    "ftpAddress": null,
+    "deleteFlag": null,
+    "createUser": null,
+    "createTime": null,
+    "updateUser": null,
+    "updateTime": null,
+    "description": null,
+    "sourceFlag": null,
+    "new": false
+  }
+}

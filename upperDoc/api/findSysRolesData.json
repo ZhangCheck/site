@@ -1,0 +1,29 @@
+{
+  "success": true,
+  "code": "0",
+  "message": "success",
+  "data": {
+    "content": [
+      {
+        "id": "a4a657e0dce94c518c489e6d48898727",
+        "name": "共享目录管理",
+        "description": "共享目录管理11111",
+        "menus": "权限管理,角色管理"
+      },
+      {
+        "id": "d9537e064eff43b69814fc8380f7ecd8",
+        "name": "admin",
+        "description": "admintest",
+        "menus": "系统管理"
+      }
+    ],
+    "totalElements": "2",
+    "last": true,
+    "totalPages": "1",
+    "size": "13",
+    "number": "0",
+    "sort": null,
+    "first": true,
+    "numberOfElements": "2"
+  }
+}

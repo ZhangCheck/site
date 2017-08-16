@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "code": "0",
+  "message": "success",
+  "data": {
+    "content": [
+      {
+
+        "sbCode": "00022",
+        "inIP": "南京市公安局",
+        "inGateway": "1号设备",
+        "zwym": "001",
+        "outIP":"二级",
+        "outGateway": "192.168.12.12",
+        "zwymOut": "接入节点",
+        "equipmentName":"1号设备",
+        "unitName":"刑侦大队",
+        "person":"小李",
+        "telephone":"025-5888888",
+        "email":"111@163.com",
+        "address":"雨花大道",
+        "ssywzx":"58558585",
+        "ssxzcj":"00000222"
+      }
+    ]
+  }
+}

@@ -1,0 +1,53 @@
+{
+	"success": true,
+	"code": "0",
+	"message": "success",
+	"data": {
+		"content": [{
+			"id": "3ccba9708dc946f0b2710e3c5bdf3685",
+			"name": "国家主题分类",
+			"code": "01",
+			"isHandleFlag": -1
+		},
+		{
+			"id": "5bb10d670e39463b9236ef41c5035ad4",
+			"name": "国家部门分类",
+			"code": "02",
+			"isHandleFlag": -1
+
+		},{
+			"id": "5bb10d670e394698j236ef41c5035ad4",
+			"name": "数据元分类",
+			"code": "03",
+				"isHandleFlag": -1
+
+		},{
+			"id": "5bb10d670e3kjr98j236ef41c5035ad4",
+			"name": "所属业务线条",
+			"code": "04",
+				"isHandleFlag": -1
+
+		},{
+			"id": "5bb105230e394698j236ef41c5035ad4",
+			"name": "所属行政级别",
+			"code": "05",
+				"isHandleFlag": -1
+
+		},
+		{
+			"id": "df2a1027f1dc4efd8dc052f4448327ba",
+			"name": "性别",
+			"code": "06",
+			"isHandleFlag": 0
+
+		}],
+		"last": true,
+		"totalPages": "1",
+		"totalElements": "10",
+		"size": "10",
+		"number": "0",
+		"sort": null,
+		"numberOfElements": "10",
+		"first": true
+	}
+}

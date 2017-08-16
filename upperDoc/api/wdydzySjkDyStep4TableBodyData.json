@@ -1,0 +1,34 @@
+{
+  "success": true,
+  "data":[
+    {
+      "id":"1",
+      "tableName":"姓名",
+      "description":"VARCHAR2"
+    },{
+      "id":"2",
+      "tableName":"姓名",
+      "description":"VARCHAR2"
+    },{
+      "id":"3",
+      "tableName":"姓名",
+      "description":"VARCHAR2"
+    },{
+      "id":"4",
+      "tableName":"姓名",
+      "description":"VARCHAR2"
+    },{
+      "id":"5",
+      "tableName":"姓名",
+      "description":"VARCHAR2"
+    },{
+      "id":"6",
+      "tableName":"姓名",
+      "description":"VARCHAR2"
+    },{
+      "id":"7",
+      "tableName":"姓名",
+      "description":"VARCHAR2"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+
+
+window["jsonCallbackFunction"]({
+    "success": true,
+    "data":[{
+        "title":"我是栏目1",
+        "column":3,
+        "labelCol":8,
+        "wrapperCol":16,
+        "data":[
+            {"name":"性别","type":"select","field":"select-multiple","placeholder":"请选择...","options":["aaa","bbb"],"validate": [{ "required": true, "message": "请输入性别!" }]},
+            {"name":"邮箱","type":"input","field":"email","defaultValue":"tiangb@fable.cn",
+                "validate": [{
+                    "type": "email", "message": "The input is not valid E-mail!"
+                },
+                    {
+                        "required": true, "message": "Please input your E-mail!"
+                    }]},
+            {"name":"checkbox","type":"checkbox","field":"checkbox","options":["篮球","足球","乒乓球"],"defaultValue":["篮球","乒乓球"]},
+            {"name":"switch","type":"switch","field":"switch","options":["篮球","足球","乒乓球"],"defaultValue":["篮球","乒乓球"]},
+            {"name":"radio","type":"radio","field":"radio","options":["篮球","足球","乒乓球"],"defaultValue":"足球"},
+            {"name":"radio","type":"radio1","field":"radio","options":[{"value":"baskeball","lable":"篮球王子"},{"value":"football","lable":"足球"},{"value":"pingpang","lable":"乒乓球"}],"defaultValue":"football"},
+            {"name":"TimePicker","type":"timePicker","field":"timePicker","defaultValue":"12:40","help":"请填写信息"},
+            {"name":"rangePicker","type":"rangePicker","field":"rangePicker"},
+            {"type":"input","name":"电影" ,"validate": [{"required": true, "message": "Please input !"}]}
+        ]
+    }]
+})

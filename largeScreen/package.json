@@ -1,0 +1,19 @@
+{
+  "name": "largscreen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node node_modules/upper-static-server/server 3089 http://192.168.80.32:8080/api/ 16"
+  },
+  "keywords": [
+    "dssg"
+  ],
+  "author": "zhangcheck",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "upper-static-server": "^1.0.1"
+  }
+}

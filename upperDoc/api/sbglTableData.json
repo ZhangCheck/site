@@ -1,0 +1,71 @@
+{
+  "success": true,
+  "code": "0",
+  "message": "success",
+  "data": {
+    "content": [
+      {
+        "id": "d5695e54-d192-40cb-8478-8130957f8e47",
+        "dwmc": "江苏公安局",
+        "sbmc": "江苏公安A",
+        "sbxlh": "001",
+        "sbdj":"一级",
+        "wwipdz": "192.168.12.12",
+        "sbjs": "中心服务器",
+        "lxr": "张三",
+        "lxdh":"13914713688",
+        "isCenter":"0",
+        "sbzt": "0"
+      },
+      {
+        "id": "111",
+        "dwmc": "南京社保",
+        "sbmc": "南京社保A",
+        "sbxlh": "0011",
+        "sbdj":"二级",
+        "wwipdz": "192.168.12.12",
+        "sbjs": "接入节点",
+        "lxr": "张三",
+        "lxdh":"13914713688",
+        "isCenter":"1",
+        "sbzt": "1"
+      },
+      {
+        "id": "1112",
+        "dwmc": "雨花分局",
+        "sbmc": "雨花分局A",
+        "sbxlh": "0012",
+        "sbdj":"二级",
+        "wwipdz": "192.168.12.12",
+        "sbjs": "接入节点",
+        "lxr": "张三",
+        "lxdh":"13914713688",
+        "isCenter":"1",
+        "sbzt": "2"
+      },
+      {
+        "id": "1113",
+        "dwmc": "技侦支队",
+        "sbmc": "技侦支队A",
+        "sbxlh": "0013",
+        "sbdj":"二级",
+        "wwipdz": "192.168.12.12",
+        "sbjs": "接入节点",
+        "lxr": "张三",
+        "lxdh":"13914713688",
+        "isCenter":"1",
+        "sbzt": "0"
+      }
+
+
+    ],
+    "totalElements": "10",
+    "totalPages": "1",
+    "last": true,
+    "first": true,
+    "sort": null,
+    "numberOfElements": "10",
+    "size": "18",
+    "number": "0"
+  }
+}
