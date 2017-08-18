@@ -1,0 +1,359 @@
+{
+  "success": true,
+  "code": "0",
+  "message": "success",
+  "data": [
+    {
+      "name": "根域",
+      "children": [
+        {
+          "id": "246abab7928b45dcbcf2879dcae6ed19",
+          "key": "246abab7928b45dcbcf2879dcae6ed19",
+          "name": "交通厅",
+          "url": "/datalistV1/mlgl/list/11/10",
+          "isDomainMember": true,
+          "children": [
+            {
+              "id": "0f00864486ed4540af3d9816386a0af8",
+              "name": "车辆管理",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            },
+            {
+              "id": "4ac22819bc634a19b554161764b6558d",
+              "name": "分页测试3",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            },
+            {
+              "id": "5b97d2ad240f4db6a7817a1daf17bd6a",
+              "name": "1232234",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            },
+            {
+              "id": "69969f1dcf6246f8b24bc15c952859e6",
+              "name": "不嘻哈不稀罕",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            },
+            {
+              "id": "722a03e55d2d4af3a0d4be412c3cfbf1",
+              "name": "扣分处理",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            },
+            {
+              "id": "8628a26a60f34ef29358696f6aeb53b8",
+              "name": "分页测试5",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            },
+            {
+              "id": "b1f7857e2d3e42699a58e8039d5b5626",
+              "name": "分页测试4",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            },
+            {
+              "id": "c76df965fccd4e5abfa5042d26d82cbd",
+              "name": "fjfjf",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            },
+            {
+              "id": "e7b6569101e64209a3ca89ea49699e24",
+              "name": "分页测试2",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            },
+            {
+              "id": "e81c1a64e1d040a4ba7b3b53fbee4cd2",
+              "name": "分页测试1",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            },
+            {
+              "id": "ebdf15a7fae442209825bedf25238dee",
+              "name": "啥啥啥",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            }
+          ]
+        },
+        {
+          "id": "29ebeb6e42014c9facf49c3bb0a02373",
+          "key": "29ebeb6e42014c9facf49c3bb0a02373",
+          "name": "cx-dl域",
+          "url": "/datalistV1/mlgl/list/11/10",
+          "isDomainMember": true,
+          "children": [
+            {
+              "id": "4beec9bf094c4bc08bd5d239899fb9f1",
+              "name": "数据库",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            },
+            {
+              "id": "b02a6b2532b2421ab8e039be397340a5",
+              "name": "smbl文件目录",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            }
+          ]
+        },
+        {
+          "id": "38a903c7bd704523923895b7de47e4f3",
+          "key": "38a903c7bd704523923895b7de47e4f3",
+          "name": "下载资源目录",
+          "url": "/datalistV1/mlgl/list/11/10",
+          "isDomainMember": true,
+          "children": [
+            {
+              "id": "535e583ef414430ea8bf88c8aa72f45d",
+              "name": "cx审核节点",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            },
+            {
+              "id": "70fb58e2b5c44efe86f60cf65c142f9e",
+              "name": "fj审核节点",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            },
+            {
+              "id": "87346c1d5cfc4220969ce8547a755b7f",
+              "name": "dl审核节点",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            },
+            {
+              "id": "cecf1e6de27e4d8c86f64694202810c0",
+              "name": "fj审核节点2",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            }
+          ]
+        },
+        {
+          "id": "5c8997dbf5734b2a9f7b1023e40606c5",
+          "key": "5c8997dbf5734b2a9f7b1023e40606c5",
+          "name": "公安域",
+          "url": "/datalistV1/mlgl/list/11/10",
+          "isDomainMember": true,
+          "children": [
+            {
+              "id": "308a41d294434312b527669a1f0efb06",
+              "name": "sqlserver",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            },
+            {
+              "id": "531b1c3c32d742ba8e374f89ad6b3cd1",
+              "name": "数据库oracle目录",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            },
+            {
+              "id": "553dc121a66c43f2ab565c5221f9e3dc",
+              "name": "tiangb",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            },
+            {
+              "id": "711aa813717841d3bf4bbad5b54f40d4",
+              "name": "dl文件资源编目",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            },
+            {
+              "id": "7d1f4d9baabf4251a99bb70fe7c77f49",
+              "name": "cx文件资源编目",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            },
+            {
+              "id": "89cdf58f42bf4814aa9bee9025340054",
+              "name": "111",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            },
+            {
+              "id": "e67a568bae8c4019801832e5f29599f9",
+              "name": "数据库目录",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            }
+          ]
+        },
+        {
+          "id": "5f5e7c42e33c4650ba97adb943465b73",
+          "key": "5f5e7c42e33c4650ba97adb943465b73",
+          "name": "财政厅",
+          "url": "/datalistV1/mlgl/list/11/10",
+          "isDomainMember": true,
+          "children": [
+            {
+              "id": "040d9423a3ae4ff98c99770127118282",
+              "name": "财政共享资源",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            }
+          ]
+        },
+        {
+          "id": "802d1ce521a04725a509fcf6bfa468cd",
+          "key": "802d1ce521a04725a509fcf6bfa468cd",
+          "name": "政务",
+          "url": "/datalistV1/mlgl/list/11/10",
+          "isDomainMember": true,
+          "children": [
+            {
+              "id": "2e56fde4d1bb453c97e9aca6d14822c7",
+              "name": "文件目录",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            },
+            {
+              "id": "3595c4c451af41da91703d3a73ad4aa1",
+              "name": "API目录",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            }
+          ]
+        },
+        {
+          "id": "84159efe9e1d4ed784b8f0135a425b57",
+          "key": "84159efe9e1d4ed784b8f0135a425b57",
+          "name": "演示0731",
+          "url": "/datalistV1/mlgl/list/11/10",
+          "isDomainMember": true,
+          "children": [
+            {
+              "id": "9e9888259c1b4db58ae24a8c8517a9dc",
+              "name": "0731目录",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            }
+          ]
+        },
+        {
+          "id": "897168c96ee14d9ca2bc5d3ea04fcb25",
+          "key": "897168c96ee14d9ca2bc5d3ea04fcb25",
+          "name": "xhb",
+          "url": "/datalistV1/mlgl/list/11/10",
+          "isDomainMember": true,
+          "children": [
+            {
+              "id": "bf54744237b544b283ecd1cf7e06d1b7",
+              "name": "mysql",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            }
+          ]
+        },
+        {
+          "id": "98fdbfcc4c6649139ca2dd4d313f8a97",
+          "key": "98fdbfcc4c6649139ca2dd4d313f8a97",
+          "name": "两口子",
+          "url": "/datalistV1/mlgl/list/11/10",
+          "isDomainMember": true,
+          "children": [
+            {
+              "id": "50069358c5944092bdabd549b09074a0",
+              "name": "嘻嘻最美",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            },
+            {
+              "id": "9c455d18e00e490baf97c4a6a73759da",
+              "name": "测试路面",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            },
+            {
+              "id": "f3a7c17547264812ac84a90e4fb4531d",
+              "name": "本地API资源",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            }
+          ]
+        },
+        {
+          "id": "a4f4464d81cb4a2c8589079db16a69bf",
+          "key": "a4f4464d81cb4a2c8589079db16a69bf",
+          "name": "社会服务域",
+          "url": "/datalistV1/mlgl/list/11/10",
+          "isDomainMember": true,
+          "children": [
+            {
+              "id": "249b5a30a08e4009a6d8f9997953e4e0",
+              "name": "社保",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            },
+            {
+              "id": "40e56ca5f7f04bb9a6676139c04c0e9d",
+              "name": "发布目录测试",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            }
+          ]
+        },
+        {
+          "id": "ec2302b362f84a40a0d83781599db39e",
+          "key": "ec2302b362f84a40a0d83781599db39e",
+          "name": "政法资源域",
+          "url": "/datalistV1/mlgl/list/11/10",
+          "isDomainMember": true,
+          "children": [
+            {
+              "id": "0ab4de42ad6f4e04beec76ea449cf0d0",
+              "name": "数据库资源目录dlj2",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            },
+            {
+              "id": "2636f821178341b68defc9a353f60ebe",
+              "name": "API资源目录0802",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            },
+            {
+              "id": "451a64bd16cf4d46be154f79673c49df",
+              "name": "数据库资源目录dlj",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            },
+            {
+              "id": "6d912e73842e409fb5f91056c5b6e195",
+              "name": "文件资源目录0803",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            },
+            {
+              "id": "99fc88c7584743cab7541f2ba8b39d25",
+              "name": "数据库资源目录dlj1",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            }
+          ]
+        },
+        {
+          "id": "ec27db9be1cc4154be2dba37d358d5b2",
+          "key": "ec27db9be1cc4154be2dba37d358d5b2",
+          "name": "法院",
+          "url": "/datalistV1/mlgl/list/11/10",
+          "isDomainMember": true,
+          "children": [
+            {
+              "id": "1a6463a94df745e0b1075387c0e737ce",
+              "name": "本地资源",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            },
+            {
+              "id": "2b544289a08f45b3a8ebaf28bac4b673",
+              "name": "第三方资源",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            }
+          ]
+        },
+        {
+          "id": "f355e11faf4d414485f8f48b1ae6fa64",
+          "key": "f355e11faf4d414485f8f48b1ae6fa64",
+          "name": "xhb域",
+          "url": "/datalistV1/mlgl/list/11/10",
+          "isDomainMember": true,
+          "children": [
+            {
+              "id": "aa0780b38f304cb98c093cc8f461c4cb",
+              "name": "mysql",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            }
+          ]
+        },
+        {
+          "id": "f4377f1eed3d4f17a7bba3c96b9019be",
+          "key": "f4377f1eed3d4f17a7bba3c96b9019be",
+          "name": "接入节点域",
+          "url": "/datalistV1/mlgl/list/11/10",
+          "isDomainMember": true,
+          "children": [
+            {
+              "id": "0f3d0cb35a0045ddbf8ab225f7a351f5",
+              "name": "测试目录",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            },
+            {
+              "id": "caa58f50ec6d4345b32eb953984f0f51",
+              "name": "测试目录3",
+              "url": "/datalistV1/zybmgl/list/11/10"
+            }
+          ]
+        }
+      ],
+      "id": "sub1"
+    }
+  ]
+}

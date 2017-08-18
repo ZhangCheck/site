@@ -1,0 +1,73 @@
+{
+    "success": true,
+    "data":[{
+        "id":1,
+        "key": 1,
+        "name": "产品一部",
+        "code": "01",
+        "description": "New York No. 1 Lake Park",
+        "children": [{
+            "id":11,
+            "key": 11,
+            "name": "XXX单位",
+            "code": "0101",
+            "description": "New York No. 2 Lake Park"
+        }, {
+            "id":12,
+            "key": 12,
+            "name": "XXX单位",
+            "code": "0102",
+            "description": "New York No. 3 Lake Park"
+        }]
+    }, {
+        "id":2,
+        "key": 2,
+        "name": "产品二部",
+        "code": "02",
+        "description": "Sidney No. 1 Lake Park",
+        "children": [{
+            "id":21,
+            "key": 22,
+            "name": "DSSG组",
+            "code": "0201",
+            "description": "New York No. 2 Lake Park"
+        }, {
+            "id":14,
+            "key": 14,
+            "name": "总线组",
+            "code": "0202",
+            "description": "New York No. 3 Lake Park",
+            "children": [{
+                "id":15,
+                "key": 15,
+                "name": "跨边界",
+                "code": "020201",
+                "description": "New York No. 2 Lake Park"
+            }, {
+                "id":16,
+                "key": 16,
+                "name": "共享数据",
+                "code": "020202",
+                "description": "New York No. 3 Lake Park"
+            }]
+        },{
+            "id":23,
+            "key": 23,
+            "name": "数据交换",
+            "code": "0203",
+            "description": "New York No. 2 Lake Park"
+        }]
+    },{
+        "id":3,
+        "key": 3,
+        "name": "产品三部",
+        "code": "03",
+        "description": "Sidney No. 1 Lake Park"
+    },{
+        "id":4,
+        "key": 4,
+        "name": "战略发展",
+        "code": "04",
+        "description": "Sidney No. 1 Lake Park"
+    }]
+}

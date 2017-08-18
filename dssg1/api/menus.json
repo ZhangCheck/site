@@ -1,0 +1,396 @@
+{
+  "success":true,
+  "data":[
+    {
+      "label": "编目管理",
+      "key": "catalogManager",
+      "mainConMenuShow": null,
+      "icon": "dssg-menu-manage",
+      "children": [
+        {
+          "label": "目录管理",
+          "key": "datalistV1/mlgl/list/11/10",
+          "mainConMenuShow": {
+		     "apiName": "sbglTreeData"
+		  },
+          "icon": "smile",
+          "children": null
+        },
+        {
+          "label": "系统字典管理",
+          "key": "datalistV1/dictsInfo/list/11/10",
+          "mainConMenuShow": {
+            "apiName": "sbglTreeData"
+          },
+          "icon": "smile",
+          "children": null
+        },
+        {
+          "label": "数据元管理",
+          "key": "datalistV1/metadata/list/11/10",
+          "icon": "smile",
+          "children": null
+        }
+      ]
+    },
+    {
+      "label": "资源管理",
+      "key": "resourceManager",
+      "mainConMenuShow": null,
+      "icon": "dssg-menu-manage",
+      "children": [
+        {
+          "label": "订阅资源",
+          "key": "datalistV1/zydyList/list/11/10",
+          "mainConMenuShow": null,
+          "icon": "smile",
+          "children": null
+        },
+        {
+          "label": "发布资源",
+          "key": "datalistV1/fbzyList/list/11/10",
+          "mainConMenuShow": null,
+          "icon": "smile",
+          "children": null
+        },
+        {
+          "label": "数据源管理",
+          "key": "datalistV1/sjygl/list/11/10",
+          "mainConMenuShow": null,
+          "icon": "smile",
+          "children": null
+        },
+        {
+          "label": "订阅审批",
+          "key": "datalistV1/zydysplb/list/11/10",
+          "mainConMenuShow": null,
+          "icon": "smile",
+          "children": null
+        }
+      ]
+    },
+    {
+      "label": "FTP服务",
+      "key": "ftpfuwu",
+      "icon": "dssg-menu-manage",
+      "children":[
+        {
+          "label": "FTP用户管理",
+          "key": "datalistV1/ftpYhgl/list/11/10",
+          "icon": "smile"
+		  
+        },{
+          "label": "FTP目录管理",
+          "key": "datalistV1/ftpMlgl/list/11/10",
+          "icon": "smile",
+		  "mainConMenuShow":{
+		      "apiName":"sbglTreeData"
+		  }
+        },{
+          "label": "FTP日志",
+          "key": "datalistV1/ftpRz/list/11/10",
+          "icon": "smile"
+		  
+        },{
+		   
+		}
+      ]
+    },
+    {
+      "label": "共享目录管理",
+      "key": "sub1",
+      "icon": "dssg-menu-manage",
+      "children":[
+        {
+          "label": "我管理的目录",
+          "key": "datalistV1/wgldml/list/11/10",
+          "icon": "smile",
+		  "mainConMenuShow":{
+		      "apiName":"sbglTreeData"
+		  }
+        },{
+          "label": "分类管理",
+          "key": "datalistV1/flgl/list/11/10",
+          "icon": "smile"
+        },{
+          "label": "单位管理",
+          "key": "datalistV1/dwgl/list/11/10",
+          "icon": "smile",
+		  "mainConMenuShow":{
+		      "apiName":"sbglTreeData"
+		  }
+        },{
+          "label": "本地我管理的目录",
+          "key": "datalistV1/wgldmlLocal/list/11/10",
+          "icon": "smile"
+        },{
+          "label": "本地分类管理",
+          "key": "datalistV1/flglLocal/list/11/10",
+          "icon": "smile"
+        },{
+          "label": "本地单位管理",
+          "key": "datalistV1/dwglLocal/list/11/10",
+          "icon": "smile"
+        },{
+          "label": "数据字典管理",
+          "key": "sysDictsManager",
+          "icon": "smile"
+        },{
+          "label": "目录分类管理",
+          "key": "datalistV1/mlflgl/list/11/10",
+          "icon": "smile"
+        }
+      ]
+    },
+    {
+      "label": "共享数据管理",
+      "key": "sub2",
+      "icon": "dssg-menu-manage",
+      "children":[
+        {
+          "label": "数据源管理",
+          "key":  "datalistV1/sjygl/list/12/10",
+          "icon": "pushpin"
+
+        },
+        {
+          "label": "我发布的资源",
+          "key": "datalistV1/wfbdzySjk/list/0/10",
+          "icon": "smile"
+        },{
+          "label": "我订阅的资源",
+          "key": "datalistV1/wdydzySjk/list/0/10",
+          "icon": "smile"
+
+        },{
+          "label": "目录审核",
+          "key": "datalistV1/wgldmlSh/list/0/10",
+          "icon": "smile"
+        },{
+          "label": "发布审核",
+          "key": "datalistV1/fbshsyzysjk/list/0/10",
+          "icon": "smile"
+        },{
+          "label": "撤销审核",
+          "key": "datalistV1/cxshsjksyzy/list/0/10",
+          "icon": "smile"
+        },{
+          "label": "订阅审批",
+          "key": "datalistV1/dysp/list/11/9",
+          "icon": "appstore"
+        }
+      ]
+    },{
+      "label": "组网管理",
+      "key": "sub3",
+      "mainConMenuShow": null,
+      "icon": "dssg-menu-manage",
+      "children": [
+        {
+          "label": "单位管理",
+          "key": "datalistV1/dwgl/list/11/10",
+          "mainConMenuShow": null,
+          "icon": "smile",
+          "children": null
+        },
+        {
+          "label": "设备管理",
+          "key": "page/Sbglsub",
+          "mainConMenuShow": null,
+          "icon": "smile",
+          "children": null
+        },
+        {
+          "label": "资源域管理",
+          "key": "page/Zyygl",
+          "mainConMenuShow": null,
+          "icon": "smile",
+          "children": null
+        }
+      ]
+    },{
+      "label": "日志审计",
+      "key": "sub4",
+      "mainConMenuShow": null,
+      "icon": "dssg-menu-manage",
+      "children": [
+        {
+          "label": "操作日志",
+          "key": "datalistV1/czrz/list/11/10",
+          "mainConMenuShow": null,
+          "icon": "smile",
+          "children": null
+        },
+        {
+          "label": "交换日志",
+          "key": "datalistV1/jhrzwfbdZY/list/11/10",
+          "mainConMenuShow": null,
+          "icon": "smile",
+          "children": null
+        },
+        {
+          "label": "服务日志",
+          "key": "datalistV1/apijkrzwfbdzy/list/11/10",
+          "mainConMenuShow": null,
+          "icon": "smile",
+          "children": null
+        }
+      ]
+    },{
+      "label": "系统监控",
+      "key": "sub6",
+      "mainConMenuShow": null,
+      "icon": "dssg-menu-manage",
+      "children": [
+        {
+          "label": "实时监控",
+          "key": "page/ssjk",
+          "mainConMenuShow": null,
+          "icon": "metadata2",
+          "children": null
+        },
+        {
+          "label": "发布资源分析",
+          "key": "page/fbzyfx",
+          "mainConMenuShow": null,
+          "icon": "metadata2",
+          "children": null
+        },
+        {
+          "label": "订阅资源分析",
+          "key": "page/dyzyfx",
+          "mainConMenuShow": null,
+          "icon": "metadata2",
+          "children": null
+        }
+      ]
+    },{
+      "label": "消息管理",
+      "key": "sub10",
+      "icon": "dssg-menu-manage",
+      "children":[
+        {
+          "label": "消息",
+           "key": "datalistV1/wsddxx/list/11/10",
+          "icon": "pushpin"
+
+        }
+      ]
+    },
+    {
+      "label": "系统管理",
+      "key": "sub7",
+      "icon": "dssg-menu-manage",
+      "children":[
+        {
+          "label": "用户管理",
+          "key": "datalistV1/yhgl/list/11/10",
+          "icon": "smile"
+        },{
+          "label": "角色管理",
+          "key": "datalistV1/jsgl/list/11/10",
+          "icon": "smile"
+        },{
+          "label": "菜单管理",
+          "key": "datalistV1/cdglList/list/11/10",
+          "icon": "smile"
+        },{
+          "label": "交换任务监控",
+          "key": "datalistV1/wfbdZY/list/11/10",
+          "icon": "smile"
+        }
+      ]
+    },
+    {
+      "label": "门户管理",
+      "key": "mhgl",
+      "icon": "dssg-menu-manage",
+      "children":[
+        {
+          "label": "banner管理",
+          "key": "datalistV1/banner/list/11/10",
+          "icon": "smile"
+        },
+        {
+          "label": "推荐管理",
+          "key": "datalistV1/tjgl/list/11/10",
+          "icon": "smile"
+        },
+        {
+          "label": "评论管理",
+          "key": "datalistV1/plgl/list/11/10",
+          "icon": "smile"
+        }
+      ]
+    },
+    {
+      "label": "开发测试",
+      "key": "components",
+      "icon": "dssg-menu-manage",
+      "children":[
+        {
+          "label": "遗留问题",
+          "key": "issue",
+          "icon": "smile"
+        },
+        {
+          "label": "Component(Api)",
+          "key": "componentDemo",
+          "icon": "smile"
+        },
+        {
+          "label": "JsonpDemo(Page)",
+          "key": "jsonpDemo",
+          "icon": "smile"
+        },
+        {
+          "label": "DataListV1",
+          "key": "datalistV1/datalistDemo/list/11/10",
+          "icon": "smile"
+        },
+        {
+          "label": "DataListV1-Layout3",
+          "key": "datalistV1/datalistDemoLayout3/list/11/10",
+          "icon": "smile"
+        },
+        {
+          "label": "AiForm-Base",
+          "key": "aiFormBaseDemo",
+          "icon": "smile"
+        },
+        {
+          "label": "AiForm-Link",
+          "key": "aiFormLinkDemo",
+          "icon": "smile"
+        },
+        {
+          "label": "AiForm-Table",
+          "key": "aiFormTableDemo",
+          "icon": "smile"
+        },
+        {
+          "label": "AiTree-Table",
+          "key": "datalistV1/aiTreeTableDemo/list/11/10",
+          "icon": "smile"
+        },
+        {
+          "label": "Stepper",
+          "key": "steperV1/steperConfigDemo/1",
+          "icon": "smile"
+        },
+        {
+          "label": "Topo",
+          "key": "topoDemo",
+          "icon": "smile"
+        },
+        {
+          "label": "Download",
+          "key": "/page/downloadDemo",
+          "icon": "smile"
+        }
+      ]
+    }
+  ]
+}
+
+

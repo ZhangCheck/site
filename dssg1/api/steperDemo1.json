@@ -1,0 +1,36 @@
+{
+    "success": true,
+    "data": {
+        "saveDataApi":{
+            "apiName":"saveAllData"
+        },
+        "steps":[
+            {
+                "type":"datalist",
+                "configStepApi":"mainStep1",
+                "number":"1",
+                "name":"选择数据源",
+                "id":"mainStep1"
+            },
+            {
+                "type":"datalist",
+                "configStepApi":"mainStep2",
+                "number":"2",
+                "name":"关联数据表",
+                "id":"mainStep2"
+            },
+            {
+                "type":"",
+                "configStepApi":"",
+                "number":"3",
+                "name":"数据预览",
+                "id":""
+            }
+        ],
+        "buttonText":{
+            "preBtnText":"上一步",
+            "nextBtnText":"下一步",
+            "cancelBtnText":"取消"
+        }
+    }
+}

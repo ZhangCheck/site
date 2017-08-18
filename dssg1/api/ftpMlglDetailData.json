@@ -1,0 +1,18 @@
+{
+  "success": true,
+  "code": "0",
+  "message": "success",
+  "data": {
+    "id": "36380f2941b54b438fc42e39a8389f7e",
+    "innerUserName": "ihamalftp",
+    "innerAddress": "/home/ihamalftp",
+    "outerUserName": "ohamalftp",
+    "outerAddress": "/home/ohamalftp",
+    "createUser": "1",
+    "createTime": "12342453454",
+    "userFlag": "0",
+    "password": "123456",
+    "updateTime": null,
+    "updateUser": null
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "success": true,
+  "data": [
+    {
+      "key": "1",
+      "name": "人员库",
+      "englishName": "people",
+      "code": "01",
+      "remarks":"人员信息"
+    },
+    {
+      "key": "2",
+      "name": "机构库",
+      "englishName": "orangeison",
+      "code": "02",
+      "remarks":"机构信息"
+    },
+    {
+      "key": "3",
+      "name": "地理库",
+      "englishName": "GIS",
+      "code": "03",
+      "remarks":"地理信息"
+    },
+    {
+      "key": "4",
+      "name": "帅哥库",
+      "englishName": "HandsomeBoys",
+      "code": "04",
+      "remarks":"帅哥信息"
+    }
+  ]
+}

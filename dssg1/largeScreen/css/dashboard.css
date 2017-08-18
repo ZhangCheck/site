@@ -1,0 +1,59 @@
+.container{
+	position: relative;
+}
+.left{
+	position: absolute;
+	width: 21.7%;
+	height: 88.6%;
+	top: 7.2%;
+	left: 0.9%;
+	bottom: 4.2%;
+/*	border:1px solid #ccc;*/
+	}
+
+.middle{
+	position: absolute;
+	width: 48.75%;
+	height: 88.6%;
+	top: 7.2%;
+	left: 23.8%;
+	bottom: 4.2%;
+}
+.right{
+	position: absolute;
+	width: 25%;
+	height: 88.6%;
+	top: 7.2%;
+	right: 1.46%;
+	bottom: 4.2%;
+	
+}
+.rightTop,.rightMiddle,.rightBottom,.leftTop,.leftMiddle,.leftBottom{
+	position: absolute;
+	width: 100%;
+	border-radius: 4px;
+}
+#rightTopBody,#rightMiddleBody,#rightBottomBody,#leftMiddleBody{
+	width: 100%;
+	height:87%;
+}
+.right .header,.left .header{
+	width: 100%;
+	height: 13%;
+	color: #fff;
+}
+.pieCon{
+	position:absolute;
+	top:28%;
+	right:0;
+	bottom:22%;
+	width:42%;
+	min-width:110px;
+	height:56%;
+	color:#fff
+}
+.pieCon ul{
+	height:100%;
+	margin:0;
+	padding-left:1%;
+}

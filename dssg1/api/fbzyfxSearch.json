@@ -1,0 +1,13 @@
+{
+  "success": true,
+  "code": "0",
+  "message": "success",
+  "data": {
+    "pubResourceNum": "0",
+    "subEquipmentNum": "0",
+    "extractValue": "0KB",
+    "extractCount": "0",
+    "extractTaskNum": "0",
+    "collectTime": null
+  }
+}

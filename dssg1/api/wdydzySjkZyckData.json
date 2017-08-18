@@ -1,0 +1,43 @@
+{
+    "success": true,
+    "code": "0",
+    "message": "success",
+    "data": {
+        "id": "1",
+        "resName": "test",
+        "resEname": "test",
+        "resType": "3",
+        "resCode": "2",
+        "resLevel": "1",
+        "themeType": "1",
+        "departmentType": "2",
+        "dbJson": "[{\"name\": \"标识\",\"ename\": \"ID\",\"code\":\"id\",\"type\": 0,\"length\": 50,\"mandatory\": \"0/1\",\"index\": 0},{\"name\": \"姓名\",\"ename\": \"name\",\"code\":\"xm\",\"type\": 0,\"length\": 50,\"mandatory\": \"0\",\"index\": 1}]",
+        "dispatchStrategyJson": "{\"dispatchType\":1,\"beginTime\":\"2016-01-01 12:10:10\",\"cycle\":1,\"dateTypeMin\":1,\"dateTypeMax\":1,\"day\":1,\"hour\":1,\"second\":1}",
+        "metadataDTO": {
+            "restitle": "test",
+            "abstracts": "test",
+            "rporgname": "test",
+            "address": "test",
+            "keyword": "test",
+            "subjectcarategory": "test",
+            "departmentCategory": null,
+            "reason": null,
+            "resourceType": "0"
+        },
+        "processRecordDTO": {
+            "id": "5ff66d78-3671-4a29-be55-6ad73da308a5",
+            "resourceId": "1",
+            "applyUser": null,
+            "applyTime": "2016-12-29 16:50:11",
+            "applyReason": null,
+            "reviewUser": null,
+            "reviewTime": null,
+            "reviewDesc": null,
+            "result": null,
+            "type": "0",
+            "effectiveData": null,
+            "deleteFlag": "-1"
+        },
+        "resSubscribeDTO": null
+    }
+}

@@ -1,0 +1,87 @@
+{
+  "success": true,
+  "code": "0",
+  "message": "success",
+  "data": [
+    {
+      "key": "192b31134b5c4a7883040d322b834805",
+      "isNode": true,
+      "name": "数据库资源域",
+      "children": [
+        {
+          "key": "DF2DAF20538B4BC5467B4539AD96CF49",
+          "isNode": false,
+          "name": "民政厅DSSG",
+          "id": "a4c69eefb90d4c5fb45c003c5a1b3f0b"
+        },
+        {
+          "key": "D441E9118DD992A7B5043A61675B1256",
+          "isNode": false,
+          "name": "公安厅DSSG",
+          "id": "2990dea1751649cea019d55eb06415d5"
+        }
+      ],
+      "id": "192b31134b5c4a7883040d322b834805"
+    },
+    {
+      "key": "22b6eba4aca1471e9b1db3894e561851",
+      "isNode": true,
+      "name": "FILE资源专用域",
+      "children": [
+        {
+          "key": "D441E9118DD992A7B5043A61675B1256",
+          "isNode": false,
+          "name": "公安厅DSSG",
+          "id": "2990dea1751649cea019d55eb06415d5"
+        },
+        {
+          "key": "DF2DAF20538B4BC5467B4539AD96CF49",
+          "isNode": false,
+          "name": "民政厅DSSG",
+          "id": "a4c69eefb90d4c5fb45c003c5a1b3f0b"
+        }
+      ],
+      "id": "22b6eba4aca1471e9b1db3894e561851"
+    },
+    {
+      "key": "7363c7b0da354b98820bf5ebbc9f1a44",
+      "isNode": true,
+      "name": "API资源专用域",
+      "children": [
+        {
+          "key": "DF2DAF20538B4BC5467B4539AD96CF49",
+          "isNode": false,
+          "name": "民政厅DSSG",
+          "id": "a4c69eefb90d4c5fb45c003c5a1b3f0b"
+        },
+        {
+          "key": "D441E9118DD992A7B5043A61675B1256",
+          "isNode": false,
+          "name": "公安厅DSSG",
+          "id": "2990dea1751649cea019d55eb06415d5"
+        }
+      ],
+      "id": "7363c7b0da354b98820bf5ebbc9f1a44"
+    },
+    {
+      "key": "80232068eb2c4561bbf16be0b7d3149a",
+      "isNode": true,
+      "name": "测试域",
+      "children": [
+        {
+          "key": "D441E9118DD992A7B5043A61675B1256",
+          "isNode": false,
+          "name": "公安厅DSSG",
+          "id": "2990dea1751649cea019d55eb06415d5"
+        },
+        {
+          "key": "DF2DAF20538B4BC5467B4539AD96CF49",
+          "isNode": false,
+          "name": "民政厅DSSG",
+          "id": "a4c69eefb90d4c5fb45c003c5a1b3f0b"
+        }
+      ],
+      "id": "80232068eb2c4561bbf16be0b7d3149a"
+    }
+  ]
+}

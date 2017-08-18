@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "code": "0",
+  "message": "success",
+  "data": [
+    {
+      "applyCompany": "公安厅",
+      "subSendEquipment": "省公安厅",
+      "applyPerson": "晨曦",
+      "recPhone": "15656560001",
+      "applyReason": "工作需要",
+      "resLevel": "2",
+      "resType": "3",
+      "state": "2",
+      "model": null,
+      "applyTime": "2017-08-09 11:36:59.0",
+      "approvalcCompany": "公安厅",
+      "subRecvEquipment": "省公安厅",
+      "approvalResult": null,
+      "approvalPerson": "晨曦",
+      "sendPhone": "15656560001",
+      "approvalTime": null,
+      "resourceId": null,
+      "id": null
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "success": true,
+  "code": "0",
+  "message": "success",
+  "data": {
+    "id": "f38fe9b1-b1b6-42ca-93b9-17fb31996814",
+    "resName": "文件dlj",
+    "resEname": null,
+    "resType": "2",
+    "resCode": null,
+    "resLevel": "1",
+    "themeType": "86be522e-4c77-4847-ac60-6310e81792f6",
+    "themeTypeName": "三级分类测试111",
+    "departmentType": "9db81c5f-c751-4cde-a84d-84d86a8215a1",
+    "departmentTypeName": "三级部门分类测试111",
+    "fileJson": "[{\"updateDate\":\"2017-01-13 13:53:00\",\"size\":\"1024\",\"name\":\"test10.txt\",\"id\":\"576243ad-6969-4baf-bd1d-60f07b85c011\",\"type\":\"txt\"}]",
+    "dispatchStrategyJson": "{\"dispatchType\":1,\"beginTime\":\"2017-01-19 16:19\",\"cycle\":3,\"dateTypeMin\":2,\"dateTypeMax\":\"\",\"day\":\"\",\"hour\":\"\",\"second\":\"\"}",
+    "metadataDTO": {
+      "restitle": "文件dlj",
+      "abstracts": "文件dlj",
+      "rporgname": "文件dlj",
+      "address": "文件dlj",
+      "keyword": "文件dlj",
+      "subjectcarategory": "三级分类测试111",
+      "departmentcategory": "三级部门分类测试111",
+      "reason": null,
+      "resourceType": "0"
+    },
+    "processRecordDTO": {
+      "id": "309d9fbecf25453593726fa09628dc3b",
+      "resourceId": "f38fe9b1-b1b6-42ca-93b9-17fb31996814",
+      "applyUser": "1643e3ebc99a11e687eb24916c68c49d",
+      "applyTime": "2017-01-19 16:20:00",
+      "applyReason": "文件dlj",
+      "reviewUser": "16499115c99a11e687eb24916c68c49d",
+      "reviewTime": "2017-01-19 16:20:45",
+      "reviewDesc": "rtyrtyu",
+      "result": "0",
+      "type": "0",
+      "effectiveData": null,
+      "deleteFlag": "-1"
+    },
+    "resSubscribeDTO": null
+  }
+}
