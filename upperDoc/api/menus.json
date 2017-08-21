@@ -46,6 +46,11 @@
       ]
     },
     {
+      "label": "单向数据流",
+      "key": "page/data",
+      "icon": "metadata"
+    },
+    {
       "label": "接口相关",
       "key": "interfaces",
       "icon": "metadata",

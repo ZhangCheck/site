@@ -4,9 +4,9 @@ webpackJsonp([3],[
 
 	'use strict';
 
-	var _css = __webpack_require__(49);
+	var _css = __webpack_require__(59);
 
-	var _form = __webpack_require__(47);
+	var _form = __webpack_require__(58);
 
 	var _form2 = _interopRequireDefault(_form);
 
@@ -14,7 +14,7 @@ webpackJsonp([3],[
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _jsonp = __webpack_require__(250);
+	var _jsonp = __webpack_require__(268);
 
 	var _jsonp2 = _interopRequireDefault(_jsonp);
 
@@ -30,8 +30,8 @@ webpackJsonp([3],[
 	            "buttonConfigs": [{ "buttonName": "add" }, { "buttonName": "delete" }, { "buttonName": "edit" }, { "buttonName": "direction", "act": "up", "value": "上移" }, //上移
 	            { "buttonName": "direction", "act": "down", "value": "下移" }, //下移
 	            { "buttonName": "direction", "act": "upgrade", "value": "升级" }, //升级
-	            { "buttonName": "direction", "act": "downgrade", "value": "降级" } //降级
-	            ],
+	            { "buttonName": "direction", "act": "downgrade", "value": "降级" //降级
+	            }],
 	            "searchConfig": {
 	                "data": [{
 	                    "column": 3,

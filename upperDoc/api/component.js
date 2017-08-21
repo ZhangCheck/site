@@ -9,13 +9,13 @@ webpackJsonp([3],{
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _jsonp = __webpack_require__(250);
+	var _jsonp = __webpack_require__(268);
 
 	var _jsonp2 = _interopRequireDefault(_jsonp);
 
 	var _global = __webpack_require__(12);
 
-	var _CustomComponent = __webpack_require__(1008);
+	var _CustomComponent = __webpack_require__(976);
 
 	var _CustomComponent2 = _interopRequireDefault(_CustomComponent);
 
@@ -112,7 +112,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 1008:
+/***/ 976:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -121,9 +121,9 @@ webpackJsonp([3],{
 	    value: true
 	});
 
-	var _css = __webpack_require__(29);
+	var _css = __webpack_require__(40);
 
-	var _button = __webpack_require__(26);
+	var _button = __webpack_require__(31);
 
 	var _button2 = _interopRequireDefault(_button);
 
@@ -143,7 +143,7 @@ webpackJsonp([3],{
 
 	var _inherits3 = _interopRequireDefault(_inherits2);
 
-	var _CustomComponent = __webpack_require__(1419);
+	var _CustomComponent = __webpack_require__(1518);
 
 	var _CustomComponent2 = _interopRequireDefault(_CustomComponent);
 
@@ -151,7 +151,7 @@ webpackJsonp([3],{
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _component = __webpack_require__(11);
+	var _component = __webpack_require__(14);
 
 	var _component2 = _interopRequireDefault(_component);
 
@@ -222,7 +222,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 1419:
+/***/ 1518:
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

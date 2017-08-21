@@ -8,11 +8,11 @@ webpackJsonp([3],[
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _component = __webpack_require__(11);
+	var _component = __webpack_require__(14);
 
 	var _component2 = _interopRequireDefault(_component);
 
-	var _jsonp = __webpack_require__(250);
+	var _jsonp = __webpack_require__(268);
 
 	var _jsonp2 = _interopRequireDefault(_jsonp);
 
@@ -27,8 +27,8 @@ webpackJsonp([3],[
 	          'h4',
 	          { style: { paddingLeft: 20, paddingTop: 10, paddingBottom: 10 } },
 	          '\u5217\u8868\u5934'
-	        ) } //表头配置
-	      ],
+	        ) //表头配置
+	      }],
 	      "buttonConfigs": ["add", "edit", "delete", "detail"],
 	      "searchConfig": { //模糊查询表单配置 AiForm
 	        "data": [{
@@ -65,32 +65,32 @@ webpackJsonp([3],[
 	          "key": "operation",
 	          "render": ["edit", "delete", "detail"]
 	        }],
-	        "body": { apiName: 'datalistBodyDemo' } //表数据接口配置
-	      },
+	        "body": { apiName: 'datalistBodyDemo' //表数据接口配置
+	        } },
 	      "add": {
 	        byDialog: true,
 	        initData: {
-	          data: { apiName: "datalistEditDemo" } //新增-视图接口
-	        },
-	        "onAddSubmitApi": { "apiName": "getAddData" } //新增-提交接口
-	      },
+	          data: { apiName: "datalistEditDemo" //新增-视图接口
+	          } },
+	        "onAddSubmitApi": { "apiName": "getAddData" //新增-提交接口
+	        } },
 	      "edit": {
 	        byDialog: true,
 	        "initData": {
-	          data: { apiName: "datalistEditDemo" } //编辑视图接口 Datalist在编辑页面，先调用“详情数据接口”读取数据，再调用本行视图接口
-	        },
-	        "onUpdateSubmitApi": { "apiName": "saveApi" } //编辑-提交接口
-	      },
+	          data: { apiName: "datalistEditDemo" //编辑视图接口 Datalist在编辑页面，先调用“详情数据接口”读取数据，再调用本行视图接口
+	          } },
+	        "onUpdateSubmitApi": { "apiName": "saveApi" //编辑-提交接口
+	        } },
 	      "delete": {
-	        "body": { apiName: 'getDeleteData' } //删除行接口
-	      },
+	        "body": { apiName: 'getDeleteData' //删除行接口
+	        } },
 	      "detail": {
 	        byDialog: true,
 	        "initData": {
-	          data: { apiName: "datalistDetailDemo" } //详情视图接口 按primarykey读取详情信息
-	        },
-	        "body": { apiName: 'datalistDetailMsgDemo' } //详情数据接口
-	      },
+	          data: { apiName: "datalistDetailDemo" //详情视图接口 按primarykey读取详情信息
+	          } },
+	        "body": { apiName: 'datalistDetailMsgDemo' //详情数据接口
+	        } },
 	      "check": {
 	        "view": null,
 	        "checkApi": null

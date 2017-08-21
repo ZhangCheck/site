@@ -5,15 +5,15 @@ webpackJsonp([3],{
 
 	'use strict';
 
-	var _css = __webpack_require__(55);
+	var _css = __webpack_require__(60);
 
-	var _input = __webpack_require__(96);
+	var _input = __webpack_require__(114);
 
 	var _input2 = _interopRequireDefault(_input);
 
-	var _css2 = __webpack_require__(49);
+	var _css2 = __webpack_require__(59);
 
-	var _form = __webpack_require__(47);
+	var _form = __webpack_require__(58);
 
 	var _form2 = _interopRequireDefault(_form);
 
@@ -21,17 +21,17 @@ webpackJsonp([3],{
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _jsonp = __webpack_require__(250);
+	var _jsonp = __webpack_require__(268);
 
 	var _jsonp2 = _interopRequireDefault(_jsonp);
 
 	var _global = __webpack_require__(12);
 
-	var _history = __webpack_require__(36);
+	var _history = __webpack_require__(33);
 
 	var _history2 = _interopRequireDefault(_history);
 
-	var _StepContainerV = __webpack_require__(883);
+	var _StepContainerV = __webpack_require__(979);
 
 	var _StepContainerV2 = _interopRequireDefault(_StepContainerV);
 
@@ -127,7 +127,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 2:
+/***/ 79:
 /***/ function(module, exports) {
 
 	/**
@@ -662,7 +662,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 43:
+/***/ 136:
 /***/ function(module, exports) {
 
 	
@@ -949,212 +949,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 66:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	/**
-	 * @module echarts/core/BoundingRect
-	 */
-
-
-	    var vec2 = __webpack_require__(43);
-	    var matrix = __webpack_require__(132);
-
-	    var v2ApplyTransform = vec2.applyTransform;
-	    var mathMin = Math.min;
-	    var mathMax = Math.max;
-	    /**
-	     * @alias module:echarts/core/BoundingRect
-	     */
-	    function BoundingRect(x, y, width, height) {
-
-	        if (width < 0) {
-	            x = x + width;
-	            width = -width;
-	        }
-	        if (height < 0) {
-	            y = y + height;
-	            height = -height;
-	        }
-
-	        /**
-	         * @type {number}
-	         */
-	        this.x = x;
-	        /**
-	         * @type {number}
-	         */
-	        this.y = y;
-	        /**
-	         * @type {number}
-	         */
-	        this.width = width;
-	        /**
-	         * @type {number}
-	         */
-	        this.height = height;
-	    }
-
-	    BoundingRect.prototype = {
-
-	        constructor: BoundingRect,
-
-	        /**
-	         * @param {module:echarts/core/BoundingRect} other
-	         */
-	        union: function (other) {
-	            var x = mathMin(other.x, this.x);
-	            var y = mathMin(other.y, this.y);
-
-	            this.width = mathMax(
-	                    other.x + other.width,
-	                    this.x + this.width
-	                ) - x;
-	            this.height = mathMax(
-	                    other.y + other.height,
-	                    this.y + this.height
-	                ) - y;
-	            this.x = x;
-	            this.y = y;
-	        },
-
-	        /**
-	         * @param {Array.<number>} m
-	         * @methods
-	         */
-	        applyTransform: (function () {
-	            var lt = [];
-	            var rb = [];
-	            var lb = [];
-	            var rt = [];
-	            return function (m) {
-	                // In case usage like this
-	                // el.getBoundingRect().applyTransform(el.transform)
-	                // And element has no transform
-	                if (!m) {
-	                    return;
-	                }
-	                lt[0] = lb[0] = this.x;
-	                lt[1] = rt[1] = this.y;
-	                rb[0] = rt[0] = this.x + this.width;
-	                rb[1] = lb[1] = this.y + this.height;
-
-	                v2ApplyTransform(lt, lt, m);
-	                v2ApplyTransform(rb, rb, m);
-	                v2ApplyTransform(lb, lb, m);
-	                v2ApplyTransform(rt, rt, m);
-
-	                this.x = mathMin(lt[0], rb[0], lb[0], rt[0]);
-	                this.y = mathMin(lt[1], rb[1], lb[1], rt[1]);
-	                var maxX = mathMax(lt[0], rb[0], lb[0], rt[0]);
-	                var maxY = mathMax(lt[1], rb[1], lb[1], rt[1]);
-	                this.width = maxX - this.x;
-	                this.height = maxY - this.y;
-	            };
-	        })(),
-
-	        /**
-	         * Calculate matrix of transforming from self to target rect
-	         * @param  {module:zrender/core/BoundingRect} b
-	         * @return {Array.<number>}
-	         */
-	        calculateTransform: function (b) {
-	            var a = this;
-	            var sx = b.width / a.width;
-	            var sy = b.height / a.height;
-
-	            var m = matrix.create();
-
-	            // 矩阵右乘
-	            matrix.translate(m, m, [-a.x, -a.y]);
-	            matrix.scale(m, m, [sx, sy]);
-	            matrix.translate(m, m, [b.x, b.y]);
-
-	            return m;
-	        },
-
-	        /**
-	         * @param {(module:echarts/core/BoundingRect|Object)} b
-	         * @return {boolean}
-	         */
-	        intersect: function (b) {
-	            if (!b) {
-	                return false;
-	            }
-
-	            if (!(b instanceof BoundingRect)) {
-	                // Normalize negative width/height.
-	                b = BoundingRect.create(b);
-	            }
-
-	            var a = this;
-	            var ax0 = a.x;
-	            var ax1 = a.x + a.width;
-	            var ay0 = a.y;
-	            var ay1 = a.y + a.height;
-
-	            var bx0 = b.x;
-	            var bx1 = b.x + b.width;
-	            var by0 = b.y;
-	            var by1 = b.y + b.height;
-
-	            return ! (ax1 < bx0 || bx1 < ax0 || ay1 < by0 || by1 < ay0);
-	        },
-
-	        contain: function (x, y) {
-	            var rect = this;
-	            return x >= rect.x
-	                && x <= (rect.x + rect.width)
-	                && y >= rect.y
-	                && y <= (rect.y + rect.height);
-	        },
-
-	        /**
-	         * @return {module:echarts/core/BoundingRect}
-	         */
-	        clone: function () {
-	            return new BoundingRect(this.x, this.y, this.width, this.height);
-	        },
-
-	        /**
-	         * Copy from another rect
-	         */
-	        copy: function (other) {
-	            this.x = other.x;
-	            this.y = other.y;
-	            this.width = other.width;
-	            this.height = other.height;
-	        },
-
-	        plain: function () {
-	            return {
-	                x: this.x,
-	                y: this.y,
-	                width: this.width,
-	                height: this.height
-	            };
-	        }
-	    };
-
-	    /**
-	     * @param {Object|module:zrender/core/BoundingRect} rect
-	     * @param {number} rect.x
-	     * @param {number} rect.y
-	     * @param {number} rect.width
-	     * @param {number} rect.height
-	     * @return {module:zrender/core/BoundingRect}
-	     */
-	    BoundingRect.create = function (rect) {
-	        return new BoundingRect(rect.x, rect.y, rect.width, rect.height);
-	    };
-
-	    module.exports = BoundingRect;
-
-
-/***/ },
-
-/***/ 75:
+/***/ 176:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1164,12 +959,12 @@ webpackJsonp([3],{
 
 
 
-	    var Displayable = __webpack_require__(427);
-	    var zrUtil = __webpack_require__(2);
-	    var PathProxy = __webpack_require__(353);
-	    var pathContain = __webpack_require__(1058);
+	    var Displayable = __webpack_require__(465);
+	    var zrUtil = __webpack_require__(79);
+	    var PathProxy = __webpack_require__(936);
+	    var pathContain = __webpack_require__(1461);
 
-	    var Pattern = __webpack_require__(954);
+	    var Pattern = __webpack_require__(1046);
 	    var getCanvasPattern = Pattern.prototype.getCanvasPattern;
 
 	    var abs = Math.abs;
@@ -1520,1405 +1315,219 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 78:
-/***/ function(module, exports) {
-
-	/**
-	 * echarts设备环境识别
-	 *
-	 * @desc echarts基于Canvas，纯Javascript图表库，提供直观，生动，可交互，可个性化定制的数据统计图表。
-	 * @author firede[firede@firede.us]
-	 * @desc thanks zepto.
-	 */
-
-	    var env = {};
-	    if (typeof navigator === 'undefined') {
-	        // In node
-	        env = {
-	            browser: {},
-	            os: {},
-	            node: true,
-	            // Assume canvas is supported
-	            canvasSupported: true
-	        };
-	    }
-	    else {
-	        env = detect(navigator.userAgent);
-	    }
-
-	    module.exports = env;
-
-	    // Zepto.js
-	    // (c) 2010-2013 Thomas Fuchs
-	    // Zepto.js may be freely distributed under the MIT license.
-
-	    function detect(ua) {
-	        var os = {};
-	        var browser = {};
-	        // var webkit = ua.match(/Web[kK]it[\/]{0,1}([\d.]+)/);
-	        // var android = ua.match(/(Android);?[\s\/]+([\d.]+)?/);
-	        // var ipad = ua.match(/(iPad).*OS\s([\d_]+)/);
-	        // var ipod = ua.match(/(iPod)(.*OS\s([\d_]+))?/);
-	        // var iphone = !ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/);
-	        // var webos = ua.match(/(webOS|hpwOS)[\s\/]([\d.]+)/);
-	        // var touchpad = webos && ua.match(/TouchPad/);
-	        // var kindle = ua.match(/Kindle\/([\d.]+)/);
-	        // var silk = ua.match(/Silk\/([\d._]+)/);
-	        // var blackberry = ua.match(/(BlackBerry).*Version\/([\d.]+)/);
-	        // var bb10 = ua.match(/(BB10).*Version\/([\d.]+)/);
-	        // var rimtabletos = ua.match(/(RIM\sTablet\sOS)\s([\d.]+)/);
-	        // var playbook = ua.match(/PlayBook/);
-	        // var chrome = ua.match(/Chrome\/([\d.]+)/) || ua.match(/CriOS\/([\d.]+)/);
-	        var firefox = ua.match(/Firefox\/([\d.]+)/);
-	        // var safari = webkit && ua.match(/Mobile\//) && !chrome;
-	        // var webview = ua.match(/(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/) && !chrome;
-	        var ie = ua.match(/MSIE\s([\d.]+)/)
-	            // IE 11 Trident/7.0; rv:11.0
-	            || ua.match(/Trident\/.+?rv:(([\d.]+))/);
-	        var edge = ua.match(/Edge\/([\d.]+)/); // IE 12 and 12+
-
-	        var weChat = (/micromessenger/i).test(ua);
-
-	        // Todo: clean this up with a better OS/browser seperation:
-	        // - discern (more) between multiple browsers on android
-	        // - decide if kindle fire in silk mode is android or not
-	        // - Firefox on Android doesn't specify the Android version
-	        // - possibly devide in os, device and browser hashes
-
-	        // if (browser.webkit = !!webkit) browser.version = webkit[1];
-
-	        // if (android) os.android = true, os.version = android[2];
-	        // if (iphone && !ipod) os.ios = os.iphone = true, os.version = iphone[2].replace(/_/g, '.');
-	        // if (ipad) os.ios = os.ipad = true, os.version = ipad[2].replace(/_/g, '.');
-	        // if (ipod) os.ios = os.ipod = true, os.version = ipod[3] ? ipod[3].replace(/_/g, '.') : null;
-	        // if (webos) os.webos = true, os.version = webos[2];
-	        // if (touchpad) os.touchpad = true;
-	        // if (blackberry) os.blackberry = true, os.version = blackberry[2];
-	        // if (bb10) os.bb10 = true, os.version = bb10[2];
-	        // if (rimtabletos) os.rimtabletos = true, os.version = rimtabletos[2];
-	        // if (playbook) browser.playbook = true;
-	        // if (kindle) os.kindle = true, os.version = kindle[1];
-	        // if (silk) browser.silk = true, browser.version = silk[1];
-	        // if (!silk && os.android && ua.match(/Kindle Fire/)) browser.silk = true;
-	        // if (chrome) browser.chrome = true, browser.version = chrome[1];
-	        if (firefox) {
-	            browser.firefox = true;
-	            browser.version = firefox[1];
-	        }
-	        // if (safari && (ua.match(/Safari/) || !!os.ios)) browser.safari = true;
-	        // if (webview) browser.webview = true;
-
-	        if (ie) {
-	            browser.ie = true;
-	            browser.version = ie[1];
-	        }
-
-	        if (edge) {
-	            browser.edge = true;
-	            browser.version = edge[1];
-	        }
-
-	        // It is difficult to detect WeChat in Win Phone precisely, because ua can
-	        // not be set on win phone. So we do not consider Win Phone.
-	        if (weChat) {
-	            browser.weChat = true;
-	        }
-
-	        // os.tablet = !!(ipad || playbook || (android && !ua.match(/Mobile/)) ||
-	        //     (firefox && ua.match(/Tablet/)) || (ie && !ua.match(/Phone/) && ua.match(/Touch/)));
-	        // os.phone  = !!(!os.tablet && !os.ipod && (android || iphone || webos ||
-	        //     (chrome && ua.match(/Android/)) || (chrome && ua.match(/CriOS\/([\d.]+)/)) ||
-	        //     (firefox && ua.match(/Mobile/)) || (ie && ua.match(/Touch/))));
-
-	        return {
-	            browser: browser,
-	            os: os,
-	            node: false,
-	            // 原生canvas支持，改极端点了
-	            // canvasSupported : !(browser.ie && parseFloat(browser.version) < 9)
-	            canvasSupported : document.createElement('canvas').getContext ? true : false,
-	            // @see <http://stackoverflow.com/questions/4817029/whats-the-best-way-to-detect-a-touch-screen-device-using-javascript>
-	            // works on most browsers
-	            // IE10/11 does not support touch event, and MS Edge supports them but not by
-	            // default, so we dont check navigator.maxTouchPoints for them here.
-	            touchEventsSupported: 'ontouchstart' in window && !browser.ie && !browser.edge,
-	            // <http://caniuse.com/#search=pointer%20event>.
-	            pointerEventsSupported: 'onpointerdown' in window
-	                // Firefox supports pointer but not by default, only MS browsers are reliable on pointer
-	                // events currently. So we dont use that on other browsers unless tested sufficiently.
-	                // Although IE 10 supports pointer event, it use old style and is different from the
-	                // standard. So we exclude that. (IE 10 is hardly used on touch device)
-	                && (browser.edge || (browser.ie && browser.version >= 11))
-	        };
-	    }
-
-
-/***/ },
-
-/***/ 110:
+/***/ 255:
 /***/ function(module, exports, __webpack_require__) {
 
-	
-
-	    var textWidthCache = {};
-	    var textWidthCacheCounter = 0;
-	    var TEXT_CACHE_MAX = 5000;
-
-	    var util = __webpack_require__(2);
-	    var BoundingRect = __webpack_require__(66);
-	    var retrieve = util.retrieve;
-
-	    function getTextWidth(text, textFont) {
-	        var key = text + ':' + textFont;
-	        if (textWidthCache[key]) {
-	            return textWidthCache[key];
-	        }
-
-	        var textLines = (text + '').split('\n');
-	        var width = 0;
-
-	        for (var i = 0, l = textLines.length; i < l; i++) {
-	            // measureText 可以被覆盖以兼容不支持 Canvas 的环境
-	            width = Math.max(textContain.measureText(textLines[i], textFont).width, width);
-	        }
-
-	        if (textWidthCacheCounter > TEXT_CACHE_MAX) {
-	            textWidthCacheCounter = 0;
-	            textWidthCache = {};
-	        }
-	        textWidthCacheCounter++;
-	        textWidthCache[key] = width;
-
-	        return width;
-	    }
-
-	    function getTextRect(text, textFont, textAlign, textBaseline) {
-	        var textLineLen = ((text || '') + '').split('\n').length;
-
-	        var width = getTextWidth(text, textFont);
-	        // FIXME 高度计算比较粗暴
-	        var lineHeight = getTextWidth('国', textFont);
-	        var height = textLineLen * lineHeight;
-
-	        var rect = new BoundingRect(0, 0, width, height);
-	        // Text has a special line height property
-	        rect.lineHeight = lineHeight;
-
-	        switch (textBaseline) {
-	            case 'bottom':
-	            case 'alphabetic':
-	                rect.y -= lineHeight;
-	                break;
-	            case 'middle':
-	                rect.y -= lineHeight / 2;
-	                break;
-	            // case 'hanging':
-	            // case 'top':
-	        }
-
-	        // FIXME Right to left language
-	        switch (textAlign) {
-	            case 'end':
-	            case 'right':
-	                rect.x -= rect.width;
-	                break;
-	            case 'center':
-	                rect.x -= rect.width / 2;
-	                break;
-	            // case 'start':
-	            // case 'left':
-	        }
-
-	        return rect;
-	    }
-
-	    function adjustTextPositionOnRect(textPosition, rect, textRect, distance) {
-
-	        var x = rect.x;
-	        var y = rect.y;
-
-	        var height = rect.height;
-	        var width = rect.width;
-
-	        var textHeight = textRect.height;
-
-	        var halfHeight = height / 2 - textHeight / 2;
-
-	        var textAlign = 'left';
-
-	        switch (textPosition) {
-	            case 'left':
-	                x -= distance;
-	                y += halfHeight;
-	                textAlign = 'right';
-	                break;
-	            case 'right':
-	                x += distance + width;
-	                y += halfHeight;
-	                textAlign = 'left';
-	                break;
-	            case 'top':
-	                x += width / 2;
-	                y -= distance + textHeight;
-	                textAlign = 'center';
-	                break;
-	            case 'bottom':
-	                x += width / 2;
-	                y += height + distance;
-	                textAlign = 'center';
-	                break;
-	            case 'inside':
-	                x += width / 2;
-	                y += halfHeight;
-	                textAlign = 'center';
-	                break;
-	            case 'insideLeft':
-	                x += distance;
-	                y += halfHeight;
-	                textAlign = 'left';
-	                break;
-	            case 'insideRight':
-	                x += width - distance;
-	                y += halfHeight;
-	                textAlign = 'right';
-	                break;
-	            case 'insideTop':
-	                x += width / 2;
-	                y += distance;
-	                textAlign = 'center';
-	                break;
-	            case 'insideBottom':
-	                x += width / 2;
-	                y += height - textHeight - distance;
-	                textAlign = 'center';
-	                break;
-	            case 'insideTopLeft':
-	                x += distance;
-	                y += distance;
-	                textAlign = 'left';
-	                break;
-	            case 'insideTopRight':
-	                x += width - distance;
-	                y += distance;
-	                textAlign = 'right';
-	                break;
-	            case 'insideBottomLeft':
-	                x += distance;
-	                y += height - textHeight - distance;
-	                break;
-	            case 'insideBottomRight':
-	                x += width - distance;
-	                y += height - textHeight - distance;
-	                textAlign = 'right';
-	                break;
-	        }
-
-	        return {
-	            x: x,
-	            y: y,
-	            textAlign: textAlign,
-	            textBaseline: 'top'
-	        };
-	    }
-
-	    /**
-	     * Show ellipsis if overflow.
-	     *
-	     * @param  {string} text
-	     * @param  {string} containerWidth
-	     * @param  {string} textFont
-	     * @param  {number} [ellipsis='...']
-	     * @param  {Object} [options]
-	     * @param  {number} [options.maxIterations=3]
-	     * @param  {number} [options.minChar=0] If truncate result are less
-	     *                  then minChar, ellipsis will not show, which is
-	     *                  better for user hint in some cases.
-	     * @param  {number} [options.placeholder=''] When all truncated, use the placeholder.
-	     * @return {string}
-	     */
-	    function truncateText(text, containerWidth, textFont, ellipsis, options) {
-	        if (!containerWidth) {
-	            return '';
-	        }
-
-	        options = options || {};
-
-	        ellipsis = retrieve(ellipsis, '...');
-	        var maxIterations = retrieve(options.maxIterations, 2);
-	        var minChar = retrieve(options.minChar, 0);
-	        // FIXME
-	        // Other languages?
-	        var cnCharWidth = getTextWidth('国', textFont);
-	        // FIXME
-	        // Consider proportional font?
-	        var ascCharWidth = getTextWidth('a', textFont);
-	        var placeholder = retrieve(options.placeholder, '');
-
-	        // Example 1: minChar: 3, text: 'asdfzxcv', truncate result: 'asdf', but not: 'a...'.
-	        // Example 2: minChar: 3, text: '维度', truncate result: '维', but not: '...'.
-	        var contentWidth = containerWidth = Math.max(0, containerWidth - 1); // Reserve some gap.
-	        for (var i = 0; i < minChar && contentWidth >= ascCharWidth; i++) {
-	            contentWidth -= ascCharWidth;
-	        }
-
-	        var ellipsisWidth = getTextWidth(ellipsis);
-	        if (ellipsisWidth > contentWidth) {
-	            ellipsis = '';
-	            ellipsisWidth = 0;
-	        }
-
-	        contentWidth = containerWidth - ellipsisWidth;
-
-	        var textLines = (text + '').split('\n');
-
-	        for (var i = 0, len = textLines.length; i < len; i++) {
-	            var textLine = textLines[i];
-	            var lineWidth = getTextWidth(textLine, textFont);
-
-	            if (lineWidth <= containerWidth) {
-	                continue;
-	            }
-
-	            for (var j = 0;; j++) {
-	                if (lineWidth <= contentWidth || j >= maxIterations) {
-	                    textLine += ellipsis;
-	                    break;
-	                }
-
-	                var subLength = j === 0
-	                    ? estimateLength(textLine, contentWidth, ascCharWidth, cnCharWidth)
-	                    : lineWidth > 0
-	                    ? Math.floor(textLine.length * contentWidth / lineWidth)
-	                    : 0;
-
-	                textLine = textLine.substr(0, subLength);
-	                lineWidth = getTextWidth(textLine, textFont);
-	            }
-
-	            if (textLine === '') {
-	                textLine = placeholder;
-	            }
-
-	            textLines[i] = textLine;
-	        }
-
-	        return textLines.join('\n');
-	    }
-
-	    function estimateLength(text, contentWidth, ascCharWidth, cnCharWidth) {
-	        var width = 0;
-	        var i = 0;
-	        for (var len = text.length; i < len && width < contentWidth; i++) {
-	            var charCode = text.charCodeAt(i);
-	            width += (0 <= charCode && charCode <= 127) ? ascCharWidth : cnCharWidth;
-	        }
-	        return i;
-	    }
-
-	    var textContain = {
-
-	        getWidth: getTextWidth,
-
-	        getBoundingRect: getTextRect,
-
-	        adjustTextPositionOnRect: adjustTextPositionOnRect,
-
-	        truncateText: truncateText,
-
-	        measureText: function (text, textFont) {
-	            var ctx = util.getContext();
-	            ctx.font = textFont || '12px sans-serif';
-	            return ctx.measureText(text);
-	        }
-	    };
-
-	    module.exports = textContain;
-
-
-/***/ },
-
-/***/ 131:
-/***/ function(module, exports, __webpack_require__) {
-
+	'use strict';
 	/**
-	 * Group是一个容器，可以插入子节点，Group的变换也会被应用到子节点上
-	 * @module zrender/graphic/Group
-	 * @example
-	 *     var Group = require('zrender/lib/container/Group');
-	 *     var Circle = require('zrender/lib/graphic/shape/Circle');
-	 *     var g = new Group();
-	 *     g.position[0] = 100;
-	 *     g.position[1] = 100;
-	 *     g.add(new Circle({
-	 *         style: {
-	 *             x: 100,
-	 *             y: 100,
-	 *             r: 20,
-	 *         }
-	 *     }));
-	 *     zr.add(g);
+	 * @module echarts/core/BoundingRect
 	 */
 
 
-	    var zrUtil = __webpack_require__(2);
-	    var Element = __webpack_require__(944);
-	    var BoundingRect = __webpack_require__(66);
+	    var vec2 = __webpack_require__(136);
+	    var matrix = __webpack_require__(939);
 
+	    var v2ApplyTransform = vec2.applyTransform;
+	    var mathMin = Math.min;
+	    var mathMax = Math.max;
 	    /**
-	     * @alias module:zrender/graphic/Group
-	     * @constructor
-	     * @extends module:zrender/mixin/Transformable
-	     * @extends module:zrender/mixin/Eventful
+	     * @alias module:echarts/core/BoundingRect
 	     */
-	    var Group = function (opts) {
+	    function BoundingRect(x, y, width, height) {
 
-	        opts = opts || {};
-
-	        Element.call(this, opts);
-
-	        for (var key in opts) {
-	            if (opts.hasOwnProperty(key)) {
-	                this[key] = opts[key];
-	            }
+	        if (width < 0) {
+	            x = x + width;
+	            width = -width;
+	        }
+	        if (height < 0) {
+	            y = y + height;
+	            height = -height;
 	        }
 
-	        this._children = [];
-
-	        this.__storage = null;
-
-	        this.__dirty = true;
-	    };
-
-	    Group.prototype = {
-
-	        constructor: Group,
-
-	        isGroup: true,
-
 	        /**
-	         * @type {string}
+	         * @type {number}
 	         */
-	        type: 'group',
-
+	        this.x = x;
 	        /**
-	         * 所有子孙元素是否响应鼠标事件
-	         * @name module:/zrender/container/Group#silent
-	         * @type {boolean}
-	         * @default false
+	         * @type {number}
 	         */
-	        silent: false,
-
+	        this.y = y;
 	        /**
-	         * @return {Array.<module:zrender/Element>}
+	         * @type {number}
 	         */
-	        children: function () {
-	            return this._children.slice();
-	        },
-
+	        this.width = width;
 	        /**
-	         * 获取指定 index 的儿子节点
-	         * @param  {number} idx
-	         * @return {module:zrender/Element}
+	         * @type {number}
 	         */
-	        childAt: function (idx) {
-	            return this._children[idx];
-	        },
-
-	        /**
-	         * 获取指定名字的儿子节点
-	         * @param  {string} name
-	         * @return {module:zrender/Element}
-	         */
-	        childOfName: function (name) {
-	            var children = this._children;
-	            for (var i = 0; i < children.length; i++) {
-	                if (children[i].name === name) {
-	                    return children[i];
-	                }
-	             }
-	        },
-
-	        /**
-	         * @return {number}
-	         */
-	        childCount: function () {
-	            return this._children.length;
-	        },
-
-	        /**
-	         * 添加子节点到最后
-	         * @param {module:zrender/Element} child
-	         */
-	        add: function (child) {
-	            if (child && child !== this && child.parent !== this) {
-
-	                this._children.push(child);
-
-	                this._doAdd(child);
-	            }
-
-	            return this;
-	        },
-	        
-	        addAt: function(child,idx){
-	            var children = this._children;
-	            if (idx >= 0) {
-	                children.splice(idx, 0, child);
-	                this._doAdd(child);
-	            }
-	            return this;
-	        },
-
-	        /**
-	         * 添加子节点在 nextSibling 之前
-	         * @param {module:zrender/Element} child
-	         * @param {module:zrender/Element} nextSibling
-	         */
-	        addBefore: function (child, nextSibling) {
-	            if (child && child !== this && child.parent !== this
-	                && nextSibling && nextSibling.parent === this) {
-
-	                var children = this._children;
-	                var idx = children.indexOf(nextSibling);
-
-	                if (idx >= 0) {
-	                    children.splice(idx, 0, child);
-	                    this._doAdd(child);
-	                }
-	            }
-
-	            return this;
-	        },
-
-	        _doAdd: function (child) {
-	            if (child.parent) {
-	                child.parent.remove(child);
-	            }
-
-	            child.parent = this;
-
-	            var storage = this.__storage;
-	            var zr = this.__zr;
-	            if (storage && storage !== child.__storage) {
-
-	                storage.addToMap(child);
-
-	                if (child instanceof Group) {
-	                    child.addChildrenToStorage(storage);
-	                }
-	            }
-
-	            zr && zr.refresh();
-	        },
-
-	        /**
-	         * 移除子节点
-	         * @param {module:zrender/Element} child
-	         */
-	        remove: function (child) {
-	            var zr = this.__zr;
-	            var storage = this.__storage;
-	            var children = this._children;
-
-	            var idx = zrUtil.indexOf(children, child);
-	            if (idx < 0) {
-	                return this;
-	            }
-	            children.splice(idx, 1);
-
-	            child.parent = null;
-
-	            if (storage) {
-
-	                storage.delFromMap(child.id);
-
-	                if (child instanceof Group) {
-	                    child.delChildrenFromStorage(storage);
-	                }
-	            }
-
-	            zr && zr.refresh();
-
-	            return this;
-	        },
-
-	        /**
-	         * 移除所有子节点
-	         */
-	        removeAll: function () {
-	            var children = this._children;
-	            var storage = this.__storage;
-	            var child;
-	            var i;
-	            for (i = 0; i < children.length; i++) {
-	                child = children[i];
-	                if (storage) {
-	                    storage.delFromMap(child.id);
-	                    if (child instanceof Group) {
-	                        child.delChildrenFromStorage(storage);
-	                    }
-	                }
-	                child.parent = null;
-	            }
-	            children.length = 0;
-
-	            return this;
-	        },
-
-	        /**
-	         * 遍历所有子节点
-	         * @param  {Function} cb
-	         * @param  {}   context
-	         */
-	        eachChild: function (cb, context) {
-	            var children = this._children;
-	            for (var i = 0; i < children.length; i++) {
-	                var child = children[i];
-	                cb.call(context, child, i);
-	            }
-	            return this;
-	        },
-
-	        /**
-	         * 深度优先遍历所有子孙节点
-	         * @param  {Function} cb
-	         * @param  {}   context
-	         */
-	        traverse: function (cb, context) {
-	            for (var i = 0; i < this._children.length; i++) {
-	                var child = this._children[i];
-	                cb.call(context, child);
-
-	                if (child.type === 'group') {
-	                    child.traverse(cb, context);
-	                }
-	            }
-	            return this;
-	        },
-
-	        addChildrenToStorage: function (storage) {
-	            for (var i = 0; i < this._children.length; i++) {
-	                var child = this._children[i];
-	                storage.addToMap(child);
-	                if (child instanceof Group) {
-	                    child.addChildrenToStorage(storage);
-	                }
-	            }
-	        },
-
-	        delChildrenFromStorage: function (storage) {
-	            for (var i = 0; i < this._children.length; i++) {
-	                var child = this._children[i];
-	                storage.delFromMap(child.id);
-	                if (child instanceof Group) {
-	                    child.delChildrenFromStorage(storage);
-	                }
-	            }
-	        },
-
-	        dirty: function () {
-	            this.__dirty = true;
-	            this.__zr && this.__zr.refresh();
-	            return this;
-	        },
-
-	        /**
-	         * @return {module:zrender/core/BoundingRect}
-	         */
-	        getBoundingRect: function (includeChildren) {
-	            // TODO Caching
-	            var rect = null;
-	            var tmpRect = new BoundingRect(0, 0, 0, 0);
-	            var children = includeChildren || this._children;
-	            var tmpMat = [];
-
-	            for (var i = 0; i < children.length; i++) {
-	                var child = children[i];
-	                if (child.ignore || child.invisible) {
-	                    continue;
-	                }
-
-	                var childRect = child.getBoundingRect();
-	                var transform = child.getLocalTransform(tmpMat);
-	                // TODO
-	                // The boundingRect cacluated by transforming original
-	                // rect may be bigger than the actual bundingRect when rotation
-	                // is used. (Consider a circle rotated aginst its center, where
-	                // the actual boundingRect should be the same as that not be
-	                // rotated.) But we can not find better approach to calculate
-	                // actual boundingRect yet, considering performance.
-	                if (transform) {
-	                    tmpRect.copy(childRect);
-	                    tmpRect.applyTransform(transform);
-	                    rect = rect || tmpRect.clone();
-	                    rect.union(tmpRect);
-	                }
-	                else {
-	                    rect = rect || childRect.clone();
-	                    rect.union(childRect);
-	                }
-	            }
-	            return rect || tmpRect;
-	        }
-	    };
-
-	    zrUtil.inherits(Group, Element);
-
-	    module.exports = Group;
-
-
-/***/ },
-
-/***/ 132:
-/***/ function(module, exports) {
-
-	
-	    var ArrayCtor = typeof Float32Array === 'undefined'
-	        ? Array
-	        : Float32Array;
-	    /**
-	     * 3x2矩阵操作类
-	     * @exports zrender/tool/matrix
-	     */
-	    var matrix = {
-	        /**
-	         * 创建一个单位矩阵
-	         * @return {Float32Array|Array.<number>}
-	         */
-	        create : function() {
-	            var out = new ArrayCtor(6);
-	            matrix.identity(out);
-
-	            return out;
-	        },
-	        /**
-	         * 设置矩阵为单位矩阵
-	         * @param {Float32Array|Array.<number>} out
-	         */
-	        identity : function(out) {
-	            out[0] = 1;
-	            out[1] = 0;
-	            out[2] = 0;
-	            out[3] = 1;
-	            out[4] = 0;
-	            out[5] = 0;
-	            return out;
-	        },
-	        /**
-	         * 复制矩阵
-	         * @param {Float32Array|Array.<number>} out
-	         * @param {Float32Array|Array.<number>} m
-	         */
-	        copy: function(out, m) {
-	            out[0] = m[0];
-	            out[1] = m[1];
-	            out[2] = m[2];
-	            out[3] = m[3];
-	            out[4] = m[4];
-	            out[5] = m[5];
-	            return out;
-	        },
-	        /**
-	         * 矩阵相乘
-	         * @param {Float32Array|Array.<number>} out
-	         * @param {Float32Array|Array.<number>} m1
-	         * @param {Float32Array|Array.<number>} m2
-	         */
-	        mul : function (out, m1, m2) {
-	            // Consider matrix.mul(m, m2, m);
-	            // where out is the same as m2.
-	            // So use temp variable to escape error.
-	            var out0 = m1[0] * m2[0] + m1[2] * m2[1];
-	            var out1 = m1[1] * m2[0] + m1[3] * m2[1];
-	            var out2 = m1[0] * m2[2] + m1[2] * m2[3];
-	            var out3 = m1[1] * m2[2] + m1[3] * m2[3];
-	            var out4 = m1[0] * m2[4] + m1[2] * m2[5] + m1[4];
-	            var out5 = m1[1] * m2[4] + m1[3] * m2[5] + m1[5];
-	            out[0] = out0;
-	            out[1] = out1;
-	            out[2] = out2;
-	            out[3] = out3;
-	            out[4] = out4;
-	            out[5] = out5;
-	            return out;
-	        },
-	        /**
-	         * 平移变换
-	         * @param {Float32Array|Array.<number>} out
-	         * @param {Float32Array|Array.<number>} a
-	         * @param {Float32Array|Array.<number>} v
-	         */
-	        translate : function(out, a, v) {
-	            out[0] = a[0];
-	            out[1] = a[1];
-	            out[2] = a[2];
-	            out[3] = a[3];
-	            out[4] = a[4] + v[0];
-	            out[5] = a[5] + v[1];
-	            return out;
-	        },
-	        /**
-	         * 旋转变换
-	         * @param {Float32Array|Array.<number>} out
-	         * @param {Float32Array|Array.<number>} a
-	         * @param {number} rad
-	         */
-	        rotate : function(out, a, rad) {
-	            var aa = a[0];
-	            var ac = a[2];
-	            var atx = a[4];
-	            var ab = a[1];
-	            var ad = a[3];
-	            var aty = a[5];
-	            var st = Math.sin(rad);
-	            var ct = Math.cos(rad);
-
-	            out[0] = aa * ct + ab * st;
-	            out[1] = -aa * st + ab * ct;
-	            out[2] = ac * ct + ad * st;
-	            out[3] = -ac * st + ct * ad;
-	            out[4] = ct * atx + st * aty;
-	            out[5] = ct * aty - st * atx;
-	            return out;
-	        },
-	        /**
-	         * 缩放变换
-	         * @param {Float32Array|Array.<number>} out
-	         * @param {Float32Array|Array.<number>} a
-	         * @param {Float32Array|Array.<number>} v
-	         */
-	        scale : function(out, a, v) {
-	            var vx = v[0];
-	            var vy = v[1];
-	            out[0] = a[0] * vx;
-	            out[1] = a[1] * vy;
-	            out[2] = a[2] * vx;
-	            out[3] = a[3] * vy;
-	            out[4] = a[4] * vx;
-	            out[5] = a[5] * vy;
-	            return out;
-	        },
-	        /**
-	         * 求逆矩阵
-	         * @param {Float32Array|Array.<number>} out
-	         * @param {Float32Array|Array.<number>} a
-	         */
-	        invert : function(out, a) {
-
-	            var aa = a[0];
-	            var ac = a[2];
-	            var atx = a[4];
-	            var ab = a[1];
-	            var ad = a[3];
-	            var aty = a[5];
-
-	            var det = aa * ad - ab * ac;
-	            if (!det) {
-	                return null;
-	            }
-	            det = 1.0 / det;
-
-	            out[0] = ad * det;
-	            out[1] = -ab * det;
-	            out[2] = -ac * det;
-	            out[3] = aa * det;
-	            out[4] = (ac * aty - ad * atx) * det;
-	            out[5] = (ab * atx - aa * aty) * det;
-	            return out;
-	        }
-	    };
-
-	    module.exports = matrix;
-
-
-
-/***/ },
-
-/***/ 155:
-/***/ function(module, exports) {
-
-	/**
-	 * @module zrender/tool/color
-	 */
-
-
-	    var kCSSColorTable = {
-	        'transparent': [0,0,0,0], 'aliceblue': [240,248,255,1],
-	        'antiquewhite': [250,235,215,1], 'aqua': [0,255,255,1],
-	        'aquamarine': [127,255,212,1], 'azure': [240,255,255,1],
-	        'beige': [245,245,220,1], 'bisque': [255,228,196,1],
-	        'black': [0,0,0,1], 'blanchedalmond': [255,235,205,1],
-	        'blue': [0,0,255,1], 'blueviolet': [138,43,226,1],
-	        'brown': [165,42,42,1], 'burlywood': [222,184,135,1],
-	        'cadetblue': [95,158,160,1], 'chartreuse': [127,255,0,1],
-	        'chocolate': [210,105,30,1], 'coral': [255,127,80,1],
-	        'cornflowerblue': [100,149,237,1], 'cornsilk': [255,248,220,1],
-	        'crimson': [220,20,60,1], 'cyan': [0,255,255,1],
-	        'darkblue': [0,0,139,1], 'darkcyan': [0,139,139,1],
-	        'darkgoldenrod': [184,134,11,1], 'darkgray': [169,169,169,1],
-	        'darkgreen': [0,100,0,1], 'darkgrey': [169,169,169,1],
-	        'darkkhaki': [189,183,107,1], 'darkmagenta': [139,0,139,1],
-	        'darkolivegreen': [85,107,47,1], 'darkorange': [255,140,0,1],
-	        'darkorchid': [153,50,204,1], 'darkred': [139,0,0,1],
-	        'darksalmon': [233,150,122,1], 'darkseagreen': [143,188,143,1],
-	        'darkslateblue': [72,61,139,1], 'darkslategray': [47,79,79,1],
-	        'darkslategrey': [47,79,79,1], 'darkturquoise': [0,206,209,1],
-	        'darkviolet': [148,0,211,1], 'deeppink': [255,20,147,1],
-	        'deepskyblue': [0,191,255,1], 'dimgray': [105,105,105,1],
-	        'dimgrey': [105,105,105,1], 'dodgerblue': [30,144,255,1],
-	        'firebrick': [178,34,34,1], 'floralwhite': [255,250,240,1],
-	        'forestgreen': [34,139,34,1], 'fuchsia': [255,0,255,1],
-	        'gainsboro': [220,220,220,1], 'ghostwhite': [248,248,255,1],
-	        'gold': [255,215,0,1], 'goldenrod': [218,165,32,1],
-	        'gray': [128,128,128,1], 'green': [0,128,0,1],
-	        'greenyellow': [173,255,47,1], 'grey': [128,128,128,1],
-	        'honeydew': [240,255,240,1], 'hotpink': [255,105,180,1],
-	        'indianred': [205,92,92,1], 'indigo': [75,0,130,1],
-	        'ivory': [255,255,240,1], 'khaki': [240,230,140,1],
-	        'lavender': [230,230,250,1], 'lavenderblush': [255,240,245,1],
-	        'lawngreen': [124,252,0,1], 'lemonchiffon': [255,250,205,1],
-	        'lightblue': [173,216,230,1], 'lightcoral': [240,128,128,1],
-	        'lightcyan': [224,255,255,1], 'lightgoldenrodyellow': [250,250,210,1],
-	        'lightgray': [211,211,211,1], 'lightgreen': [144,238,144,1],
-	        'lightgrey': [211,211,211,1], 'lightpink': [255,182,193,1],
-	        'lightsalmon': [255,160,122,1], 'lightseagreen': [32,178,170,1],
-	        'lightskyblue': [135,206,250,1], 'lightslategray': [119,136,153,1],
-	        'lightslategrey': [119,136,153,1], 'lightsteelblue': [176,196,222,1],
-	        'lightyellow': [255,255,224,1], 'lime': [0,255,0,1],
-	        'limegreen': [50,205,50,1], 'linen': [250,240,230,1],
-	        'magenta': [255,0,255,1], 'maroon': [128,0,0,1],
-	        'mediumaquamarine': [102,205,170,1], 'mediumblue': [0,0,205,1],
-	        'mediumorchid': [186,85,211,1], 'mediumpurple': [147,112,219,1],
-	        'mediumseagreen': [60,179,113,1], 'mediumslateblue': [123,104,238,1],
-	        'mediumspringgreen': [0,250,154,1], 'mediumturquoise': [72,209,204,1],
-	        'mediumvioletred': [199,21,133,1], 'midnightblue': [25,25,112,1],
-	        'mintcream': [245,255,250,1], 'mistyrose': [255,228,225,1],
-	        'moccasin': [255,228,181,1], 'navajowhite': [255,222,173,1],
-	        'navy': [0,0,128,1], 'oldlace': [253,245,230,1],
-	        'olive': [128,128,0,1], 'olivedrab': [107,142,35,1],
-	        'orange': [255,165,0,1], 'orangered': [255,69,0,1],
-	        'orchid': [218,112,214,1], 'palegoldenrod': [238,232,170,1],
-	        'palegreen': [152,251,152,1], 'paleturquoise': [175,238,238,1],
-	        'palevioletred': [219,112,147,1], 'papayawhip': [255,239,213,1],
-	        'peachpuff': [255,218,185,1], 'peru': [205,133,63,1],
-	        'pink': [255,192,203,1], 'plum': [221,160,221,1],
-	        'powderblue': [176,224,230,1], 'purple': [128,0,128,1],
-	        'red': [255,0,0,1], 'rosybrown': [188,143,143,1],
-	        'royalblue': [65,105,225,1], 'saddlebrown': [139,69,19,1],
-	        'salmon': [250,128,114,1], 'sandybrown': [244,164,96,1],
-	        'seagreen': [46,139,87,1], 'seashell': [255,245,238,1],
-	        'sienna': [160,82,45,1], 'silver': [192,192,192,1],
-	        'skyblue': [135,206,235,1], 'slateblue': [106,90,205,1],
-	        'slategray': [112,128,144,1], 'slategrey': [112,128,144,1],
-	        'snow': [255,250,250,1], 'springgreen': [0,255,127,1],
-	        'steelblue': [70,130,180,1], 'tan': [210,180,140,1],
-	        'teal': [0,128,128,1], 'thistle': [216,191,216,1],
-	        'tomato': [255,99,71,1], 'turquoise': [64,224,208,1],
-	        'violet': [238,130,238,1], 'wheat': [245,222,179,1],
-	        'white': [255,255,255,1], 'whitesmoke': [245,245,245,1],
-	        'yellow': [255,255,0,1], 'yellowgreen': [154,205,50,1]
-	    };
-
-	    function clampCssByte(i) {  // Clamp to integer 0 .. 255.
-	        i = Math.round(i);  // Seems to be what Chrome does (vs truncation).
-	        return i < 0 ? 0 : i > 255 ? 255 : i;
+	        this.height = height;
 	    }
 
-	    function clampCssAngle(i) {  // Clamp to integer 0 .. 360.
-	        i = Math.round(i);  // Seems to be what Chrome does (vs truncation).
-	        return i < 0 ? 0 : i > 360 ? 360 : i;
-	    }
+	    BoundingRect.prototype = {
 
-	    function clampCssFloat(f) {  // Clamp to float 0.0 .. 1.0.
-	        return f < 0 ? 0 : f > 1 ? 1 : f;
-	    }
+	        constructor: BoundingRect,
 
-	    function parseCssInt(str) {  // int or percentage.
-	        if (str.length && str.charAt(str.length - 1) === '%') {
-	            return clampCssByte(parseFloat(str) / 100 * 255);
-	        }
-	        return clampCssByte(parseInt(str, 10));
-	    }
+	        /**
+	         * @param {module:echarts/core/BoundingRect} other
+	         */
+	        union: function (other) {
+	            var x = mathMin(other.x, this.x);
+	            var y = mathMin(other.y, this.y);
 
-	    function parseCssFloat(str) {  // float or percentage.
-	        if (str.length && str.charAt(str.length - 1) === '%') {
-	            return clampCssFloat(parseFloat(str) / 100);
-	        }
-	        return clampCssFloat(parseFloat(str));
-	    }
+	            this.width = mathMax(
+	                    other.x + other.width,
+	                    this.x + this.width
+	                ) - x;
+	            this.height = mathMax(
+	                    other.y + other.height,
+	                    this.y + this.height
+	                ) - y;
+	            this.x = x;
+	            this.y = y;
+	        },
 
-	    function cssHueToRgb(m1, m2, h) {
-	        if (h < 0) {
-	            h += 1;
-	        }
-	        else if (h > 1) {
-	            h -= 1;
-	        }
-
-	        if (h * 6 < 1) {
-	            return m1 + (m2 - m1) * h * 6;
-	        }
-	        if (h * 2 < 1) {
-	            return m2;
-	        }
-	        if (h * 3 < 2) {
-	            return m1 + (m2 - m1) * (2/3 - h) * 6;
-	        }
-	        return m1;
-	    }
-
-	    function lerp(a, b, p) {
-	        return a + (b - a) * p;
-	    }
-
-	    /**
-	     * @param {string} colorStr
-	     * @return {Array.<number>}
-	     * @memberOf module:zrender/util/color
-	     */
-	    function parse(colorStr) {
-	        if (!colorStr) {
-	            return;
-	        }
-	        // colorStr may be not string
-	        colorStr = colorStr + '';
-	        // Remove all whitespace, not compliant, but should just be more accepting.
-	        var str = colorStr.replace(/ /g, '').toLowerCase();
-
-	        // Color keywords (and transparent) lookup.
-	        if (str in kCSSColorTable) {
-	            return kCSSColorTable[str].slice();  // dup.
-	        }
-
-	        // #abc and #abc123 syntax.
-	        if (str.charAt(0) === '#') {
-	            if (str.length === 4) {
-	                var iv = parseInt(str.substr(1), 16);  // TODO(deanm): Stricter parsing.
-	                if (!(iv >= 0 && iv <= 0xfff)) {
-	                    return;  // Covers NaN.
-	                }
-	                return [
-	                    ((iv & 0xf00) >> 4) | ((iv & 0xf00) >> 8),
-	                    (iv & 0xf0) | ((iv & 0xf0) >> 4),
-	                    (iv & 0xf) | ((iv & 0xf) << 4),
-	                    1
-	                ];
-	            }
-	            else if (str.length === 7) {
-	                var iv = parseInt(str.substr(1), 16);  // TODO(deanm): Stricter parsing.
-	                if (!(iv >= 0 && iv <= 0xffffff)) {
-	                    return;  // Covers NaN.
-	                }
-	                return [
-	                    (iv & 0xff0000) >> 16,
-	                    (iv & 0xff00) >> 8,
-	                    iv & 0xff,
-	                    1
-	                ];
-	            }
-
-	            return;
-	        }
-	        var op = str.indexOf('('), ep = str.indexOf(')');
-	        if (op !== -1 && ep + 1 === str.length) {
-	            var fname = str.substr(0, op);
-	            var params = str.substr(op + 1, ep - (op + 1)).split(',');
-	            var alpha = 1;  // To allow case fallthrough.
-	            switch (fname) {
-	                case 'rgba':
-	                    if (params.length !== 4) {
-	                        return;
-	                    }
-	                    alpha = parseCssFloat(params.pop()); // jshint ignore:line
-	                // Fall through.
-	                case 'rgb':
-	                    if (params.length !== 3) {
-	                        return;
-	                    }
-	                    return [
-	                        parseCssInt(params[0]),
-	                        parseCssInt(params[1]),
-	                        parseCssInt(params[2]),
-	                        alpha
-	                    ];
-	                case 'hsla':
-	                    if (params.length !== 4) {
-	                        return;
-	                    }
-	                    params[3] = parseCssFloat(params[3]);
-	                    return hsla2rgba(params);
-	                case 'hsl':
-	                    if (params.length !== 3) {
-	                        return;
-	                    }
-	                    return hsla2rgba(params);
-	                default:
+	        /**
+	         * @param {Array.<number>} m
+	         * @methods
+	         */
+	        applyTransform: (function () {
+	            var lt = [];
+	            var rb = [];
+	            var lb = [];
+	            var rt = [];
+	            return function (m) {
+	                // In case usage like this
+	                // el.getBoundingRect().applyTransform(el.transform)
+	                // And element has no transform
+	                if (!m) {
 	                    return;
-	            }
-	        }
-
-	        return;
-	    }
-
-	    /**
-	     * @param {Array.<number>} hsla
-	     * @return {Array.<number>} rgba
-	     */
-	    function hsla2rgba(hsla) {
-	        var h = (((parseFloat(hsla[0]) % 360) + 360) % 360) / 360;  // 0 .. 1
-	        // NOTE(deanm): According to the CSS spec s/l should only be
-	        // percentages, but we don't bother and let float or percentage.
-	        var s = parseCssFloat(hsla[1]);
-	        var l = parseCssFloat(hsla[2]);
-	        var m2 = l <= 0.5 ? l * (s + 1) : l + s - l * s;
-	        var m1 = l * 2 - m2;
-
-	        var rgba = [
-	            clampCssByte(cssHueToRgb(m1, m2, h + 1 / 3) * 255),
-	            clampCssByte(cssHueToRgb(m1, m2, h) * 255),
-	            clampCssByte(cssHueToRgb(m1, m2, h - 1 / 3) * 255)
-	        ];
-
-	        if (hsla.length === 4) {
-	            rgba[3] = hsla[3];
-	        }
-
-	        return rgba;
-	    }
-
-	    /**
-	     * @param {Array.<number>} rgba
-	     * @return {Array.<number>} hsla
-	     */
-	    function rgba2hsla(rgba) {
-	        if (!rgba) {
-	            return;
-	        }
-
-	        // RGB from 0 to 255
-	        var R = rgba[0] / 255;
-	        var G = rgba[1] / 255;
-	        var B = rgba[2] / 255;
-
-	        var vMin = Math.min(R, G, B); // Min. value of RGB
-	        var vMax = Math.max(R, G, B); // Max. value of RGB
-	        var delta = vMax - vMin; // Delta RGB value
-
-	        var L = (vMax + vMin) / 2;
-	        var H;
-	        var S;
-	        // HSL results from 0 to 1
-	        if (delta === 0) {
-	            H = 0;
-	            S = 0;
-	        }
-	        else {
-	            if (L < 0.5) {
-	                S = delta / (vMax + vMin);
-	            }
-	            else {
-	                S = delta / (2 - vMax - vMin);
-	            }
-
-	            var deltaR = (((vMax - R) / 6) + (delta / 2)) / delta;
-	            var deltaG = (((vMax - G) / 6) + (delta / 2)) / delta;
-	            var deltaB = (((vMax - B) / 6) + (delta / 2)) / delta;
-
-	            if (R === vMax) {
-	                H = deltaB - deltaG;
-	            }
-	            else if (G === vMax) {
-	                H = (1 / 3) + deltaR - deltaB;
-	            }
-	            else if (B === vMax) {
-	                H = (2 / 3) + deltaG - deltaR;
-	            }
-
-	            if (H < 0) {
-	                H += 1;
-	            }
-
-	            if (H > 1) {
-	                H -= 1;
-	            }
-	        }
-
-	        var hsla = [H * 360, S, L];
-
-	        if (rgba[3] != null) {
-	            hsla.push(rgba[3]);
-	        }
-
-	        return hsla;
-	    }
-
-	    /**
-	     * @param {string} color
-	     * @param {number} level
-	     * @return {string}
-	     * @memberOf module:zrender/util/color
-	     */
-	    function lift(color, level) {
-	        var colorArr = parse(color);
-	        if (colorArr) {
-	            for (var i = 0; i < 3; i++) {
-	                if (level < 0) {
-	                    colorArr[i] = colorArr[i] * (1 - level) | 0;
 	                }
-	                else {
-	                    colorArr[i] = ((255 - colorArr[i]) * level + colorArr[i]) | 0;
-	                }
+	                lt[0] = lb[0] = this.x;
+	                lt[1] = rt[1] = this.y;
+	                rb[0] = rt[0] = this.x + this.width;
+	                rb[1] = lb[1] = this.y + this.height;
+
+	                v2ApplyTransform(lt, lt, m);
+	                v2ApplyTransform(rb, rb, m);
+	                v2ApplyTransform(lb, lb, m);
+	                v2ApplyTransform(rt, rt, m);
+
+	                this.x = mathMin(lt[0], rb[0], lb[0], rt[0]);
+	                this.y = mathMin(lt[1], rb[1], lb[1], rt[1]);
+	                var maxX = mathMax(lt[0], rb[0], lb[0], rt[0]);
+	                var maxY = mathMax(lt[1], rb[1], lb[1], rt[1]);
+	                this.width = maxX - this.x;
+	                this.height = maxY - this.y;
+	            };
+	        })(),
+
+	        /**
+	         * Calculate matrix of transforming from self to target rect
+	         * @param  {module:zrender/core/BoundingRect} b
+	         * @return {Array.<number>}
+	         */
+	        calculateTransform: function (b) {
+	            var a = this;
+	            var sx = b.width / a.width;
+	            var sy = b.height / a.height;
+
+	            var m = matrix.create();
+
+	            // 矩阵右乘
+	            matrix.translate(m, m, [-a.x, -a.y]);
+	            matrix.scale(m, m, [sx, sy]);
+	            matrix.translate(m, m, [b.x, b.y]);
+
+	            return m;
+	        },
+
+	        /**
+	         * @param {(module:echarts/core/BoundingRect|Object)} b
+	         * @return {boolean}
+	         */
+	        intersect: function (b) {
+	            if (!b) {
+	                return false;
 	            }
-	            return stringify(colorArr, colorArr.length === 4 ? 'rgba' : 'rgb');
-	        }
-	    }
 
-	    /**
-	     * @param {string} color
-	     * @return {string}
-	     * @memberOf module:zrender/util/color
-	     */
-	    function toHex(color, level) {
-	        var colorArr = parse(color);
-	        if (colorArr) {
-	            return ((1 << 24) + (colorArr[0] << 16) + (colorArr[1] << 8) + (+colorArr[2])).toString(16).slice(1);
-	        }
-	    }
-
-	    /**
-	     * Map value to color. Faster than mapToColor methods because color is represented by rgba array
-	     * @param {number} normalizedValue A float between 0 and 1.
-	     * @param {Array.<Array.<number>>} colors List of rgba color array
-	     * @param {Array.<number>} [out] Mapped gba color array
-	     * @return {Array.<number>}
-	     */
-	    function fastMapToColor(normalizedValue, colors, out) {
-	        if (!(colors && colors.length)
-	            || !(normalizedValue >= 0 && normalizedValue <= 1)
-	        ) {
-	            return;
-	        }
-	        out = out || [0, 0, 0, 0];
-	        var value = normalizedValue * (colors.length - 1);
-	        var leftIndex = Math.floor(value);
-	        var rightIndex = Math.ceil(value);
-	        var leftColor = colors[leftIndex];
-	        var rightColor = colors[rightIndex];
-	        var dv = value - leftIndex;
-	        out[0] = clampCssByte(lerp(leftColor[0], rightColor[0], dv));
-	        out[1] = clampCssByte(lerp(leftColor[1], rightColor[1], dv));
-	        out[2] = clampCssByte(lerp(leftColor[2], rightColor[2], dv));
-	        out[3] = clampCssByte(lerp(leftColor[3], rightColor[3], dv));
-	        return out;
-	    }
-	    /**
-	     * @param {number} normalizedValue A float between 0 and 1.
-	     * @param {Array.<string>} colors Color list.
-	     * @param {boolean=} fullOutput Default false.
-	     * @return {(string|Object)} Result color. If fullOutput,
-	     *                           return {color: ..., leftIndex: ..., rightIndex: ..., value: ...},
-	     * @memberOf module:zrender/util/color
-	     */
-	    function mapToColor(normalizedValue, colors, fullOutput) {
-	        if (!(colors && colors.length)
-	            || !(normalizedValue >= 0 && normalizedValue <= 1)
-	        ) {
-	            return;
-	        }
-
-	        var value = normalizedValue * (colors.length - 1);
-	        var leftIndex = Math.floor(value);
-	        var rightIndex = Math.ceil(value);
-	        var leftColor = parse(colors[leftIndex]);
-	        var rightColor = parse(colors[rightIndex]);
-	        var dv = value - leftIndex;
-
-	        var color = stringify(
-	            [
-	                clampCssByte(lerp(leftColor[0], rightColor[0], dv)),
-	                clampCssByte(lerp(leftColor[1], rightColor[1], dv)),
-	                clampCssByte(lerp(leftColor[2], rightColor[2], dv)),
-	                clampCssFloat(lerp(leftColor[3], rightColor[3], dv))
-	            ],
-	            'rgba'
-	        );
-
-	        return fullOutput
-	            ? {
-	                color: color,
-	                leftIndex: leftIndex,
-	                rightIndex: rightIndex,
-	                value: value
+	            if (!(b instanceof BoundingRect)) {
+	                // Normalize negative width/height.
+	                b = BoundingRect.create(b);
 	            }
-	            : color;
-	    }
 
-	    /**
-	     * @param {string} color
-	     * @param {number=} h 0 ~ 360, ignore when null.
-	     * @param {number=} s 0 ~ 1, ignore when null.
-	     * @param {number=} l 0 ~ 1, ignore when null.
-	     * @return {string} Color string in rgba format.
-	     * @memberOf module:zrender/util/color
-	     */
-	    function modifyHSL(color, h, s, l) {
-	        color = parse(color);
+	            var a = this;
+	            var ax0 = a.x;
+	            var ax1 = a.x + a.width;
+	            var ay0 = a.y;
+	            var ay1 = a.y + a.height;
 
-	        if (color) {
-	            color = rgba2hsla(color);
-	            h != null && (color[0] = clampCssAngle(h));
-	            s != null && (color[1] = parseCssFloat(s));
-	            l != null && (color[2] = parseCssFloat(l));
+	            var bx0 = b.x;
+	            var bx1 = b.x + b.width;
+	            var by0 = b.y;
+	            var by1 = b.y + b.height;
 
-	            return stringify(hsla2rgba(color), 'rgba');
+	            return ! (ax1 < bx0 || bx1 < ax0 || ay1 < by0 || by1 < ay0);
+	        },
+
+	        contain: function (x, y) {
+	            var rect = this;
+	            return x >= rect.x
+	                && x <= (rect.x + rect.width)
+	                && y >= rect.y
+	                && y <= (rect.y + rect.height);
+	        },
+
+	        /**
+	         * @return {module:echarts/core/BoundingRect}
+	         */
+	        clone: function () {
+	            return new BoundingRect(this.x, this.y, this.width, this.height);
+	        },
+
+	        /**
+	         * Copy from another rect
+	         */
+	        copy: function (other) {
+	            this.x = other.x;
+	            this.y = other.y;
+	            this.width = other.width;
+	            this.height = other.height;
+	        },
+
+	        plain: function () {
+	            return {
+	                x: this.x,
+	                y: this.y,
+	                width: this.width,
+	                height: this.height
+	            };
 	        }
-	    }
-
-	    /**
-	     * @param {string} color
-	     * @param {number=} alpha 0 ~ 1
-	     * @return {string} Color string in rgba format.
-	     * @memberOf module:zrender/util/color
-	     */
-	    function modifyAlpha(color, alpha) {
-	        color = parse(color);
-
-	        if (color && alpha != null) {
-	            color[3] = clampCssFloat(alpha);
-	            return stringify(color, 'rgba');
-	        }
-	    }
-
-	    /**
-	     * @param {Array.<string>} colors Color list.
-	     * @param {string} type 'rgba', 'hsva', ...
-	     * @return {string} Result color.
-	     */
-	    function stringify(arrColor, type) {
-	        var colorStr = arrColor[0] + ',' + arrColor[1] + ',' + arrColor[2];
-	        if (type === 'rgba' || type === 'hsva' || type === 'hsla') {
-	            colorStr += ',' + arrColor[3];
-	        }
-	        return type + '(' + colorStr + ')';
-	    }
-
-	    module.exports = {
-	        parse: parse,
-	        lift: lift,
-	        toHex: toHex,
-	        fastMapToColor: fastMapToColor,
-	        mapToColor: mapToColor,
-	        modifyHSL: modifyHSL,
-	        modifyAlpha: modifyAlpha,
-	        stringify: stringify
 	    };
 
+	    /**
+	     * @param {Object|module:zrender/core/BoundingRect} rect
+	     * @param {number} rect.x
+	     * @param {number} rect.y
+	     * @param {number} rect.width
+	     * @param {number} rect.height
+	     * @return {module:zrender/core/BoundingRect}
+	     */
+	    BoundingRect.create = function (rect) {
+	        return new BoundingRect(rect.x, rect.y, rect.width, rect.height);
+	    };
 
+	    module.exports = BoundingRect;
 
 
 /***/ },
 
-/***/ 174:
+/***/ 274:
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(1433);
+
+/***/ },
+
+/***/ 277:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2929,7 +1538,7 @@ webpackJsonp([3],{
 	 */
 
 
-	    var vec2 = __webpack_require__(43);
+	    var vec2 = __webpack_require__(136);
 	    var v2Create = vec2.create;
 	    var v2DistSquare = vec2.distSquare;
 	    var mathPow = Math.pow;
@@ -3465,139 +2074,1064 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 228:
-/***/ function(module, exports, __webpack_require__) {
+/***/ 278:
+/***/ function(module, exports) {
 
 	/**
-	 * Text element
-	 * @module zrender/graphic/Text
+	 * echarts设备环境识别
 	 *
-	 * TODO Wrapping
-	 *
-	 * Text not support gradient
+	 * @desc echarts基于Canvas，纯Javascript图表库，提供直观，生动，可交互，可个性化定制的数据统计图表。
+	 * @author firede[firede@firede.us]
+	 * @desc thanks zepto.
 	 */
 
+	    var env = {};
+	    if (typeof navigator === 'undefined') {
+	        // In node
+	        env = {
+	            browser: {},
+	            os: {},
+	            node: true,
+	            // Assume canvas is supported
+	            canvasSupported: true
+	        };
+	    }
+	    else {
+	        env = detect(navigator.userAgent);
+	    }
 
+	    module.exports = env;
 
-	    var Displayable = __webpack_require__(427);
-	    var zrUtil = __webpack_require__(2);
-	    var textContain = __webpack_require__(110);
+	    // Zepto.js
+	    // (c) 2010-2013 Thomas Fuchs
+	    // Zepto.js may be freely distributed under the MIT license.
 
-	    /**
-	     * @alias zrender/graphic/Text
-	     * @extends module:zrender/graphic/Displayable
-	     * @constructor
-	     * @param {Object} opts
-	     */
-	    var Text = function (opts) {
-	        Displayable.call(this, opts);
-	    };
+	    function detect(ua) {
+	        var os = {};
+	        var browser = {};
+	        // var webkit = ua.match(/Web[kK]it[\/]{0,1}([\d.]+)/);
+	        // var android = ua.match(/(Android);?[\s\/]+([\d.]+)?/);
+	        // var ipad = ua.match(/(iPad).*OS\s([\d_]+)/);
+	        // var ipod = ua.match(/(iPod)(.*OS\s([\d_]+))?/);
+	        // var iphone = !ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/);
+	        // var webos = ua.match(/(webOS|hpwOS)[\s\/]([\d.]+)/);
+	        // var touchpad = webos && ua.match(/TouchPad/);
+	        // var kindle = ua.match(/Kindle\/([\d.]+)/);
+	        // var silk = ua.match(/Silk\/([\d._]+)/);
+	        // var blackberry = ua.match(/(BlackBerry).*Version\/([\d.]+)/);
+	        // var bb10 = ua.match(/(BB10).*Version\/([\d.]+)/);
+	        // var rimtabletos = ua.match(/(RIM\sTablet\sOS)\s([\d.]+)/);
+	        // var playbook = ua.match(/PlayBook/);
+	        // var chrome = ua.match(/Chrome\/([\d.]+)/) || ua.match(/CriOS\/([\d.]+)/);
+	        var firefox = ua.match(/Firefox\/([\d.]+)/);
+	        // var safari = webkit && ua.match(/Mobile\//) && !chrome;
+	        // var webview = ua.match(/(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/) && !chrome;
+	        var ie = ua.match(/MSIE\s([\d.]+)/)
+	            // IE 11 Trident/7.0; rv:11.0
+	            || ua.match(/Trident\/.+?rv:(([\d.]+))/);
+	        var edge = ua.match(/Edge\/([\d.]+)/); // IE 12 and 12+
 
-	    Text.prototype = {
+	        var weChat = (/micromessenger/i).test(ua);
 
-	        constructor: Text,
+	        // Todo: clean this up with a better OS/browser seperation:
+	        // - discern (more) between multiple browsers on android
+	        // - decide if kindle fire in silk mode is android or not
+	        // - Firefox on Android doesn't specify the Android version
+	        // - possibly devide in os, device and browser hashes
 
-	        type: 'text',
+	        // if (browser.webkit = !!webkit) browser.version = webkit[1];
 
-	        brush: function (ctx, prevEl) {
-	            var style = this.style;
-	            var x = style.x || 0;
-	            var y = style.y || 0;
-	            // Convert to string
-	            var text = style.text;
-
-	            // Convert to string
-	            text != null && (text += '');
-
-	            // Always bind style
-	            style.bind(ctx, this, prevEl);
-
-	            if (text) {
-
-	                this.setTransform(ctx);
-
-	                var textBaseline;
-	                var textAlign = style.textAlign;
-	                var font = style.textFont || style.font;
-	                if (style.textVerticalAlign) {
-	                    var rect = textContain.getBoundingRect(
-	                        text, font, style.textAlign, 'top'
-	                    );
-	                    // Ignore textBaseline
-	                    textBaseline = 'middle';
-	                    switch (style.textVerticalAlign) {
-	                        case 'middle':
-	                            y -= rect.height / 2 - rect.lineHeight / 2;
-	                            break;
-	                        case 'bottom':
-	                            y -= rect.height - rect.lineHeight / 2;
-	                            break;
-	                        default:
-	                            y += rect.lineHeight / 2;
-	                    }
-	                }
-	                else {
-	                    textBaseline = style.textBaseline;
-	                }
-
-	                // TODO Invalid font
-	                ctx.font = font || '12px sans-serif';
-	                ctx.textAlign = textAlign || 'left';
-	                // Use canvas default left textAlign. Giving invalid value will cause state not change
-	                if (ctx.textAlign !== textAlign) {
-	                    ctx.textAlign = 'left';
-	                }
-	                ctx.textBaseline = textBaseline || 'alphabetic';
-	                // Use canvas default alphabetic baseline
-	                if (ctx.textBaseline !== textBaseline) {
-	                    ctx.textBaseline = 'alphabetic';
-	                }
-
-	                var lineHeight = textContain.measureText('国', ctx.font).width;
-
-	                var textLines = text.split('\n');
-	                for (var i = 0; i < textLines.length; i++) {
-	                    style.hasFill() && ctx.fillText(textLines[i], x, y);
-	                    style.hasStroke() && ctx.strokeText(textLines[i], x, y);
-	                    y += lineHeight;
-	                }
-
-	                this.restoreTransform(ctx);
-	            }
-	        },
-
-	        getBoundingRect: function () {
-	            if (!this._rect) {
-	                var style = this.style;
-	                var textVerticalAlign = style.textVerticalAlign;
-	                var rect = textContain.getBoundingRect(
-	                    style.text + '', style.textFont || style.font, style.textAlign,
-	                    textVerticalAlign ? 'top' : style.textBaseline
-	                );
-	                switch (textVerticalAlign) {
-	                    case 'middle':
-	                        rect.y -= rect.height / 2;
-	                        break;
-	                    case 'bottom':
-	                        rect.y -= rect.height;
-	                        break;
-	                }
-	                rect.x += style.x || 0;
-	                rect.y += style.y || 0;
-	                this._rect = rect;
-	            }
-	            return this._rect;
+	        // if (android) os.android = true, os.version = android[2];
+	        // if (iphone && !ipod) os.ios = os.iphone = true, os.version = iphone[2].replace(/_/g, '.');
+	        // if (ipad) os.ios = os.ipad = true, os.version = ipad[2].replace(/_/g, '.');
+	        // if (ipod) os.ios = os.ipod = true, os.version = ipod[3] ? ipod[3].replace(/_/g, '.') : null;
+	        // if (webos) os.webos = true, os.version = webos[2];
+	        // if (touchpad) os.touchpad = true;
+	        // if (blackberry) os.blackberry = true, os.version = blackberry[2];
+	        // if (bb10) os.bb10 = true, os.version = bb10[2];
+	        // if (rimtabletos) os.rimtabletos = true, os.version = rimtabletos[2];
+	        // if (playbook) browser.playbook = true;
+	        // if (kindle) os.kindle = true, os.version = kindle[1];
+	        // if (silk) browser.silk = true, browser.version = silk[1];
+	        // if (!silk && os.android && ua.match(/Kindle Fire/)) browser.silk = true;
+	        // if (chrome) browser.chrome = true, browser.version = chrome[1];
+	        if (firefox) {
+	            browser.firefox = true;
+	            browser.version = firefox[1];
 	        }
-	    };
+	        // if (safari && (ua.match(/Safari/) || !!os.ios)) browser.safari = true;
+	        // if (webview) browser.webview = true;
 
-	    zrUtil.inherits(Text, Displayable);
+	        if (ie) {
+	            browser.ie = true;
+	            browser.version = ie[1];
+	        }
 
-	    module.exports = Text;
+	        if (edge) {
+	            browser.edge = true;
+	            browser.version = edge[1];
+	        }
+
+	        // It is difficult to detect WeChat in Win Phone precisely, because ua can
+	        // not be set on win phone. So we do not consider Win Phone.
+	        if (weChat) {
+	            browser.weChat = true;
+	        }
+
+	        // os.tablet = !!(ipad || playbook || (android && !ua.match(/Mobile/)) ||
+	        //     (firefox && ua.match(/Tablet/)) || (ie && !ua.match(/Phone/) && ua.match(/Touch/)));
+	        // os.phone  = !!(!os.tablet && !os.ipod && (android || iphone || webos ||
+	        //     (chrome && ua.match(/Android/)) || (chrome && ua.match(/CriOS\/([\d.]+)/)) ||
+	        //     (firefox && ua.match(/Mobile/)) || (ie && ua.match(/Touch/))));
+
+	        return {
+	            browser: browser,
+	            os: os,
+	            node: false,
+	            // 原生canvas支持，改极端点了
+	            // canvasSupported : !(browser.ie && parseFloat(browser.version) < 9)
+	            canvasSupported : document.createElement('canvas').getContext ? true : false,
+	            // @see <http://stackoverflow.com/questions/4817029/whats-the-best-way-to-detect-a-touch-screen-device-using-javascript>
+	            // works on most browsers
+	            // IE10/11 does not support touch event, and MS Edge supports them but not by
+	            // default, so we dont check navigator.maxTouchPoints for them here.
+	            touchEventsSupported: 'ontouchstart' in window && !browser.ie && !browser.edge,
+	            // <http://caniuse.com/#search=pointer%20event>.
+	            pointerEventsSupported: 'onpointerdown' in window
+	                // Firefox supports pointer but not by default, only MS browsers are reliable on pointer
+	                // events currently. So we dont use that on other browsers unless tested sufficiently.
+	                // Although IE 10 supports pointer event, it use old style and is different from the
+	                // standard. So we exclude that. (IE 10 is hardly used on touch device)
+	                && (browser.edge || (browser.ie && browser.version >= 11))
+	        };
+	    }
 
 
 /***/ },
 
-/***/ 229:
+/***/ 430:
+/***/ function(module, exports, __webpack_require__) {
+
+	
+
+	    var textWidthCache = {};
+	    var textWidthCacheCounter = 0;
+	    var TEXT_CACHE_MAX = 5000;
+
+	    var util = __webpack_require__(79);
+	    var BoundingRect = __webpack_require__(255);
+	    var retrieve = util.retrieve;
+
+	    function getTextWidth(text, textFont) {
+	        var key = text + ':' + textFont;
+	        if (textWidthCache[key]) {
+	            return textWidthCache[key];
+	        }
+
+	        var textLines = (text + '').split('\n');
+	        var width = 0;
+
+	        for (var i = 0, l = textLines.length; i < l; i++) {
+	            // measureText 可以被覆盖以兼容不支持 Canvas 的环境
+	            width = Math.max(textContain.measureText(textLines[i], textFont).width, width);
+	        }
+
+	        if (textWidthCacheCounter > TEXT_CACHE_MAX) {
+	            textWidthCacheCounter = 0;
+	            textWidthCache = {};
+	        }
+	        textWidthCacheCounter++;
+	        textWidthCache[key] = width;
+
+	        return width;
+	    }
+
+	    function getTextRect(text, textFont, textAlign, textBaseline) {
+	        var textLineLen = ((text || '') + '').split('\n').length;
+
+	        var width = getTextWidth(text, textFont);
+	        // FIXME 高度计算比较粗暴
+	        var lineHeight = getTextWidth('国', textFont);
+	        var height = textLineLen * lineHeight;
+
+	        var rect = new BoundingRect(0, 0, width, height);
+	        // Text has a special line height property
+	        rect.lineHeight = lineHeight;
+
+	        switch (textBaseline) {
+	            case 'bottom':
+	            case 'alphabetic':
+	                rect.y -= lineHeight;
+	                break;
+	            case 'middle':
+	                rect.y -= lineHeight / 2;
+	                break;
+	            // case 'hanging':
+	            // case 'top':
+	        }
+
+	        // FIXME Right to left language
+	        switch (textAlign) {
+	            case 'end':
+	            case 'right':
+	                rect.x -= rect.width;
+	                break;
+	            case 'center':
+	                rect.x -= rect.width / 2;
+	                break;
+	            // case 'start':
+	            // case 'left':
+	        }
+
+	        return rect;
+	    }
+
+	    function adjustTextPositionOnRect(textPosition, rect, textRect, distance) {
+
+	        var x = rect.x;
+	        var y = rect.y;
+
+	        var height = rect.height;
+	        var width = rect.width;
+
+	        var textHeight = textRect.height;
+
+	        var halfHeight = height / 2 - textHeight / 2;
+
+	        var textAlign = 'left';
+
+	        switch (textPosition) {
+	            case 'left':
+	                x -= distance;
+	                y += halfHeight;
+	                textAlign = 'right';
+	                break;
+	            case 'right':
+	                x += distance + width;
+	                y += halfHeight;
+	                textAlign = 'left';
+	                break;
+	            case 'top':
+	                x += width / 2;
+	                y -= distance + textHeight;
+	                textAlign = 'center';
+	                break;
+	            case 'bottom':
+	                x += width / 2;
+	                y += height + distance;
+	                textAlign = 'center';
+	                break;
+	            case 'inside':
+	                x += width / 2;
+	                y += halfHeight;
+	                textAlign = 'center';
+	                break;
+	            case 'insideLeft':
+	                x += distance;
+	                y += halfHeight;
+	                textAlign = 'left';
+	                break;
+	            case 'insideRight':
+	                x += width - distance;
+	                y += halfHeight;
+	                textAlign = 'right';
+	                break;
+	            case 'insideTop':
+	                x += width / 2;
+	                y += distance;
+	                textAlign = 'center';
+	                break;
+	            case 'insideBottom':
+	                x += width / 2;
+	                y += height - textHeight - distance;
+	                textAlign = 'center';
+	                break;
+	            case 'insideTopLeft':
+	                x += distance;
+	                y += distance;
+	                textAlign = 'left';
+	                break;
+	            case 'insideTopRight':
+	                x += width - distance;
+	                y += distance;
+	                textAlign = 'right';
+	                break;
+	            case 'insideBottomLeft':
+	                x += distance;
+	                y += height - textHeight - distance;
+	                break;
+	            case 'insideBottomRight':
+	                x += width - distance;
+	                y += height - textHeight - distance;
+	                textAlign = 'right';
+	                break;
+	        }
+
+	        return {
+	            x: x,
+	            y: y,
+	            textAlign: textAlign,
+	            textBaseline: 'top'
+	        };
+	    }
+
+	    /**
+	     * Show ellipsis if overflow.
+	     *
+	     * @param  {string} text
+	     * @param  {string} containerWidth
+	     * @param  {string} textFont
+	     * @param  {number} [ellipsis='...']
+	     * @param  {Object} [options]
+	     * @param  {number} [options.maxIterations=3]
+	     * @param  {number} [options.minChar=0] If truncate result are less
+	     *                  then minChar, ellipsis will not show, which is
+	     *                  better for user hint in some cases.
+	     * @param  {number} [options.placeholder=''] When all truncated, use the placeholder.
+	     * @return {string}
+	     */
+	    function truncateText(text, containerWidth, textFont, ellipsis, options) {
+	        if (!containerWidth) {
+	            return '';
+	        }
+
+	        options = options || {};
+
+	        ellipsis = retrieve(ellipsis, '...');
+	        var maxIterations = retrieve(options.maxIterations, 2);
+	        var minChar = retrieve(options.minChar, 0);
+	        // FIXME
+	        // Other languages?
+	        var cnCharWidth = getTextWidth('国', textFont);
+	        // FIXME
+	        // Consider proportional font?
+	        var ascCharWidth = getTextWidth('a', textFont);
+	        var placeholder = retrieve(options.placeholder, '');
+
+	        // Example 1: minChar: 3, text: 'asdfzxcv', truncate result: 'asdf', but not: 'a...'.
+	        // Example 2: minChar: 3, text: '维度', truncate result: '维', but not: '...'.
+	        var contentWidth = containerWidth = Math.max(0, containerWidth - 1); // Reserve some gap.
+	        for (var i = 0; i < minChar && contentWidth >= ascCharWidth; i++) {
+	            contentWidth -= ascCharWidth;
+	        }
+
+	        var ellipsisWidth = getTextWidth(ellipsis);
+	        if (ellipsisWidth > contentWidth) {
+	            ellipsis = '';
+	            ellipsisWidth = 0;
+	        }
+
+	        contentWidth = containerWidth - ellipsisWidth;
+
+	        var textLines = (text + '').split('\n');
+
+	        for (var i = 0, len = textLines.length; i < len; i++) {
+	            var textLine = textLines[i];
+	            var lineWidth = getTextWidth(textLine, textFont);
+
+	            if (lineWidth <= containerWidth) {
+	                continue;
+	            }
+
+	            for (var j = 0;; j++) {
+	                if (lineWidth <= contentWidth || j >= maxIterations) {
+	                    textLine += ellipsis;
+	                    break;
+	                }
+
+	                var subLength = j === 0
+	                    ? estimateLength(textLine, contentWidth, ascCharWidth, cnCharWidth)
+	                    : lineWidth > 0
+	                    ? Math.floor(textLine.length * contentWidth / lineWidth)
+	                    : 0;
+
+	                textLine = textLine.substr(0, subLength);
+	                lineWidth = getTextWidth(textLine, textFont);
+	            }
+
+	            if (textLine === '') {
+	                textLine = placeholder;
+	            }
+
+	            textLines[i] = textLine;
+	        }
+
+	        return textLines.join('\n');
+	    }
+
+	    function estimateLength(text, contentWidth, ascCharWidth, cnCharWidth) {
+	        var width = 0;
+	        var i = 0;
+	        for (var len = text.length; i < len && width < contentWidth; i++) {
+	            var charCode = text.charCodeAt(i);
+	            width += (0 <= charCode && charCode <= 127) ? ascCharWidth : cnCharWidth;
+	        }
+	        return i;
+	    }
+
+	    var textContain = {
+
+	        getWidth: getTextWidth,
+
+	        getBoundingRect: getTextRect,
+
+	        adjustTextPositionOnRect: adjustTextPositionOnRect,
+
+	        truncateText: truncateText,
+
+	        measureText: function (text, textFont) {
+	            var ctx = util.getContext();
+	            ctx.font = textFont || '12px sans-serif';
+	            return ctx.measureText(text);
+	        }
+	    };
+
+	    module.exports = textContain;
+
+
+/***/ },
+
+/***/ 463:
+/***/ function(module, exports) {
+
+	
+	    var dpr = 1;
+	    // If in browser environment
+	    if (typeof window !== 'undefined') {
+	        dpr = Math.max(window.devicePixelRatio || 1, 1);
+	    }
+	    /**
+	     * config默认配置项
+	     * @exports zrender/config
+	     * @author Kener (@Kener-林峰, kener.linfeng@gmail.com)
+	     */
+	    var config = {
+	        /**
+	         * debug日志选项：catchBrushException为true下有效
+	         * 0 : 不生成debug数据，发布用
+	         * 1 : 异常抛出，调试用
+	         * 2 : 控制台输出，调试用
+	         */
+	        debugMode: 0,
+
+	        // retina 屏幕优化
+	        devicePixelRatio: dpr
+	    };
+	    module.exports = config;
+
+
+
+
+/***/ },
+
+/***/ 464:
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Group是一个容器，可以插入子节点，Group的变换也会被应用到子节点上
+	 * @module zrender/graphic/Group
+	 * @example
+	 *     var Group = require('zrender/lib/container/Group');
+	 *     var Circle = require('zrender/lib/graphic/shape/Circle');
+	 *     var g = new Group();
+	 *     g.position[0] = 100;
+	 *     g.position[1] = 100;
+	 *     g.add(new Circle({
+	 *         style: {
+	 *             x: 100,
+	 *             y: 100,
+	 *             r: 20,
+	 *         }
+	 *     }));
+	 *     zr.add(g);
+	 */
+
+
+	    var zrUtil = __webpack_require__(79);
+	    var Element = __webpack_require__(1039);
+	    var BoundingRect = __webpack_require__(255);
+
+	    /**
+	     * @alias module:zrender/graphic/Group
+	     * @constructor
+	     * @extends module:zrender/mixin/Transformable
+	     * @extends module:zrender/mixin/Eventful
+	     */
+	    var Group = function (opts) {
+
+	        opts = opts || {};
+
+	        Element.call(this, opts);
+
+	        for (var key in opts) {
+	            if (opts.hasOwnProperty(key)) {
+	                this[key] = opts[key];
+	            }
+	        }
+
+	        this._children = [];
+
+	        this.__storage = null;
+
+	        this.__dirty = true;
+	    };
+
+	    Group.prototype = {
+
+	        constructor: Group,
+
+	        isGroup: true,
+
+	        /**
+	         * @type {string}
+	         */
+	        type: 'group',
+
+	        /**
+	         * 所有子孙元素是否响应鼠标事件
+	         * @name module:/zrender/container/Group#silent
+	         * @type {boolean}
+	         * @default false
+	         */
+	        silent: false,
+
+	        /**
+	         * @return {Array.<module:zrender/Element>}
+	         */
+	        children: function () {
+	            return this._children.slice();
+	        },
+
+	        /**
+	         * 获取指定 index 的儿子节点
+	         * @param  {number} idx
+	         * @return {module:zrender/Element}
+	         */
+	        childAt: function (idx) {
+	            return this._children[idx];
+	        },
+
+	        /**
+	         * 获取指定名字的儿子节点
+	         * @param  {string} name
+	         * @return {module:zrender/Element}
+	         */
+	        childOfName: function (name) {
+	            var children = this._children;
+	            for (var i = 0; i < children.length; i++) {
+	                if (children[i].name === name) {
+	                    return children[i];
+	                }
+	             }
+	        },
+
+	        /**
+	         * @return {number}
+	         */
+	        childCount: function () {
+	            return this._children.length;
+	        },
+
+	        /**
+	         * 添加子节点到最后
+	         * @param {module:zrender/Element} child
+	         */
+	        add: function (child) {
+	            if (child && child !== this && child.parent !== this) {
+
+	                this._children.push(child);
+
+	                this._doAdd(child);
+	            }
+
+	            return this;
+	        },
+	        
+	        addAt: function(child,idx){
+	            var children = this._children;
+	            if (idx >= 0) {
+	                children.splice(idx, 0, child);
+	                this._doAdd(child);
+	            }
+	            return this;
+	        },
+
+	        /**
+	         * 添加子节点在 nextSibling 之前
+	         * @param {module:zrender/Element} child
+	         * @param {module:zrender/Element} nextSibling
+	         */
+	        addBefore: function (child, nextSibling) {
+	            if (child && child !== this && child.parent !== this
+	                && nextSibling && nextSibling.parent === this) {
+
+	                var children = this._children;
+	                var idx = children.indexOf(nextSibling);
+
+	                if (idx >= 0) {
+	                    children.splice(idx, 0, child);
+	                    this._doAdd(child);
+	                }
+	            }
+
+	            return this;
+	        },
+
+	        _doAdd: function (child) {
+	            if (child.parent) {
+	                child.parent.remove(child);
+	            }
+
+	            child.parent = this;
+
+	            var storage = this.__storage;
+	            var zr = this.__zr;
+	            if (storage && storage !== child.__storage) {
+
+	                storage.addToMap(child);
+
+	                if (child instanceof Group) {
+	                    child.addChildrenToStorage(storage);
+	                }
+	            }
+
+	            zr && zr.refresh();
+	        },
+
+	        /**
+	         * 移除子节点
+	         * @param {module:zrender/Element} child
+	         */
+	        remove: function (child) {
+	            var zr = this.__zr;
+	            var storage = this.__storage;
+	            var children = this._children;
+
+	            var idx = zrUtil.indexOf(children, child);
+	            if (idx < 0) {
+	                return this;
+	            }
+	            children.splice(idx, 1);
+
+	            child.parent = null;
+
+	            if (storage) {
+
+	                storage.delFromMap(child.id);
+
+	                if (child instanceof Group) {
+	                    child.delChildrenFromStorage(storage);
+	                }
+	            }
+
+	            zr && zr.refresh();
+
+	            return this;
+	        },
+
+	        /**
+	         * 移除所有子节点
+	         */
+	        removeAll: function () {
+	            var children = this._children;
+	            var storage = this.__storage;
+	            var child;
+	            var i;
+	            for (i = 0; i < children.length; i++) {
+	                child = children[i];
+	                if (storage) {
+	                    storage.delFromMap(child.id);
+	                    if (child instanceof Group) {
+	                        child.delChildrenFromStorage(storage);
+	                    }
+	                }
+	                child.parent = null;
+	            }
+	            children.length = 0;
+
+	            return this;
+	        },
+
+	        /**
+	         * 遍历所有子节点
+	         * @param  {Function} cb
+	         * @param  {}   context
+	         */
+	        eachChild: function (cb, context) {
+	            var children = this._children;
+	            for (var i = 0; i < children.length; i++) {
+	                var child = children[i];
+	                cb.call(context, child, i);
+	            }
+	            return this;
+	        },
+
+	        /**
+	         * 深度优先遍历所有子孙节点
+	         * @param  {Function} cb
+	         * @param  {}   context
+	         */
+	        traverse: function (cb, context) {
+	            for (var i = 0; i < this._children.length; i++) {
+	                var child = this._children[i];
+	                cb.call(context, child);
+
+	                if (child.type === 'group') {
+	                    child.traverse(cb, context);
+	                }
+	            }
+	            return this;
+	        },
+
+	        addChildrenToStorage: function (storage) {
+	            for (var i = 0; i < this._children.length; i++) {
+	                var child = this._children[i];
+	                storage.addToMap(child);
+	                if (child instanceof Group) {
+	                    child.addChildrenToStorage(storage);
+	                }
+	            }
+	        },
+
+	        delChildrenFromStorage: function (storage) {
+	            for (var i = 0; i < this._children.length; i++) {
+	                var child = this._children[i];
+	                storage.delFromMap(child.id);
+	                if (child instanceof Group) {
+	                    child.delChildrenFromStorage(storage);
+	                }
+	            }
+	        },
+
+	        dirty: function () {
+	            this.__dirty = true;
+	            this.__zr && this.__zr.refresh();
+	            return this;
+	        },
+
+	        /**
+	         * @return {module:zrender/core/BoundingRect}
+	         */
+	        getBoundingRect: function (includeChildren) {
+	            // TODO Caching
+	            var rect = null;
+	            var tmpRect = new BoundingRect(0, 0, 0, 0);
+	            var children = includeChildren || this._children;
+	            var tmpMat = [];
+
+	            for (var i = 0; i < children.length; i++) {
+	                var child = children[i];
+	                if (child.ignore || child.invisible) {
+	                    continue;
+	                }
+
+	                var childRect = child.getBoundingRect();
+	                var transform = child.getLocalTransform(tmpMat);
+	                // TODO
+	                // The boundingRect cacluated by transforming original
+	                // rect may be bigger than the actual bundingRect when rotation
+	                // is used. (Consider a circle rotated aginst its center, where
+	                // the actual boundingRect should be the same as that not be
+	                // rotated.) But we can not find better approach to calculate
+	                // actual boundingRect yet, considering performance.
+	                if (transform) {
+	                    tmpRect.copy(childRect);
+	                    tmpRect.applyTransform(transform);
+	                    rect = rect || tmpRect.clone();
+	                    rect.union(tmpRect);
+	                }
+	                else {
+	                    rect = rect || childRect.clone();
+	                    rect.union(childRect);
+	                }
+	            }
+	            return rect || tmpRect;
+	        }
+	    };
+
+	    zrUtil.inherits(Group, Element);
+
+	    module.exports = Group;
+
+
+/***/ },
+
+/***/ 465:
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * 可绘制的图形基类
+	 * Base class of all displayable graphic objects
+	 * @module zrender/graphic/Displayable
+	 */
+
+
+
+	    var zrUtil = __webpack_require__(79);
+
+	    var Style = __webpack_require__(1047);
+
+	    var Element = __webpack_require__(1039);
+	    var RectText = __webpack_require__(1049);
+	    // var Stateful = require('./mixin/Stateful');
+
+	    /**
+	     * @alias module:zrender/graphic/Displayable
+	     * @extends module:zrender/Element
+	     * @extends module:zrender/graphic/mixin/RectText
+	     */
+	    function Displayable(opts) {
+
+	        opts = opts || {};
+
+	        Element.call(this, opts);
+
+	        // Extend properties
+	        for (var name in opts) {
+	            if (
+	                opts.hasOwnProperty(name) &&
+	                name !== 'style'
+	            ) {
+	                this[name] = opts[name];
+	            }
+	        }
+
+	        /**
+	         * @type {module:zrender/graphic/Style}
+	         */
+	        this.style = new Style(opts.style);
+
+	        this._rect = null;
+	        // Shapes for cascade clipping.
+	        this.__clipPaths = [];
+
+	        // FIXME Stateful must be mixined after style is setted
+	        // Stateful.call(this, opts);
+	    }
+
+	    Displayable.prototype = {
+
+	        constructor: Displayable,
+
+	        type: 'displayable',
+
+	        /**
+	         * Displayable 是否为脏，Painter 中会根据该标记判断是否需要是否需要重新绘制
+	         * Dirty flag. From which painter will determine if this displayable object needs brush
+	         * @name module:zrender/graphic/Displayable#__dirty
+	         * @type {boolean}
+	         */
+	        __dirty: true,
+
+	        /**
+	         * 图形是否可见，为true时不绘制图形，但是仍能触发鼠标事件
+	         * If ignore drawing of the displayable object. Mouse event will still be triggered
+	         * @name module:/zrender/graphic/Displayable#invisible
+	         * @type {boolean}
+	         * @default false
+	         */
+	        invisible: false,
+
+	        /**
+	         * @name module:/zrender/graphic/Displayable#z
+	         * @type {number}
+	         * @default 0
+	         */
+	        z: 0,
+
+	        /**
+	         * @name module:/zrender/graphic/Displayable#z
+	         * @type {number}
+	         * @default 0
+	         */
+	        z2: 0,
+
+	        /**
+	         * z层level，决定绘画在哪层canvas中
+	         * @name module:/zrender/graphic/Displayable#zlevel
+	         * @type {number}
+	         * @default 0
+	         */
+	        zlevel: 0,
+
+	        /**
+	         * 是否可拖拽
+	         * @name module:/zrender/graphic/Displayable#draggable
+	         * @type {boolean}
+	         * @default false
+	         */
+	        draggable: false,
+
+	        /**
+	         * 是否正在拖拽
+	         * @name module:/zrender/graphic/Displayable#draggable
+	         * @type {boolean}
+	         * @default false
+	         */
+	        dragging: false,
+
+	        /**
+	         * 是否相应鼠标事件
+	         * @name module:/zrender/graphic/Displayable#silent
+	         * @type {boolean}
+	         * @default false
+	         */
+	        silent: false,
+
+	        /**
+	         * If enable culling
+	         * @type {boolean}
+	         * @default false
+	         */
+	        culling: false,
+
+	        /**
+	         * Mouse cursor when hovered
+	         * @name module:/zrender/graphic/Displayable#cursor
+	         * @type {string}
+	         */
+	        cursor: 'pointer',
+
+	        /**
+	         * If hover area is bounding rect
+	         * @name module:/zrender/graphic/Displayable#rectHover
+	         * @type {string}
+	         */
+	        rectHover: false,
+
+	        /**
+	         * Render the element progressively when the value >= 0,
+	         * usefull for large data.
+	         * @type {number}
+	         */
+	        progressive: -1,
+
+	        beforeBrush: function (ctx) {},
+
+	        afterBrush: function (ctx) {},
+
+	        /**
+	         * 图形绘制方法
+	         * @param {Canvas2DRenderingContext} ctx
+	         */
+	        // Interface
+	        brush: function (ctx, prevEl) {},
+
+	        /**
+	         * 获取最小包围盒
+	         * @return {module:zrender/core/BoundingRect}
+	         */
+	        // Interface
+	        getBoundingRect: function () {},
+
+	        /**
+	         * 判断坐标 x, y 是否在图形上
+	         * If displayable element contain coord x, y
+	         * @param  {number} x
+	         * @param  {number} y
+	         * @return {boolean}
+	         */
+	        contain: function (x, y) {
+	            return this.rectContain(x, y);
+	        },
+
+	        /**
+	         * @param  {Function} cb
+	         * @param  {}   context
+	         */
+	        traverse: function (cb, context) {
+	            cb.call(context, this);
+	        },
+
+	        /**
+	         * 判断坐标 x, y 是否在图形的包围盒上
+	         * If bounding rect of element contain coord x, y
+	         * @param  {number} x
+	         * @param  {number} y
+	         * @return {boolean}
+	         */
+	        rectContain: function (x, y) {
+	            var coord = this.transformCoordToLocal(x, y);
+	            var rect = this.getBoundingRect();
+	            return rect.contain(coord[0], coord[1]);
+	        },
+
+	        /**
+	         * 标记图形元素为脏，并且在下一帧重绘
+	         * Mark displayable element dirty and refresh next frame
+	         */
+	        dirty: function () {
+	            this.__dirty = true;
+
+	            this._rect = null;
+
+	            this.__zr && this.__zr.refresh();
+	        },
+
+	        /**
+	         * 图形是否会触发事件
+	         * If displayable object binded any event
+	         * @return {boolean}
+	         */
+	        // TODO, 通过 bind 绑定的事件
+	        // isSilent: function () {
+	        //     return !(
+	        //         this.hoverable || this.draggable
+	        //         || this.onmousemove || this.onmouseover || this.onmouseout
+	        //         || this.onmousedown || this.onmouseup || this.onclick
+	        //         || this.ondragenter || this.ondragover || this.ondragleave
+	        //         || this.ondrop
+	        //     );
+	        // },
+	        /**
+	         * Alias for animate('style')
+	         * @param {boolean} loop
+	         */
+	        animateStyle: function (loop) {
+	            return this.animate('style', loop);
+	        },
+
+	        attrKV: function (key, value) {
+	            if (key !== 'style') {
+	                Element.prototype.attrKV.call(this, key, value);
+	            }
+	            else {
+	                this.style.set(value);
+	            }
+	        },
+
+	        /**
+	         * @param {Object|string} key
+	         * @param {*} value
+	         */
+	        setStyle: function (key, value) {
+	            this.style.set(key, value);
+	            this.dirty(false);
+	            return this;
+	        },
+
+	        /**
+	         * Use given style object
+	         * @param  {Object} obj
+	         */
+	        useStyle: function (obj) {
+	            this.style = new Style(obj);
+	            this.dirty(false);
+	            return this;
+	        }
+	    };
+
+	    zrUtil.inherits(Displayable, Element);
+
+	    zrUtil.mixin(Displayable, RectText);
+	    // zrUtil.mixin(Displayable, Stateful);
+
+	    module.exports = Displayable;
+
+
+/***/ },
+
+/***/ 466:
 /***/ function(module, exports) {
 
 	/**
@@ -3906,445 +3440,15 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 230:
-/***/ function(module, exports, __webpack_require__) {
+/***/ 472:
+/***/ function(module, exports) {
 
-	/*!
-	 * ZRender, a high performance 2d drawing library.
-	 *
-	 * Copyright (c) 2013, Baidu Inc.
-	 * All rights reserved.
-	 *
-	 * LICENSE
-	 * https://github.com/ecomfe/zrender/blob/master/LICENSE.txt
-	 */
-	// Global defines
-
-	    var guid = __webpack_require__(952);
-	    var env = __webpack_require__(78);
-	    var zrUtil = __webpack_require__(2);
-
-	    var Handler = __webpack_require__(1050);
-	    var Storage = __webpack_require__(1053);
-	    var Animation = __webpack_require__(258);
-	    var HandlerProxy = __webpack_require__(1061);
-
-	    var useVML = !env.canvasSupported;
-
-	    var painterCtors = {
-	        canvas: __webpack_require__(1052)
-	    };
-
-	    var instances = {};    // ZRender实例map索引
-
-	    var zrender = {};
-
-	    /**
-	     * @type {string}
-	     */
-	    zrender.version = '3.3.0';
-
-	    /**
-	     * Initializing a zrender instance
-	     * @param {HTMLElement} dom
-	     * @param {Object} opts
-	     * @param {string} [opts.renderer='canvas'] 'canvas' or 'svg'
-	     * @param {number} [opts.devicePixelRatio]
-	     * @param {number|string} [opts.width] Can be 'auto' (the same as null/undefined)
-	     * @param {number|string} [opts.height] Can be 'auto' (the same as null/undefined)
-	     * @return {module:zrender/ZRender}
-	     */
-	    zrender.init = function(dom, opts) {
-	        var zr = new ZRender(guid(), dom, opts);
-	        instances[zr.id] = zr;
-	        return zr;
-	    };
-
-	    /**
-	     * Dispose zrender instance
-	     * @param {module:zrender/ZRender} zr
-	     */
-	    zrender.dispose = function (zr) {
-	        if (zr) {
-	            zr.dispose();
-	        }
-	        else {
-	            for (var key in instances) {
-	                if (instances.hasOwnProperty(key)) {
-	                    instances[key].dispose();
-	                }
-	            }
-	            instances = {};
-	        }
-
-	        return zrender;
-	    };
-
-	    /**
-	     * Get zrender instance by id
-	     * @param {string} id zrender instance id
-	     * @return {module:zrender/ZRender}
-	     */
-	    zrender.getInstance = function (id) {
-	        return instances[id];
-	    };
-
-	    zrender.registerPainter = function (name, Ctor) {
-	        painterCtors[name] = Ctor;
-	    };
-
-	    function delInstance(id) {
-	        delete instances[id];
-	    }
-
-	    /**
-	     * @module zrender/ZRender
-	     */
-	    /**
-	     * @constructor
-	     * @alias module:zrender/ZRender
-	     * @param {string} id
-	     * @param {HTMLDomElement} dom
-	     * @param {Object} opts
-	     * @param {string} [opts.renderer='canvas'] 'canvas' or 'svg'
-	     * @param {number} [opts.devicePixelRatio]
-	     * @param {number} [opts.width] Can be 'auto' (the same as null/undefined)
-	     * @param {number} [opts.height] Can be 'auto' (the same as null/undefined)
-	     */
-	    var ZRender = function(id, dom, opts) {
-
-	        opts = opts || {};
-
-	        /**
-	         * @type {HTMLDomElement}
-	         */
-	        this.dom = dom;
-
-	        /**
-	         * @type {string}
-	         */
-	        this.id = id;
-
-	        var self = this;
-	        var storage = new Storage();
-
-	        var rendererType = opts.renderer;
-	        if (useVML) {
-	            if (!painterCtors.vml) {
-	                throw new Error('You need to require \'zrender/vml/vml\' to support IE8');
-	            }
-	            rendererType = 'vml';
-	        }
-	        else if (!rendererType || !painterCtors[rendererType]) {
-	            rendererType = 'canvas';
-	        }
-	        var painter = new painterCtors[rendererType](dom, storage, opts);
-
-	        this.storage = storage;
-	        this.painter = painter;
-
-	        var handerProxy = !env.node ? new HandlerProxy(painter.getViewportRoot()) : null;
-	        this.handler = new Handler(storage, painter, handerProxy, painter.root);
-
-	        /**
-	         * @type {module:zrender/animation/Animation}
-	         */
-	        this.animation = new Animation({
-	            stage: {
-	                update: zrUtil.bind(this.flush, this)
-	            }
-	        });
-	        this.animation.start();
-
-	        /**
-	         * @type {boolean}
-	         * @private
-	         */
-	        this._needsRefresh;
-
-	        // 修改 storage.delFromMap, 每次删除元素之前删除动画
-	        // FIXME 有点ugly
-	        var oldDelFromMap = storage.delFromMap;
-	        var oldAddToMap = storage.addToMap;
-
-	        storage.delFromMap = function (elId) {
-	            var el = storage.get(elId);
-
-	            oldDelFromMap.call(storage, elId);
-
-	            el && el.removeSelfFromZr(self);
-	        };
-
-	        storage.addToMap = function (el) {
-	            oldAddToMap.call(storage, el);
-
-	            el.addSelfToZr(self);
-	        };
-	    };
-
-	    ZRender.prototype = {
-
-	        constructor: ZRender,
-	        /**
-	         * 获取实例唯一标识
-	         * @return {string}
-	         */
-	        getId: function () {
-	            return this.id;
-	        },
-
-	        /**
-	         * 添加元素
-	         * @param  {module:zrender/Element} el
-	         */
-	        add: function (el) {
-	            this.storage.addRoot(el);
-	            this._needsRefresh = true;
-	        },
-
-	        /**
-	         * 删除元素
-	         * @param  {module:zrender/Element} el
-	         */
-	        remove: function (el) {
-	            this.storage.delRoot(el);
-	            this._needsRefresh = true;
-	        },
-
-	        /**
-	         * Change configuration of layer
-	         * @param {string} zLevel
-	         * @param {Object} config
-	         * @param {string} [config.clearColor=0] Clear color
-	         * @param {string} [config.motionBlur=false] If enable motion blur
-	         * @param {number} [config.lastFrameAlpha=0.7] Motion blur factor. Larger value cause longer trailer
-	        */
-	        configLayer: function (zLevel, config) {
-	            this.painter.configLayer(zLevel, config);
-	            this._needsRefresh = true;
-	        },
-
-	        /**
-	         * Repaint the canvas immediately
-	         */
-	        refreshImmediately: function () {
-	            // Clear needsRefresh ahead to avoid something wrong happens in refresh
-	            // Or it will cause zrender refreshes again and again.
-	            this._needsRefresh = false;
-	            this.painter.refresh();
-	            /**
-	             * Avoid trigger zr.refresh in Element#beforeUpdate hook
-	             */
-	            this._needsRefresh = false;
-	        },
-
-	        /**
-	         * Mark and repaint the canvas in the next frame of browser
-	         */
-	        refresh: function() {
-	            this._needsRefresh = true;
-	        },
-
-	        /**
-	         * Perform all refresh
-	         */
-	        flush: function () {
-	            if (this._needsRefresh) {
-	                this.refreshImmediately();
-	            }
-	            if (this._needsRefreshHover) {
-	                this.refreshHoverImmediately();
-	            }
-	        },
-
-	        /**
-	         * Add element to hover layer
-	         * @param  {module:zrender/Element} el
-	         * @param {Object} style
-	         */
-	        addHover: function (el, style) {
-	            if (this.painter.addHover) {
-	                this.painter.addHover(el, style);
-	                this.refreshHover();
-	            }
-	        },
-
-	        /**
-	         * Add element from hover layer
-	         * @param  {module:zrender/Element} el
-	         */
-	        removeHover: function (el) {
-	            if (this.painter.removeHover) {
-	                this.painter.removeHover(el);
-	                this.refreshHover();
-	            }
-	        },
-
-	        /**
-	         * Clear all hover elements in hover layer
-	         * @param  {module:zrender/Element} el
-	         */
-	        clearHover: function () {
-	            if (this.painter.clearHover) {
-	                this.painter.clearHover();
-	                this.refreshHover();
-	            }
-	        },
-
-	        /**
-	         * Refresh hover in next frame
-	         */
-	        refreshHover: function () {
-	            this._needsRefreshHover = true;
-	        },
-
-	        /**
-	         * Refresh hover immediately
-	         */
-	        refreshHoverImmediately: function () {
-	            this._needsRefreshHover = false;
-	            this.painter.refreshHover && this.painter.refreshHover();
-	        },
-
-	        /**
-	         * Resize the canvas.
-	         * Should be invoked when container size is changed
-	         * @param {Object} [opts]
-	         * @param {number|string} [opts.width] Can be 'auto' (the same as null/undefined)
-	         * @param {number|string} [opts.height] Can be 'auto' (the same as null/undefined)
-	         */
-	        resize: function(opts) {
-	            opts = opts || {};
-	            this.painter.resize(opts.width, opts.height);
-	            this.handler.resize();
-	        },
-
-	        /**
-	         * Stop and clear all animation immediately
-	         */
-	        clearAnimation: function () {
-	            this.animation.clear();
-	        },
-
-	        /**
-	         * Get container width
-	         */
-	        getWidth: function() {
-	            return this.painter.getWidth();
-	        },
-
-	        /**
-	         * Get container height
-	         */
-	        getHeight: function() {
-	            return this.painter.getHeight();
-	        },
-
-	        /**
-	         * Export the canvas as Base64 URL
-	         * @param {string} type
-	         * @param {string} [backgroundColor='#fff']
-	         * @return {string} Base64 URL
-	         */
-	        // toDataURL: function(type, backgroundColor) {
-	        //     return this.painter.getRenderedCanvas({
-	        //         backgroundColor: backgroundColor
-	        //     }).toDataURL(type);
-	        // },
-
-	        /**
-	         * Converting a path to image.
-	         * It has much better performance of drawing image rather than drawing a vector path.
-	         * @param {module:zrender/graphic/Path} e
-	         * @param {number} width
-	         * @param {number} height
-	         */
-	        pathToImage: function(e, width, height) {
-	            var id = guid();
-	            return this.painter.pathToImage(id, e, width, height);
-	        },
-
-	        /**
-	         * Set default cursor
-	         * @param {string} [cursorStyle='default'] 例如 crosshair
-	         */
-	        setCursorStyle: function (cursorStyle) {
-	            this.handler.setCursorStyle(cursorStyle);
-	        },
-
-	        /**
-	         * Bind event
-	         *
-	         * @param {string} eventName Event name
-	         * @param {Function} eventHandler Handler function
-	         * @param {Object} [context] Context object
-	         */
-	        on: function(eventName, eventHandler, context) {
-	            this.handler.on(eventName, eventHandler, context);
-	        },
-
-	        /**
-	         * Unbind event
-	         * @param {string} eventName Event name
-	         * @param {Function} [eventHandler] Handler function
-	         */
-	        off: function(eventName, eventHandler) {
-	            this.handler.off(eventName, eventHandler);
-	        },
-
-	        /**
-	         * Trigger event manually
-	         *
-	         * @param {string} eventName Event name
-	         * @param {event=} event Event object
-	         */
-	        trigger: function (eventName, event) {
-	            this.handler.trigger(eventName, event);
-	        },
-
-
-	        /**
-	         * Clear all objects and the canvas.
-	         */
-	        clear: function () {
-	            this.storage.delRoot();
-	            this.painter.clear();
-	        },
-
-	        /**
-	         * Dispose self.
-	         */
-	        dispose: function () {
-	            this.animation.stop();
-
-	            this.clear();
-	            this.storage.dispose();
-	            this.painter.dispose();
-	            this.handler.dispose();
-
-	            this.animation =
-	            this.storage =
-	            this.painter =
-	            this.handler = null;
-
-	            delInstance(this.id);
-	        }
-	    };
-
-	    module.exports = zrender;
-
-
+	// removed by extract-text-webpack-plugin
+	module.exports = {"stepNumberLight":"stepNumberLight___3zxHN","stepNameLight":"stepNameLight___23Rh5"};
 
 /***/ },
 
-/***/ 255:
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(1028);
-
-/***/ },
-
-/***/ 258:
+/***/ 935:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4359,12 +3463,12 @@ webpackJsonp([3],{
 	// https://developer.apple.com/videos/wwdc2014/#236
 
 
-	    var util = __webpack_require__(2);
-	    var Dispatcher = __webpack_require__(259).Dispatcher;
+	    var util = __webpack_require__(79);
+	    var Dispatcher = __webpack_require__(937).Dispatcher;
 
-	    var requestAnimationFrame = __webpack_require__(946);
+	    var requestAnimationFrame = __webpack_require__(1041);
 
-	    var Animator = __webpack_require__(945);
+	    var Animator = __webpack_require__(1040);
 	    /**
 	     * @typedef {Object} IZRenderStage
 	     * @property {Function} update
@@ -4605,218 +3709,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 259:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	/**
-	 * 事件辅助类
-	 * @module zrender/core/event
-	 * @author Kener (@Kener-林峰, kener.linfeng@gmail.com)
-	 */
-
-
-	    var Eventful = __webpack_require__(229);
-	    var env = __webpack_require__(78);
-
-	    var isDomLevel2 = (typeof window !== 'undefined') && !!window.addEventListener;
-
-	    function getBoundingClientRect(el) {
-	        // BlackBerry 5, iOS 3 (original iPhone) don't have getBoundingRect
-	        return el.getBoundingClientRect ? el.getBoundingClientRect() : {left: 0, top: 0};
-	    }
-
-	    // `calculate` is optional, default false
-	    function clientToLocal(el, e, out, calculate) {
-	        out = out || {};
-
-	        // According to the W3C Working Draft, offsetX and offsetY should be relative
-	        // to the padding edge of the target element. The only browser using this convention
-	        // is IE. Webkit uses the border edge, Opera uses the content edge, and FireFox does
-	        // not support the properties.
-	        // (see http://www.jacklmoore.com/notes/mouse-position/)
-	        // In zr painter.dom, padding edge equals to border edge.
-
-	        // FIXME
-	        // When mousemove event triggered on ec tooltip, target is not zr painter.dom, and
-	        // offsetX/Y is relative to e.target, where the calculation of zrX/Y via offsetX/Y
-	        // is too complex. So css-transfrom dont support in this case temporarily.
-	        if (calculate || !env.canvasSupported) {
-	            defaultGetZrXY(el, e, out);
-	        }
-	        // Caution: In FireFox, layerX/layerY Mouse position relative to the closest positioned
-	        // ancestor element, so we should make sure el is positioned (e.g., not position:static).
-	        // BTW1, Webkit don't return the same results as FF in non-simple cases (like add
-	        // zoom-factor, overflow / opacity layers, transforms ...)
-	        // BTW2, (ev.offsetY || ev.pageY - $(ev.target).offset().top) is not correct in preserve-3d.
-	        // <https://bugs.jquery.com/ticket/8523#comment:14>
-	        // BTW3, In ff, offsetX/offsetY is always 0.
-	        else if (env.browser.firefox && e.layerX != null && e.layerX !== e.offsetX) {
-	            out.zrX = e.layerX;
-	            out.zrY = e.layerY;
-	        }
-	        // For IE6+, chrome, safari, opera. (When will ff support offsetX?)
-	        else if (e.offsetX != null) {
-	            out.zrX = e.offsetX;
-	            out.zrY = e.offsetY;
-	        }
-	        // For some other device, e.g., IOS safari.
-	        else {
-	            defaultGetZrXY(el, e, out);
-	        }
-
-	        return out;
-	    }
-
-	    function defaultGetZrXY(el, e, out) {
-	        // This well-known method below does not support css transform.
-	        var box = getBoundingClientRect(el);
-	        out.zrX = e.clientX - box.left;
-	        out.zrY = e.clientY - box.top;
-	    }
-
-	    /**
-	     * 如果存在第三方嵌入的一些dom触发的事件，或touch事件，需要转换一下事件坐标.
-	     * `calculate` is optional, default false.
-	     */
-	    function normalizeEvent(el, e, calculate) {
-
-	        e = e || window.event;
-
-	        if (e.zrX != null) {
-	            return e;
-	        }
-
-	        var eventType = e.type;
-	        var isTouch = eventType && eventType.indexOf('touch') >= 0;
-
-	        if (!isTouch) {
-	            clientToLocal(el, e, e, calculate);
-	            e.zrDelta = (e.wheelDelta) ? e.wheelDelta / 120 : -(e.detail || 0) / 3;
-	        }
-	        else {
-	            var touch = eventType != 'touchend'
-	                ? e.targetTouches[0]
-	                : e.changedTouches[0];
-	            touch && clientToLocal(el, touch, e, calculate);
-	        }
-
-	        return e;
-	    }
-
-	    function addEventListener(el, name, handler) {
-	        if (isDomLevel2) {
-	            el.addEventListener(name, handler);
-	        }
-	        else {
-	            el.attachEvent('on' + name, handler);
-	        }
-	    }
-
-	    function removeEventListener(el, name, handler) {
-	        if (isDomLevel2) {
-	            el.removeEventListener(name, handler);
-	        }
-	        else {
-	            el.detachEvent('on' + name, handler);
-	        }
-	    }
-
-	    /**
-	     * preventDefault and stopPropagation.
-	     * Notice: do not do that in zrender. Upper application
-	     * do that if necessary.
-	     *
-	     * @memberOf module:zrender/core/event
-	     * @method
-	     * @param {Event} e : event对象
-	     */
-	    var stop = isDomLevel2
-	        ? function (e) {
-	            e.preventDefault();
-	            e.stopPropagation();
-	            e.cancelBubble = true;
-	        }
-	        : function (e) {
-	            e.returnValue = false;
-	            e.cancelBubble = true;
-	        };
-
-	    module.exports = {
-	        clientToLocal: clientToLocal,
-	        normalizeEvent: normalizeEvent,
-	        addEventListener: addEventListener,
-	        removeEventListener: removeEventListener,
-
-	        stop: stop,
-	        // 做向上兼容
-	        Dispatcher: Eventful
-	    };
-
-
-
-/***/ },
-
-/***/ 260:
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * 矩形
-	 * @module zrender/graphic/shape/Rect
-	 */
-
-
-	    var roundRectHelper = __webpack_require__(1064);
-
-	    module.exports = __webpack_require__(75).extend({
-
-	        type: 'rect',
-
-	        shape: {
-	            // 左上、右上、右下、左下角的半径依次为r1、r2、r3、r4
-	            // r缩写为1         相当于 [1, 1, 1, 1]
-	            // r缩写为[1]       相当于 [1, 1, 1, 1]
-	            // r缩写为[1, 2]    相当于 [1, 2, 1, 2]
-	            // r缩写为[1, 2, 3] 相当于 [1, 2, 3, 2]
-	            r: 0,
-
-	            x: 0,
-	            y: 0,
-	            width: 0,
-	            height: 0
-	        },
-
-	        buildPath: function (ctx, shape) {
-	            var x = shape.x;
-	            var y = shape.y;
-	            var width = shape.width;
-	            var height = shape.height;
-	            if (!shape.r) {
-	                ctx.rect(x, y, width, height);
-	            }
-	            else {
-	                roundRectHelper.buildPath(ctx, shape);
-	            }
-	            ctx.closePath();
-	            return;
-	        }
-	    });
-
-
-
-/***/ },
-
-/***/ 261:
-/***/ function(module, exports, __webpack_require__) {
-
-	
-	    __webpack_require__(1074);
-	    __webpack_require__(230).registerPainter('vml', __webpack_require__(1073));
-
-
-/***/ },
-
-/***/ 353:
+/***/ 936:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4831,11 +3724,11 @@ webpackJsonp([3],{
 	 // TODO getTotalLength, getPointAtLength
 
 
-	    var curve = __webpack_require__(174);
-	    var vec2 = __webpack_require__(43);
-	    var bbox = __webpack_require__(731);
-	    var BoundingRect = __webpack_require__(66);
-	    var dpr = __webpack_require__(426).devicePixelRatio;
+	    var curve = __webpack_require__(277);
+	    var vec2 = __webpack_require__(136);
+	    var bbox = __webpack_require__(1466);
+	    var BoundingRect = __webpack_require__(255);
+	    var dpr = __webpack_require__(463).devicePixelRatio;
 
 	    var CMD = {
 	        M: 1,
@@ -5592,7 +4485,967 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 396:
+/***/ 937:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	/**
+	 * 事件辅助类
+	 * @module zrender/core/event
+	 * @author Kener (@Kener-林峰, kener.linfeng@gmail.com)
+	 */
+
+
+	    var Eventful = __webpack_require__(466);
+	    var env = __webpack_require__(278);
+
+	    var isDomLevel2 = (typeof window !== 'undefined') && !!window.addEventListener;
+
+	    function getBoundingClientRect(el) {
+	        // BlackBerry 5, iOS 3 (original iPhone) don't have getBoundingRect
+	        return el.getBoundingClientRect ? el.getBoundingClientRect() : {left: 0, top: 0};
+	    }
+
+	    // `calculate` is optional, default false
+	    function clientToLocal(el, e, out, calculate) {
+	        out = out || {};
+
+	        // According to the W3C Working Draft, offsetX and offsetY should be relative
+	        // to the padding edge of the target element. The only browser using this convention
+	        // is IE. Webkit uses the border edge, Opera uses the content edge, and FireFox does
+	        // not support the properties.
+	        // (see http://www.jacklmoore.com/notes/mouse-position/)
+	        // In zr painter.dom, padding edge equals to border edge.
+
+	        // FIXME
+	        // When mousemove event triggered on ec tooltip, target is not zr painter.dom, and
+	        // offsetX/Y is relative to e.target, where the calculation of zrX/Y via offsetX/Y
+	        // is too complex. So css-transfrom dont support in this case temporarily.
+	        if (calculate || !env.canvasSupported) {
+	            defaultGetZrXY(el, e, out);
+	        }
+	        // Caution: In FireFox, layerX/layerY Mouse position relative to the closest positioned
+	        // ancestor element, so we should make sure el is positioned (e.g., not position:static).
+	        // BTW1, Webkit don't return the same results as FF in non-simple cases (like add
+	        // zoom-factor, overflow / opacity layers, transforms ...)
+	        // BTW2, (ev.offsetY || ev.pageY - $(ev.target).offset().top) is not correct in preserve-3d.
+	        // <https://bugs.jquery.com/ticket/8523#comment:14>
+	        // BTW3, In ff, offsetX/offsetY is always 0.
+	        else if (env.browser.firefox && e.layerX != null && e.layerX !== e.offsetX) {
+	            out.zrX = e.layerX;
+	            out.zrY = e.layerY;
+	        }
+	        // For IE6+, chrome, safari, opera. (When will ff support offsetX?)
+	        else if (e.offsetX != null) {
+	            out.zrX = e.offsetX;
+	            out.zrY = e.offsetY;
+	        }
+	        // For some other device, e.g., IOS safari.
+	        else {
+	            defaultGetZrXY(el, e, out);
+	        }
+
+	        return out;
+	    }
+
+	    function defaultGetZrXY(el, e, out) {
+	        // This well-known method below does not support css transform.
+	        var box = getBoundingClientRect(el);
+	        out.zrX = e.clientX - box.left;
+	        out.zrY = e.clientY - box.top;
+	    }
+
+	    /**
+	     * 如果存在第三方嵌入的一些dom触发的事件，或touch事件，需要转换一下事件坐标.
+	     * `calculate` is optional, default false.
+	     */
+	    function normalizeEvent(el, e, calculate) {
+
+	        e = e || window.event;
+
+	        if (e.zrX != null) {
+	            return e;
+	        }
+
+	        var eventType = e.type;
+	        var isTouch = eventType && eventType.indexOf('touch') >= 0;
+
+	        if (!isTouch) {
+	            clientToLocal(el, e, e, calculate);
+	            e.zrDelta = (e.wheelDelta) ? e.wheelDelta / 120 : -(e.detail || 0) / 3;
+	        }
+	        else {
+	            var touch = eventType != 'touchend'
+	                ? e.targetTouches[0]
+	                : e.changedTouches[0];
+	            touch && clientToLocal(el, touch, e, calculate);
+	        }
+
+	        return e;
+	    }
+
+	    function addEventListener(el, name, handler) {
+	        if (isDomLevel2) {
+	            el.addEventListener(name, handler);
+	        }
+	        else {
+	            el.attachEvent('on' + name, handler);
+	        }
+	    }
+
+	    function removeEventListener(el, name, handler) {
+	        if (isDomLevel2) {
+	            el.removeEventListener(name, handler);
+	        }
+	        else {
+	            el.detachEvent('on' + name, handler);
+	        }
+	    }
+
+	    /**
+	     * preventDefault and stopPropagation.
+	     * Notice: do not do that in zrender. Upper application
+	     * do that if necessary.
+	     *
+	     * @memberOf module:zrender/core/event
+	     * @method
+	     * @param {Event} e : event对象
+	     */
+	    var stop = isDomLevel2
+	        ? function (e) {
+	            e.preventDefault();
+	            e.stopPropagation();
+	            e.cancelBubble = true;
+	        }
+	        : function (e) {
+	            e.returnValue = false;
+	            e.cancelBubble = true;
+	        };
+
+	    module.exports = {
+	        clientToLocal: clientToLocal,
+	        normalizeEvent: normalizeEvent,
+	        addEventListener: addEventListener,
+	        removeEventListener: removeEventListener,
+
+	        stop: stop,
+	        // 做向上兼容
+	        Dispatcher: Eventful
+	    };
+
+
+
+/***/ },
+
+/***/ 938:
+/***/ function(module, exports, __webpack_require__) {
+
+	
+	        var config = __webpack_require__(463);
+
+	        /**
+	         * @exports zrender/tool/log
+	         * @author Kener (@Kener-林峰, kener.linfeng@gmail.com)
+	         */
+	        module.exports = function() {
+	            if (config.debugMode === 0) {
+	                return;
+	            }
+	            else if (config.debugMode == 1) {
+	                for (var k in arguments) {
+	                    throw new Error(arguments[k]);
+	                }
+	            }
+	            else if (config.debugMode > 1) {
+	                for (var k in arguments) {
+	                    console.log(arguments[k]);
+	                }
+	            }
+	        };
+
+	        /* for debug
+	        return function(mes) {
+	            document.getElementById('wrong-message').innerHTML =
+	                mes + ' ' + (new Date() - 0)
+	                + '<br/>'
+	                + document.getElementById('wrong-message').innerHTML;
+	        };
+	        */
+	    
+
+
+/***/ },
+
+/***/ 939:
+/***/ function(module, exports) {
+
+	
+	    var ArrayCtor = typeof Float32Array === 'undefined'
+	        ? Array
+	        : Float32Array;
+	    /**
+	     * 3x2矩阵操作类
+	     * @exports zrender/tool/matrix
+	     */
+	    var matrix = {
+	        /**
+	         * 创建一个单位矩阵
+	         * @return {Float32Array|Array.<number>}
+	         */
+	        create : function() {
+	            var out = new ArrayCtor(6);
+	            matrix.identity(out);
+
+	            return out;
+	        },
+	        /**
+	         * 设置矩阵为单位矩阵
+	         * @param {Float32Array|Array.<number>} out
+	         */
+	        identity : function(out) {
+	            out[0] = 1;
+	            out[1] = 0;
+	            out[2] = 0;
+	            out[3] = 1;
+	            out[4] = 0;
+	            out[5] = 0;
+	            return out;
+	        },
+	        /**
+	         * 复制矩阵
+	         * @param {Float32Array|Array.<number>} out
+	         * @param {Float32Array|Array.<number>} m
+	         */
+	        copy: function(out, m) {
+	            out[0] = m[0];
+	            out[1] = m[1];
+	            out[2] = m[2];
+	            out[3] = m[3];
+	            out[4] = m[4];
+	            out[5] = m[5];
+	            return out;
+	        },
+	        /**
+	         * 矩阵相乘
+	         * @param {Float32Array|Array.<number>} out
+	         * @param {Float32Array|Array.<number>} m1
+	         * @param {Float32Array|Array.<number>} m2
+	         */
+	        mul : function (out, m1, m2) {
+	            // Consider matrix.mul(m, m2, m);
+	            // where out is the same as m2.
+	            // So use temp variable to escape error.
+	            var out0 = m1[0] * m2[0] + m1[2] * m2[1];
+	            var out1 = m1[1] * m2[0] + m1[3] * m2[1];
+	            var out2 = m1[0] * m2[2] + m1[2] * m2[3];
+	            var out3 = m1[1] * m2[2] + m1[3] * m2[3];
+	            var out4 = m1[0] * m2[4] + m1[2] * m2[5] + m1[4];
+	            var out5 = m1[1] * m2[4] + m1[3] * m2[5] + m1[5];
+	            out[0] = out0;
+	            out[1] = out1;
+	            out[2] = out2;
+	            out[3] = out3;
+	            out[4] = out4;
+	            out[5] = out5;
+	            return out;
+	        },
+	        /**
+	         * 平移变换
+	         * @param {Float32Array|Array.<number>} out
+	         * @param {Float32Array|Array.<number>} a
+	         * @param {Float32Array|Array.<number>} v
+	         */
+	        translate : function(out, a, v) {
+	            out[0] = a[0];
+	            out[1] = a[1];
+	            out[2] = a[2];
+	            out[3] = a[3];
+	            out[4] = a[4] + v[0];
+	            out[5] = a[5] + v[1];
+	            return out;
+	        },
+	        /**
+	         * 旋转变换
+	         * @param {Float32Array|Array.<number>} out
+	         * @param {Float32Array|Array.<number>} a
+	         * @param {number} rad
+	         */
+	        rotate : function(out, a, rad) {
+	            var aa = a[0];
+	            var ac = a[2];
+	            var atx = a[4];
+	            var ab = a[1];
+	            var ad = a[3];
+	            var aty = a[5];
+	            var st = Math.sin(rad);
+	            var ct = Math.cos(rad);
+
+	            out[0] = aa * ct + ab * st;
+	            out[1] = -aa * st + ab * ct;
+	            out[2] = ac * ct + ad * st;
+	            out[3] = -ac * st + ct * ad;
+	            out[4] = ct * atx + st * aty;
+	            out[5] = ct * aty - st * atx;
+	            return out;
+	        },
+	        /**
+	         * 缩放变换
+	         * @param {Float32Array|Array.<number>} out
+	         * @param {Float32Array|Array.<number>} a
+	         * @param {Float32Array|Array.<number>} v
+	         */
+	        scale : function(out, a, v) {
+	            var vx = v[0];
+	            var vy = v[1];
+	            out[0] = a[0] * vx;
+	            out[1] = a[1] * vy;
+	            out[2] = a[2] * vx;
+	            out[3] = a[3] * vy;
+	            out[4] = a[4] * vx;
+	            out[5] = a[5] * vy;
+	            return out;
+	        },
+	        /**
+	         * 求逆矩阵
+	         * @param {Float32Array|Array.<number>} out
+	         * @param {Float32Array|Array.<number>} a
+	         */
+	        invert : function(out, a) {
+
+	            var aa = a[0];
+	            var ac = a[2];
+	            var atx = a[4];
+	            var ab = a[1];
+	            var ad = a[3];
+	            var aty = a[5];
+
+	            var det = aa * ad - ab * ac;
+	            if (!det) {
+	                return null;
+	            }
+	            det = 1.0 / det;
+
+	            out[0] = ad * det;
+	            out[1] = -ab * det;
+	            out[2] = -ac * det;
+	            out[3] = aa * det;
+	            out[4] = (ac * aty - ad * atx) * det;
+	            out[5] = (ab * atx - aa * aty) * det;
+	            return out;
+	        }
+	    };
+
+	    module.exports = matrix;
+
+
+
+/***/ },
+
+/***/ 940:
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Text element
+	 * @module zrender/graphic/Text
+	 *
+	 * TODO Wrapping
+	 *
+	 * Text not support gradient
+	 */
+
+
+
+	    var Displayable = __webpack_require__(465);
+	    var zrUtil = __webpack_require__(79);
+	    var textContain = __webpack_require__(430);
+
+	    /**
+	     * @alias zrender/graphic/Text
+	     * @extends module:zrender/graphic/Displayable
+	     * @constructor
+	     * @param {Object} opts
+	     */
+	    var Text = function (opts) {
+	        Displayable.call(this, opts);
+	    };
+
+	    Text.prototype = {
+
+	        constructor: Text,
+
+	        type: 'text',
+
+	        brush: function (ctx, prevEl) {
+	            var style = this.style;
+	            var x = style.x || 0;
+	            var y = style.y || 0;
+	            // Convert to string
+	            var text = style.text;
+
+	            // Convert to string
+	            text != null && (text += '');
+
+	            // Always bind style
+	            style.bind(ctx, this, prevEl);
+
+	            if (text) {
+
+	                this.setTransform(ctx);
+
+	                var textBaseline;
+	                var textAlign = style.textAlign;
+	                var font = style.textFont || style.font;
+	                if (style.textVerticalAlign) {
+	                    var rect = textContain.getBoundingRect(
+	                        text, font, style.textAlign, 'top'
+	                    );
+	                    // Ignore textBaseline
+	                    textBaseline = 'middle';
+	                    switch (style.textVerticalAlign) {
+	                        case 'middle':
+	                            y -= rect.height / 2 - rect.lineHeight / 2;
+	                            break;
+	                        case 'bottom':
+	                            y -= rect.height - rect.lineHeight / 2;
+	                            break;
+	                        default:
+	                            y += rect.lineHeight / 2;
+	                    }
+	                }
+	                else {
+	                    textBaseline = style.textBaseline;
+	                }
+
+	                // TODO Invalid font
+	                ctx.font = font || '12px sans-serif';
+	                ctx.textAlign = textAlign || 'left';
+	                // Use canvas default left textAlign. Giving invalid value will cause state not change
+	                if (ctx.textAlign !== textAlign) {
+	                    ctx.textAlign = 'left';
+	                }
+	                ctx.textBaseline = textBaseline || 'alphabetic';
+	                // Use canvas default alphabetic baseline
+	                if (ctx.textBaseline !== textBaseline) {
+	                    ctx.textBaseline = 'alphabetic';
+	                }
+
+	                var lineHeight = textContain.measureText('国', ctx.font).width;
+
+	                var textLines = text.split('\n');
+	                for (var i = 0; i < textLines.length; i++) {
+	                    style.hasFill() && ctx.fillText(textLines[i], x, y);
+	                    style.hasStroke() && ctx.strokeText(textLines[i], x, y);
+	                    y += lineHeight;
+	                }
+
+	                this.restoreTransform(ctx);
+	            }
+	        },
+
+	        getBoundingRect: function () {
+	            if (!this._rect) {
+	                var style = this.style;
+	                var textVerticalAlign = style.textVerticalAlign;
+	                var rect = textContain.getBoundingRect(
+	                    style.text + '', style.textFont || style.font, style.textAlign,
+	                    textVerticalAlign ? 'top' : style.textBaseline
+	                );
+	                switch (textVerticalAlign) {
+	                    case 'middle':
+	                        rect.y -= rect.height / 2;
+	                        break;
+	                    case 'bottom':
+	                        rect.y -= rect.height;
+	                        break;
+	                }
+	                rect.x += style.x || 0;
+	                rect.y += style.y || 0;
+	                this._rect = rect;
+	            }
+	            return this._rect;
+	        }
+	    };
+
+	    zrUtil.inherits(Text, Displayable);
+
+	    module.exports = Text;
+
+
+/***/ },
+
+/***/ 941:
+/***/ function(module, exports, __webpack_require__) {
+
+	/*!
+	 * ZRender, a high performance 2d drawing library.
+	 *
+	 * Copyright (c) 2013, Baidu Inc.
+	 * All rights reserved.
+	 *
+	 * LICENSE
+	 * https://github.com/ecomfe/zrender/blob/master/LICENSE.txt
+	 */
+	// Global defines
+
+	    var guid = __webpack_require__(1043);
+	    var env = __webpack_require__(278);
+	    var zrUtil = __webpack_require__(79);
+
+	    var Handler = __webpack_require__(1452);
+	    var Storage = __webpack_require__(1455);
+	    var Animation = __webpack_require__(935);
+	    var HandlerProxy = __webpack_require__(1467);
+
+	    var useVML = !env.canvasSupported;
+
+	    var painterCtors = {
+	        canvas: __webpack_require__(1454)
+	    };
+
+	    var instances = {};    // ZRender实例map索引
+
+	    var zrender = {};
+
+	    /**
+	     * @type {string}
+	     */
+	    zrender.version = '3.3.0';
+
+	    /**
+	     * Initializing a zrender instance
+	     * @param {HTMLElement} dom
+	     * @param {Object} opts
+	     * @param {string} [opts.renderer='canvas'] 'canvas' or 'svg'
+	     * @param {number} [opts.devicePixelRatio]
+	     * @param {number|string} [opts.width] Can be 'auto' (the same as null/undefined)
+	     * @param {number|string} [opts.height] Can be 'auto' (the same as null/undefined)
+	     * @return {module:zrender/ZRender}
+	     */
+	    zrender.init = function(dom, opts) {
+	        var zr = new ZRender(guid(), dom, opts);
+	        instances[zr.id] = zr;
+	        return zr;
+	    };
+
+	    /**
+	     * Dispose zrender instance
+	     * @param {module:zrender/ZRender} zr
+	     */
+	    zrender.dispose = function (zr) {
+	        if (zr) {
+	            zr.dispose();
+	        }
+	        else {
+	            for (var key in instances) {
+	                if (instances.hasOwnProperty(key)) {
+	                    instances[key].dispose();
+	                }
+	            }
+	            instances = {};
+	        }
+
+	        return zrender;
+	    };
+
+	    /**
+	     * Get zrender instance by id
+	     * @param {string} id zrender instance id
+	     * @return {module:zrender/ZRender}
+	     */
+	    zrender.getInstance = function (id) {
+	        return instances[id];
+	    };
+
+	    zrender.registerPainter = function (name, Ctor) {
+	        painterCtors[name] = Ctor;
+	    };
+
+	    function delInstance(id) {
+	        delete instances[id];
+	    }
+
+	    /**
+	     * @module zrender/ZRender
+	     */
+	    /**
+	     * @constructor
+	     * @alias module:zrender/ZRender
+	     * @param {string} id
+	     * @param {HTMLDomElement} dom
+	     * @param {Object} opts
+	     * @param {string} [opts.renderer='canvas'] 'canvas' or 'svg'
+	     * @param {number} [opts.devicePixelRatio]
+	     * @param {number} [opts.width] Can be 'auto' (the same as null/undefined)
+	     * @param {number} [opts.height] Can be 'auto' (the same as null/undefined)
+	     */
+	    var ZRender = function(id, dom, opts) {
+
+	        opts = opts || {};
+
+	        /**
+	         * @type {HTMLDomElement}
+	         */
+	        this.dom = dom;
+
+	        /**
+	         * @type {string}
+	         */
+	        this.id = id;
+
+	        var self = this;
+	        var storage = new Storage();
+
+	        var rendererType = opts.renderer;
+	        if (useVML) {
+	            if (!painterCtors.vml) {
+	                throw new Error('You need to require \'zrender/vml/vml\' to support IE8');
+	            }
+	            rendererType = 'vml';
+	        }
+	        else if (!rendererType || !painterCtors[rendererType]) {
+	            rendererType = 'canvas';
+	        }
+	        var painter = new painterCtors[rendererType](dom, storage, opts);
+
+	        this.storage = storage;
+	        this.painter = painter;
+
+	        var handerProxy = !env.node ? new HandlerProxy(painter.getViewportRoot()) : null;
+	        this.handler = new Handler(storage, painter, handerProxy, painter.root);
+
+	        /**
+	         * @type {module:zrender/animation/Animation}
+	         */
+	        this.animation = new Animation({
+	            stage: {
+	                update: zrUtil.bind(this.flush, this)
+	            }
+	        });
+	        this.animation.start();
+
+	        /**
+	         * @type {boolean}
+	         * @private
+	         */
+	        this._needsRefresh;
+
+	        // 修改 storage.delFromMap, 每次删除元素之前删除动画
+	        // FIXME 有点ugly
+	        var oldDelFromMap = storage.delFromMap;
+	        var oldAddToMap = storage.addToMap;
+
+	        storage.delFromMap = function (elId) {
+	            var el = storage.get(elId);
+
+	            oldDelFromMap.call(storage, elId);
+
+	            el && el.removeSelfFromZr(self);
+	        };
+
+	        storage.addToMap = function (el) {
+	            oldAddToMap.call(storage, el);
+
+	            el.addSelfToZr(self);
+	        };
+	    };
+
+	    ZRender.prototype = {
+
+	        constructor: ZRender,
+	        /**
+	         * 获取实例唯一标识
+	         * @return {string}
+	         */
+	        getId: function () {
+	            return this.id;
+	        },
+
+	        /**
+	         * 添加元素
+	         * @param  {module:zrender/Element} el
+	         */
+	        add: function (el) {
+	            this.storage.addRoot(el);
+	            this._needsRefresh = true;
+	        },
+
+	        /**
+	         * 删除元素
+	         * @param  {module:zrender/Element} el
+	         */
+	        remove: function (el) {
+	            this.storage.delRoot(el);
+	            this._needsRefresh = true;
+	        },
+
+	        /**
+	         * Change configuration of layer
+	         * @param {string} zLevel
+	         * @param {Object} config
+	         * @param {string} [config.clearColor=0] Clear color
+	         * @param {string} [config.motionBlur=false] If enable motion blur
+	         * @param {number} [config.lastFrameAlpha=0.7] Motion blur factor. Larger value cause longer trailer
+	        */
+	        configLayer: function (zLevel, config) {
+	            this.painter.configLayer(zLevel, config);
+	            this._needsRefresh = true;
+	        },
+
+	        /**
+	         * Repaint the canvas immediately
+	         */
+	        refreshImmediately: function () {
+	            // Clear needsRefresh ahead to avoid something wrong happens in refresh
+	            // Or it will cause zrender refreshes again and again.
+	            this._needsRefresh = false;
+	            this.painter.refresh();
+	            /**
+	             * Avoid trigger zr.refresh in Element#beforeUpdate hook
+	             */
+	            this._needsRefresh = false;
+	        },
+
+	        /**
+	         * Mark and repaint the canvas in the next frame of browser
+	         */
+	        refresh: function() {
+	            this._needsRefresh = true;
+	        },
+
+	        /**
+	         * Perform all refresh
+	         */
+	        flush: function () {
+	            if (this._needsRefresh) {
+	                this.refreshImmediately();
+	            }
+	            if (this._needsRefreshHover) {
+	                this.refreshHoverImmediately();
+	            }
+	        },
+
+	        /**
+	         * Add element to hover layer
+	         * @param  {module:zrender/Element} el
+	         * @param {Object} style
+	         */
+	        addHover: function (el, style) {
+	            if (this.painter.addHover) {
+	                this.painter.addHover(el, style);
+	                this.refreshHover();
+	            }
+	        },
+
+	        /**
+	         * Add element from hover layer
+	         * @param  {module:zrender/Element} el
+	         */
+	        removeHover: function (el) {
+	            if (this.painter.removeHover) {
+	                this.painter.removeHover(el);
+	                this.refreshHover();
+	            }
+	        },
+
+	        /**
+	         * Clear all hover elements in hover layer
+	         * @param  {module:zrender/Element} el
+	         */
+	        clearHover: function () {
+	            if (this.painter.clearHover) {
+	                this.painter.clearHover();
+	                this.refreshHover();
+	            }
+	        },
+
+	        /**
+	         * Refresh hover in next frame
+	         */
+	        refreshHover: function () {
+	            this._needsRefreshHover = true;
+	        },
+
+	        /**
+	         * Refresh hover immediately
+	         */
+	        refreshHoverImmediately: function () {
+	            this._needsRefreshHover = false;
+	            this.painter.refreshHover && this.painter.refreshHover();
+	        },
+
+	        /**
+	         * Resize the canvas.
+	         * Should be invoked when container size is changed
+	         * @param {Object} [opts]
+	         * @param {number|string} [opts.width] Can be 'auto' (the same as null/undefined)
+	         * @param {number|string} [opts.height] Can be 'auto' (the same as null/undefined)
+	         */
+	        resize: function(opts) {
+	            opts = opts || {};
+	            this.painter.resize(opts.width, opts.height);
+	            this.handler.resize();
+	        },
+
+	        /**
+	         * Stop and clear all animation immediately
+	         */
+	        clearAnimation: function () {
+	            this.animation.clear();
+	        },
+
+	        /**
+	         * Get container width
+	         */
+	        getWidth: function() {
+	            return this.painter.getWidth();
+	        },
+
+	        /**
+	         * Get container height
+	         */
+	        getHeight: function() {
+	            return this.painter.getHeight();
+	        },
+
+	        /**
+	         * Export the canvas as Base64 URL
+	         * @param {string} type
+	         * @param {string} [backgroundColor='#fff']
+	         * @return {string} Base64 URL
+	         */
+	        // toDataURL: function(type, backgroundColor) {
+	        //     return this.painter.getRenderedCanvas({
+	        //         backgroundColor: backgroundColor
+	        //     }).toDataURL(type);
+	        // },
+
+	        /**
+	         * Converting a path to image.
+	         * It has much better performance of drawing image rather than drawing a vector path.
+	         * @param {module:zrender/graphic/Path} e
+	         * @param {number} width
+	         * @param {number} height
+	         */
+	        pathToImage: function(e, width, height) {
+	            var id = guid();
+	            return this.painter.pathToImage(id, e, width, height);
+	        },
+
+	        /**
+	         * Set default cursor
+	         * @param {string} [cursorStyle='default'] 例如 crosshair
+	         */
+	        setCursorStyle: function (cursorStyle) {
+	            this.handler.setCursorStyle(cursorStyle);
+	        },
+
+	        /**
+	         * Bind event
+	         *
+	         * @param {string} eventName Event name
+	         * @param {Function} eventHandler Handler function
+	         * @param {Object} [context] Context object
+	         */
+	        on: function(eventName, eventHandler, context) {
+	            this.handler.on(eventName, eventHandler, context);
+	        },
+
+	        /**
+	         * Unbind event
+	         * @param {string} eventName Event name
+	         * @param {Function} [eventHandler] Handler function
+	         */
+	        off: function(eventName, eventHandler) {
+	            this.handler.off(eventName, eventHandler);
+	        },
+
+	        /**
+	         * Trigger event manually
+	         *
+	         * @param {string} eventName Event name
+	         * @param {event=} event Event object
+	         */
+	        trigger: function (eventName, event) {
+	            this.handler.trigger(eventName, event);
+	        },
+
+
+	        /**
+	         * Clear all objects and the canvas.
+	         */
+	        clear: function () {
+	            this.storage.delRoot();
+	            this.painter.clear();
+	        },
+
+	        /**
+	         * Dispose self.
+	         */
+	        dispose: function () {
+	            this.animation.stop();
+
+	            this.clear();
+	            this.storage.dispose();
+	            this.painter.dispose();
+	            this.handler.dispose();
+
+	            this.animation =
+	            this.storage =
+	            this.painter =
+	            this.handler = null;
+
+	            delInstance(this.id);
+	        }
+	    };
+
+	    module.exports = zrender;
+
+
+
+/***/ },
+
+/***/ 972:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.saveAllDatas = exports.stepChange = undefined;
+
+	var _defineProperty2 = __webpack_require__(7);
+
+	var _defineProperty3 = _interopRequireDefault(_defineProperty2);
+
+	var _actionType = __webpack_require__(25);
+
+	var Types = _interopRequireWildcard(_actionType);
+
+	var _api = __webpack_require__(44);
+
+	var _redux = __webpack_require__(56);
+
+	var _global = __webpack_require__(12);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	var stepChange = exports.stepChange = function stepChange(id, config, step) {
+	    var _ref;
+
+	    return _ref = {}, (0, _defineProperty3["default"])(_ref, _api.API, { types: Types.stepContainer.requestStepConfig, apiConfig: config }), (0, _defineProperty3["default"])(_ref, 'id', id), (0, _defineProperty3["default"])(_ref, 'step', step), _ref;
+	};
+	var saveAllDatas = exports.saveAllDatas = function saveAllDatas(id, config) {
+	    var _ref2;
+
+	    return _ref2 = {}, (0, _defineProperty3["default"])(_ref2, _api.API, { types: Types.stepContainer.requestSaveAllDatas, apiConfig: config }), (0, _defineProperty3["default"])(_ref2, 'id', id), _ref2;
+	};
+
+/***/ },
+
+/***/ 975:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5601,25 +5454,25 @@ webpackJsonp([3],{
 	    value: true
 	});
 
-	var _getIterator2 = __webpack_require__(42);
+	var _getIterator2 = __webpack_require__(48);
 
 	var _getIterator3 = _interopRequireDefault(_getIterator2);
 
-	var _css = __webpack_require__(71);
+	var _css = __webpack_require__(95);
 
-	var _table = __webpack_require__(68);
+	var _table = __webpack_require__(93);
 
 	var _table2 = _interopRequireDefault(_table);
 
-	var _css2 = __webpack_require__(31);
+	var _css2 = __webpack_require__(37);
 
-	var _modal = __webpack_require__(30);
+	var _modal = __webpack_require__(36);
 
 	var _modal2 = _interopRequireDefault(_modal);
 
-	var _css3 = __webpack_require__(29);
+	var _css3 = __webpack_require__(40);
 
-	var _button = __webpack_require__(26);
+	var _button = __webpack_require__(31);
 
 	var _button2 = _interopRequireDefault(_button);
 
@@ -5639,9 +5492,9 @@ webpackJsonp([3],{
 
 	var _inherits3 = _interopRequireDefault(_inherits2);
 
-	var _css4 = __webpack_require__(81);
+	var _css4 = __webpack_require__(112);
 
-	var _radio = __webpack_require__(67);
+	var _radio = __webpack_require__(92);
 
 	var _radio2 = _interopRequireDefault(_radio);
 
@@ -5649,57 +5502,57 @@ webpackJsonp([3],{
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _component = __webpack_require__(11);
+	var _component = __webpack_require__(14);
 
 	var _component2 = _interopRequireDefault(_component);
 
-	var _connectDataSource = __webpack_require__(441);
+	var _connectDataSource = __webpack_require__(1076);
 
-	var _AiForm = __webpack_require__(27);
+	var _AiForm = __webpack_require__(30);
 
 	var _AiForm2 = _interopRequireDefault(_AiForm);
 
-	var _zrender = __webpack_require__(230);
+	var _zrender = __webpack_require__(941);
 
 	var _zrender2 = _interopRequireDefault(_zrender);
 
-	__webpack_require__(261);
+	__webpack_require__(1053);
 
-	__webpack_require__(258);
+	__webpack_require__(935);
 
-	var _Group = __webpack_require__(131);
+	var _Group = __webpack_require__(464);
 
 	var _Group2 = _interopRequireDefault(_Group);
 
-	var _Rect = __webpack_require__(260);
+	var _Rect = __webpack_require__(1050);
 
 	var _Rect2 = _interopRequireDefault(_Rect);
 
-	var _Text = __webpack_require__(228);
+	var _Text = __webpack_require__(940);
 
 	var _Text2 = _interopRequireDefault(_Text);
 
-	var _text = __webpack_require__(110);
+	var _text = __webpack_require__(430);
 
 	var _text2 = _interopRequireDefault(_text);
 
-	var _Arrow = __webpack_require__(445);
+	var _Arrow = __webpack_require__(1103);
 
 	var _Arrow2 = _interopRequireDefault(_Arrow);
 
 	var _global = __webpack_require__(12);
 
-	var _history = __webpack_require__(36);
+	var _history = __webpack_require__(33);
 
 	var _history2 = _interopRequireDefault(_history);
 
-	var _dataList = __webpack_require__(28);
+	var _dataList = __webpack_require__(29);
 
-	var _interfaces = __webpack_require__(32);
+	var _interfaces = __webpack_require__(38);
 
 	var _interfaces2 = _interopRequireDefault(_interfaces);
 
-	var _StepContainerV = __webpack_require__(883);
+	var _StepContainerV = __webpack_require__(979);
 
 	var _StepContainerV2 = _interopRequireDefault(_StepContainerV);
 
@@ -6328,355 +6181,20 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 426:
-/***/ function(module, exports) {
-
-	
-	    var dpr = 1;
-	    // If in browser environment
-	    if (typeof window !== 'undefined') {
-	        dpr = Math.max(window.devicePixelRatio || 1, 1);
-	    }
-	    /**
-	     * config默认配置项
-	     * @exports zrender/config
-	     * @author Kener (@Kener-林峰, kener.linfeng@gmail.com)
-	     */
-	    var config = {
-	        /**
-	         * debug日志选项：catchBrushException为true下有效
-	         * 0 : 不生成debug数据，发布用
-	         * 1 : 异常抛出，调试用
-	         * 2 : 控制台输出，调试用
-	         */
-	        debugMode: 0,
-
-	        // retina 屏幕优化
-	        devicePixelRatio: dpr
-	    };
-	    module.exports = config;
-
-
-
-
-/***/ },
-
-/***/ 427:
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * 可绘制的图形基类
-	 * Base class of all displayable graphic objects
-	 * @module zrender/graphic/Displayable
-	 */
-
-
-
-	    var zrUtil = __webpack_require__(2);
-
-	    var Style = __webpack_require__(955);
-
-	    var Element = __webpack_require__(944);
-	    var RectText = __webpack_require__(957);
-	    // var Stateful = require('./mixin/Stateful');
-
-	    /**
-	     * @alias module:zrender/graphic/Displayable
-	     * @extends module:zrender/Element
-	     * @extends module:zrender/graphic/mixin/RectText
-	     */
-	    function Displayable(opts) {
-
-	        opts = opts || {};
-
-	        Element.call(this, opts);
-
-	        // Extend properties
-	        for (var name in opts) {
-	            if (
-	                opts.hasOwnProperty(name) &&
-	                name !== 'style'
-	            ) {
-	                this[name] = opts[name];
-	            }
-	        }
-
-	        /**
-	         * @type {module:zrender/graphic/Style}
-	         */
-	        this.style = new Style(opts.style);
-
-	        this._rect = null;
-	        // Shapes for cascade clipping.
-	        this.__clipPaths = [];
-
-	        // FIXME Stateful must be mixined after style is setted
-	        // Stateful.call(this, opts);
-	    }
-
-	    Displayable.prototype = {
-
-	        constructor: Displayable,
-
-	        type: 'displayable',
-
-	        /**
-	         * Displayable 是否为脏，Painter 中会根据该标记判断是否需要是否需要重新绘制
-	         * Dirty flag. From which painter will determine if this displayable object needs brush
-	         * @name module:zrender/graphic/Displayable#__dirty
-	         * @type {boolean}
-	         */
-	        __dirty: true,
-
-	        /**
-	         * 图形是否可见，为true时不绘制图形，但是仍能触发鼠标事件
-	         * If ignore drawing of the displayable object. Mouse event will still be triggered
-	         * @name module:/zrender/graphic/Displayable#invisible
-	         * @type {boolean}
-	         * @default false
-	         */
-	        invisible: false,
-
-	        /**
-	         * @name module:/zrender/graphic/Displayable#z
-	         * @type {number}
-	         * @default 0
-	         */
-	        z: 0,
-
-	        /**
-	         * @name module:/zrender/graphic/Displayable#z
-	         * @type {number}
-	         * @default 0
-	         */
-	        z2: 0,
-
-	        /**
-	         * z层level，决定绘画在哪层canvas中
-	         * @name module:/zrender/graphic/Displayable#zlevel
-	         * @type {number}
-	         * @default 0
-	         */
-	        zlevel: 0,
-
-	        /**
-	         * 是否可拖拽
-	         * @name module:/zrender/graphic/Displayable#draggable
-	         * @type {boolean}
-	         * @default false
-	         */
-	        draggable: false,
-
-	        /**
-	         * 是否正在拖拽
-	         * @name module:/zrender/graphic/Displayable#draggable
-	         * @type {boolean}
-	         * @default false
-	         */
-	        dragging: false,
-
-	        /**
-	         * 是否相应鼠标事件
-	         * @name module:/zrender/graphic/Displayable#silent
-	         * @type {boolean}
-	         * @default false
-	         */
-	        silent: false,
-
-	        /**
-	         * If enable culling
-	         * @type {boolean}
-	         * @default false
-	         */
-	        culling: false,
-
-	        /**
-	         * Mouse cursor when hovered
-	         * @name module:/zrender/graphic/Displayable#cursor
-	         * @type {string}
-	         */
-	        cursor: 'pointer',
-
-	        /**
-	         * If hover area is bounding rect
-	         * @name module:/zrender/graphic/Displayable#rectHover
-	         * @type {string}
-	         */
-	        rectHover: false,
-
-	        /**
-	         * Render the element progressively when the value >= 0,
-	         * usefull for large data.
-	         * @type {number}
-	         */
-	        progressive: -1,
-
-	        beforeBrush: function (ctx) {},
-
-	        afterBrush: function (ctx) {},
-
-	        /**
-	         * 图形绘制方法
-	         * @param {Canvas2DRenderingContext} ctx
-	         */
-	        // Interface
-	        brush: function (ctx, prevEl) {},
-
-	        /**
-	         * 获取最小包围盒
-	         * @return {module:zrender/core/BoundingRect}
-	         */
-	        // Interface
-	        getBoundingRect: function () {},
-
-	        /**
-	         * 判断坐标 x, y 是否在图形上
-	         * If displayable element contain coord x, y
-	         * @param  {number} x
-	         * @param  {number} y
-	         * @return {boolean}
-	         */
-	        contain: function (x, y) {
-	            return this.rectContain(x, y);
-	        },
-
-	        /**
-	         * @param  {Function} cb
-	         * @param  {}   context
-	         */
-	        traverse: function (cb, context) {
-	            cb.call(context, this);
-	        },
-
-	        /**
-	         * 判断坐标 x, y 是否在图形的包围盒上
-	         * If bounding rect of element contain coord x, y
-	         * @param  {number} x
-	         * @param  {number} y
-	         * @return {boolean}
-	         */
-	        rectContain: function (x, y) {
-	            var coord = this.transformCoordToLocal(x, y);
-	            var rect = this.getBoundingRect();
-	            return rect.contain(coord[0], coord[1]);
-	        },
-
-	        /**
-	         * 标记图形元素为脏，并且在下一帧重绘
-	         * Mark displayable element dirty and refresh next frame
-	         */
-	        dirty: function () {
-	            this.__dirty = true;
-
-	            this._rect = null;
-
-	            this.__zr && this.__zr.refresh();
-	        },
-
-	        /**
-	         * 图形是否会触发事件
-	         * If displayable object binded any event
-	         * @return {boolean}
-	         */
-	        // TODO, 通过 bind 绑定的事件
-	        // isSilent: function () {
-	        //     return !(
-	        //         this.hoverable || this.draggable
-	        //         || this.onmousemove || this.onmouseover || this.onmouseout
-	        //         || this.onmousedown || this.onmouseup || this.onclick
-	        //         || this.ondragenter || this.ondragover || this.ondragleave
-	        //         || this.ondrop
-	        //     );
-	        // },
-	        /**
-	         * Alias for animate('style')
-	         * @param {boolean} loop
-	         */
-	        animateStyle: function (loop) {
-	            return this.animate('style', loop);
-	        },
-
-	        attrKV: function (key, value) {
-	            if (key !== 'style') {
-	                Element.prototype.attrKV.call(this, key, value);
-	            }
-	            else {
-	                this.style.set(value);
-	            }
-	        },
-
-	        /**
-	         * @param {Object|string} key
-	         * @param {*} value
-	         */
-	        setStyle: function (key, value) {
-	            this.style.set(key, value);
-	            this.dirty(false);
-	            return this;
-	        },
-
-	        /**
-	         * Use given style object
-	         * @param  {Object} obj
-	         */
-	        useStyle: function (obj) {
-	            this.style = new Style(obj);
-	            this.dirty(false);
-	            return this;
-	        }
-	    };
-
-	    zrUtil.inherits(Displayable, Element);
-
-	    zrUtil.mixin(Displayable, RectText);
-	    // zrUtil.mixin(Displayable, Stateful);
-
-	    module.exports = Displayable;
-
-
-/***/ },
-
-/***/ 428:
-/***/ function(module, exports) {
-
-	
-
-	    /**
-	     * @param {Array.<Object>} colorStops
-	     */
-	    var Gradient = function (colorStops) {
-
-	        this.colorStops = colorStops || [];
-	    };
-
-	    Gradient.prototype = {
-
-	        constructor: Gradient,
-
-	        addColorStop: function (offset, color) {
-	            this.colorStops.push({
-
-	                offset: offset,
-
-	                color: color
-	            });
-	        }
-	    };
-
-	    module.exports = Gradient;
-
-
-/***/ },
-
-/***/ 441:
+/***/ 979:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
-	exports.requestDataDir = exports.getContentByTableTile = exports.delLink = exports.linkData = exports.setLinkType = exports.updateLine = exports.setCurrentLink = exports.setSelectField = exports.addTableFlag = exports.showConnectDlg = exports.showDataSourceDlg = exports.addTable = exports.mark = exports.setZrenderState = exports.requestTables = undefined;
+
+	var _css = __webpack_require__(40);
+
+	var _button = __webpack_require__(31);
+
+	var _button2 = _interopRequireDefault(_button);
 
 	var _extends2 = __webpack_require__(3);
 
@@ -6686,535 +6204,1329 @@ webpackJsonp([3],{
 
 	var _defineProperty3 = _interopRequireDefault(_defineProperty2);
 
-	var _actionType = __webpack_require__(23);
+	var _css2 = __webpack_require__(37);
 
-	var Types = _interopRequireWildcard(_actionType);
+	var _modal = __webpack_require__(36);
 
-	var _api = __webpack_require__(41);
+	var _modal2 = _interopRequireDefault(_modal);
 
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
+	var _classCallCheck2 = __webpack_require__(4);
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
-	/**
-	 * Created by liy on 2016/12/6 0006.
-	 */
-	var requestTables = exports.requestTables = function requestTables(id, conifg) {
-	    var _ref;
+	var _possibleConstructorReturn2 = __webpack_require__(6);
 
-	    return _ref = {}, (0, _defineProperty3["default"])(_ref, _api.API, { types: Types.connectDataSource.requestTables, apiConfig: conifg }), (0, _defineProperty3["default"])(_ref, 'id', id), _ref;
-	};
-	var setZrenderState = exports.setZrenderState = function setZrenderState(id, state) {
-	    return {
-	        type: Types.connectDataSource.setZrenderState,
-	        id: id,
-	        zrender: state
-	    };
-	};
-	var mark = exports.mark = function mark(id, _mark) {
-	    return (0, _extends3["default"])({
-	        type: Types.connectDataSource.mark,
-	        id: id
-	    }, _mark);
-	};
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
 
-	var addTable = exports.addTable = function addTable(id, tableIds) {
-	    return {
-	        type: Types.connectDataSource.addTable,
-	        id: id,
-	        tableIds: tableIds
-	    };
-	};
-	var showDataSourceDlg = exports.showDataSourceDlg = function showDataSourceDlg(id, _showDataSourceDlg) {
-	    return {
-	        type: Types.connectDataSource.showDataSourceDlg,
-	        id: id,
-	        showDataSourceDlg: _showDataSourceDlg
-	    };
-	};
-	var showConnectDlg = exports.showConnectDlg = function showConnectDlg(id, _showConnectDlg) {
-	    return {
-	        type: Types.connectDataSource.showConnectDlg,
-	        id: id,
-	        showConnectDlg: _showConnectDlg
-	    };
-	};
-	var addTableFlag = exports.addTableFlag = function addTableFlag(id, _addTableFlag) {
-	    return {
-	        type: Types.connectDataSource.addTableFlag,
-	        id: id,
-	        addTableFlag: _addTableFlag
-	    };
-	};
-	var setSelectField = exports.setSelectField = function setSelectField(id, table, field, zField) {
-	    return {
-	        type: Types.connectDataSource.setSelectField,
-	        id: id,
-	        table: table,
-	        field: field,
-	        zField: zField
-	    };
-	};
-	var setCurrentLink = exports.setCurrentLink = function setCurrentLink(id, index) {
-	    return {
-	        type: Types.connectDataSource.setCurrentLink,
-	        id: id,
-	        currentLink: index
-	    };
-	};
-	var updateLine = exports.updateLine = function updateLine(id) {
-	    return {
-	        type: Types.connectDataSource.updateLine,
-	        id: id
-	    };
-	};
-	var setLinkType = exports.setLinkType = function setLinkType(id, isTemp, linkType) {
-	    return {
-	        type: Types.connectDataSource.setLinkType,
-	        id: id,
-	        isTemp: isTemp,
-	        linkType: linkType
+	var _inherits2 = __webpack_require__(5);
 
-	    };
-	};
-	var linkData = exports.linkData = function linkData(id, from, to) {
-	    return {
-	        type: Types.connectDataSource.linkData,
-	        from: from,
-	        to: to,
-	        id: id
+	var _inherits3 = _interopRequireDefault(_inherits2);
 
-	    };
-	};
-	var delLink = exports.delLink = function delLink(id) {
-	    return {
-	        type: Types.connectDataSource.delLink,
-	        id: id
+	var _react = __webpack_require__(1);
 
-	    };
-	};
-	//通过表名来从接口中获取整个表内容的信息
-	var getContentByTableTile = exports.getContentByTableTile = function getContentByTableTile(tableTitle, dataSoureId, config, id) {
-	    var _ref2;
+	var _react2 = _interopRequireDefault(_react);
 
-	    return _ref2 = {}, (0, _defineProperty3["default"])(_ref2, _api.API, { types: Types.connectDataSource.getContentByTableTile, apiConfig: (0, _extends3["default"])({}, config, { body: (0, _extends3["default"])({}, config.body, { datasourceId: dataSoureId, tableName: tableTitle }) }) }), (0, _defineProperty3["default"])(_ref2, 'tableTitle', tableTitle), (0, _defineProperty3["default"])(_ref2, 'dataSource', dataSoureId), (0, _defineProperty3["default"])(_ref2, 'id', id), _ref2;
-	};
+	var _reactAddonsCssTransitionGroup = __webpack_require__(274);
 
-	//获取数据目录行为
-	var requestDataDir = exports.requestDataDir = function requestDataDir(config, id) {
-	    var _ref3;
+	var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
 
-	    return _ref3 = {}, (0, _defineProperty3["default"])(_ref3, _api.API, { types: Types.connectDataSource.requestDataDirApi, apiConfig: config }), (0, _defineProperty3["default"])(_ref3, 'id', id), _ref3;
-	};
+	var _redux = __webpack_require__(56);
 
-/***/ },
+	var _component = __webpack_require__(14);
 
-/***/ 445:
-/***/ function(module, exports, __webpack_require__) {
+	var _component2 = _interopRequireDefault(_component);
 
-	'use strict';
+	var _history = __webpack_require__(33);
 
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
+	var _history2 = _interopRequireDefault(_history);
 
-	var _Path = __webpack_require__(75);
+	var _DataListV = __webpack_require__(183);
 
-	var _Path2 = _interopRequireDefault(_Path);
+	var _DataListV2 = _interopRequireDefault(_DataListV);
 
-	var _vector = __webpack_require__(43);
+	var _AiForm = __webpack_require__(30);
 
-	var _vector2 = _interopRequireDefault(_vector);
+	var _AiForm2 = _interopRequireDefault(_AiForm);
 
-	var _matrix = __webpack_require__(132);
+	var _ConnectDatasource = __webpack_require__(975);
 
-	var _matrix2 = _interopRequireDefault(_matrix);
+	var _ConnectDatasource2 = _interopRequireDefault(_ConnectDatasource);
+
+	var _StepContainer = __webpack_require__(972);
+
+	var _StepContainer2 = __webpack_require__(472);
+
+	var _StepContainer3 = _interopRequireDefault(_StepContainer2);
+
+	var _global = __webpack_require__(12);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-	var createArrow = function createArrow(vec1, vec2, ctx) {
-	    var vec = _vector2["default"].sub([], vec2, vec1);
-	    var Q = Math.atan2(vec[1], vec[0]);
-	    var vec3 = _vector2["default"].create(-5, 5);
-	    var vec4 = _vector2["default"].create(-5, -5);
-	    var mtx = _matrix2["default"].create();
-	    mtx = _matrix2["default"].rotate({}, mtx, -1 * Q);
-	    vec3 = _vector2["default"].applyTransform(vec3, vec3, mtx);
-	    vec4 = _vector2["default"].applyTransform(vec4, vec4, mtx);
-	    var O = _vector2["default"].create(0, 0);
-	    mtx = _matrix2["default"].create();
-	    mtx = _matrix2["default"].translate(mtx, mtx, vec2);
-	    vec3 = _vector2["default"].applyTransform(vec3, vec3, mtx);
-	    vec4 = _vector2["default"].applyTransform(vec4, vec4, mtx);
+	var mapState = function mapState(state) {
+	  return {};
+	}; //import styles from './App.less';
 
-	    ctx.moveTo(vec2[0], vec2[1]);
-	    ctx.lineTo(vec3[0], vec3[1]);
-	    ctx.moveTo(vec2[0], vec2[1]);
-	    ctx.lineTo(vec4[0], vec4[1]);
+	var mapAction = function mapAction(dispatch) {
+	  return { actions: (0, _redux.bindActionCreators)({}, dispatch) };
 	};
 
-	var Arrow = _Path2["default"].extend({
-	    type: 'arrow',
+	var StepCon1 = function (_Component) {
+	  (0, _inherits3["default"])(StepCon1, _Component);
 
-	    shape: {
-	        x1: 0,
-	        y1: 0,
-	        x2: 0,
-	        y2: 0,
-	        percent: 1,
-	        direction: 'right'
-	    },
+	  StepCon1.gotoFirst = function gotoFirst(stepId) {
+	    _modal2["default"].warning({
+	      title: '提示',
+	      content: '上一步或前几步没有完成，请返回第一步重新开始。',
+	      onOk: function onOk() {
+	        setTimeout(function () {
+	          StepCon1.clearAll(stepId);
+	          _history2["default"].push(_global.Global.getState().routing.path.replace(/\/\d+/, '/1'));
+	        }, 500);
+	      }
+	    });
+	  };
 
-	    style: {
-	        stroke: '#000',
-	        fill: null
-	    },
+	  //步骤流程编辑，刷新页面跳转到列表展示页面
 
-	    buildPath: function buildPath(ctx, shape) {
-	        var link = shape.link;
-	        var x1, y1, x2, y2;
-	        var percent = 1;
-	        var fromField = link.from.zField,
-	            toField = link.to.zField,
-	            fromPos = fromField.parent.position[0],
-	            toPos = toField.parent.position[0];
-	        if (fromPos > toPos) {
-	            x1 = fromPos - 4;
-	            x2 = toPos + 204;
-	        } else {
-	            x1 = fromPos + 204;
-	            x2 = toPos - 4;
+
+	  StepCon1["goto"] = function goto(stepId, url) {
+	    _modal2["default"].warning({
+	      title: '提示',
+	      content: '页面刷新，请重新选择要查看的条目。',
+	      onOk: function onOk() {
+	        setTimeout(function () {
+	          StepCon1.clearAll(stepId);
+	          _history2["default"].push(url);
+	        }, 500);
+	      }
+	    });
+	  };
+
+	  StepCon1.clearAll = function clearAll(stepId) {
+	    var includeStepContainer = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+	    var state = _global.Global.getState();
+	    if (state.stepContainer[stepId]) {
+	      var clearObj = {};
+	      var stepConfig = _global.Global.getState().stepContainer[stepId];
+	      if (!stepConfig || !stepConfig.stepApi || !stepConfig.stepApi.data || !stepConfig.stepApi.data.steps) return;
+	      _global.Global.getState().stepContainer[stepId].stepApi.data.steps.forEach(function (item, index) {
+	        switch (item.type) {
+	          case 'datalist':
+	            if (!state.dataList || !state.dataList[item.id]) break;
+	            if (!clearObj.dataList) clearObj.dataList = {};
+	            clearObj.dataList[item.id] = null;
+	            break;
+	          case 'aiForm':
+	            if (!state.aiForm || !state.aiForm[item.id]) break;
+	            if (!clearObj.aiForm) clearObj.aiForm = {};
+	            clearObj.aiForm[item.id] = null;
+	            break;
 	        }
-	        y1 = fromField.parent.position[1] + fromField.position[1] + 7;
-	        y2 = toField.parent.position[1] + toField.position[1] + 7;
-
-	        if (percent === 0) {
-	            return;
-	        }
-
-	        ctx.moveTo(x1, y1);
-	        if (percent < 1) {
-	            x2 = x1 * (1 - percent) + x2 * percent;
-	            y2 = y1 * (1 - percent) + y2 * percent;
-	        }
-	        ctx.lineTo(x2, y2);
-
-	        var vec1 = _vector2["default"].create(x1, y1),
-	            vec2 = _vector2["default"].create(x2, y2);
-
-	        if (link.linkType == "2") {
-	            createArrow(vec2, vec1, ctx);
-	        } else if (link.linkType == "1") {
-	            createArrow(vec1, vec2, ctx);
-	        } else if (shape.direction == "both") {
-	            createArrow(vec1, vec2, ctx);
-	            createArrow(vec2, vec1, ctx);
-	        } else {
-	            //throw new Error('arrow direction invalide');
-	        }
-	    },
-
-	    /**
-	     * Get point at percent
-	     * @param  {number} percent
-	     * @return {Array.<number>}
-	     */
-	    pointAt: function pointAt(p) {
-	        var shape = this.shape;
-	        return [shape.x1 * (1 - p) + shape.x2 * p, shape.y1 * (1 - p) + shape.y2 * p];
+	      });
+	      if (includeStepContainer && state.stepContainer && state.stepContainer[stepId]) {
+	        if (!clearObj.stepContainer) clearObj.stepContainer = {};
+	        clearObj.stepContainer[stepId] = null;
+	      }
+	      if (clearObj.dataList || clearObj.aiForm || clearObj.stepContainer) {
+	        _global.Global.mark(clearObj);
+	      }
 	    }
-	});
+	  };
 
-	exports["default"] = Arrow;
+	  function StepCon1(props) {
+	    (0, _classCallCheck3["default"])(this, StepCon1);
+
+	    var _this = (0, _possibleConstructorReturn3["default"])(this, _Component.call(this, props));
+
+	    _global.Global.mark({
+	      stepContainer: (0, _defineProperty3["default"])({}, _this.props.params.config, {
+	        saveApi: {
+	          loading: false,
+	          msg: null,
+	          data: null
+	        }
+	      })
+	    });
+	    return _this;
+	  }
+
+	  StepCon1.prototype.componentDidMount = function componentDidMount() {
+	    var config = this.props.params.config;
+	    this.props.actions.stepChange(config, {
+	      apiName: config,
+	      jsonpArgs: { glState: this.props.glState }
+	    }, this.props.params.step);
+	  };
+
+	  StepCon1.prototype.render = function render() {
+	    var _this2 = this;
+
+	    var state = this.props.stepContainer;
+	    if (!state) return _react2["default"].createElement(
+	      'div',
+	      null,
+	      '...'
+	    );
+	    state = this.props.stepContainer[this.props.params.config];
+	    var actions = this.props.actions;
+	    var disable = this.props.params.step == 1 ? { "disabled": "disabled" } : null;
+	    var config = null;
+
+	    var content = state && state.stepApi && (config = state.stepApi.data) ? _react2["default"].createElement(
+	      'div',
+	      { className: 'container' },
+	      _react2["default"].createElement(
+	        'div',
+	        null,
+	        _react2["default"].createElement(
+	          'div',
+	          { className: "stepBar", style: { width: state.stepApi.data.steps.length * 117, margin: "0 auto" } },
+	          state.stepApi.data.steps.map(function (item, i) {
+	            return _react2["default"].createElement(
+	              'div',
+	              { key: Math.random(), className: "stepOne" },
+	              _react2["default"].createElement(
+	                'div',
+	                { className: "stepNumLine" },
+	                _react2["default"].createElement('div', {
+	                  className: i == 0 ? "line2" : i + 1 == _this2.props.params.step ? "line3" : i + 1 < _this2.props.params.step ? "line4" : i == _this2.props.params.step ? "line7" : "line" }),
+	                _react2["default"].createElement(
+	                  'div',
+	                  {
+	                    className: i + 1 == _this2.props.params.step ? _StepContainer3["default"].stepNumberLight : i + 1 < _this2.props.params.step ? "stepNumber2" : "stepNumber" },
+	                  item.number
+	                ),
+	                _react2["default"].createElement('div', {
+	                  className: i + 1 == state.stepApi.data.steps.length ? "line2" : i + 1 == _this2.props.params.step ? "line5" : i + 1 > _this2.props.params.step ? "line" : i == _this2.props.params.step - 2 ? "line6" : "line4" })
+	              ),
+	              _react2["default"].createElement(
+	                'div',
+	                {
+	                  className: 'stepName ' + (_this2.props.params.step == i + 1 ? _StepContainer3["default"].stepNameLight : "") },
+	                item.name
+	              )
+	            );
+	          })
+	        )
+	      ),
+	      _react2["default"].createElement(
+	        'div',
+	        {
+	          className: 'stepContainerContent ' + (state.stepApi.data.steps[this.props.params.step - 1].style ? "boxShadow" : "") },
+	        function () {
+	          var step = _this2.props.params.step;
+	          var stepData = state.stepApi.data;
+	          var dataStepsType = stepData.steps[step - 1];
+	          var stepConfig = stepData.steps[step - 1].configStepApi;
+	          var dataListId = _this2.props.params.dataListId;
+	          /*if(!this.props.glState.dataList[dataListId].selectedRows || this.props.glState.dataList[dataListId].selectedRows.length!=1){
+	           Modal.warning({
+	           title: '警告',
+	           content: '请选择一条要操作的列'
+	           });
+	           window.history.back(-1);
+	           return;
+	           }*/
+	          var arg = stepData.steps[step - 1].arg;
+	          switch (dataStepsType.type) {
+	            case "datalist":
+
+	              return _react2["default"].createElement(_DataListV2["default"], (0, _extends3["default"])({ perennity: true,
+	                id: dataStepsType.id,
+	                configs: { apiName: stepConfig, body: {}, jsonpArgs: { id: dataStepsType.id } }
+	              }, arg));
+	            case "aiForm":
+	              var _config = { apiName: stepConfig, body: {} };
+
+	              return _react2["default"].createElement(_AiForm2["default"], (0, _extends3["default"])({ perennity: true,
+	                config: _config,
+	                id: dataStepsType.id
+	              }, arg));
+	            default:
+	              if (typeof dataStepsType.type == 'function') {
+	                return dataStepsType.type();
+	              } else {
+	                return dataStepsType.type;
+	              }
+
+	          }
+	        }.bind(this)()
+	      ),
+	      _react2["default"].createElement(
+	        'div',
+	        { style: { position: "fixed", right: "0px", bottom: "40px" } },
+	        function () {
+	          var step = _this2.props.params.step;
+	          var config = state.stepApi.data.steps[step - 1];
+	          if (!config.footer) {
+	            config.footer = ['prev', 'next', 'cancel'];
+	          }
+	          return config.footer.map(function (btn, i) {
+	            switch (btn) {
+	              case 'prev':
+	                return _react2["default"].createElement(
+	                  _button2["default"],
+	                  (0, _extends3["default"])({ key: Math.random(), type: 'default' }, disable, { onClick: function onClick() {
+	                      var step = parseInt(_this2.props.params.step) > 1 ? parseInt(_this2.props.params.step) - 1 : 1;
+	                      _history2["default"].push("steperV1/" + _this2.props.params.config + "/" + step);
+	                    }
+	                  }),
+	                  '\u4E0A\u4E00\u6B65'
+	                );
+	              case 'next':
+	                var next = _react2["default"].createElement(
+	                  _button2["default"],
+	                  { key: Math.random(), type: 'primary', loading: state.saveApi.loading,
+	                    onClick: function onClick() {
+	                      var step = parseInt(_this2.props.params.step) + 1;
+	                      var validated = true;
+	                      if (config.validate) {
+	                        validated = config.validate();
+	                      }
+	                      if (!validated) return;
+
+	                      if (step < state.stepApi.data.steps.length + 1) {
+	                        _history2["default"].push("steperV1/" + _this2.props.params.config + "/" + step);
+	                      } else {
+	                        if (validated && validated.apiName) {
+	                          _global.Global.requestApi(validated, ['saveStepDemo', 'receiveSaveStepDemo', 'failedSaveStepDemo'], {
+	                            stepContainer: (0, _defineProperty3["default"])({}, _this2.props.params.config, {
+	                              saveApi: null
+	                            })
+	                          }, false, { config: _this2.props.params.config });
+	                        } else {
+	                          _modal2["default"].warning({
+	                            title: '警告',
+	                            content: '页面配置错误，最后一步返回应该为一个接口配置'
+	                          });
+	                        }
+	                      }
+	                    }
+	                  },
+	                  _this2.props.params.step == state.stepApi.data.steps.length ? !state.saveApi.msg ? "完成" : "重试" : "下一步"
+	                );
+
+	                return next;
+	              case 'cancel':
+
+	                return _react2["default"].createElement(
+	                  _button2["default"],
+	                  { key: Math.random(), type: 'default', onClick: function () {
+	                      var returnList = state.stepApi.data.afterSave;
+	                      _history2["default"].push(returnList);
+	                      StepCon1.clearAll(_this2.props.params.config, true);
+	                      if (state.stepApi.data.onCancle) {
+	                        state.stepApi.data.onCancle();
+	                      }
+	                    }.bind(_this2)
+	                  },
+	                  '\u53D6\u6D88'
+	                );
+
+	              default:
+	                if (typeof btn == 'function') {
+	                  return btn();
+	                } else {
+	                  return btn;
+	                }
+	            }
+	          });
+	        }()
+	      )
+	    ) : _react2["default"].createElement(
+	      'div',
+	      null,
+	      '...'
+	    );
+	    if (state && state.stepApi && state.stepApi.data && state.stepApi.data.isModal) {
+	      return _react2["default"].createElement(
+	        'div',
+	        { className: "modalMask" },
+	        _react2["default"].createElement(
+	          'div',
+	          { className: "modalContent" },
+	          content
+	        )
+	      );
+	    }
+	    return content;
+	  };
+
+	  return StepCon1;
+	}(_react.Component);
+
+	exports["default"] = (0, _component2["default"])("stepContainer", { stepChange: _StepContainer.stepChange, saveAllDatas: _StepContainer.saveAllDatas }, function (state, dispatchProps, ownProps) {
+	  return { glState: state, stepContainer: state.stepContainer };
+	})(StepCon1);
 	module.exports = exports['default'];
 
 /***/ },
 
-/***/ 449:
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"stepNumberLight":"stepNumberLight___3zxHN","stepNameLight":"stepNameLight___23Rh5"};
-
-/***/ },
-
-/***/ 731:
+/***/ 1039:
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
 	/**
-	 * @author Yi Shen(https://github.com/pissang)
+	 * @module zrender/Element
 	 */
 
 
-	    var vec2 = __webpack_require__(43);
-	    var curve = __webpack_require__(174);
-
-	    var bbox = {};
-	    var mathMin = Math.min;
-	    var mathMax = Math.max;
-	    var mathSin = Math.sin;
-	    var mathCos = Math.cos;
-
-	    var start = vec2.create();
-	    var end = vec2.create();
-	    var extremity = vec2.create();
-
-	    var PI2 = Math.PI * 2;
-	    /**
-	     * 从顶点数组中计算出最小包围盒，写入`min`和`max`中
-	     * @module zrender/core/bbox
-	     * @param {Array<Object>} points 顶点数组
-	     * @param {number} min
-	     * @param {number} max
-	     */
-	    bbox.fromPoints = function(points, min, max) {
-	        if (points.length === 0) {
-	            return;
-	        }
-	        var p = points[0];
-	        var left = p[0];
-	        var right = p[0];
-	        var top = p[1];
-	        var bottom = p[1];
-	        var i;
-
-	        for (i = 1; i < points.length; i++) {
-	            p = points[i];
-	            left = mathMin(left, p[0]);
-	            right = mathMax(right, p[0]);
-	            top = mathMin(top, p[1]);
-	            bottom = mathMax(bottom, p[1]);
-	        }
-
-	        min[0] = left;
-	        min[1] = top;
-	        max[0] = right;
-	        max[1] = bottom;
-	    };
+	    var guid = __webpack_require__(1043);
+	    var Eventful = __webpack_require__(466);
+	    var Transformable = __webpack_require__(1480);
+	    var Animatable = __webpack_require__(1478);
+	    var zrUtil = __webpack_require__(79);
 
 	    /**
-	     * @memberOf module:zrender/core/bbox
-	     * @param {number} x0
-	     * @param {number} y0
-	     * @param {number} x1
-	     * @param {number} y1
-	     * @param {Array.<number>} min
-	     * @param {Array.<number>} max
+	     * @alias module:zrender/Element
+	     * @constructor
+	     * @extends {module:zrender/mixin/Animatable}
+	     * @extends {module:zrender/mixin/Transformable}
+	     * @extends {module:zrender/mixin/Eventful}
 	     */
-	    bbox.fromLine = function (x0, y0, x1, y1, min, max) {
-	        min[0] = mathMin(x0, x1);
-	        min[1] = mathMin(y0, y1);
-	        max[0] = mathMax(x0, x1);
-	        max[1] = mathMax(y0, y1);
-	    };
+	    var Element = function (opts) {
 
-	    var xDim = [];
-	    var yDim = [];
-	    /**
-	     * 从三阶贝塞尔曲线(p0, p1, p2, p3)中计算出最小包围盒，写入`min`和`max`中
-	     * @memberOf module:zrender/core/bbox
-	     * @param {number} x0
-	     * @param {number} y0
-	     * @param {number} x1
-	     * @param {number} y1
-	     * @param {number} x2
-	     * @param {number} y2
-	     * @param {number} x3
-	     * @param {number} y3
-	     * @param {Array.<number>} min
-	     * @param {Array.<number>} max
-	     */
-	    bbox.fromCubic = function(
-	        x0, y0, x1, y1, x2, y2, x3, y3, min, max
-	    ) {
-	        var cubicExtrema = curve.cubicExtrema;
-	        var cubicAt = curve.cubicAt;
-	        var i;
-	        var n = cubicExtrema(x0, x1, x2, x3, xDim);
-	        min[0] = Infinity;
-	        min[1] = Infinity;
-	        max[0] = -Infinity;
-	        max[1] = -Infinity;
-
-	        for (i = 0; i < n; i++) {
-	            var x = cubicAt(x0, x1, x2, x3, xDim[i]);
-	            min[0] = mathMin(x, min[0]);
-	            max[0] = mathMax(x, max[0]);
-	        }
-	        n = cubicExtrema(y0, y1, y2, y3, yDim);
-	        for (i = 0; i < n; i++) {
-	            var y = cubicAt(y0, y1, y2, y3, yDim[i]);
-	            min[1] = mathMin(y, min[1]);
-	            max[1] = mathMax(y, max[1]);
-	        }
-
-	        min[0] = mathMin(x0, min[0]);
-	        max[0] = mathMax(x0, max[0]);
-	        min[0] = mathMin(x3, min[0]);
-	        max[0] = mathMax(x3, max[0]);
-
-	        min[1] = mathMin(y0, min[1]);
-	        max[1] = mathMax(y0, max[1]);
-	        min[1] = mathMin(y3, min[1]);
-	        max[1] = mathMax(y3, max[1]);
-	    };
-
-	    /**
-	     * 从二阶贝塞尔曲线(p0, p1, p2)中计算出最小包围盒，写入`min`和`max`中
-	     * @memberOf module:zrender/core/bbox
-	     * @param {number} x0
-	     * @param {number} y0
-	     * @param {number} x1
-	     * @param {number} y1
-	     * @param {number} x2
-	     * @param {number} y2
-	     * @param {Array.<number>} min
-	     * @param {Array.<number>} max
-	     */
-	    bbox.fromQuadratic = function(x0, y0, x1, y1, x2, y2, min, max) {
-	        var quadraticExtremum = curve.quadraticExtremum;
-	        var quadraticAt = curve.quadraticAt;
-	        // Find extremities, where derivative in x dim or y dim is zero
-	        var tx =
-	            mathMax(
-	                mathMin(quadraticExtremum(x0, x1, x2), 1), 0
-	            );
-	        var ty =
-	            mathMax(
-	                mathMin(quadraticExtremum(y0, y1, y2), 1), 0
-	            );
-
-	        var x = quadraticAt(x0, x1, x2, tx);
-	        var y = quadraticAt(y0, y1, y2, ty);
-
-	        min[0] = mathMin(x0, x2, x);
-	        min[1] = mathMin(y0, y2, y);
-	        max[0] = mathMax(x0, x2, x);
-	        max[1] = mathMax(y0, y2, y);
-	    };
-
-	    /**
-	     * 从圆弧中计算出最小包围盒，写入`min`和`max`中
-	     * @method
-	     * @memberOf module:zrender/core/bbox
-	     * @param {number} x
-	     * @param {number} y
-	     * @param {number} rx
-	     * @param {number} ry
-	     * @param {number} startAngle
-	     * @param {number} endAngle
-	     * @param {number} anticlockwise
-	     * @param {Array.<number>} min
-	     * @param {Array.<number>} max
-	     */
-	    bbox.fromArc = function (
-	        x, y, rx, ry, startAngle, endAngle, anticlockwise, min, max
-	    ) {
-	        var vec2Min = vec2.min;
-	        var vec2Max = vec2.max;
-
-	        var diff = Math.abs(startAngle - endAngle);
-
-
-	        if (diff % PI2 < 1e-4 && diff > 1e-4) {
-	            // Is a circle
-	            min[0] = x - rx;
-	            min[1] = y - ry;
-	            max[0] = x + rx;
-	            max[1] = y + ry;
-	            return;
-	        }
-
-	        start[0] = mathCos(startAngle) * rx + x;
-	        start[1] = mathSin(startAngle) * ry + y;
-
-	        end[0] = mathCos(endAngle) * rx + x;
-	        end[1] = mathSin(endAngle) * ry + y;
-
-	        vec2Min(min, start, end);
-	        vec2Max(max, start, end);
-
-	        // Thresh to [0, Math.PI * 2]
-	        startAngle = startAngle % (PI2);
-	        if (startAngle < 0) {
-	            startAngle = startAngle + PI2;
-	        }
-	        endAngle = endAngle % (PI2);
-	        if (endAngle < 0) {
-	            endAngle = endAngle + PI2;
-	        }
-
-	        if (startAngle > endAngle && !anticlockwise) {
-	            endAngle += PI2;
-	        }
-	        else if (startAngle < endAngle && anticlockwise) {
-	            startAngle += PI2;
-	        }
-	        if (anticlockwise) {
-	            var tmp = endAngle;
-	            endAngle = startAngle;
-	            startAngle = tmp;
-	        }
-
-	        // var number = 0;
-	        // var step = (anticlockwise ? -Math.PI : Math.PI) / 2;
-	        for (var angle = 0; angle < endAngle; angle += Math.PI / 2) {
-	            if (angle > startAngle) {
-	                extremity[0] = mathCos(angle) * rx + x;
-	                extremity[1] = mathSin(angle) * ry + y;
-
-	                vec2Min(min, extremity, min);
-	                vec2Max(max, extremity, max);
-	            }
-	        }
-	    };
-
-	    module.exports = bbox;
-
-
-
-/***/ },
-
-/***/ 732:
-/***/ function(module, exports, __webpack_require__) {
-
-	
-	        var config = __webpack_require__(426);
+	        Transformable.call(this, opts);
+	        Eventful.call(this, opts);
+	        Animatable.call(this, opts);
 
 	        /**
-	         * @exports zrender/tool/log
-	         * @author Kener (@Kener-林峰, kener.linfeng@gmail.com)
+	         * 画布元素ID
+	         * @type {string}
 	         */
-	        module.exports = function() {
-	            if (config.debugMode === 0) {
-	                return;
-	            }
-	            else if (config.debugMode == 1) {
-	                for (var k in arguments) {
-	                    throw new Error(arguments[k]);
-	                }
-	            }
-	            else if (config.debugMode > 1) {
-	                for (var k in arguments) {
-	                    console.log(arguments[k]);
-	                }
-	            }
-	        };
+	        this.id = opts.id || guid();
+	    };
 
-	        /* for debug
-	        return function(mes) {
-	            document.getElementById('wrong-message').innerHTML =
-	                mes + ' ' + (new Date() - 0)
-	                + '<br/>'
-	                + document.getElementById('wrong-message').innerHTML;
-	        };
-	        */
-	    
+	    Element.prototype = {
+
+	        /**
+	         * 元素类型
+	         * Element type
+	         * @type {string}
+	         */
+	        type: 'element',
+
+	        /**
+	         * 元素名字
+	         * Element name
+	         * @type {string}
+	         */
+	        name: '',
+
+	        /**
+	         * ZRender 实例对象，会在 element 添加到 zrender 实例中后自动赋值
+	         * ZRender instance will be assigned when element is associated with zrender
+	         * @name module:/zrender/Element#__zr
+	         * @type {module:zrender/ZRender}
+	         */
+	        __zr: null,
+
+	        /**
+	         * 图形是否忽略，为true时忽略图形的绘制以及事件触发
+	         * If ignore drawing and events of the element object
+	         * @name module:/zrender/Element#ignore
+	         * @type {boolean}
+	         * @default false
+	         */
+	        ignore: false,
+
+	        /**
+	         * 用于裁剪的路径(shape)，所有 Group 内的路径在绘制时都会被这个路径裁剪
+	         * 该路径会继承被裁减对象的变换
+	         * @type {module:zrender/graphic/Path}
+	         * @see http://www.w3.org/TR/2dcontext/#clipping-region
+	         * @readOnly
+	         */
+	        clipPath: null,
+
+	        /**
+	         * Drift element
+	         * @param  {number} dx dx on the global space
+	         * @param  {number} dy dy on the global space
+	         */
+	        drift: function (dx, dy) {
+	            switch (this.draggable) {
+	                case 'horizontal':
+	                    dy = 0;
+	                    break;
+	                case 'vertical':
+	                    dx = 0;
+	                    break;
+	            }
+
+	            var m = this.transform;
+	            if (!m) {
+	                m = this.transform = [1, 0, 0, 1, 0, 0];
+	            }
+	            m[4] += dx;
+	            m[5] += dy;
+
+	            this.decomposeTransform();
+	            this.dirty(false);
+	        },
+
+	        /**
+	         * Hook before update
+	         */
+	        beforeUpdate: function () {},
+	        /**
+	         * Hook after update
+	         */
+	        afterUpdate: function () {},
+	        /**
+	         * Update each frame
+	         */
+	        update: function () {
+	            this.updateTransform();
+	        },
+
+	        /**
+	         * @param  {Function} cb
+	         * @param  {}   context
+	         */
+	        traverse: function (cb, context) {},
+
+	        /**
+	         * @protected
+	         */
+	        attrKV: function (key, value) {
+	            if (key === 'position' || key === 'scale' || key === 'origin') {
+	                // Copy the array
+	                if (value) {
+	                    var target = this[key];
+	                    if (!target) {
+	                        target = this[key] = [];
+	                    }
+	                    target[0] = value[0];
+	                    target[1] = value[1];
+	                }
+	            }
+	            else {
+	                this[key] = value;
+	            }
+	        },
+
+	        /**
+	         * Hide the element
+	         */
+	        hide: function () {
+	            this.ignore = true;
+	            this.__zr && this.__zr.refresh();
+	        },
+
+	        /**
+	         * Show the element
+	         */
+	        show: function () {
+	            this.ignore = false;
+	            this.__zr && this.__zr.refresh();
+	        },
+
+	        /**
+	         * @param {string|Object} key
+	         * @param {*} value
+	         */
+	        attr: function (key, value) {
+	            if (typeof key === 'string') {
+	                this.attrKV(key, value);
+	            }
+	            else if (zrUtil.isObject(key)) {
+	                for (var name in key) {
+	                    if (key.hasOwnProperty(name)) {
+	                        this.attrKV(name, key[name]);
+	                    }
+	                }
+	            }
+
+	            this.dirty(false);
+
+	            return this;
+	        },
+
+	        /**
+	         * @param {module:zrender/graphic/Path} clipPath
+	         */
+	        setClipPath: function (clipPath) {
+	            var zr = this.__zr;
+	            if (zr) {
+	                clipPath.addSelfToZr(zr);
+	            }
+
+	            // Remove previous clip path
+	            if (this.clipPath && this.clipPath !== clipPath) {
+	                this.removeClipPath();
+	            }
+
+	            this.clipPath = clipPath;
+	            clipPath.__zr = zr;
+	            clipPath.__clipTarget = this;
+
+	            this.dirty(false);
+	        },
+
+	        /**
+	         */
+	        removeClipPath: function () {
+	            var clipPath = this.clipPath;
+	            if (clipPath) {
+	                if (clipPath.__zr) {
+	                    clipPath.removeSelfFromZr(clipPath.__zr);
+	                }
+
+	                clipPath.__zr = null;
+	                clipPath.__clipTarget = null;
+	                this.clipPath = null;
+
+	                this.dirty(false);
+	            }
+	        },
+
+	        /**
+	         * Add self from zrender instance.
+	         * Not recursively because it will be invoked when element added to storage.
+	         * @param {module:zrender/ZRender} zr
+	         */
+	        addSelfToZr: function (zr) {
+	            this.__zr = zr;
+	            // 添加动画
+	            var animators = this.animators;
+	            if (animators) {
+	                for (var i = 0; i < animators.length; i++) {
+	                    zr.animation.addAnimator(animators[i]);
+	                }
+	            }
+
+	            if (this.clipPath) {
+	                this.clipPath.addSelfToZr(zr);
+	            }
+	        },
+
+	        /**
+	         * Remove self from zrender instance.
+	         * Not recursively because it will be invoked when element added to storage.
+	         * @param {module:zrender/ZRender} zr
+	         */
+	        removeSelfFromZr: function (zr) {
+	            this.__zr = null;
+	            // 移除动画
+	            var animators = this.animators;
+	            if (animators) {
+	                for (var i = 0; i < animators.length; i++) {
+	                    zr.animation.removeAnimator(animators[i]);
+	                }
+	            }
+
+	            if (this.clipPath) {
+	                this.clipPath.removeSelfFromZr(zr);
+	            }
+	        }
+	    };
+
+	    zrUtil.mixin(Element, Animatable);
+	    zrUtil.mixin(Element, Transformable);
+	    zrUtil.mixin(Element, Eventful);
+
+	    module.exports = Element;
 
 
 /***/ },
 
-/***/ 733:
+/***/ 1040:
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * @module echarts/animation/Animator
+	 */
+
+
+	    var Clip = __webpack_require__(1456);
+	    var color = __webpack_require__(1051);
+	    var util = __webpack_require__(79);
+	    var isArrayLike = util.isArrayLike;
+
+	    var arraySlice = Array.prototype.slice;
+
+	    function defaultGetter(target, key) {
+	        return target[key];
+	    }
+
+	    function defaultSetter(target, key, value) {
+	        target[key] = value;
+	    }
+
+	    /**
+	     * @param  {number} p0
+	     * @param  {number} p1
+	     * @param  {number} percent
+	     * @return {number}
+	     */
+	    function interpolateNumber(p0, p1, percent) {
+	        return (p1 - p0) * percent + p0;
+	    }
+
+	    /**
+	     * @param  {string} p0
+	     * @param  {string} p1
+	     * @param  {number} percent
+	     * @return {string}
+	     */
+	    function interpolateString(p0, p1, percent) {
+	        return percent > 0.5 ? p1 : p0;
+	    }
+
+	    /**
+	     * @param  {Array} p0
+	     * @param  {Array} p1
+	     * @param  {number} percent
+	     * @param  {Array} out
+	     * @param  {number} arrDim
+	     */
+	    function interpolateArray(p0, p1, percent, out, arrDim) {
+	        var len = p0.length;
+	        if (arrDim == 1) {
+	            for (var i = 0; i < len; i++) {
+	                out[i] = interpolateNumber(p0[i], p1[i], percent);
+	            }
+	        }
+	        else {
+	            var len2 = p0[0].length;
+	            for (var i = 0; i < len; i++) {
+	                for (var j = 0; j < len2; j++) {
+	                    out[i][j] = interpolateNumber(
+	                        p0[i][j], p1[i][j], percent
+	                    );
+	                }
+	            }
+	        }
+	    }
+
+	    // arr0 is source array, arr1 is target array.
+	    // Do some preprocess to avoid error happened when interpolating from arr0 to arr1
+	    function fillArr(arr0, arr1, arrDim) {
+	        var arr0Len = arr0.length;
+	        var arr1Len = arr1.length;
+	        if (arr0Len !== arr1Len) {
+	            // FIXME Not work for TypedArray
+	            var isPreviousLarger = arr0Len > arr1Len;
+	            if (isPreviousLarger) {
+	                // Cut the previous
+	                arr0.length = arr1Len;
+	            }
+	            else {
+	                // Fill the previous
+	                for (var i = arr0Len; i < arr1Len; i++) {
+	                    arr0.push(
+	                        arrDim === 1 ? arr1[i] : arraySlice.call(arr1[i])
+	                    );
+	                }
+	            }
+	        }
+	        // Handling NaN value
+	        var len2 = arr0[0] && arr0[0].length;
+	        for (var i = 0; i < arr0.length; i++) {
+	            if (arrDim === 1) {
+	                if (isNaN(arr0[i])) {
+	                    arr0[i] = arr1[i];
+	                }
+	            }
+	            else {
+	                for (var j = 0; j < len2; j++) {
+	                    if (isNaN(arr0[i][j])) {
+	                        arr0[i][j] = arr1[i][j];
+	                    }
+	                }
+	            }
+	        }
+	    }
+
+	    /**
+	     * @param  {Array} arr0
+	     * @param  {Array} arr1
+	     * @param  {number} arrDim
+	     * @return {boolean}
+	     */
+	    function isArraySame(arr0, arr1, arrDim) {
+	        if (arr0 === arr1) {
+	            return true;
+	        }
+	        var len = arr0.length;
+	        if (len !== arr1.length) {
+	            return false;
+	        }
+	        if (arrDim === 1) {
+	            for (var i = 0; i < len; i++) {
+	                if (arr0[i] !== arr1[i]) {
+	                    return false;
+	                }
+	            }
+	        }
+	        else {
+	            var len2 = arr0[0].length;
+	            for (var i = 0; i < len; i++) {
+	                for (var j = 0; j < len2; j++) {
+	                    if (arr0[i][j] !== arr1[i][j]) {
+	                        return false;
+	                    }
+	                }
+	            }
+	        }
+	        return true;
+	    }
+
+	    /**
+	     * Catmull Rom interpolate array
+	     * @param  {Array} p0
+	     * @param  {Array} p1
+	     * @param  {Array} p2
+	     * @param  {Array} p3
+	     * @param  {number} t
+	     * @param  {number} t2
+	     * @param  {number} t3
+	     * @param  {Array} out
+	     * @param  {number} arrDim
+	     */
+	    function catmullRomInterpolateArray(
+	        p0, p1, p2, p3, t, t2, t3, out, arrDim
+	    ) {
+	        var len = p0.length;
+	        if (arrDim == 1) {
+	            for (var i = 0; i < len; i++) {
+	                out[i] = catmullRomInterpolate(
+	                    p0[i], p1[i], p2[i], p3[i], t, t2, t3
+	                );
+	            }
+	        }
+	        else {
+	            var len2 = p0[0].length;
+	            for (var i = 0; i < len; i++) {
+	                for (var j = 0; j < len2; j++) {
+	                    out[i][j] = catmullRomInterpolate(
+	                        p0[i][j], p1[i][j], p2[i][j], p3[i][j],
+	                        t, t2, t3
+	                    );
+	                }
+	            }
+	        }
+	    }
+
+	    /**
+	     * Catmull Rom interpolate number
+	     * @param  {number} p0
+	     * @param  {number} p1
+	     * @param  {number} p2
+	     * @param  {number} p3
+	     * @param  {number} t
+	     * @param  {number} t2
+	     * @param  {number} t3
+	     * @return {number}
+	     */
+	    function catmullRomInterpolate(p0, p1, p2, p3, t, t2, t3) {
+	        var v0 = (p2 - p0) * 0.5;
+	        var v1 = (p3 - p1) * 0.5;
+	        return (2 * (p1 - p2) + v0 + v1) * t3
+	                + (-3 * (p1 - p2) - 2 * v0 - v1) * t2
+	                + v0 * t + p1;
+	    }
+
+	    function cloneValue(value) {
+	        if (isArrayLike(value)) {
+	            var len = value.length;
+	            if (isArrayLike(value[0])) {
+	                var ret = [];
+	                for (var i = 0; i < len; i++) {
+	                    ret.push(arraySlice.call(value[i]));
+	                }
+	                return ret;
+	            }
+
+	            return arraySlice.call(value);
+	        }
+
+	        return value;
+	    }
+
+	    function rgba2String(rgba) {
+	        rgba[0] = Math.floor(rgba[0]);
+	        rgba[1] = Math.floor(rgba[1]);
+	        rgba[2] = Math.floor(rgba[2]);
+
+	        return 'rgba(' + rgba.join(',') + ')';
+	    }
+
+	    function createTrackClip (animator, easing, oneTrackDone, keyframes, propName) {
+	        var getter = animator._getter;
+	        var setter = animator._setter;
+	        var useSpline = easing === 'spline';
+
+	        var trackLen = keyframes.length;
+	        if (!trackLen) {
+	            return;
+	        }
+	        // Guess data type
+	        var firstVal = keyframes[0].value;
+	        var isValueArray = isArrayLike(firstVal);
+	        var isValueColor = false;
+	        var isValueString = false;
+
+	        // For vertices morphing
+	        var arrDim = (
+	                isValueArray
+	                && isArrayLike(firstVal[0])
+	            )
+	            ? 2 : 1;
+	        var trackMaxTime;
+	        // Sort keyframe as ascending
+	        keyframes.sort(function(a, b) {
+	            return a.time - b.time;
+	        });
+
+	        trackMaxTime = keyframes[trackLen - 1].time;
+	        // Percents of each keyframe
+	        var kfPercents = [];
+	        // Value of each keyframe
+	        var kfValues = [];
+	        var prevValue = keyframes[0].value;
+	        var isAllValueEqual = true;
+	        for (var i = 0; i < trackLen; i++) {
+	            kfPercents.push(keyframes[i].time / trackMaxTime);
+	            // Assume value is a color when it is a string
+	            var value = keyframes[i].value;
+
+	            // Check if value is equal, deep check if value is array
+	            if (!((isValueArray && isArraySame(value, prevValue, arrDim))
+	                || (!isValueArray && value === prevValue))) {
+	                isAllValueEqual = false;
+	            }
+	            prevValue = value;
+
+	            // Try converting a string to a color array
+	            if (typeof value == 'string') {
+	                var colorArray = color.parse(value);
+	                if (colorArray) {
+	                    value = colorArray;
+	                    isValueColor = true;
+	                }
+	                else {
+	                    isValueString = true;
+	                }
+	            }
+	            kfValues.push(value);
+	        }
+	        if (isAllValueEqual) {
+	            return;
+	        }
+
+	        var lastValue = kfValues[trackLen - 1];
+	        // Polyfill array and NaN value
+	        for (var i = 0; i < trackLen - 1; i++) {
+	            if (isValueArray) {
+	                fillArr(kfValues[i], lastValue, arrDim);
+	            }
+	            else {
+	                if (isNaN(kfValues[i]) && !isNaN(lastValue) && !isValueString && !isValueColor) {
+	                    kfValues[i] = lastValue;
+	                }
+	            }
+	        }
+	        isValueArray && fillArr(getter(animator._target, propName), lastValue, arrDim);
+
+	        // Cache the key of last frame to speed up when
+	        // animation playback is sequency
+	        var lastFrame = 0;
+	        var lastFramePercent = 0;
+	        var start;
+	        var w;
+	        var p0;
+	        var p1;
+	        var p2;
+	        var p3;
+
+	        if (isValueColor) {
+	            var rgba = [0, 0, 0, 0];
+	        }
+
+	        var onframe = function (target, percent) {
+	            // Find the range keyframes
+	            // kf1-----kf2---------current--------kf3
+	            // find kf2 and kf3 and do interpolation
+	            var frame;
+	            // In the easing function like elasticOut, percent may less than 0
+	            if (percent < 0) {
+	                frame = 0;
+	            }
+	            else if (percent < lastFramePercent) {
+	                // Start from next key
+	                // PENDING start from lastFrame ?
+	                start = Math.min(lastFrame + 1, trackLen - 1);
+	                for (frame = start; frame >= 0; frame--) {
+	                    if (kfPercents[frame] <= percent) {
+	                        break;
+	                    }
+	                }
+	                // PENDING really need to do this ?
+	                frame = Math.min(frame, trackLen - 2);
+	            }
+	            else {
+	                for (frame = lastFrame; frame < trackLen; frame++) {
+	                    if (kfPercents[frame] > percent) {
+	                        break;
+	                    }
+	                }
+	                frame = Math.min(frame - 1, trackLen - 2);
+	            }
+	            lastFrame = frame;
+	            lastFramePercent = percent;
+
+	            var range = (kfPercents[frame + 1] - kfPercents[frame]);
+	            if (range === 0) {
+	                return;
+	            }
+	            else {
+	                w = (percent - kfPercents[frame]) / range;
+	            }
+	            if (useSpline) {
+	                p1 = kfValues[frame];
+	                p0 = kfValues[frame === 0 ? frame : frame - 1];
+	                p2 = kfValues[frame > trackLen - 2 ? trackLen - 1 : frame + 1];
+	                p3 = kfValues[frame > trackLen - 3 ? trackLen - 1 : frame + 2];
+	                if (isValueArray) {
+	                    catmullRomInterpolateArray(
+	                        p0, p1, p2, p3, w, w * w, w * w * w,
+	                        getter(target, propName),
+	                        arrDim
+	                    );
+	                }
+	                else {
+	                    var value;
+	                    if (isValueColor) {
+	                        value = catmullRomInterpolateArray(
+	                            p0, p1, p2, p3, w, w * w, w * w * w,
+	                            rgba, 1
+	                        );
+	                        value = rgba2String(rgba);
+	                    }
+	                    else if (isValueString) {
+	                        // String is step(0.5)
+	                        return interpolateString(p1, p2, w);
+	                    }
+	                    else {
+	                        value = catmullRomInterpolate(
+	                            p0, p1, p2, p3, w, w * w, w * w * w
+	                        );
+	                    }
+	                    setter(
+	                        target,
+	                        propName,
+	                        value
+	                    );
+	                }
+	            }
+	            else {
+	                if (isValueArray) {
+	                    interpolateArray(
+	                        kfValues[frame], kfValues[frame + 1], w,
+	                        getter(target, propName),
+	                        arrDim
+	                    );
+	                }
+	                else {
+	                    var value;
+	                    if (isValueColor) {
+	                        interpolateArray(
+	                            kfValues[frame], kfValues[frame + 1], w,
+	                            rgba, 1
+	                        );
+	                        value = rgba2String(rgba);
+	                    }
+	                    else if (isValueString) {
+	                        // String is step(0.5)
+	                        return interpolateString(kfValues[frame], kfValues[frame + 1], w);
+	                    }
+	                    else {
+	                        value = interpolateNumber(kfValues[frame], kfValues[frame + 1], w);
+	                    }
+	                    setter(
+	                        target,
+	                        propName,
+	                        value
+	                    );
+	                }
+	            }
+	        };
+
+	        var clip = new Clip({
+	            target: animator._target,
+	            life: trackMaxTime,
+	            loop: animator._loop,
+	            delay: animator._delay,
+	            onframe: onframe,
+	            ondestroy: oneTrackDone
+	        });
+
+	        if (easing && easing !== 'spline') {
+	            clip.easing = easing;
+	        }
+
+	        return clip;
+	    }
+
+	    /**
+	     * @alias module:zrender/animation/Animator
+	     * @constructor
+	     * @param {Object} target
+	     * @param {boolean} loop
+	     * @param {Function} getter
+	     * @param {Function} setter
+	     */
+	    var Animator = function(target, loop, getter, setter) {
+	        this._tracks = {};
+	        this._target = target;
+
+	        this._loop = loop || false;
+
+	        this._getter = getter || defaultGetter;
+	        this._setter = setter || defaultSetter;
+
+	        this._clipCount = 0;
+
+	        this._delay = 0;
+
+	        this._doneList = [];
+
+	        this._onframeList = [];
+
+	        this._clipList = [];
+	    };
+
+	    Animator.prototype = {
+	        /**
+	         * 设置动画关键帧
+	         * @param  {number} time 关键帧时间，单位是ms
+	         * @param  {Object} props 关键帧的属性值，key-value表示
+	         * @return {module:zrender/animation/Animator}
+	         */
+	        when: function(time /* ms */, props) {
+	            var tracks = this._tracks;
+	            for (var propName in props) {
+	                if (!props.hasOwnProperty(propName)) {
+	                    continue;
+	                }
+
+	                if (!tracks[propName]) {
+	                    tracks[propName] = [];
+	                    // Invalid value
+	                    var value = this._getter(this._target, propName);
+	                    if (value == null) {
+	                        // zrLog('Invalid property ' + propName);
+	                        continue;
+	                    }
+	                    // If time is 0
+	                    //  Then props is given initialize value
+	                    // Else
+	                    //  Initialize value from current prop value
+	                    if (time !== 0) {
+	                        tracks[propName].push({
+	                            time: 0,
+	                            value: cloneValue(value)
+	                        });
+	                    }
+	                }
+	                tracks[propName].push({
+	                    time: time,
+	                    value: props[propName]
+	                });
+	            }
+	            return this;
+	        },
+	        /**
+	         * 添加动画每一帧的回调函数
+	         * @param  {Function} callback
+	         * @return {module:zrender/animation/Animator}
+	         */
+	        during: function (callback) {
+	            this._onframeList.push(callback);
+	            return this;
+	        },
+
+	        _doneCallback: function () {
+	            // Clear all tracks
+	            this._tracks = {};
+	            // Clear all clips
+	            this._clipList.length = 0;
+
+	            var doneList = this._doneList;
+	            var len = doneList.length;
+	            for (var i = 0; i < len; i++) {
+	                doneList[i].call(this);
+	            }
+	        },
+	        /**
+	         * 开始执行动画
+	         * @param  {string|Function} easing
+	         *         动画缓动函数，详见{@link module:zrender/animation/easing}
+	         * @return {module:zrender/animation/Animator}
+	         */
+	        start: function (easing) {
+
+	            var self = this;
+	            var clipCount = 0;
+
+	            var oneTrackDone = function() {
+	                clipCount--;
+	                if (!clipCount) {
+	                    self._doneCallback();
+	                }
+	            };
+
+	            var lastClip;
+	            for (var propName in this._tracks) {
+	                if (!this._tracks.hasOwnProperty(propName)) {
+	                    continue;
+	                }
+	                var clip = createTrackClip(
+	                    this, easing, oneTrackDone,
+	                    this._tracks[propName], propName
+	                );
+	                if (clip) {
+	                    this._clipList.push(clip);
+	                    clipCount++;
+
+	                    // If start after added to animation
+	                    if (this.animation) {
+	                        this.animation.addClip(clip);
+	                    }
+
+	                    lastClip = clip;
+	                }
+	            }
+
+	            // Add during callback on the last clip
+	            if (lastClip) {
+	                var oldOnFrame = lastClip.onframe;
+	                lastClip.onframe = function (target, percent) {
+	                    oldOnFrame(target, percent);
+
+	                    for (var i = 0; i < self._onframeList.length; i++) {
+	                        self._onframeList[i](target, percent);
+	                    }
+	                };
+	            }
+
+	            if (!clipCount) {
+	                this._doneCallback();
+	            }
+	            return this;
+	        },
+	        /**
+	         * 停止动画
+	         * @param {boolean} forwardToLast If move to last frame before stop
+	         */
+	        stop: function (forwardToLast) {
+	            var clipList = this._clipList;
+	            var animation = this.animation;
+	            for (var i = 0; i < clipList.length; i++) {
+	                var clip = clipList[i];
+	                if (forwardToLast) {
+	                    // Move to last frame before stop
+	                    clip.onframe(this._target, 1);
+	                }
+	                animation && animation.removeClip(clip);
+	            }
+	            clipList.length = 0;
+	        },
+	        /**
+	         * 设置动画延迟开始的时间
+	         * @param  {number} time 单位ms
+	         * @return {module:zrender/animation/Animator}
+	         */
+	        delay: function (time) {
+	            this._delay = time;
+	            return this;
+	        },
+	        /**
+	         * 添加动画结束的回调
+	         * @param  {Function} cb
+	         * @return {module:zrender/animation/Animator}
+	         */
+	        done: function(cb) {
+	            if (cb) {
+	                this._doneList.push(cb);
+	            }
+	            return this;
+	        },
+
+	        /**
+	         * @return {Array.<module:zrender/animation/Clip>}
+	         */
+	        getClips: function () {
+	            return this._clipList;
+	        }
+	    };
+
+	    module.exports = Animator;
+
+
+/***/ },
+
+/***/ 1041:
+/***/ function(module, exports) {
+
+	
+
+	    module.exports = (typeof window !== 'undefined' &&
+	                                    (window.requestAnimationFrame
+	                                    || window.msRequestAnimationFrame
+	                                    || window.mozRequestAnimationFrame
+	                                    || window.webkitRequestAnimationFrame))
+	                                || function (func) {
+	                                    setTimeout(func, 16);
+	                                };
+
+
+
+/***/ },
+
+/***/ 1042:
+/***/ function(module, exports) {
+
+	
+
+	    var PI2 = Math.PI * 2;
+	    module.exports = {
+	        normalizeRadian: function(angle) {
+	            angle %= PI2;
+	            if (angle < 0) {
+	                angle += PI2;
+	            }
+	            return angle;
+	        }
+	    };
+
+
+/***/ },
+
+/***/ 1043:
+/***/ function(module, exports) {
+
+	/**
+	 * zrender: 生成唯一id
+	 *
+	 * @author errorrik (errorrik@gmail.com)
+	 */
+
+
+	    var idStart = 0x0907;
+
+	    module.exports = function () {
+	        return idStart++;
+	    };
+
+
+
+/***/ },
+
+/***/ 1044:
 /***/ function(module, exports) {
 
 	// https://github.com/mziccard/node-timsort
@@ -7896,7 +8208,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 734:
+/***/ 1045:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -7906,11 +8218,11 @@ webpackJsonp([3],{
 
 
 
-	    var Displayable = __webpack_require__(427);
-	    var BoundingRect = __webpack_require__(66);
-	    var zrUtil = __webpack_require__(2);
+	    var Displayable = __webpack_require__(465);
+	    var BoundingRect = __webpack_require__(255);
+	    var zrUtil = __webpack_require__(79);
 
-	    var LRU = __webpack_require__(1060);
+	    var LRU = __webpack_require__(1465);
 	    var globalImageCache = new LRU(50);
 	    /**
 	     * @alias zrender/graphic/Image
@@ -8058,1475 +8370,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 883:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _css = __webpack_require__(29);
-
-	var _button = __webpack_require__(26);
-
-	var _button2 = _interopRequireDefault(_button);
-
-	var _extends2 = __webpack_require__(3);
-
-	var _extends3 = _interopRequireDefault(_extends2);
-
-	var _defineProperty2 = __webpack_require__(7);
-
-	var _defineProperty3 = _interopRequireDefault(_defineProperty2);
-
-	var _css2 = __webpack_require__(31);
-
-	var _modal = __webpack_require__(30);
-
-	var _modal2 = _interopRequireDefault(_modal);
-
-	var _classCallCheck2 = __webpack_require__(4);
-
-	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-	var _possibleConstructorReturn2 = __webpack_require__(6);
-
-	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-	var _inherits2 = __webpack_require__(5);
-
-	var _inherits3 = _interopRequireDefault(_inherits2);
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactAddonsCssTransitionGroup = __webpack_require__(255);
-
-	var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
-
-	var _redux = __webpack_require__(48);
-
-	var _component = __webpack_require__(11);
-
-	var _component2 = _interopRequireDefault(_component);
-
-	var _history = __webpack_require__(36);
-
-	var _history2 = _interopRequireDefault(_history);
-
-	var _DataListV = __webpack_require__(180);
-
-	var _DataListV2 = _interopRequireDefault(_DataListV);
-
-	var _AiForm = __webpack_require__(27);
-
-	var _AiForm2 = _interopRequireDefault(_AiForm);
-
-	var _ConnectDatasource = __webpack_require__(396);
-
-	var _ConnectDatasource2 = _interopRequireDefault(_ConnectDatasource);
-
-	var _StepContainer = __webpack_require__(1005);
-
-	var _StepContainer2 = __webpack_require__(449);
-
-	var _StepContainer3 = _interopRequireDefault(_StepContainer2);
-
-	var _global = __webpack_require__(12);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-	var mapState = function mapState(state) {
-	  return {};
-	}; //import styles from './App.less';
-
-	var mapAction = function mapAction(dispatch) {
-	  return { actions: (0, _redux.bindActionCreators)({}, dispatch) };
-	};
-
-	var StepCon1 = function (_Component) {
-	  (0, _inherits3["default"])(StepCon1, _Component);
-
-	  StepCon1.gotoFirst = function gotoFirst(stepId) {
-	    _modal2["default"].warning({
-	      title: '提示',
-	      content: '上一步或前几步没有完成，请返回第一步重新开始。',
-	      onOk: function onOk() {
-	        setTimeout(function () {
-	          StepCon1.clearAll(stepId);
-	          _history2["default"].push(_global.Global.getState().routing.path.replace(/\/\d+/, '/1'));
-	        }, 500);
-	      }
-	    });
-	  };
-
-	  //步骤流程编辑，刷新页面跳转到列表展示页面
-
-
-	  StepCon1["goto"] = function goto(stepId, url) {
-	    _modal2["default"].warning({
-	      title: '提示',
-	      content: '页面刷新，请重新选择要查看的条目。',
-	      onOk: function onOk() {
-	        setTimeout(function () {
-	          StepCon1.clearAll(stepId);
-	          _history2["default"].push(url);
-	        }, 500);
-	      }
-	    });
-	  };
-
-	  StepCon1.clearAll = function clearAll(stepId) {
-	    var includeStepContainer = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-
-	    var state = _global.Global.getState();
-	    if (state.stepContainer[stepId]) {
-	      var clearObj = {};
-	      var stepConfig = _global.Global.getState().stepContainer[stepId];
-	      if (!stepConfig || !stepConfig.stepApi || !stepConfig.stepApi.data || !stepConfig.stepApi.data.steps) return;
-	      _global.Global.getState().stepContainer[stepId].stepApi.data.steps.forEach(function (item, index) {
-	        switch (item.type) {
-	          case 'datalist':
-	            if (!state.dataList || !state.dataList[item.id]) break;
-	            if (!clearObj.dataList) clearObj.dataList = {};
-	            clearObj.dataList[item.id] = null;
-	            break;
-	          case 'aiForm':
-	            if (!state.aiForm || !state.aiForm[item.id]) break;
-	            if (!clearObj.aiForm) clearObj.aiForm = {};
-	            clearObj.aiForm[item.id] = null;
-	            break;
-	        }
-	      });
-	      if (includeStepContainer && state.stepContainer && state.stepContainer[stepId]) {
-	        if (!clearObj.stepContainer) clearObj.stepContainer = {};
-	        clearObj.stepContainer[stepId] = null;
-	      }
-	      if (clearObj.dataList || clearObj.aiForm || clearObj.stepContainer) {
-	        _global.Global.mark(clearObj);
-	      }
-	    }
-	  };
-
-	  function StepCon1(props) {
-	    (0, _classCallCheck3["default"])(this, StepCon1);
-
-	    var _this = (0, _possibleConstructorReturn3["default"])(this, _Component.call(this, props));
-
-	    _global.Global.mark({
-	      stepContainer: (0, _defineProperty3["default"])({}, _this.props.params.config, {
-	        saveApi: {
-	          loading: false,
-	          msg: null,
-	          data: null
-	        }
-	      })
-	    });
-	    return _this;
-	  }
-
-	  StepCon1.prototype.componentDidMount = function componentDidMount() {
-	    var config = this.props.params.config;
-	    this.props.actions.stepChange(config, {
-	      apiName: config,
-	      jsonpArgs: { glState: this.props.glState }
-	    }, this.props.params.step);
-	  };
-
-	  StepCon1.prototype.render = function render() {
-	    var _this2 = this;
-
-	    var state = this.props.stepContainer;
-	    if (!state) return _react2["default"].createElement(
-	      'div',
-	      null,
-	      '...'
-	    );
-	    state = this.props.stepContainer[this.props.params.config];
-	    var actions = this.props.actions;
-	    var disable = this.props.params.step == 1 ? { "disabled": "disabled" } : null;
-	    var config = null;
-
-	    var content = state && state.stepApi && (config = state.stepApi.data) ? _react2["default"].createElement(
-	      'div',
-	      { className: 'container' },
-	      _react2["default"].createElement(
-	        'div',
-	        null,
-	        _react2["default"].createElement(
-	          'div',
-	          { className: "stepBar", style: { width: state.stepApi.data.steps.length * 117, margin: "0 auto" } },
-	          state.stepApi.data.steps.map(function (item, i) {
-	            return _react2["default"].createElement(
-	              'div',
-	              { key: Math.random(), className: "stepOne" },
-	              _react2["default"].createElement(
-	                'div',
-	                { className: "stepNumLine" },
-	                _react2["default"].createElement('div', {
-	                  className: i == 0 ? "line2" : i + 1 == _this2.props.params.step ? "line3" : i + 1 < _this2.props.params.step ? "line4" : i == _this2.props.params.step ? "line7" : "line" }),
-	                _react2["default"].createElement(
-	                  'div',
-	                  {
-	                    className: i + 1 == _this2.props.params.step ? _StepContainer3["default"].stepNumberLight : i + 1 < _this2.props.params.step ? "stepNumber2" : "stepNumber" },
-	                  item.number
-	                ),
-	                _react2["default"].createElement('div', {
-	                  className: i + 1 == state.stepApi.data.steps.length ? "line2" : i + 1 == _this2.props.params.step ? "line5" : i + 1 > _this2.props.params.step ? "line" : i == _this2.props.params.step - 2 ? "line6" : "line4" })
-	              ),
-	              _react2["default"].createElement(
-	                'div',
-	                {
-	                  className: 'stepName ' + (_this2.props.params.step == i + 1 ? _StepContainer3["default"].stepNameLight : "") },
-	                item.name
-	              )
-	            );
-	          })
-	        )
-	      ),
-	      _react2["default"].createElement(
-	        'div',
-	        {
-	          className: 'stepContainerContent ' + (state.stepApi.data.steps[this.props.params.step - 1].style ? "boxShadow" : "") },
-	        function () {
-	          var step = _this2.props.params.step;
-	          var stepData = state.stepApi.data;
-	          var dataStepsType = stepData.steps[step - 1];
-	          var stepConfig = stepData.steps[step - 1].configStepApi;
-	          var dataListId = _this2.props.params.dataListId;
-	          /*if(!this.props.glState.dataList[dataListId].selectedRows || this.props.glState.dataList[dataListId].selectedRows.length!=1){
-	           Modal.warning({
-	           title: '警告',
-	           content: '请选择一条要操作的列'
-	           });
-	           window.history.back(-1);
-	           return;
-	           }*/
-	          var arg = stepData.steps[step - 1].arg;
-	          switch (dataStepsType.type) {
-	            case "datalist":
-
-	              return _react2["default"].createElement(_DataListV2["default"], (0, _extends3["default"])({ perennity: true,
-	                id: dataStepsType.id,
-	                configs: { apiName: stepConfig, body: {}, jsonpArgs: { id: dataStepsType.id } }
-	              }, arg));
-	            case "aiForm":
-	              var _config = { apiName: stepConfig, body: {} };
-
-	              return _react2["default"].createElement(_AiForm2["default"], (0, _extends3["default"])({ perennity: true,
-	                config: _config,
-	                id: dataStepsType.id
-	              }, arg));
-	            default:
-	              if (typeof dataStepsType.type == 'function') {
-	                return dataStepsType.type();
-	              } else {
-	                return dataStepsType.type;
-	              }
-
-	          }
-	        }.bind(this)()
-	      ),
-	      _react2["default"].createElement(
-	        'div',
-	        { style: { position: "fixed", right: "0px", bottom: "40px" } },
-	        function () {
-	          var step = _this2.props.params.step;
-	          var config = state.stepApi.data.steps[step - 1];
-	          if (!config.footer) {
-	            config.footer = ['prev', 'next', 'cancel'];
-	          }
-	          return config.footer.map(function (btn, i) {
-	            switch (btn) {
-	              case 'prev':
-	                return _react2["default"].createElement(
-	                  _button2["default"],
-	                  (0, _extends3["default"])({ key: Math.random(), type: 'default' }, disable, { onClick: function onClick() {
-	                      var step = parseInt(_this2.props.params.step) > 1 ? parseInt(_this2.props.params.step) - 1 : 1;
-	                      _history2["default"].push("steperV1/" + _this2.props.params.config + "/" + step);
-	                    }
-	                  }),
-	                  '\u4E0A\u4E00\u6B65'
-	                );
-	              case 'next':
-	                var next = _react2["default"].createElement(
-	                  _button2["default"],
-	                  { key: Math.random(), type: 'primary', loading: state.saveApi.loading,
-	                    onClick: function onClick() {
-	                      var step = parseInt(_this2.props.params.step) + 1;
-	                      var validated = true;
-	                      if (config.validate) {
-	                        validated = config.validate();
-	                      }
-	                      if (!validated) return;
-
-	                      if (step < state.stepApi.data.steps.length + 1) {
-	                        _history2["default"].push("steperV1/" + _this2.props.params.config + "/" + step);
-	                      } else {
-	                        if (validated && validated.apiName) {
-	                          _global.Global.requestApi(validated, ['saveStepDemo', 'receiveSaveStepDemo', 'failedSaveStepDemo'], {
-	                            stepContainer: (0, _defineProperty3["default"])({}, _this2.props.params.config, {
-	                              saveApi: null
-	                            })
-	                          }, false, { config: _this2.props.params.config });
-	                        } else {
-	                          _modal2["default"].warning({
-	                            title: '警告',
-	                            content: '页面配置错误，最后一步返回应该为一个接口配置'
-	                          });
-	                        }
-	                      }
-	                    }
-	                  },
-	                  _this2.props.params.step == state.stepApi.data.steps.length ? !state.saveApi.msg ? "完成" : "重试" : "下一步"
-	                );
-
-	                return next;
-	              case 'cancel':
-
-	                return _react2["default"].createElement(
-	                  _button2["default"],
-	                  { key: Math.random(), type: 'default', onClick: function () {
-	                      var returnList = state.stepApi.data.afterSave;
-	                      _history2["default"].push(returnList);
-	                      StepCon1.clearAll(_this2.props.params.config, true);
-	                      if (state.stepApi.data.onCancle) {
-	                        state.stepApi.data.onCancle();
-	                      }
-	                    }.bind(_this2)
-	                  },
-	                  '\u53D6\u6D88'
-	                );
-
-	              default:
-	                if (typeof btn == 'function') {
-	                  return btn();
-	                } else {
-	                  return btn;
-	                }
-	            }
-	          });
-	        }()
-	      )
-	    ) : _react2["default"].createElement(
-	      'div',
-	      null,
-	      '...'
-	    );
-	    if (state && state.stepApi && state.stepApi.data && state.stepApi.data.isModal) {
-	      return _react2["default"].createElement(
-	        'div',
-	        { className: "modalMask" },
-	        _react2["default"].createElement(
-	          'div',
-	          { className: "modalContent" },
-	          content
-	        )
-	      );
-	    }
-	    return content;
-	  };
-
-	  return StepCon1;
-	}(_react.Component);
-
-	exports["default"] = (0, _component2["default"])("stepContainer", { stepChange: _StepContainer.stepChange, saveAllDatas: _StepContainer.saveAllDatas }, function (state, dispatchProps, ownProps) {
-	  return { glState: state, stepContainer: state.stepContainer };
-	})(StepCon1);
-	module.exports = exports['default'];
-
-/***/ },
-
-/***/ 944:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	/**
-	 * @module zrender/Element
-	 */
-
-
-	    var guid = __webpack_require__(952);
-	    var Eventful = __webpack_require__(229);
-	    var Transformable = __webpack_require__(964);
-	    var Animatable = __webpack_require__(1069);
-	    var zrUtil = __webpack_require__(2);
-
-	    /**
-	     * @alias module:zrender/Element
-	     * @constructor
-	     * @extends {module:zrender/mixin/Animatable}
-	     * @extends {module:zrender/mixin/Transformable}
-	     * @extends {module:zrender/mixin/Eventful}
-	     */
-	    var Element = function (opts) {
-
-	        Transformable.call(this, opts);
-	        Eventful.call(this, opts);
-	        Animatable.call(this, opts);
-
-	        /**
-	         * 画布元素ID
-	         * @type {string}
-	         */
-	        this.id = opts.id || guid();
-	    };
-
-	    Element.prototype = {
-
-	        /**
-	         * 元素类型
-	         * Element type
-	         * @type {string}
-	         */
-	        type: 'element',
-
-	        /**
-	         * 元素名字
-	         * Element name
-	         * @type {string}
-	         */
-	        name: '',
-
-	        /**
-	         * ZRender 实例对象，会在 element 添加到 zrender 实例中后自动赋值
-	         * ZRender instance will be assigned when element is associated with zrender
-	         * @name module:/zrender/Element#__zr
-	         * @type {module:zrender/ZRender}
-	         */
-	        __zr: null,
-
-	        /**
-	         * 图形是否忽略，为true时忽略图形的绘制以及事件触发
-	         * If ignore drawing and events of the element object
-	         * @name module:/zrender/Element#ignore
-	         * @type {boolean}
-	         * @default false
-	         */
-	        ignore: false,
-
-	        /**
-	         * 用于裁剪的路径(shape)，所有 Group 内的路径在绘制时都会被这个路径裁剪
-	         * 该路径会继承被裁减对象的变换
-	         * @type {module:zrender/graphic/Path}
-	         * @see http://www.w3.org/TR/2dcontext/#clipping-region
-	         * @readOnly
-	         */
-	        clipPath: null,
-
-	        /**
-	         * Drift element
-	         * @param  {number} dx dx on the global space
-	         * @param  {number} dy dy on the global space
-	         */
-	        drift: function (dx, dy) {
-	            switch (this.draggable) {
-	                case 'horizontal':
-	                    dy = 0;
-	                    break;
-	                case 'vertical':
-	                    dx = 0;
-	                    break;
-	            }
-
-	            var m = this.transform;
-	            if (!m) {
-	                m = this.transform = [1, 0, 0, 1, 0, 0];
-	            }
-	            m[4] += dx;
-	            m[5] += dy;
-
-	            this.decomposeTransform();
-	            this.dirty(false);
-	        },
-
-	        /**
-	         * Hook before update
-	         */
-	        beforeUpdate: function () {},
-	        /**
-	         * Hook after update
-	         */
-	        afterUpdate: function () {},
-	        /**
-	         * Update each frame
-	         */
-	        update: function () {
-	            this.updateTransform();
-	        },
-
-	        /**
-	         * @param  {Function} cb
-	         * @param  {}   context
-	         */
-	        traverse: function (cb, context) {},
-
-	        /**
-	         * @protected
-	         */
-	        attrKV: function (key, value) {
-	            if (key === 'position' || key === 'scale' || key === 'origin') {
-	                // Copy the array
-	                if (value) {
-	                    var target = this[key];
-	                    if (!target) {
-	                        target = this[key] = [];
-	                    }
-	                    target[0] = value[0];
-	                    target[1] = value[1];
-	                }
-	            }
-	            else {
-	                this[key] = value;
-	            }
-	        },
-
-	        /**
-	         * Hide the element
-	         */
-	        hide: function () {
-	            this.ignore = true;
-	            this.__zr && this.__zr.refresh();
-	        },
-
-	        /**
-	         * Show the element
-	         */
-	        show: function () {
-	            this.ignore = false;
-	            this.__zr && this.__zr.refresh();
-	        },
-
-	        /**
-	         * @param {string|Object} key
-	         * @param {*} value
-	         */
-	        attr: function (key, value) {
-	            if (typeof key === 'string') {
-	                this.attrKV(key, value);
-	            }
-	            else if (zrUtil.isObject(key)) {
-	                for (var name in key) {
-	                    if (key.hasOwnProperty(name)) {
-	                        this.attrKV(name, key[name]);
-	                    }
-	                }
-	            }
-
-	            this.dirty(false);
-
-	            return this;
-	        },
-
-	        /**
-	         * @param {module:zrender/graphic/Path} clipPath
-	         */
-	        setClipPath: function (clipPath) {
-	            var zr = this.__zr;
-	            if (zr) {
-	                clipPath.addSelfToZr(zr);
-	            }
-
-	            // Remove previous clip path
-	            if (this.clipPath && this.clipPath !== clipPath) {
-	                this.removeClipPath();
-	            }
-
-	            this.clipPath = clipPath;
-	            clipPath.__zr = zr;
-	            clipPath.__clipTarget = this;
-
-	            this.dirty(false);
-	        },
-
-	        /**
-	         */
-	        removeClipPath: function () {
-	            var clipPath = this.clipPath;
-	            if (clipPath) {
-	                if (clipPath.__zr) {
-	                    clipPath.removeSelfFromZr(clipPath.__zr);
-	                }
-
-	                clipPath.__zr = null;
-	                clipPath.__clipTarget = null;
-	                this.clipPath = null;
-
-	                this.dirty(false);
-	            }
-	        },
-
-	        /**
-	         * Add self from zrender instance.
-	         * Not recursively because it will be invoked when element added to storage.
-	         * @param {module:zrender/ZRender} zr
-	         */
-	        addSelfToZr: function (zr) {
-	            this.__zr = zr;
-	            // 添加动画
-	            var animators = this.animators;
-	            if (animators) {
-	                for (var i = 0; i < animators.length; i++) {
-	                    zr.animation.addAnimator(animators[i]);
-	                }
-	            }
-
-	            if (this.clipPath) {
-	                this.clipPath.addSelfToZr(zr);
-	            }
-	        },
-
-	        /**
-	         * Remove self from zrender instance.
-	         * Not recursively because it will be invoked when element added to storage.
-	         * @param {module:zrender/ZRender} zr
-	         */
-	        removeSelfFromZr: function (zr) {
-	            this.__zr = null;
-	            // 移除动画
-	            var animators = this.animators;
-	            if (animators) {
-	                for (var i = 0; i < animators.length; i++) {
-	                    zr.animation.removeAnimator(animators[i]);
-	                }
-	            }
-
-	            if (this.clipPath) {
-	                this.clipPath.removeSelfFromZr(zr);
-	            }
-	        }
-	    };
-
-	    zrUtil.mixin(Element, Animatable);
-	    zrUtil.mixin(Element, Transformable);
-	    zrUtil.mixin(Element, Eventful);
-
-	    module.exports = Element;
-
-
-/***/ },
-
-/***/ 945:
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * @module echarts/animation/Animator
-	 */
-
-
-	    var Clip = __webpack_require__(1054);
-	    var color = __webpack_require__(155);
-	    var util = __webpack_require__(2);
-	    var isArrayLike = util.isArrayLike;
-
-	    var arraySlice = Array.prototype.slice;
-
-	    function defaultGetter(target, key) {
-	        return target[key];
-	    }
-
-	    function defaultSetter(target, key, value) {
-	        target[key] = value;
-	    }
-
-	    /**
-	     * @param  {number} p0
-	     * @param  {number} p1
-	     * @param  {number} percent
-	     * @return {number}
-	     */
-	    function interpolateNumber(p0, p1, percent) {
-	        return (p1 - p0) * percent + p0;
-	    }
-
-	    /**
-	     * @param  {string} p0
-	     * @param  {string} p1
-	     * @param  {number} percent
-	     * @return {string}
-	     */
-	    function interpolateString(p0, p1, percent) {
-	        return percent > 0.5 ? p1 : p0;
-	    }
-
-	    /**
-	     * @param  {Array} p0
-	     * @param  {Array} p1
-	     * @param  {number} percent
-	     * @param  {Array} out
-	     * @param  {number} arrDim
-	     */
-	    function interpolateArray(p0, p1, percent, out, arrDim) {
-	        var len = p0.length;
-	        if (arrDim == 1) {
-	            for (var i = 0; i < len; i++) {
-	                out[i] = interpolateNumber(p0[i], p1[i], percent);
-	            }
-	        }
-	        else {
-	            var len2 = p0[0].length;
-	            for (var i = 0; i < len; i++) {
-	                for (var j = 0; j < len2; j++) {
-	                    out[i][j] = interpolateNumber(
-	                        p0[i][j], p1[i][j], percent
-	                    );
-	                }
-	            }
-	        }
-	    }
-
-	    // arr0 is source array, arr1 is target array.
-	    // Do some preprocess to avoid error happened when interpolating from arr0 to arr1
-	    function fillArr(arr0, arr1, arrDim) {
-	        var arr0Len = arr0.length;
-	        var arr1Len = arr1.length;
-	        if (arr0Len !== arr1Len) {
-	            // FIXME Not work for TypedArray
-	            var isPreviousLarger = arr0Len > arr1Len;
-	            if (isPreviousLarger) {
-	                // Cut the previous
-	                arr0.length = arr1Len;
-	            }
-	            else {
-	                // Fill the previous
-	                for (var i = arr0Len; i < arr1Len; i++) {
-	                    arr0.push(
-	                        arrDim === 1 ? arr1[i] : arraySlice.call(arr1[i])
-	                    );
-	                }
-	            }
-	        }
-	        // Handling NaN value
-	        var len2 = arr0[0] && arr0[0].length;
-	        for (var i = 0; i < arr0.length; i++) {
-	            if (arrDim === 1) {
-	                if (isNaN(arr0[i])) {
-	                    arr0[i] = arr1[i];
-	                }
-	            }
-	            else {
-	                for (var j = 0; j < len2; j++) {
-	                    if (isNaN(arr0[i][j])) {
-	                        arr0[i][j] = arr1[i][j];
-	                    }
-	                }
-	            }
-	        }
-	    }
-
-	    /**
-	     * @param  {Array} arr0
-	     * @param  {Array} arr1
-	     * @param  {number} arrDim
-	     * @return {boolean}
-	     */
-	    function isArraySame(arr0, arr1, arrDim) {
-	        if (arr0 === arr1) {
-	            return true;
-	        }
-	        var len = arr0.length;
-	        if (len !== arr1.length) {
-	            return false;
-	        }
-	        if (arrDim === 1) {
-	            for (var i = 0; i < len; i++) {
-	                if (arr0[i] !== arr1[i]) {
-	                    return false;
-	                }
-	            }
-	        }
-	        else {
-	            var len2 = arr0[0].length;
-	            for (var i = 0; i < len; i++) {
-	                for (var j = 0; j < len2; j++) {
-	                    if (arr0[i][j] !== arr1[i][j]) {
-	                        return false;
-	                    }
-	                }
-	            }
-	        }
-	        return true;
-	    }
-
-	    /**
-	     * Catmull Rom interpolate array
-	     * @param  {Array} p0
-	     * @param  {Array} p1
-	     * @param  {Array} p2
-	     * @param  {Array} p3
-	     * @param  {number} t
-	     * @param  {number} t2
-	     * @param  {number} t3
-	     * @param  {Array} out
-	     * @param  {number} arrDim
-	     */
-	    function catmullRomInterpolateArray(
-	        p0, p1, p2, p3, t, t2, t3, out, arrDim
-	    ) {
-	        var len = p0.length;
-	        if (arrDim == 1) {
-	            for (var i = 0; i < len; i++) {
-	                out[i] = catmullRomInterpolate(
-	                    p0[i], p1[i], p2[i], p3[i], t, t2, t3
-	                );
-	            }
-	        }
-	        else {
-	            var len2 = p0[0].length;
-	            for (var i = 0; i < len; i++) {
-	                for (var j = 0; j < len2; j++) {
-	                    out[i][j] = catmullRomInterpolate(
-	                        p0[i][j], p1[i][j], p2[i][j], p3[i][j],
-	                        t, t2, t3
-	                    );
-	                }
-	            }
-	        }
-	    }
-
-	    /**
-	     * Catmull Rom interpolate number
-	     * @param  {number} p0
-	     * @param  {number} p1
-	     * @param  {number} p2
-	     * @param  {number} p3
-	     * @param  {number} t
-	     * @param  {number} t2
-	     * @param  {number} t3
-	     * @return {number}
-	     */
-	    function catmullRomInterpolate(p0, p1, p2, p3, t, t2, t3) {
-	        var v0 = (p2 - p0) * 0.5;
-	        var v1 = (p3 - p1) * 0.5;
-	        return (2 * (p1 - p2) + v0 + v1) * t3
-	                + (-3 * (p1 - p2) - 2 * v0 - v1) * t2
-	                + v0 * t + p1;
-	    }
-
-	    function cloneValue(value) {
-	        if (isArrayLike(value)) {
-	            var len = value.length;
-	            if (isArrayLike(value[0])) {
-	                var ret = [];
-	                for (var i = 0; i < len; i++) {
-	                    ret.push(arraySlice.call(value[i]));
-	                }
-	                return ret;
-	            }
-
-	            return arraySlice.call(value);
-	        }
-
-	        return value;
-	    }
-
-	    function rgba2String(rgba) {
-	        rgba[0] = Math.floor(rgba[0]);
-	        rgba[1] = Math.floor(rgba[1]);
-	        rgba[2] = Math.floor(rgba[2]);
-
-	        return 'rgba(' + rgba.join(',') + ')';
-	    }
-
-	    function createTrackClip (animator, easing, oneTrackDone, keyframes, propName) {
-	        var getter = animator._getter;
-	        var setter = animator._setter;
-	        var useSpline = easing === 'spline';
-
-	        var trackLen = keyframes.length;
-	        if (!trackLen) {
-	            return;
-	        }
-	        // Guess data type
-	        var firstVal = keyframes[0].value;
-	        var isValueArray = isArrayLike(firstVal);
-	        var isValueColor = false;
-	        var isValueString = false;
-
-	        // For vertices morphing
-	        var arrDim = (
-	                isValueArray
-	                && isArrayLike(firstVal[0])
-	            )
-	            ? 2 : 1;
-	        var trackMaxTime;
-	        // Sort keyframe as ascending
-	        keyframes.sort(function(a, b) {
-	            return a.time - b.time;
-	        });
-
-	        trackMaxTime = keyframes[trackLen - 1].time;
-	        // Percents of each keyframe
-	        var kfPercents = [];
-	        // Value of each keyframe
-	        var kfValues = [];
-	        var prevValue = keyframes[0].value;
-	        var isAllValueEqual = true;
-	        for (var i = 0; i < trackLen; i++) {
-	            kfPercents.push(keyframes[i].time / trackMaxTime);
-	            // Assume value is a color when it is a string
-	            var value = keyframes[i].value;
-
-	            // Check if value is equal, deep check if value is array
-	            if (!((isValueArray && isArraySame(value, prevValue, arrDim))
-	                || (!isValueArray && value === prevValue))) {
-	                isAllValueEqual = false;
-	            }
-	            prevValue = value;
-
-	            // Try converting a string to a color array
-	            if (typeof value == 'string') {
-	                var colorArray = color.parse(value);
-	                if (colorArray) {
-	                    value = colorArray;
-	                    isValueColor = true;
-	                }
-	                else {
-	                    isValueString = true;
-	                }
-	            }
-	            kfValues.push(value);
-	        }
-	        if (isAllValueEqual) {
-	            return;
-	        }
-
-	        var lastValue = kfValues[trackLen - 1];
-	        // Polyfill array and NaN value
-	        for (var i = 0; i < trackLen - 1; i++) {
-	            if (isValueArray) {
-	                fillArr(kfValues[i], lastValue, arrDim);
-	            }
-	            else {
-	                if (isNaN(kfValues[i]) && !isNaN(lastValue) && !isValueString && !isValueColor) {
-	                    kfValues[i] = lastValue;
-	                }
-	            }
-	        }
-	        isValueArray && fillArr(getter(animator._target, propName), lastValue, arrDim);
-
-	        // Cache the key of last frame to speed up when
-	        // animation playback is sequency
-	        var lastFrame = 0;
-	        var lastFramePercent = 0;
-	        var start;
-	        var w;
-	        var p0;
-	        var p1;
-	        var p2;
-	        var p3;
-
-	        if (isValueColor) {
-	            var rgba = [0, 0, 0, 0];
-	        }
-
-	        var onframe = function (target, percent) {
-	            // Find the range keyframes
-	            // kf1-----kf2---------current--------kf3
-	            // find kf2 and kf3 and do interpolation
-	            var frame;
-	            // In the easing function like elasticOut, percent may less than 0
-	            if (percent < 0) {
-	                frame = 0;
-	            }
-	            else if (percent < lastFramePercent) {
-	                // Start from next key
-	                // PENDING start from lastFrame ?
-	                start = Math.min(lastFrame + 1, trackLen - 1);
-	                for (frame = start; frame >= 0; frame--) {
-	                    if (kfPercents[frame] <= percent) {
-	                        break;
-	                    }
-	                }
-	                // PENDING really need to do this ?
-	                frame = Math.min(frame, trackLen - 2);
-	            }
-	            else {
-	                for (frame = lastFrame; frame < trackLen; frame++) {
-	                    if (kfPercents[frame] > percent) {
-	                        break;
-	                    }
-	                }
-	                frame = Math.min(frame - 1, trackLen - 2);
-	            }
-	            lastFrame = frame;
-	            lastFramePercent = percent;
-
-	            var range = (kfPercents[frame + 1] - kfPercents[frame]);
-	            if (range === 0) {
-	                return;
-	            }
-	            else {
-	                w = (percent - kfPercents[frame]) / range;
-	            }
-	            if (useSpline) {
-	                p1 = kfValues[frame];
-	                p0 = kfValues[frame === 0 ? frame : frame - 1];
-	                p2 = kfValues[frame > trackLen - 2 ? trackLen - 1 : frame + 1];
-	                p3 = kfValues[frame > trackLen - 3 ? trackLen - 1 : frame + 2];
-	                if (isValueArray) {
-	                    catmullRomInterpolateArray(
-	                        p0, p1, p2, p3, w, w * w, w * w * w,
-	                        getter(target, propName),
-	                        arrDim
-	                    );
-	                }
-	                else {
-	                    var value;
-	                    if (isValueColor) {
-	                        value = catmullRomInterpolateArray(
-	                            p0, p1, p2, p3, w, w * w, w * w * w,
-	                            rgba, 1
-	                        );
-	                        value = rgba2String(rgba);
-	                    }
-	                    else if (isValueString) {
-	                        // String is step(0.5)
-	                        return interpolateString(p1, p2, w);
-	                    }
-	                    else {
-	                        value = catmullRomInterpolate(
-	                            p0, p1, p2, p3, w, w * w, w * w * w
-	                        );
-	                    }
-	                    setter(
-	                        target,
-	                        propName,
-	                        value
-	                    );
-	                }
-	            }
-	            else {
-	                if (isValueArray) {
-	                    interpolateArray(
-	                        kfValues[frame], kfValues[frame + 1], w,
-	                        getter(target, propName),
-	                        arrDim
-	                    );
-	                }
-	                else {
-	                    var value;
-	                    if (isValueColor) {
-	                        interpolateArray(
-	                            kfValues[frame], kfValues[frame + 1], w,
-	                            rgba, 1
-	                        );
-	                        value = rgba2String(rgba);
-	                    }
-	                    else if (isValueString) {
-	                        // String is step(0.5)
-	                        return interpolateString(kfValues[frame], kfValues[frame + 1], w);
-	                    }
-	                    else {
-	                        value = interpolateNumber(kfValues[frame], kfValues[frame + 1], w);
-	                    }
-	                    setter(
-	                        target,
-	                        propName,
-	                        value
-	                    );
-	                }
-	            }
-	        };
-
-	        var clip = new Clip({
-	            target: animator._target,
-	            life: trackMaxTime,
-	            loop: animator._loop,
-	            delay: animator._delay,
-	            onframe: onframe,
-	            ondestroy: oneTrackDone
-	        });
-
-	        if (easing && easing !== 'spline') {
-	            clip.easing = easing;
-	        }
-
-	        return clip;
-	    }
-
-	    /**
-	     * @alias module:zrender/animation/Animator
-	     * @constructor
-	     * @param {Object} target
-	     * @param {boolean} loop
-	     * @param {Function} getter
-	     * @param {Function} setter
-	     */
-	    var Animator = function(target, loop, getter, setter) {
-	        this._tracks = {};
-	        this._target = target;
-
-	        this._loop = loop || false;
-
-	        this._getter = getter || defaultGetter;
-	        this._setter = setter || defaultSetter;
-
-	        this._clipCount = 0;
-
-	        this._delay = 0;
-
-	        this._doneList = [];
-
-	        this._onframeList = [];
-
-	        this._clipList = [];
-	    };
-
-	    Animator.prototype = {
-	        /**
-	         * 设置动画关键帧
-	         * @param  {number} time 关键帧时间，单位是ms
-	         * @param  {Object} props 关键帧的属性值，key-value表示
-	         * @return {module:zrender/animation/Animator}
-	         */
-	        when: function(time /* ms */, props) {
-	            var tracks = this._tracks;
-	            for (var propName in props) {
-	                if (!props.hasOwnProperty(propName)) {
-	                    continue;
-	                }
-
-	                if (!tracks[propName]) {
-	                    tracks[propName] = [];
-	                    // Invalid value
-	                    var value = this._getter(this._target, propName);
-	                    if (value == null) {
-	                        // zrLog('Invalid property ' + propName);
-	                        continue;
-	                    }
-	                    // If time is 0
-	                    //  Then props is given initialize value
-	                    // Else
-	                    //  Initialize value from current prop value
-	                    if (time !== 0) {
-	                        tracks[propName].push({
-	                            time: 0,
-	                            value: cloneValue(value)
-	                        });
-	                    }
-	                }
-	                tracks[propName].push({
-	                    time: time,
-	                    value: props[propName]
-	                });
-	            }
-	            return this;
-	        },
-	        /**
-	         * 添加动画每一帧的回调函数
-	         * @param  {Function} callback
-	         * @return {module:zrender/animation/Animator}
-	         */
-	        during: function (callback) {
-	            this._onframeList.push(callback);
-	            return this;
-	        },
-
-	        _doneCallback: function () {
-	            // Clear all tracks
-	            this._tracks = {};
-	            // Clear all clips
-	            this._clipList.length = 0;
-
-	            var doneList = this._doneList;
-	            var len = doneList.length;
-	            for (var i = 0; i < len; i++) {
-	                doneList[i].call(this);
-	            }
-	        },
-	        /**
-	         * 开始执行动画
-	         * @param  {string|Function} easing
-	         *         动画缓动函数，详见{@link module:zrender/animation/easing}
-	         * @return {module:zrender/animation/Animator}
-	         */
-	        start: function (easing) {
-
-	            var self = this;
-	            var clipCount = 0;
-
-	            var oneTrackDone = function() {
-	                clipCount--;
-	                if (!clipCount) {
-	                    self._doneCallback();
-	                }
-	            };
-
-	            var lastClip;
-	            for (var propName in this._tracks) {
-	                if (!this._tracks.hasOwnProperty(propName)) {
-	                    continue;
-	                }
-	                var clip = createTrackClip(
-	                    this, easing, oneTrackDone,
-	                    this._tracks[propName], propName
-	                );
-	                if (clip) {
-	                    this._clipList.push(clip);
-	                    clipCount++;
-
-	                    // If start after added to animation
-	                    if (this.animation) {
-	                        this.animation.addClip(clip);
-	                    }
-
-	                    lastClip = clip;
-	                }
-	            }
-
-	            // Add during callback on the last clip
-	            if (lastClip) {
-	                var oldOnFrame = lastClip.onframe;
-	                lastClip.onframe = function (target, percent) {
-	                    oldOnFrame(target, percent);
-
-	                    for (var i = 0; i < self._onframeList.length; i++) {
-	                        self._onframeList[i](target, percent);
-	                    }
-	                };
-	            }
-
-	            if (!clipCount) {
-	                this._doneCallback();
-	            }
-	            return this;
-	        },
-	        /**
-	         * 停止动画
-	         * @param {boolean} forwardToLast If move to last frame before stop
-	         */
-	        stop: function (forwardToLast) {
-	            var clipList = this._clipList;
-	            var animation = this.animation;
-	            for (var i = 0; i < clipList.length; i++) {
-	                var clip = clipList[i];
-	                if (forwardToLast) {
-	                    // Move to last frame before stop
-	                    clip.onframe(this._target, 1);
-	                }
-	                animation && animation.removeClip(clip);
-	            }
-	            clipList.length = 0;
-	        },
-	        /**
-	         * 设置动画延迟开始的时间
-	         * @param  {number} time 单位ms
-	         * @return {module:zrender/animation/Animator}
-	         */
-	        delay: function (time) {
-	            this._delay = time;
-	            return this;
-	        },
-	        /**
-	         * 添加动画结束的回调
-	         * @param  {Function} cb
-	         * @return {module:zrender/animation/Animator}
-	         */
-	        done: function(cb) {
-	            if (cb) {
-	                this._doneList.push(cb);
-	            }
-	            return this;
-	        },
-
-	        /**
-	         * @return {Array.<module:zrender/animation/Clip>}
-	         */
-	        getClips: function () {
-	            return this._clipList;
-	        }
-	    };
-
-	    module.exports = Animator;
-
-
-/***/ },
-
-/***/ 946:
-/***/ function(module, exports) {
-
-	
-
-	    module.exports = (typeof window !== 'undefined' &&
-	                                    (window.requestAnimationFrame
-	                                    || window.msRequestAnimationFrame
-	                                    || window.mozRequestAnimationFrame
-	                                    || window.webkitRequestAnimationFrame))
-	                                || function (func) {
-	                                    setTimeout(func, 16);
-	                                };
-
-
-
-/***/ },
-
-/***/ 947:
-/***/ function(module, exports) {
-
-	
-	    module.exports = {
-	        /**
-	         * 线段包含判断
-	         * @param  {number}  x0
-	         * @param  {number}  y0
-	         * @param  {number}  x1
-	         * @param  {number}  y1
-	         * @param  {number}  lineWidth
-	         * @param  {number}  x
-	         * @param  {number}  y
-	         * @return {boolean}
-	         */
-	        containStroke: function (x0, y0, x1, y1, lineWidth, x, y) {
-	            if (lineWidth === 0) {
-	                return false;
-	            }
-	            var _l = lineWidth;
-	            var _a = 0;
-	            var _b = x0;
-	            // Quick reject
-	            if (
-	                (y > y0 + _l && y > y1 + _l)
-	                || (y < y0 - _l && y < y1 - _l)
-	                || (x > x0 + _l && x > x1 + _l)
-	                || (x < x0 - _l && x < x1 - _l)
-	            ) {
-	                return false;
-	            }
-
-	            if (x0 !== x1) {
-	                _a = (y0 - y1) / (x0 - x1);
-	                _b = (x0 * y1 - x1 * y0) / (x0 - x1) ;
-	            }
-	            else {
-	                return Math.abs(x - x0) <= _l / 2;
-	            }
-	            var tmp = _a * x - y + _b;
-	            var _s = tmp * tmp / (_a * _a + 1);
-	            return _s <= _l / 2 * _l / 2;
-	        }
-	    };
-
-
-/***/ },
-
-/***/ 949:
-/***/ function(module, exports, __webpack_require__) {
-
-	
-
-	    var curve = __webpack_require__(174);
-
-	    module.exports = {
-	        /**
-	         * 二次贝塞尔曲线描边包含判断
-	         * @param  {number}  x0
-	         * @param  {number}  y0
-	         * @param  {number}  x1
-	         * @param  {number}  y1
-	         * @param  {number}  x2
-	         * @param  {number}  y2
-	         * @param  {number}  lineWidth
-	         * @param  {number}  x
-	         * @param  {number}  y
-	         * @return {boolean}
-	         */
-	        containStroke: function (x0, y0, x1, y1, x2, y2, lineWidth, x, y) {
-	            if (lineWidth === 0) {
-	                return false;
-	            }
-	            var _l = lineWidth;
-	            // Quick reject
-	            if (
-	                (y > y0 + _l && y > y1 + _l && y > y2 + _l)
-	                || (y < y0 - _l && y < y1 - _l && y < y2 - _l)
-	                || (x > x0 + _l && x > x1 + _l && x > x2 + _l)
-	                || (x < x0 - _l && x < x1 - _l && x < x2 - _l)
-	            ) {
-	                return false;
-	            }
-	            var d = curve.quadraticProjectPoint(
-	                x0, y0, x1, y1, x2, y2,
-	                x, y, null
-	            );
-	            return d <= _l / 2;
-	        }
-	    };
-
-
-/***/ },
-
-/***/ 950:
-/***/ function(module, exports) {
-
-	
-
-	    var PI2 = Math.PI * 2;
-	    module.exports = {
-	        normalizeRadian: function(angle) {
-	            angle %= PI2;
-	            if (angle < 0) {
-	                angle += PI2;
-	            }
-	            return angle;
-	        }
-	    };
-
-
-/***/ },
-
-/***/ 951:
-/***/ function(module, exports) {
-
-	
-	    module.exports = function windingLine(x0, y0, x1, y1, x, y) {
-	        if ((y > y0 && y > y1) || (y < y0 && y < y1)) {
-	            return 0;
-	        }
-	        // Ignore horizontal line
-	        if (y1 === y0) {
-	            return 0;
-	        }
-	        var dir = y1 < y0 ? 1 : -1;
-	        var t = (y - y0) / (y1 - y0);
-
-	        // Avoid winding error when intersection point is the connect point of two line of polygon
-	        if (t === 1 || t === 0) {
-	            dir = y1 < y0 ? 0.5 : -0.5;
-	        }
-
-	        var x_ = t * (x1 - x0) + x0;
-
-	        return x_ > x ? dir : 0;
-	    };
-
-
-/***/ },
-
-/***/ 952:
-/***/ function(module, exports) {
-
-	/**
-	 * zrender: 生成唯一id
-	 *
-	 * @author errorrik (errorrik@gmail.com)
-	 */
-
-
-	    var idStart = 0x0907;
-
-	    module.exports = function () {
-	        return idStart++;
-	    };
-
-
-
-/***/ },
-
-/***/ 954:
+/***/ 1046:
 /***/ function(module, exports) {
 
 	
@@ -9550,7 +8394,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 955:
+/***/ 1047:
 /***/ function(module, exports) {
 
 	/**
@@ -9873,7 +8717,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 957:
+/***/ 1049:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -9883,8 +8727,8 @@ webpackJsonp([3],{
 
 
 
-	    var textContain = __webpack_require__(110);
-	    var BoundingRect = __webpack_require__(66);
+	    var textContain = __webpack_require__(430);
+	    var BoundingRect = __webpack_require__(255);
 
 	    var tmpRect = new BoundingRect();
 
@@ -10029,269 +8873,545 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 964:
+/***/ 1050:
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
 	/**
-	 * 提供变换扩展
-	 * @module zrender/mixin/Transformable
-	 * @author pissang (https://www.github.com/pissang)
+	 * 矩形
+	 * @module zrender/graphic/shape/Rect
 	 */
 
 
-	    var matrix = __webpack_require__(132);
-	    var vector = __webpack_require__(43);
-	    var mIdentity = matrix.identity;
+	    var roundRectHelper = __webpack_require__(1469);
 
-	    var EPSILON = 5e-5;
+	    module.exports = __webpack_require__(176).extend({
 
-	    function isNotAroundZero(val) {
-	        return val > EPSILON || val < -EPSILON;
-	    }
+	        type: 'rect',
 
-	    /**
-	     * @alias module:zrender/mixin/Transformable
-	     * @constructor
-	     */
-	    var Transformable = function (opts) {
-	        opts = opts || {};
-	        // If there are no given position, rotation, scale
-	        if (!opts.position) {
-	            /**
-	             * 平移
-	             * @type {Array.<number>}
-	             * @default [0, 0]
-	             */
-	            this.position = [0, 0];
-	        }
-	        if (opts.rotation == null) {
-	            /**
-	             * 旋转
-	             * @type {Array.<number>}
-	             * @default 0
-	             */
-	            this.rotation = 0;
-	        }
-	        if (!opts.scale) {
-	            /**
-	             * 缩放
-	             * @type {Array.<number>}
-	             * @default [1, 1]
-	             */
-	            this.scale = [1, 1];
-	        }
-	        /**
-	         * 旋转和缩放的原点
-	         * @type {Array.<number>}
-	         * @default null
-	         */
-	        this.origin = this.origin || null;
-	    };
+	        shape: {
+	            // 左上、右上、右下、左下角的半径依次为r1、r2、r3、r4
+	            // r缩写为1         相当于 [1, 1, 1, 1]
+	            // r缩写为[1]       相当于 [1, 1, 1, 1]
+	            // r缩写为[1, 2]    相当于 [1, 2, 1, 2]
+	            // r缩写为[1, 2, 3] 相当于 [1, 2, 3, 2]
+	            r: 0,
 
-	    var transformableProto = Transformable.prototype;
-	    transformableProto.transform = null;
+	            x: 0,
+	            y: 0,
+	            width: 0,
+	            height: 0
+	        },
 
-	    /**
-	     * 判断是否需要有坐标变换
-	     * 如果有坐标变换, 则从position, rotation, scale以及父节点的transform计算出自身的transform矩阵
-	     */
-	    transformableProto.needLocalTransform = function () {
-	        return isNotAroundZero(this.rotation)
-	            || isNotAroundZero(this.position[0])
-	            || isNotAroundZero(this.position[1])
-	            || isNotAroundZero(this.scale[0] - 1)
-	            || isNotAroundZero(this.scale[1] - 1);
-	    };
-
-	    transformableProto.updateTransform = function () {
-	        var parent = this.parent;
-	        var parentHasTransform = parent && parent.transform;
-	        var needLocalTransform = this.needLocalTransform();
-
-	        var m = this.transform;
-	        if (!(needLocalTransform || parentHasTransform)) {
-	            m && mIdentity(m);
-	            return;
-	        }
-
-	        m = m || matrix.create();
-
-	        if (needLocalTransform) {
-	            this.getLocalTransform(m);
-	        }
-	        else {
-	            mIdentity(m);
-	        }
-
-	        // 应用父节点变换
-	        if (parentHasTransform) {
-	            if (needLocalTransform) {
-	                matrix.mul(m, parent.transform, m);
+	        buildPath: function (ctx, shape) {
+	            var x = shape.x;
+	            var y = shape.y;
+	            var width = shape.width;
+	            var height = shape.height;
+	            if (!shape.r) {
+	                ctx.rect(x, y, width, height);
 	            }
 	            else {
-	                matrix.copy(m, parent.transform);
+	                roundRectHelper.buildPath(ctx, shape);
 	            }
-	        }
-	        // 保存这个变换矩阵
-	        this.transform = m;
-
-	        this.invTransform = this.invTransform || matrix.create();
-	        matrix.invert(this.invTransform, m);
-	    };
-
-	    transformableProto.getLocalTransform = function (m) {
-	        m = m || [];
-	        mIdentity(m);
-
-	        var origin = this.origin;
-
-	        var scale = this.scale;
-	        var rotation = this.rotation;
-	        var position = this.position;
-	        if (origin) {
-	            // Translate to origin
-	            m[4] -= origin[0];
-	            m[5] -= origin[1];
-	        }
-	        matrix.scale(m, m, scale);
-	        if (rotation) {
-	            matrix.rotate(m, m, rotation);
-	        }
-	        if (origin) {
-	            // Translate back from origin
-	            m[4] += origin[0];
-	            m[5] += origin[1];
-	        }
-
-	        m[4] += position[0];
-	        m[5] += position[1];
-
-	        return m;
-	    };
-	    /**
-	     * 将自己的transform应用到context上
-	     * @param {Context2D} ctx
-	     */
-	    transformableProto.setTransform = function (ctx) {
-	        var m = this.transform;
-	        var dpr = ctx.dpr || 1;
-	        if (m) {
-	            ctx.setTransform(dpr * m[0], dpr * m[1], dpr * m[2], dpr * m[3], dpr * m[4], dpr * m[5]);
-	        }
-	        else {
-	            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-	        }
-	    };
-
-	    transformableProto.restoreTransform = function (ctx) {
-	        var m = this.transform;
-	        var dpr = ctx.dpr || 1;
-	        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-	    }
-
-	    var tmpTransform = [];
-
-	    /**
-	     * 分解`transform`矩阵到`position`, `rotation`, `scale`
-	     */
-	    transformableProto.decomposeTransform = function () {
-	        if (!this.transform) {
+	            ctx.closePath();
 	            return;
 	        }
-	        var parent = this.parent;
-	        var m = this.transform;
-	        if (parent && parent.transform) {
-	            // Get local transform and decompose them to position, scale, rotation
-	            matrix.mul(tmpTransform, parent.invTransform, m);
-	            m = tmpTransform;
-	        }
-	        var sx = m[0] * m[0] + m[1] * m[1];
-	        var sy = m[2] * m[2] + m[3] * m[3];
-	        var position = this.position;
-	        var scale = this.scale;
-	        if (isNotAroundZero(sx - 1)) {
-	            sx = Math.sqrt(sx);
-	        }
-	        if (isNotAroundZero(sy - 1)) {
-	            sy = Math.sqrt(sy);
-	        }
-	        if (m[0] < 0) {
-	            sx = -sx;
-	        }
-	        if (m[3] < 0) {
-	            sy = -sy;
-	        }
-	        position[0] = m[4];
-	        position[1] = m[5];
-	        scale[0] = sx;
-	        scale[1] = sy;
-	        this.rotation = Math.atan2(-m[1] / sy, m[0] / sx);
-	    };
-
-	    /**
-	     * Get global scale
-	     * @return {Array.<number>}
-	     */
-	    transformableProto.getGlobalScale = function () {
-	        var m = this.transform;
-	        if (!m) {
-	            return [1, 1];
-	        }
-	        var sx = Math.sqrt(m[0] * m[0] + m[1] * m[1]);
-	        var sy = Math.sqrt(m[2] * m[2] + m[3] * m[3]);
-	        if (m[0] < 0) {
-	            sx = -sx;
-	        }
-	        if (m[3] < 0) {
-	            sy = -sy;
-	        }
-	        return [sx, sy];
-	    };
-	    /**
-	     * 变换坐标位置到 shape 的局部坐标空间
-	     * @method
-	     * @param {number} x
-	     * @param {number} y
-	     * @return {Array.<number>}
-	     */
-	    transformableProto.transformCoordToLocal = function (x, y) {
-	        var v2 = [x, y];
-	        var invTransform = this.invTransform;
-	        if (invTransform) {
-	            vector.applyTransform(v2, v2, invTransform);
-	        }
-	        return v2;
-	    };
-
-	    /**
-	     * 变换局部坐标位置到全局坐标空间
-	     * @method
-	     * @param {number} x
-	     * @param {number} y
-	     * @return {Array.<number>}
-	     */
-	    transformableProto.transformCoordToGlobal = function (x, y) {
-	        var v2 = [x, y];
-	        var transform = this.transform;
-	        if (transform) {
-	            vector.applyTransform(v2, v2, transform);
-	        }
-	        return v2;
-	    };
-
-	    module.exports = Transformable;
+	    });
 
 
 
 /***/ },
 
-/***/ 965:
+/***/ 1051:
+/***/ function(module, exports) {
+
+	/**
+	 * @module zrender/tool/color
+	 */
+
+
+	    var kCSSColorTable = {
+	        'transparent': [0,0,0,0], 'aliceblue': [240,248,255,1],
+	        'antiquewhite': [250,235,215,1], 'aqua': [0,255,255,1],
+	        'aquamarine': [127,255,212,1], 'azure': [240,255,255,1],
+	        'beige': [245,245,220,1], 'bisque': [255,228,196,1],
+	        'black': [0,0,0,1], 'blanchedalmond': [255,235,205,1],
+	        'blue': [0,0,255,1], 'blueviolet': [138,43,226,1],
+	        'brown': [165,42,42,1], 'burlywood': [222,184,135,1],
+	        'cadetblue': [95,158,160,1], 'chartreuse': [127,255,0,1],
+	        'chocolate': [210,105,30,1], 'coral': [255,127,80,1],
+	        'cornflowerblue': [100,149,237,1], 'cornsilk': [255,248,220,1],
+	        'crimson': [220,20,60,1], 'cyan': [0,255,255,1],
+	        'darkblue': [0,0,139,1], 'darkcyan': [0,139,139,1],
+	        'darkgoldenrod': [184,134,11,1], 'darkgray': [169,169,169,1],
+	        'darkgreen': [0,100,0,1], 'darkgrey': [169,169,169,1],
+	        'darkkhaki': [189,183,107,1], 'darkmagenta': [139,0,139,1],
+	        'darkolivegreen': [85,107,47,1], 'darkorange': [255,140,0,1],
+	        'darkorchid': [153,50,204,1], 'darkred': [139,0,0,1],
+	        'darksalmon': [233,150,122,1], 'darkseagreen': [143,188,143,1],
+	        'darkslateblue': [72,61,139,1], 'darkslategray': [47,79,79,1],
+	        'darkslategrey': [47,79,79,1], 'darkturquoise': [0,206,209,1],
+	        'darkviolet': [148,0,211,1], 'deeppink': [255,20,147,1],
+	        'deepskyblue': [0,191,255,1], 'dimgray': [105,105,105,1],
+	        'dimgrey': [105,105,105,1], 'dodgerblue': [30,144,255,1],
+	        'firebrick': [178,34,34,1], 'floralwhite': [255,250,240,1],
+	        'forestgreen': [34,139,34,1], 'fuchsia': [255,0,255,1],
+	        'gainsboro': [220,220,220,1], 'ghostwhite': [248,248,255,1],
+	        'gold': [255,215,0,1], 'goldenrod': [218,165,32,1],
+	        'gray': [128,128,128,1], 'green': [0,128,0,1],
+	        'greenyellow': [173,255,47,1], 'grey': [128,128,128,1],
+	        'honeydew': [240,255,240,1], 'hotpink': [255,105,180,1],
+	        'indianred': [205,92,92,1], 'indigo': [75,0,130,1],
+	        'ivory': [255,255,240,1], 'khaki': [240,230,140,1],
+	        'lavender': [230,230,250,1], 'lavenderblush': [255,240,245,1],
+	        'lawngreen': [124,252,0,1], 'lemonchiffon': [255,250,205,1],
+	        'lightblue': [173,216,230,1], 'lightcoral': [240,128,128,1],
+	        'lightcyan': [224,255,255,1], 'lightgoldenrodyellow': [250,250,210,1],
+	        'lightgray': [211,211,211,1], 'lightgreen': [144,238,144,1],
+	        'lightgrey': [211,211,211,1], 'lightpink': [255,182,193,1],
+	        'lightsalmon': [255,160,122,1], 'lightseagreen': [32,178,170,1],
+	        'lightskyblue': [135,206,250,1], 'lightslategray': [119,136,153,1],
+	        'lightslategrey': [119,136,153,1], 'lightsteelblue': [176,196,222,1],
+	        'lightyellow': [255,255,224,1], 'lime': [0,255,0,1],
+	        'limegreen': [50,205,50,1], 'linen': [250,240,230,1],
+	        'magenta': [255,0,255,1], 'maroon': [128,0,0,1],
+	        'mediumaquamarine': [102,205,170,1], 'mediumblue': [0,0,205,1],
+	        'mediumorchid': [186,85,211,1], 'mediumpurple': [147,112,219,1],
+	        'mediumseagreen': [60,179,113,1], 'mediumslateblue': [123,104,238,1],
+	        'mediumspringgreen': [0,250,154,1], 'mediumturquoise': [72,209,204,1],
+	        'mediumvioletred': [199,21,133,1], 'midnightblue': [25,25,112,1],
+	        'mintcream': [245,255,250,1], 'mistyrose': [255,228,225,1],
+	        'moccasin': [255,228,181,1], 'navajowhite': [255,222,173,1],
+	        'navy': [0,0,128,1], 'oldlace': [253,245,230,1],
+	        'olive': [128,128,0,1], 'olivedrab': [107,142,35,1],
+	        'orange': [255,165,0,1], 'orangered': [255,69,0,1],
+	        'orchid': [218,112,214,1], 'palegoldenrod': [238,232,170,1],
+	        'palegreen': [152,251,152,1], 'paleturquoise': [175,238,238,1],
+	        'palevioletred': [219,112,147,1], 'papayawhip': [255,239,213,1],
+	        'peachpuff': [255,218,185,1], 'peru': [205,133,63,1],
+	        'pink': [255,192,203,1], 'plum': [221,160,221,1],
+	        'powderblue': [176,224,230,1], 'purple': [128,0,128,1],
+	        'red': [255,0,0,1], 'rosybrown': [188,143,143,1],
+	        'royalblue': [65,105,225,1], 'saddlebrown': [139,69,19,1],
+	        'salmon': [250,128,114,1], 'sandybrown': [244,164,96,1],
+	        'seagreen': [46,139,87,1], 'seashell': [255,245,238,1],
+	        'sienna': [160,82,45,1], 'silver': [192,192,192,1],
+	        'skyblue': [135,206,235,1], 'slateblue': [106,90,205,1],
+	        'slategray': [112,128,144,1], 'slategrey': [112,128,144,1],
+	        'snow': [255,250,250,1], 'springgreen': [0,255,127,1],
+	        'steelblue': [70,130,180,1], 'tan': [210,180,140,1],
+	        'teal': [0,128,128,1], 'thistle': [216,191,216,1],
+	        'tomato': [255,99,71,1], 'turquoise': [64,224,208,1],
+	        'violet': [238,130,238,1], 'wheat': [245,222,179,1],
+	        'white': [255,255,255,1], 'whitesmoke': [245,245,245,1],
+	        'yellow': [255,255,0,1], 'yellowgreen': [154,205,50,1]
+	    };
+
+	    function clampCssByte(i) {  // Clamp to integer 0 .. 255.
+	        i = Math.round(i);  // Seems to be what Chrome does (vs truncation).
+	        return i < 0 ? 0 : i > 255 ? 255 : i;
+	    }
+
+	    function clampCssAngle(i) {  // Clamp to integer 0 .. 360.
+	        i = Math.round(i);  // Seems to be what Chrome does (vs truncation).
+	        return i < 0 ? 0 : i > 360 ? 360 : i;
+	    }
+
+	    function clampCssFloat(f) {  // Clamp to float 0.0 .. 1.0.
+	        return f < 0 ? 0 : f > 1 ? 1 : f;
+	    }
+
+	    function parseCssInt(str) {  // int or percentage.
+	        if (str.length && str.charAt(str.length - 1) === '%') {
+	            return clampCssByte(parseFloat(str) / 100 * 255);
+	        }
+	        return clampCssByte(parseInt(str, 10));
+	    }
+
+	    function parseCssFloat(str) {  // float or percentage.
+	        if (str.length && str.charAt(str.length - 1) === '%') {
+	            return clampCssFloat(parseFloat(str) / 100);
+	        }
+	        return clampCssFloat(parseFloat(str));
+	    }
+
+	    function cssHueToRgb(m1, m2, h) {
+	        if (h < 0) {
+	            h += 1;
+	        }
+	        else if (h > 1) {
+	            h -= 1;
+	        }
+
+	        if (h * 6 < 1) {
+	            return m1 + (m2 - m1) * h * 6;
+	        }
+	        if (h * 2 < 1) {
+	            return m2;
+	        }
+	        if (h * 3 < 2) {
+	            return m1 + (m2 - m1) * (2/3 - h) * 6;
+	        }
+	        return m1;
+	    }
+
+	    function lerp(a, b, p) {
+	        return a + (b - a) * p;
+	    }
+
+	    /**
+	     * @param {string} colorStr
+	     * @return {Array.<number>}
+	     * @memberOf module:zrender/util/color
+	     */
+	    function parse(colorStr) {
+	        if (!colorStr) {
+	            return;
+	        }
+	        // colorStr may be not string
+	        colorStr = colorStr + '';
+	        // Remove all whitespace, not compliant, but should just be more accepting.
+	        var str = colorStr.replace(/ /g, '').toLowerCase();
+
+	        // Color keywords (and transparent) lookup.
+	        if (str in kCSSColorTable) {
+	            return kCSSColorTable[str].slice();  // dup.
+	        }
+
+	        // #abc and #abc123 syntax.
+	        if (str.charAt(0) === '#') {
+	            if (str.length === 4) {
+	                var iv = parseInt(str.substr(1), 16);  // TODO(deanm): Stricter parsing.
+	                if (!(iv >= 0 && iv <= 0xfff)) {
+	                    return;  // Covers NaN.
+	                }
+	                return [
+	                    ((iv & 0xf00) >> 4) | ((iv & 0xf00) >> 8),
+	                    (iv & 0xf0) | ((iv & 0xf0) >> 4),
+	                    (iv & 0xf) | ((iv & 0xf) << 4),
+	                    1
+	                ];
+	            }
+	            else if (str.length === 7) {
+	                var iv = parseInt(str.substr(1), 16);  // TODO(deanm): Stricter parsing.
+	                if (!(iv >= 0 && iv <= 0xffffff)) {
+	                    return;  // Covers NaN.
+	                }
+	                return [
+	                    (iv & 0xff0000) >> 16,
+	                    (iv & 0xff00) >> 8,
+	                    iv & 0xff,
+	                    1
+	                ];
+	            }
+
+	            return;
+	        }
+	        var op = str.indexOf('('), ep = str.indexOf(')');
+	        if (op !== -1 && ep + 1 === str.length) {
+	            var fname = str.substr(0, op);
+	            var params = str.substr(op + 1, ep - (op + 1)).split(',');
+	            var alpha = 1;  // To allow case fallthrough.
+	            switch (fname) {
+	                case 'rgba':
+	                    if (params.length !== 4) {
+	                        return;
+	                    }
+	                    alpha = parseCssFloat(params.pop()); // jshint ignore:line
+	                // Fall through.
+	                case 'rgb':
+	                    if (params.length !== 3) {
+	                        return;
+	                    }
+	                    return [
+	                        parseCssInt(params[0]),
+	                        parseCssInt(params[1]),
+	                        parseCssInt(params[2]),
+	                        alpha
+	                    ];
+	                case 'hsla':
+	                    if (params.length !== 4) {
+	                        return;
+	                    }
+	                    params[3] = parseCssFloat(params[3]);
+	                    return hsla2rgba(params);
+	                case 'hsl':
+	                    if (params.length !== 3) {
+	                        return;
+	                    }
+	                    return hsla2rgba(params);
+	                default:
+	                    return;
+	            }
+	        }
+
+	        return;
+	    }
+
+	    /**
+	     * @param {Array.<number>} hsla
+	     * @return {Array.<number>} rgba
+	     */
+	    function hsla2rgba(hsla) {
+	        var h = (((parseFloat(hsla[0]) % 360) + 360) % 360) / 360;  // 0 .. 1
+	        // NOTE(deanm): According to the CSS spec s/l should only be
+	        // percentages, but we don't bother and let float or percentage.
+	        var s = parseCssFloat(hsla[1]);
+	        var l = parseCssFloat(hsla[2]);
+	        var m2 = l <= 0.5 ? l * (s + 1) : l + s - l * s;
+	        var m1 = l * 2 - m2;
+
+	        var rgba = [
+	            clampCssByte(cssHueToRgb(m1, m2, h + 1 / 3) * 255),
+	            clampCssByte(cssHueToRgb(m1, m2, h) * 255),
+	            clampCssByte(cssHueToRgb(m1, m2, h - 1 / 3) * 255)
+	        ];
+
+	        if (hsla.length === 4) {
+	            rgba[3] = hsla[3];
+	        }
+
+	        return rgba;
+	    }
+
+	    /**
+	     * @param {Array.<number>} rgba
+	     * @return {Array.<number>} hsla
+	     */
+	    function rgba2hsla(rgba) {
+	        if (!rgba) {
+	            return;
+	        }
+
+	        // RGB from 0 to 255
+	        var R = rgba[0] / 255;
+	        var G = rgba[1] / 255;
+	        var B = rgba[2] / 255;
+
+	        var vMin = Math.min(R, G, B); // Min. value of RGB
+	        var vMax = Math.max(R, G, B); // Max. value of RGB
+	        var delta = vMax - vMin; // Delta RGB value
+
+	        var L = (vMax + vMin) / 2;
+	        var H;
+	        var S;
+	        // HSL results from 0 to 1
+	        if (delta === 0) {
+	            H = 0;
+	            S = 0;
+	        }
+	        else {
+	            if (L < 0.5) {
+	                S = delta / (vMax + vMin);
+	            }
+	            else {
+	                S = delta / (2 - vMax - vMin);
+	            }
+
+	            var deltaR = (((vMax - R) / 6) + (delta / 2)) / delta;
+	            var deltaG = (((vMax - G) / 6) + (delta / 2)) / delta;
+	            var deltaB = (((vMax - B) / 6) + (delta / 2)) / delta;
+
+	            if (R === vMax) {
+	                H = deltaB - deltaG;
+	            }
+	            else if (G === vMax) {
+	                H = (1 / 3) + deltaR - deltaB;
+	            }
+	            else if (B === vMax) {
+	                H = (2 / 3) + deltaG - deltaR;
+	            }
+
+	            if (H < 0) {
+	                H += 1;
+	            }
+
+	            if (H > 1) {
+	                H -= 1;
+	            }
+	        }
+
+	        var hsla = [H * 360, S, L];
+
+	        if (rgba[3] != null) {
+	            hsla.push(rgba[3]);
+	        }
+
+	        return hsla;
+	    }
+
+	    /**
+	     * @param {string} color
+	     * @param {number} level
+	     * @return {string}
+	     * @memberOf module:zrender/util/color
+	     */
+	    function lift(color, level) {
+	        var colorArr = parse(color);
+	        if (colorArr) {
+	            for (var i = 0; i < 3; i++) {
+	                if (level < 0) {
+	                    colorArr[i] = colorArr[i] * (1 - level) | 0;
+	                }
+	                else {
+	                    colorArr[i] = ((255 - colorArr[i]) * level + colorArr[i]) | 0;
+	                }
+	            }
+	            return stringify(colorArr, colorArr.length === 4 ? 'rgba' : 'rgb');
+	        }
+	    }
+
+	    /**
+	     * @param {string} color
+	     * @return {string}
+	     * @memberOf module:zrender/util/color
+	     */
+	    function toHex(color, level) {
+	        var colorArr = parse(color);
+	        if (colorArr) {
+	            return ((1 << 24) + (colorArr[0] << 16) + (colorArr[1] << 8) + (+colorArr[2])).toString(16).slice(1);
+	        }
+	    }
+
+	    /**
+	     * Map value to color. Faster than mapToColor methods because color is represented by rgba array
+	     * @param {number} normalizedValue A float between 0 and 1.
+	     * @param {Array.<Array.<number>>} colors List of rgba color array
+	     * @param {Array.<number>} [out] Mapped gba color array
+	     * @return {Array.<number>}
+	     */
+	    function fastMapToColor(normalizedValue, colors, out) {
+	        if (!(colors && colors.length)
+	            || !(normalizedValue >= 0 && normalizedValue <= 1)
+	        ) {
+	            return;
+	        }
+	        out = out || [0, 0, 0, 0];
+	        var value = normalizedValue * (colors.length - 1);
+	        var leftIndex = Math.floor(value);
+	        var rightIndex = Math.ceil(value);
+	        var leftColor = colors[leftIndex];
+	        var rightColor = colors[rightIndex];
+	        var dv = value - leftIndex;
+	        out[0] = clampCssByte(lerp(leftColor[0], rightColor[0], dv));
+	        out[1] = clampCssByte(lerp(leftColor[1], rightColor[1], dv));
+	        out[2] = clampCssByte(lerp(leftColor[2], rightColor[2], dv));
+	        out[3] = clampCssByte(lerp(leftColor[3], rightColor[3], dv));
+	        return out;
+	    }
+	    /**
+	     * @param {number} normalizedValue A float between 0 and 1.
+	     * @param {Array.<string>} colors Color list.
+	     * @param {boolean=} fullOutput Default false.
+	     * @return {(string|Object)} Result color. If fullOutput,
+	     *                           return {color: ..., leftIndex: ..., rightIndex: ..., value: ...},
+	     * @memberOf module:zrender/util/color
+	     */
+	    function mapToColor(normalizedValue, colors, fullOutput) {
+	        if (!(colors && colors.length)
+	            || !(normalizedValue >= 0 && normalizedValue <= 1)
+	        ) {
+	            return;
+	        }
+
+	        var value = normalizedValue * (colors.length - 1);
+	        var leftIndex = Math.floor(value);
+	        var rightIndex = Math.ceil(value);
+	        var leftColor = parse(colors[leftIndex]);
+	        var rightColor = parse(colors[rightIndex]);
+	        var dv = value - leftIndex;
+
+	        var color = stringify(
+	            [
+	                clampCssByte(lerp(leftColor[0], rightColor[0], dv)),
+	                clampCssByte(lerp(leftColor[1], rightColor[1], dv)),
+	                clampCssByte(lerp(leftColor[2], rightColor[2], dv)),
+	                clampCssFloat(lerp(leftColor[3], rightColor[3], dv))
+	            ],
+	            'rgba'
+	        );
+
+	        return fullOutput
+	            ? {
+	                color: color,
+	                leftIndex: leftIndex,
+	                rightIndex: rightIndex,
+	                value: value
+	            }
+	            : color;
+	    }
+
+	    /**
+	     * @param {string} color
+	     * @param {number=} h 0 ~ 360, ignore when null.
+	     * @param {number=} s 0 ~ 1, ignore when null.
+	     * @param {number=} l 0 ~ 1, ignore when null.
+	     * @return {string} Color string in rgba format.
+	     * @memberOf module:zrender/util/color
+	     */
+	    function modifyHSL(color, h, s, l) {
+	        color = parse(color);
+
+	        if (color) {
+	            color = rgba2hsla(color);
+	            h != null && (color[0] = clampCssAngle(h));
+	            s != null && (color[1] = parseCssFloat(s));
+	            l != null && (color[2] = parseCssFloat(l));
+
+	            return stringify(hsla2rgba(color), 'rgba');
+	        }
+	    }
+
+	    /**
+	     * @param {string} color
+	     * @param {number=} alpha 0 ~ 1
+	     * @return {string} Color string in rgba format.
+	     * @memberOf module:zrender/util/color
+	     */
+	    function modifyAlpha(color, alpha) {
+	        color = parse(color);
+
+	        if (color && alpha != null) {
+	            color[3] = clampCssFloat(alpha);
+	            return stringify(color, 'rgba');
+	        }
+	    }
+
+	    /**
+	     * @param {Array.<string>} colors Color list.
+	     * @param {string} type 'rgba', 'hsva', ...
+	     * @return {string} Result color.
+	     */
+	    function stringify(arrColor, type) {
+	        var colorStr = arrColor[0] + ',' + arrColor[1] + ',' + arrColor[2];
+	        if (type === 'rgba' || type === 'hsva' || type === 'hsla') {
+	            colorStr += ',' + arrColor[3];
+	        }
+	        return type + '(' + colorStr + ')';
+	    }
+
+	    module.exports = {
+	        parse: parse,
+	        lift: lift,
+	        toHex: toHex,
+	        fastMapToColor: fastMapToColor,
+	        mapToColor: mapToColor,
+	        modifyHSL: modifyHSL,
+	        modifyAlpha: modifyAlpha,
+	        stringify: stringify
+	    };
+
+
+
+
+/***/ },
+
+/***/ 1052:
 /***/ function(module, exports, __webpack_require__) {
 
 	
 
-	if (!__webpack_require__(78).canvasSupported) {
+	if (!__webpack_require__(278).canvasSupported) {
 	    var urn = 'urn:schemas-microsoft-com:vml';
 
 	    var createNode;
@@ -10340,7 +9460,17 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 1005:
+/***/ 1053:
+/***/ function(module, exports, __webpack_require__) {
+
+	
+	    __webpack_require__(1482);
+	    __webpack_require__(941).registerPainter('vml', __webpack_require__(1481));
+
+
+/***/ },
+
+/***/ 1076:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10348,40 +9478,364 @@ webpackJsonp([3],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.saveAllDatas = exports.stepChange = undefined;
+	exports.requestDataDir = exports.getContentByTableTile = exports.delLink = exports.linkData = exports.setLinkType = exports.updateLine = exports.setCurrentLink = exports.setSelectField = exports.addTableFlag = exports.showConnectDlg = exports.showDataSourceDlg = exports.addTable = exports.mark = exports.setZrenderState = exports.requestTables = undefined;
+
+	var _extends2 = __webpack_require__(3);
+
+	var _extends3 = _interopRequireDefault(_extends2);
 
 	var _defineProperty2 = __webpack_require__(7);
 
 	var _defineProperty3 = _interopRequireDefault(_defineProperty2);
 
-	var _actionType = __webpack_require__(23);
+	var _actionType = __webpack_require__(25);
 
 	var Types = _interopRequireWildcard(_actionType);
 
-	var _api = __webpack_require__(41);
-
-	var _redux = __webpack_require__(48);
-
-	var _global = __webpack_require__(12);
+	var _api = __webpack_require__(44);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-	var stepChange = exports.stepChange = function stepChange(id, config, step) {
+	/**
+	 * Created by liy on 2016/12/6 0006.
+	 */
+	var requestTables = exports.requestTables = function requestTables(id, conifg) {
 	    var _ref;
 
-	    return _ref = {}, (0, _defineProperty3["default"])(_ref, _api.API, { types: Types.stepContainer.requestStepConfig, apiConfig: config }), (0, _defineProperty3["default"])(_ref, 'id', id), (0, _defineProperty3["default"])(_ref, 'step', step), _ref;
+	    return _ref = {}, (0, _defineProperty3["default"])(_ref, _api.API, { types: Types.connectDataSource.requestTables, apiConfig: conifg }), (0, _defineProperty3["default"])(_ref, 'id', id), _ref;
 	};
-	var saveAllDatas = exports.saveAllDatas = function saveAllDatas(id, config) {
+	var setZrenderState = exports.setZrenderState = function setZrenderState(id, state) {
+	    return {
+	        type: Types.connectDataSource.setZrenderState,
+	        id: id,
+	        zrender: state
+	    };
+	};
+	var mark = exports.mark = function mark(id, _mark) {
+	    return (0, _extends3["default"])({
+	        type: Types.connectDataSource.mark,
+	        id: id
+	    }, _mark);
+	};
+
+	var addTable = exports.addTable = function addTable(id, tableIds) {
+	    return {
+	        type: Types.connectDataSource.addTable,
+	        id: id,
+	        tableIds: tableIds
+	    };
+	};
+	var showDataSourceDlg = exports.showDataSourceDlg = function showDataSourceDlg(id, _showDataSourceDlg) {
+	    return {
+	        type: Types.connectDataSource.showDataSourceDlg,
+	        id: id,
+	        showDataSourceDlg: _showDataSourceDlg
+	    };
+	};
+	var showConnectDlg = exports.showConnectDlg = function showConnectDlg(id, _showConnectDlg) {
+	    return {
+	        type: Types.connectDataSource.showConnectDlg,
+	        id: id,
+	        showConnectDlg: _showConnectDlg
+	    };
+	};
+	var addTableFlag = exports.addTableFlag = function addTableFlag(id, _addTableFlag) {
+	    return {
+	        type: Types.connectDataSource.addTableFlag,
+	        id: id,
+	        addTableFlag: _addTableFlag
+	    };
+	};
+	var setSelectField = exports.setSelectField = function setSelectField(id, table, field, zField) {
+	    return {
+	        type: Types.connectDataSource.setSelectField,
+	        id: id,
+	        table: table,
+	        field: field,
+	        zField: zField
+	    };
+	};
+	var setCurrentLink = exports.setCurrentLink = function setCurrentLink(id, index) {
+	    return {
+	        type: Types.connectDataSource.setCurrentLink,
+	        id: id,
+	        currentLink: index
+	    };
+	};
+	var updateLine = exports.updateLine = function updateLine(id) {
+	    return {
+	        type: Types.connectDataSource.updateLine,
+	        id: id
+	    };
+	};
+	var setLinkType = exports.setLinkType = function setLinkType(id, isTemp, linkType) {
+	    return {
+	        type: Types.connectDataSource.setLinkType,
+	        id: id,
+	        isTemp: isTemp,
+	        linkType: linkType
+
+	    };
+	};
+	var linkData = exports.linkData = function linkData(id, from, to) {
+	    return {
+	        type: Types.connectDataSource.linkData,
+	        from: from,
+	        to: to,
+	        id: id
+
+	    };
+	};
+	var delLink = exports.delLink = function delLink(id) {
+	    return {
+	        type: Types.connectDataSource.delLink,
+	        id: id
+
+	    };
+	};
+	//通过表名来从接口中获取整个表内容的信息
+	var getContentByTableTile = exports.getContentByTableTile = function getContentByTableTile(tableTitle, dataSoureId, config, id) {
 	    var _ref2;
 
-	    return _ref2 = {}, (0, _defineProperty3["default"])(_ref2, _api.API, { types: Types.stepContainer.requestSaveAllDatas, apiConfig: config }), (0, _defineProperty3["default"])(_ref2, 'id', id), _ref2;
+	    return _ref2 = {}, (0, _defineProperty3["default"])(_ref2, _api.API, { types: Types.connectDataSource.getContentByTableTile, apiConfig: (0, _extends3["default"])({}, config, { body: (0, _extends3["default"])({}, config.body, { datasourceId: dataSoureId, tableName: tableTitle }) }) }), (0, _defineProperty3["default"])(_ref2, 'tableTitle', tableTitle), (0, _defineProperty3["default"])(_ref2, 'dataSource', dataSoureId), (0, _defineProperty3["default"])(_ref2, 'id', id), _ref2;
+	};
+
+	//获取数据目录行为
+	var requestDataDir = exports.requestDataDir = function requestDataDir(config, id) {
+	    var _ref3;
+
+	    return _ref3 = {}, (0, _defineProperty3["default"])(_ref3, _api.API, { types: Types.connectDataSource.requestDataDirApi, apiConfig: config }), (0, _defineProperty3["default"])(_ref3, 'id', id), _ref3;
 	};
 
 /***/ },
 
-/***/ 1028:
+/***/ 1103:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _Path = __webpack_require__(176);
+
+	var _Path2 = _interopRequireDefault(_Path);
+
+	var _vector = __webpack_require__(136);
+
+	var _vector2 = _interopRequireDefault(_vector);
+
+	var _matrix = __webpack_require__(939);
+
+	var _matrix2 = _interopRequireDefault(_matrix);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	var createArrow = function createArrow(vec1, vec2, ctx) {
+	    var vec = _vector2["default"].sub([], vec2, vec1);
+	    var Q = Math.atan2(vec[1], vec[0]);
+	    var vec3 = _vector2["default"].create(-5, 5);
+	    var vec4 = _vector2["default"].create(-5, -5);
+	    var mtx = _matrix2["default"].create();
+	    mtx = _matrix2["default"].rotate({}, mtx, -1 * Q);
+	    vec3 = _vector2["default"].applyTransform(vec3, vec3, mtx);
+	    vec4 = _vector2["default"].applyTransform(vec4, vec4, mtx);
+	    var O = _vector2["default"].create(0, 0);
+	    mtx = _matrix2["default"].create();
+	    mtx = _matrix2["default"].translate(mtx, mtx, vec2);
+	    vec3 = _vector2["default"].applyTransform(vec3, vec3, mtx);
+	    vec4 = _vector2["default"].applyTransform(vec4, vec4, mtx);
+
+	    ctx.moveTo(vec2[0], vec2[1]);
+	    ctx.lineTo(vec3[0], vec3[1]);
+	    ctx.moveTo(vec2[0], vec2[1]);
+	    ctx.lineTo(vec4[0], vec4[1]);
+	};
+
+	var Arrow = _Path2["default"].extend({
+	    type: 'arrow',
+
+	    shape: {
+	        x1: 0,
+	        y1: 0,
+	        x2: 0,
+	        y2: 0,
+	        percent: 1,
+	        direction: 'right'
+	    },
+
+	    style: {
+	        stroke: '#000',
+	        fill: null
+	    },
+
+	    buildPath: function buildPath(ctx, shape) {
+	        var link = shape.link;
+	        var x1, y1, x2, y2;
+	        var percent = 1;
+	        var fromField = link.from.zField,
+	            toField = link.to.zField,
+	            fromPos = fromField.parent.position[0],
+	            toPos = toField.parent.position[0];
+	        if (fromPos > toPos) {
+	            x1 = fromPos - 4;
+	            x2 = toPos + 204;
+	        } else {
+	            x1 = fromPos + 204;
+	            x2 = toPos - 4;
+	        }
+	        y1 = fromField.parent.position[1] + fromField.position[1] + 7;
+	        y2 = toField.parent.position[1] + toField.position[1] + 7;
+
+	        if (percent === 0) {
+	            return;
+	        }
+
+	        ctx.moveTo(x1, y1);
+	        if (percent < 1) {
+	            x2 = x1 * (1 - percent) + x2 * percent;
+	            y2 = y1 * (1 - percent) + y2 * percent;
+	        }
+	        ctx.lineTo(x2, y2);
+
+	        var vec1 = _vector2["default"].create(x1, y1),
+	            vec2 = _vector2["default"].create(x2, y2);
+
+	        if (link.linkType == "2") {
+	            createArrow(vec2, vec1, ctx);
+	        } else if (link.linkType == "1") {
+	            createArrow(vec1, vec2, ctx);
+	        } else if (shape.direction == "both") {
+	            createArrow(vec1, vec2, ctx);
+	            createArrow(vec2, vec1, ctx);
+	        } else {
+	            //throw new Error('arrow direction invalide');
+	        }
+	    },
+
+	    /**
+	     * Get point at percent
+	     * @param  {number} percent
+	     * @return {Array.<number>}
+	     */
+	    pointAt: function pointAt(p) {
+	        var shape = this.shape;
+	        return [shape.x1 * (1 - p) + shape.x2 * p, shape.y1 * (1 - p) + shape.y2 * p];
+	    }
+	});
+
+	exports["default"] = Arrow;
+	module.exports = exports['default'];
+
+/***/ },
+
+/***/ 1410:
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule CSSCore
+	 * @typechecks
+	 */
+
+	'use strict';
+
+	var invariant = __webpack_require__(10);
+
+	/**
+	 * The CSSCore module specifies the API (and implements most of the methods)
+	 * that should be used when dealing with the display of elements (via their
+	 * CSS classes and visibility on screen. It is an API focused on mutating the
+	 * display and not reading it as no logical state should be encoded in the
+	 * display of elements.
+	 */
+
+	var CSSCore = {
+
+	  /**
+	   * Adds the class passed in to the element if it doesn't already have it.
+	   *
+	   * @param {DOMElement} element the element to set the class on
+	   * @param {string} className the CSS className
+	   * @return {DOMElement} the element passed in
+	   */
+	  addClass: function (element, className) {
+	    !!/\s/.test(className) ?  true ? invariant(false, 'CSSCore.addClass takes only a single class name. "%s" contains ' + 'multiple classes.', className) : invariant(false) : undefined;
+
+	    if (className) {
+	      if (element.classList) {
+	        element.classList.add(className);
+	      } else if (!CSSCore.hasClass(element, className)) {
+	        element.className = element.className + ' ' + className;
+	      }
+	    }
+	    return element;
+	  },
+
+	  /**
+	   * Removes the class passed in from the element
+	   *
+	   * @param {DOMElement} element the element to set the class on
+	   * @param {string} className the CSS className
+	   * @return {DOMElement} the element passed in
+	   */
+	  removeClass: function (element, className) {
+	    !!/\s/.test(className) ?  true ? invariant(false, 'CSSCore.removeClass takes only a single class name. "%s" contains ' + 'multiple classes.', className) : invariant(false) : undefined;
+
+	    if (className) {
+	      if (element.classList) {
+	        element.classList.remove(className);
+	      } else if (CSSCore.hasClass(element, className)) {
+	        element.className = element.className.replace(new RegExp('(^|\\s)' + className + '(?:\\s|$)', 'g'), '$1').replace(/\s+/g, ' ') // multiple spaces to one
+	        .replace(/^\s*|\s*$/g, ''); // trim the ends
+	      }
+	    }
+	    return element;
+	  },
+
+	  /**
+	   * Helper to add or remove a class from an element based on a condition.
+	   *
+	   * @param {DOMElement} element the element to set the class on
+	   * @param {string} className the CSS className
+	   * @param {*} bool condition to whether to add or remove the class
+	   * @return {DOMElement} the element passed in
+	   */
+	  conditionClass: function (element, className, bool) {
+	    return (bool ? CSSCore.addClass : CSSCore.removeClass)(element, className);
+	  },
+
+	  /**
+	   * Tests whether the element has the class specified.
+	   *
+	   * @param {DOMNode|DOMWindow} element the element to set the class on
+	   * @param {string} className the CSS className
+	   * @return {boolean} true if the element has the class, false if not
+	   */
+	  hasClass: function (element, className) {
+	    !!/\s/.test(className) ?  true ? invariant(false, 'CSS.hasClass takes only a single class name.') : invariant(false) : undefined;
+	    if (element.classList) {
+	      return !!className && element.classList.contains(className);
+	    }
+	    return (' ' + element.className + ' ').indexOf(' ' + className + ' ') > -1;
+	  }
+
+	};
+
+	module.exports = CSSCore;
+
+/***/ },
+
+/***/ 1433:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -10398,12 +9852,12 @@ webpackJsonp([3],{
 
 	'use strict';
 
-	var React = __webpack_require__(256);
+	var React = __webpack_require__(275);
 
-	var assign = __webpack_require__(14);
+	var assign = __webpack_require__(15);
 
-	var ReactTransitionGroup = __webpack_require__(1032);
-	var ReactCSSTransitionGroupChild = __webpack_require__(1029);
+	var ReactTransitionGroup = __webpack_require__(1437);
+	var ReactCSSTransitionGroupChild = __webpack_require__(1434);
 
 	function createTransitionTimeoutPropValidator(transitionType) {
 	  var timeoutPropName = 'transition' + transitionType + 'Timeout';
@@ -10470,7 +9924,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 1029:
+/***/ 1434:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -10487,13 +9941,13 @@ webpackJsonp([3],{
 
 	'use strict';
 
-	var React = __webpack_require__(256);
-	var ReactDOM = __webpack_require__(257);
+	var React = __webpack_require__(275);
+	var ReactDOM = __webpack_require__(276);
 
-	var CSSCore = __webpack_require__(1034);
-	var ReactTransitionEvents = __webpack_require__(1031);
+	var CSSCore = __webpack_require__(1410);
+	var ReactTransitionEvents = __webpack_require__(1436);
 
-	var onlyChild = __webpack_require__(420);
+	var onlyChild = __webpack_require__(460);
 
 	// We don't remove the element from the DOM until we receive an animationend or
 	// transitionend event. If the user screws up and forgets to add an animation
@@ -10641,7 +10095,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 1030:
+/***/ 1435:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -10658,7 +10112,7 @@ webpackJsonp([3],{
 
 	'use strict';
 
-	var flattenChildren = __webpack_require__(419);
+	var flattenChildren = __webpack_require__(459);
 
 	var ReactTransitionChildMapping = {
 	  /**
@@ -10745,7 +10199,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 1031:
+/***/ 1436:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -10761,7 +10215,7 @@ webpackJsonp([3],{
 
 	'use strict';
 
-	var ExecutionEnvironment = __webpack_require__(24);
+	var ExecutionEnvironment = __webpack_require__(26);
 
 	/**
 	 * EVENT_NAME_MAP is used to determine which event fired when a
@@ -10860,7 +10314,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 1032:
+/***/ 1437:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -10876,11 +10330,11 @@ webpackJsonp([3],{
 
 	'use strict';
 
-	var React = __webpack_require__(256);
-	var ReactTransitionChildMapping = __webpack_require__(1030);
+	var React = __webpack_require__(275);
+	var ReactTransitionChildMapping = __webpack_require__(1435);
 
-	var assign = __webpack_require__(14);
-	var emptyFunction = __webpack_require__(53);
+	var assign = __webpack_require__(15);
+	var emptyFunction = __webpack_require__(55);
 
 	var ReactTransitionGroup = React.createClass({
 	  displayName: 'ReactTransitionGroup',
@@ -11071,110 +10525,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 1034:
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule CSSCore
-	 * @typechecks
-	 */
-
-	'use strict';
-
-	var invariant = __webpack_require__(10);
-
-	/**
-	 * The CSSCore module specifies the API (and implements most of the methods)
-	 * that should be used when dealing with the display of elements (via their
-	 * CSS classes and visibility on screen. It is an API focused on mutating the
-	 * display and not reading it as no logical state should be encoded in the
-	 * display of elements.
-	 */
-
-	var CSSCore = {
-
-	  /**
-	   * Adds the class passed in to the element if it doesn't already have it.
-	   *
-	   * @param {DOMElement} element the element to set the class on
-	   * @param {string} className the CSS className
-	   * @return {DOMElement} the element passed in
-	   */
-	  addClass: function (element, className) {
-	    !!/\s/.test(className) ?  true ? invariant(false, 'CSSCore.addClass takes only a single class name. "%s" contains ' + 'multiple classes.', className) : invariant(false) : undefined;
-
-	    if (className) {
-	      if (element.classList) {
-	        element.classList.add(className);
-	      } else if (!CSSCore.hasClass(element, className)) {
-	        element.className = element.className + ' ' + className;
-	      }
-	    }
-	    return element;
-	  },
-
-	  /**
-	   * Removes the class passed in from the element
-	   *
-	   * @param {DOMElement} element the element to set the class on
-	   * @param {string} className the CSS className
-	   * @return {DOMElement} the element passed in
-	   */
-	  removeClass: function (element, className) {
-	    !!/\s/.test(className) ?  true ? invariant(false, 'CSSCore.removeClass takes only a single class name. "%s" contains ' + 'multiple classes.', className) : invariant(false) : undefined;
-
-	    if (className) {
-	      if (element.classList) {
-	        element.classList.remove(className);
-	      } else if (CSSCore.hasClass(element, className)) {
-	        element.className = element.className.replace(new RegExp('(^|\\s)' + className + '(?:\\s|$)', 'g'), '$1').replace(/\s+/g, ' ') // multiple spaces to one
-	        .replace(/^\s*|\s*$/g, ''); // trim the ends
-	      }
-	    }
-	    return element;
-	  },
-
-	  /**
-	   * Helper to add or remove a class from an element based on a condition.
-	   *
-	   * @param {DOMElement} element the element to set the class on
-	   * @param {string} className the CSS className
-	   * @param {*} bool condition to whether to add or remove the class
-	   * @return {DOMElement} the element passed in
-	   */
-	  conditionClass: function (element, className, bool) {
-	    return (bool ? CSSCore.addClass : CSSCore.removeClass)(element, className);
-	  },
-
-	  /**
-	   * Tests whether the element has the class specified.
-	   *
-	   * @param {DOMNode|DOMWindow} element the element to set the class on
-	   * @param {string} className the CSS className
-	   * @return {boolean} true if the element has the class, false if not
-	   */
-	  hasClass: function (element, className) {
-	    !!/\s/.test(className) ?  true ? invariant(false, 'CSS.hasClass takes only a single class name.') : invariant(false) : undefined;
-	    if (element.classList) {
-	      return !!className && element.classList.contains(className);
-	    }
-	    return (' ' + element.className + ' ').indexOf(' ' + className + ' ') > -1;
-	  }
-
-	};
-
-	module.exports = CSSCore;
-
-/***/ },
-
-/***/ 1050:
+/***/ 1452:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11187,10 +10538,10 @@ webpackJsonp([3],{
 	 */
 
 
-	    var util = __webpack_require__(2);
-	    var Draggable = __webpack_require__(1070);
+	    var util = __webpack_require__(79);
+	    var Draggable = __webpack_require__(1479);
 
-	    var Eventful = __webpack_require__(229);
+	    var Eventful = __webpack_require__(466);
 
 	    function makeEventPacket(eveType, target, event) {
 	        return {
@@ -11476,7 +10827,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 1051:
+/***/ 1453:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -11485,10 +10836,10 @@ webpackJsonp([3],{
 	 */
 
 
-	    var util = __webpack_require__(2);
-	    var config = __webpack_require__(426);
-	    var Style = __webpack_require__(955);
-	    var Pattern = __webpack_require__(954);
+	    var util = __webpack_require__(79);
+	    var config = __webpack_require__(463);
+	    var Style = __webpack_require__(1047);
+	    var Pattern = __webpack_require__(1046);
 
 	    function returnFalse() {
 	        return false;
@@ -11712,7 +11063,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 1052:
+/***/ 1454:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11725,15 +11076,15 @@ webpackJsonp([3],{
 	 */
 	 
 
-	    var config = __webpack_require__(426);
-	    var util = __webpack_require__(2);
-	    var log = __webpack_require__(732);
-	    var BoundingRect = __webpack_require__(66);
-	    var timsort = __webpack_require__(733);
+	    var config = __webpack_require__(463);
+	    var util = __webpack_require__(79);
+	    var log = __webpack_require__(938);
+	    var BoundingRect = __webpack_require__(255);
+	    var timsort = __webpack_require__(1044);
 
-	    var Layer = __webpack_require__(1051);
+	    var Layer = __webpack_require__(1453);
 
-	    var requestAnimationFrame = __webpack_require__(946);
+	    var requestAnimationFrame = __webpack_require__(1041);
 
 	    // PENDIGN
 	    // Layer exceeds MAX_PROGRESSIVE_LAYER_NUMBER may have some problem when flush directly second time.
@@ -12743,7 +12094,7 @@ webpackJsonp([3],{
 	                path.brush(ctx);
 	            }
 
-	            var ImageShape = __webpack_require__(734);
+	            var ImageShape = __webpack_require__(1045);
 	            var imgShape = new ImageShape({
 	                id: id,
 	                style: {
@@ -12785,7 +12136,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 1053:
+/***/ 1455:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12798,14 +12149,14 @@ webpackJsonp([3],{
 	 */
 
 
-	    var util = __webpack_require__(2);
-	    var env = __webpack_require__(78);
+	    var util = __webpack_require__(79);
+	    var env = __webpack_require__(278);
 
-	    var Group = __webpack_require__(131);
+	    var Group = __webpack_require__(464);
 
 	    // Use timsort because in most case elements are partially sorted
 	    // https://jsfiddle.net/pissang/jr4x7mdm/8/
-	    var timsort = __webpack_require__(733);
+	    var timsort = __webpack_require__(1044);
 
 	    function shapeCompareFunc(a, b) {
 	        if (a.zlevel === b.zlevel) {
@@ -13070,7 +12421,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 1054:
+/***/ 1456:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -13089,7 +12440,7 @@ webpackJsonp([3],{
 	 */
 
 
-	    var easingFuncs = __webpack_require__(1055);
+	    var easingFuncs = __webpack_require__(1457);
 
 	    function Clip(options) {
 
@@ -13183,7 +12534,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 1055:
+/***/ 1457:
 /***/ function(module, exports) {
 
 	/**
@@ -13535,12 +12886,12 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 1056:
+/***/ 1458:
 /***/ function(module, exports, __webpack_require__) {
 
 	
 
-	    var normalizeRadian = __webpack_require__(950).normalizeRadian;
+	    var normalizeRadian = __webpack_require__(1042).normalizeRadian;
 	    var PI2 = Math.PI * 2;
 
 	    module.exports = {
@@ -13602,12 +12953,12 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 1057:
+/***/ 1459:
 /***/ function(module, exports, __webpack_require__) {
 
 	
 
-	    var curve = __webpack_require__(174);
+	    var curve = __webpack_require__(277);
 
 	    module.exports = {
 	        /**
@@ -13650,21 +13001,70 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 1058:
+/***/ 1460:
+/***/ function(module, exports) {
+
+	
+	    module.exports = {
+	        /**
+	         * 线段包含判断
+	         * @param  {number}  x0
+	         * @param  {number}  y0
+	         * @param  {number}  x1
+	         * @param  {number}  y1
+	         * @param  {number}  lineWidth
+	         * @param  {number}  x
+	         * @param  {number}  y
+	         * @return {boolean}
+	         */
+	        containStroke: function (x0, y0, x1, y1, lineWidth, x, y) {
+	            if (lineWidth === 0) {
+	                return false;
+	            }
+	            var _l = lineWidth;
+	            var _a = 0;
+	            var _b = x0;
+	            // Quick reject
+	            if (
+	                (y > y0 + _l && y > y1 + _l)
+	                || (y < y0 - _l && y < y1 - _l)
+	                || (x > x0 + _l && x > x1 + _l)
+	                || (x < x0 - _l && x < x1 - _l)
+	            ) {
+	                return false;
+	            }
+
+	            if (x0 !== x1) {
+	                _a = (y0 - y1) / (x0 - x1);
+	                _b = (x0 * y1 - x1 * y0) / (x0 - x1) ;
+	            }
+	            else {
+	                return Math.abs(x - x0) <= _l / 2;
+	            }
+	            var tmp = _a * x - y + _b;
+	            var _s = tmp * tmp / (_a * _a + 1);
+	            return _s <= _l / 2 * _l / 2;
+	        }
+	    };
+
+
+/***/ },
+
+/***/ 1461:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 
-	    var CMD = __webpack_require__(353).CMD;
-	    var line = __webpack_require__(947);
-	    var cubic = __webpack_require__(1057);
-	    var quadratic = __webpack_require__(949);
-	    var arc = __webpack_require__(1056);
-	    var normalizeRadian = __webpack_require__(950).normalizeRadian;
-	    var curve = __webpack_require__(174);
+	    var CMD = __webpack_require__(936).CMD;
+	    var line = __webpack_require__(1460);
+	    var cubic = __webpack_require__(1459);
+	    var quadratic = __webpack_require__(1462);
+	    var arc = __webpack_require__(1458);
+	    var normalizeRadian = __webpack_require__(1042).normalizeRadian;
+	    var curve = __webpack_require__(277);
 
-	    var windingLine = __webpack_require__(951);
+	    var windingLine = __webpack_require__(1463);
 
 	    var containStroke = line.containStroke;
 
@@ -14057,7 +13457,81 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 1059:
+/***/ 1462:
+/***/ function(module, exports, __webpack_require__) {
+
+	
+
+	    var curve = __webpack_require__(277);
+
+	    module.exports = {
+	        /**
+	         * 二次贝塞尔曲线描边包含判断
+	         * @param  {number}  x0
+	         * @param  {number}  y0
+	         * @param  {number}  x1
+	         * @param  {number}  y1
+	         * @param  {number}  x2
+	         * @param  {number}  y2
+	         * @param  {number}  lineWidth
+	         * @param  {number}  x
+	         * @param  {number}  y
+	         * @return {boolean}
+	         */
+	        containStroke: function (x0, y0, x1, y1, x2, y2, lineWidth, x, y) {
+	            if (lineWidth === 0) {
+	                return false;
+	            }
+	            var _l = lineWidth;
+	            // Quick reject
+	            if (
+	                (y > y0 + _l && y > y1 + _l && y > y2 + _l)
+	                || (y < y0 - _l && y < y1 - _l && y < y2 - _l)
+	                || (x > x0 + _l && x > x1 + _l && x > x2 + _l)
+	                || (x < x0 - _l && x < x1 - _l && x < x2 - _l)
+	            ) {
+	                return false;
+	            }
+	            var d = curve.quadraticProjectPoint(
+	                x0, y0, x1, y1, x2, y2,
+	                x, y, null
+	            );
+	            return d <= _l / 2;
+	        }
+	    };
+
+
+/***/ },
+
+/***/ 1463:
+/***/ function(module, exports) {
+
+	
+	    module.exports = function windingLine(x0, y0, x1, y1, x, y) {
+	        if ((y > y0 && y > y1) || (y < y0 && y < y1)) {
+	            return 0;
+	        }
+	        // Ignore horizontal line
+	        if (y1 === y0) {
+	            return 0;
+	        }
+	        var dir = y1 < y0 ? 1 : -1;
+	        var t = (y - y0) / (y1 - y0);
+
+	        // Avoid winding error when intersection point is the connect point of two line of polygon
+	        if (t === 1 || t === 0) {
+	            dir = y1 < y0 ? 0.5 : -0.5;
+	        }
+
+	        var x_ = t * (x1 - x0) + x0;
+
+	        return x_ > x ? dir : 0;
+	    };
+
+
+/***/ },
+
+/***/ 1464:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14066,7 +13540,7 @@ webpackJsonp([3],{
 	 */
 
 
-	    var eventUtil = __webpack_require__(259);
+	    var eventUtil = __webpack_require__(937);
 
 	    var GestureMgr = function () {
 
@@ -14184,7 +13658,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 1060:
+/***/ 1465:
 /***/ function(module, exports) {
 
 	// Simple LRU cache use doubly linked list
@@ -14360,16 +13834,253 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 1061:
+/***/ 1466:
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * @author Yi Shen(https://github.com/pissang)
+	 */
+
+
+	    var vec2 = __webpack_require__(136);
+	    var curve = __webpack_require__(277);
+
+	    var bbox = {};
+	    var mathMin = Math.min;
+	    var mathMax = Math.max;
+	    var mathSin = Math.sin;
+	    var mathCos = Math.cos;
+
+	    var start = vec2.create();
+	    var end = vec2.create();
+	    var extremity = vec2.create();
+
+	    var PI2 = Math.PI * 2;
+	    /**
+	     * 从顶点数组中计算出最小包围盒，写入`min`和`max`中
+	     * @module zrender/core/bbox
+	     * @param {Array<Object>} points 顶点数组
+	     * @param {number} min
+	     * @param {number} max
+	     */
+	    bbox.fromPoints = function(points, min, max) {
+	        if (points.length === 0) {
+	            return;
+	        }
+	        var p = points[0];
+	        var left = p[0];
+	        var right = p[0];
+	        var top = p[1];
+	        var bottom = p[1];
+	        var i;
+
+	        for (i = 1; i < points.length; i++) {
+	            p = points[i];
+	            left = mathMin(left, p[0]);
+	            right = mathMax(right, p[0]);
+	            top = mathMin(top, p[1]);
+	            bottom = mathMax(bottom, p[1]);
+	        }
+
+	        min[0] = left;
+	        min[1] = top;
+	        max[0] = right;
+	        max[1] = bottom;
+	    };
+
+	    /**
+	     * @memberOf module:zrender/core/bbox
+	     * @param {number} x0
+	     * @param {number} y0
+	     * @param {number} x1
+	     * @param {number} y1
+	     * @param {Array.<number>} min
+	     * @param {Array.<number>} max
+	     */
+	    bbox.fromLine = function (x0, y0, x1, y1, min, max) {
+	        min[0] = mathMin(x0, x1);
+	        min[1] = mathMin(y0, y1);
+	        max[0] = mathMax(x0, x1);
+	        max[1] = mathMax(y0, y1);
+	    };
+
+	    var xDim = [];
+	    var yDim = [];
+	    /**
+	     * 从三阶贝塞尔曲线(p0, p1, p2, p3)中计算出最小包围盒，写入`min`和`max`中
+	     * @memberOf module:zrender/core/bbox
+	     * @param {number} x0
+	     * @param {number} y0
+	     * @param {number} x1
+	     * @param {number} y1
+	     * @param {number} x2
+	     * @param {number} y2
+	     * @param {number} x3
+	     * @param {number} y3
+	     * @param {Array.<number>} min
+	     * @param {Array.<number>} max
+	     */
+	    bbox.fromCubic = function(
+	        x0, y0, x1, y1, x2, y2, x3, y3, min, max
+	    ) {
+	        var cubicExtrema = curve.cubicExtrema;
+	        var cubicAt = curve.cubicAt;
+	        var i;
+	        var n = cubicExtrema(x0, x1, x2, x3, xDim);
+	        min[0] = Infinity;
+	        min[1] = Infinity;
+	        max[0] = -Infinity;
+	        max[1] = -Infinity;
+
+	        for (i = 0; i < n; i++) {
+	            var x = cubicAt(x0, x1, x2, x3, xDim[i]);
+	            min[0] = mathMin(x, min[0]);
+	            max[0] = mathMax(x, max[0]);
+	        }
+	        n = cubicExtrema(y0, y1, y2, y3, yDim);
+	        for (i = 0; i < n; i++) {
+	            var y = cubicAt(y0, y1, y2, y3, yDim[i]);
+	            min[1] = mathMin(y, min[1]);
+	            max[1] = mathMax(y, max[1]);
+	        }
+
+	        min[0] = mathMin(x0, min[0]);
+	        max[0] = mathMax(x0, max[0]);
+	        min[0] = mathMin(x3, min[0]);
+	        max[0] = mathMax(x3, max[0]);
+
+	        min[1] = mathMin(y0, min[1]);
+	        max[1] = mathMax(y0, max[1]);
+	        min[1] = mathMin(y3, min[1]);
+	        max[1] = mathMax(y3, max[1]);
+	    };
+
+	    /**
+	     * 从二阶贝塞尔曲线(p0, p1, p2)中计算出最小包围盒，写入`min`和`max`中
+	     * @memberOf module:zrender/core/bbox
+	     * @param {number} x0
+	     * @param {number} y0
+	     * @param {number} x1
+	     * @param {number} y1
+	     * @param {number} x2
+	     * @param {number} y2
+	     * @param {Array.<number>} min
+	     * @param {Array.<number>} max
+	     */
+	    bbox.fromQuadratic = function(x0, y0, x1, y1, x2, y2, min, max) {
+	        var quadraticExtremum = curve.quadraticExtremum;
+	        var quadraticAt = curve.quadraticAt;
+	        // Find extremities, where derivative in x dim or y dim is zero
+	        var tx =
+	            mathMax(
+	                mathMin(quadraticExtremum(x0, x1, x2), 1), 0
+	            );
+	        var ty =
+	            mathMax(
+	                mathMin(quadraticExtremum(y0, y1, y2), 1), 0
+	            );
+
+	        var x = quadraticAt(x0, x1, x2, tx);
+	        var y = quadraticAt(y0, y1, y2, ty);
+
+	        min[0] = mathMin(x0, x2, x);
+	        min[1] = mathMin(y0, y2, y);
+	        max[0] = mathMax(x0, x2, x);
+	        max[1] = mathMax(y0, y2, y);
+	    };
+
+	    /**
+	     * 从圆弧中计算出最小包围盒，写入`min`和`max`中
+	     * @method
+	     * @memberOf module:zrender/core/bbox
+	     * @param {number} x
+	     * @param {number} y
+	     * @param {number} rx
+	     * @param {number} ry
+	     * @param {number} startAngle
+	     * @param {number} endAngle
+	     * @param {number} anticlockwise
+	     * @param {Array.<number>} min
+	     * @param {Array.<number>} max
+	     */
+	    bbox.fromArc = function (
+	        x, y, rx, ry, startAngle, endAngle, anticlockwise, min, max
+	    ) {
+	        var vec2Min = vec2.min;
+	        var vec2Max = vec2.max;
+
+	        var diff = Math.abs(startAngle - endAngle);
+
+
+	        if (diff % PI2 < 1e-4 && diff > 1e-4) {
+	            // Is a circle
+	            min[0] = x - rx;
+	            min[1] = y - ry;
+	            max[0] = x + rx;
+	            max[1] = y + ry;
+	            return;
+	        }
+
+	        start[0] = mathCos(startAngle) * rx + x;
+	        start[1] = mathSin(startAngle) * ry + y;
+
+	        end[0] = mathCos(endAngle) * rx + x;
+	        end[1] = mathSin(endAngle) * ry + y;
+
+	        vec2Min(min, start, end);
+	        vec2Max(max, start, end);
+
+	        // Thresh to [0, Math.PI * 2]
+	        startAngle = startAngle % (PI2);
+	        if (startAngle < 0) {
+	            startAngle = startAngle + PI2;
+	        }
+	        endAngle = endAngle % (PI2);
+	        if (endAngle < 0) {
+	            endAngle = endAngle + PI2;
+	        }
+
+	        if (startAngle > endAngle && !anticlockwise) {
+	            endAngle += PI2;
+	        }
+	        else if (startAngle < endAngle && anticlockwise) {
+	            startAngle += PI2;
+	        }
+	        if (anticlockwise) {
+	            var tmp = endAngle;
+	            endAngle = startAngle;
+	            startAngle = tmp;
+	        }
+
+	        // var number = 0;
+	        // var step = (anticlockwise ? -Math.PI : Math.PI) / 2;
+	        for (var angle = 0; angle < endAngle; angle += Math.PI / 2) {
+	            if (angle > startAngle) {
+	                extremity[0] = mathCos(angle) * rx + x;
+	                extremity[1] = mathSin(angle) * ry + y;
+
+	                vec2Min(min, extremity, min);
+	                vec2Max(max, extremity, max);
+	            }
+	        }
+	    };
+
+	    module.exports = bbox;
+
+
+
+/***/ },
+
+/***/ 1467:
 /***/ function(module, exports, __webpack_require__) {
 
 	
 
-	    var eventTool = __webpack_require__(259);
-	    var zrUtil = __webpack_require__(2);
-	    var Eventful = __webpack_require__(229);
-	    var env = __webpack_require__(78);
-	    var GestureMgr = __webpack_require__(1059);
+	    var eventTool = __webpack_require__(937);
+	    var zrUtil = __webpack_require__(79);
+	    var Eventful = __webpack_require__(466);
+	    var env = __webpack_require__(278);
+	    var GestureMgr = __webpack_require__(1464);
 
 	    var addEventListener = eventTool.addEventListener;
 	    var removeEventListener = eventTool.removeEventListener;
@@ -14745,7 +14456,39 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 1064:
+/***/ 1468:
+/***/ function(module, exports) {
+
+	
+
+	    /**
+	     * @param {Array.<Object>} colorStops
+	     */
+	    var Gradient = function (colorStops) {
+
+	        this.colorStops = colorStops || [];
+	    };
+
+	    Gradient.prototype = {
+
+	        constructor: Gradient,
+
+	        addColorStop: function (offset, color) {
+	            this.colorStops.push({
+
+	                offset: offset,
+
+	                color: color
+	            });
+	        }
+	    };
+
+	    module.exports = Gradient;
+
+
+/***/ },
+
+/***/ 1469:
 /***/ function(module, exports) {
 
 	
@@ -14841,7 +14584,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 1069:
+/***/ 1478:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14850,12 +14593,12 @@ webpackJsonp([3],{
 	 */
 
 
-	    var Animator = __webpack_require__(945);
-	    var util = __webpack_require__(2);
+	    var Animator = __webpack_require__(1040);
+	    var util = __webpack_require__(79);
 	    var isString = util.isString;
 	    var isFunction = util.isFunction;
 	    var isObject = util.isObject;
-	    var log = __webpack_require__(732);
+	    var log = __webpack_require__(938);
 
 	    /**
 	     * @alias modue:zrender/mixin/Animatable
@@ -15116,7 +14859,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 1070:
+/***/ 1479:
 /***/ function(module, exports) {
 
 	// TODO Draggable for group
@@ -15205,7 +14948,264 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 1073:
+/***/ 1480:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	/**
+	 * 提供变换扩展
+	 * @module zrender/mixin/Transformable
+	 * @author pissang (https://www.github.com/pissang)
+	 */
+
+
+	    var matrix = __webpack_require__(939);
+	    var vector = __webpack_require__(136);
+	    var mIdentity = matrix.identity;
+
+	    var EPSILON = 5e-5;
+
+	    function isNotAroundZero(val) {
+	        return val > EPSILON || val < -EPSILON;
+	    }
+
+	    /**
+	     * @alias module:zrender/mixin/Transformable
+	     * @constructor
+	     */
+	    var Transformable = function (opts) {
+	        opts = opts || {};
+	        // If there are no given position, rotation, scale
+	        if (!opts.position) {
+	            /**
+	             * 平移
+	             * @type {Array.<number>}
+	             * @default [0, 0]
+	             */
+	            this.position = [0, 0];
+	        }
+	        if (opts.rotation == null) {
+	            /**
+	             * 旋转
+	             * @type {Array.<number>}
+	             * @default 0
+	             */
+	            this.rotation = 0;
+	        }
+	        if (!opts.scale) {
+	            /**
+	             * 缩放
+	             * @type {Array.<number>}
+	             * @default [1, 1]
+	             */
+	            this.scale = [1, 1];
+	        }
+	        /**
+	         * 旋转和缩放的原点
+	         * @type {Array.<number>}
+	         * @default null
+	         */
+	        this.origin = this.origin || null;
+	    };
+
+	    var transformableProto = Transformable.prototype;
+	    transformableProto.transform = null;
+
+	    /**
+	     * 判断是否需要有坐标变换
+	     * 如果有坐标变换, 则从position, rotation, scale以及父节点的transform计算出自身的transform矩阵
+	     */
+	    transformableProto.needLocalTransform = function () {
+	        return isNotAroundZero(this.rotation)
+	            || isNotAroundZero(this.position[0])
+	            || isNotAroundZero(this.position[1])
+	            || isNotAroundZero(this.scale[0] - 1)
+	            || isNotAroundZero(this.scale[1] - 1);
+	    };
+
+	    transformableProto.updateTransform = function () {
+	        var parent = this.parent;
+	        var parentHasTransform = parent && parent.transform;
+	        var needLocalTransform = this.needLocalTransform();
+
+	        var m = this.transform;
+	        if (!(needLocalTransform || parentHasTransform)) {
+	            m && mIdentity(m);
+	            return;
+	        }
+
+	        m = m || matrix.create();
+
+	        if (needLocalTransform) {
+	            this.getLocalTransform(m);
+	        }
+	        else {
+	            mIdentity(m);
+	        }
+
+	        // 应用父节点变换
+	        if (parentHasTransform) {
+	            if (needLocalTransform) {
+	                matrix.mul(m, parent.transform, m);
+	            }
+	            else {
+	                matrix.copy(m, parent.transform);
+	            }
+	        }
+	        // 保存这个变换矩阵
+	        this.transform = m;
+
+	        this.invTransform = this.invTransform || matrix.create();
+	        matrix.invert(this.invTransform, m);
+	    };
+
+	    transformableProto.getLocalTransform = function (m) {
+	        m = m || [];
+	        mIdentity(m);
+
+	        var origin = this.origin;
+
+	        var scale = this.scale;
+	        var rotation = this.rotation;
+	        var position = this.position;
+	        if (origin) {
+	            // Translate to origin
+	            m[4] -= origin[0];
+	            m[5] -= origin[1];
+	        }
+	        matrix.scale(m, m, scale);
+	        if (rotation) {
+	            matrix.rotate(m, m, rotation);
+	        }
+	        if (origin) {
+	            // Translate back from origin
+	            m[4] += origin[0];
+	            m[5] += origin[1];
+	        }
+
+	        m[4] += position[0];
+	        m[5] += position[1];
+
+	        return m;
+	    };
+	    /**
+	     * 将自己的transform应用到context上
+	     * @param {Context2D} ctx
+	     */
+	    transformableProto.setTransform = function (ctx) {
+	        var m = this.transform;
+	        var dpr = ctx.dpr || 1;
+	        if (m) {
+	            ctx.setTransform(dpr * m[0], dpr * m[1], dpr * m[2], dpr * m[3], dpr * m[4], dpr * m[5]);
+	        }
+	        else {
+	            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+	        }
+	    };
+
+	    transformableProto.restoreTransform = function (ctx) {
+	        var m = this.transform;
+	        var dpr = ctx.dpr || 1;
+	        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+	    }
+
+	    var tmpTransform = [];
+
+	    /**
+	     * 分解`transform`矩阵到`position`, `rotation`, `scale`
+	     */
+	    transformableProto.decomposeTransform = function () {
+	        if (!this.transform) {
+	            return;
+	        }
+	        var parent = this.parent;
+	        var m = this.transform;
+	        if (parent && parent.transform) {
+	            // Get local transform and decompose them to position, scale, rotation
+	            matrix.mul(tmpTransform, parent.invTransform, m);
+	            m = tmpTransform;
+	        }
+	        var sx = m[0] * m[0] + m[1] * m[1];
+	        var sy = m[2] * m[2] + m[3] * m[3];
+	        var position = this.position;
+	        var scale = this.scale;
+	        if (isNotAroundZero(sx - 1)) {
+	            sx = Math.sqrt(sx);
+	        }
+	        if (isNotAroundZero(sy - 1)) {
+	            sy = Math.sqrt(sy);
+	        }
+	        if (m[0] < 0) {
+	            sx = -sx;
+	        }
+	        if (m[3] < 0) {
+	            sy = -sy;
+	        }
+	        position[0] = m[4];
+	        position[1] = m[5];
+	        scale[0] = sx;
+	        scale[1] = sy;
+	        this.rotation = Math.atan2(-m[1] / sy, m[0] / sx);
+	    };
+
+	    /**
+	     * Get global scale
+	     * @return {Array.<number>}
+	     */
+	    transformableProto.getGlobalScale = function () {
+	        var m = this.transform;
+	        if (!m) {
+	            return [1, 1];
+	        }
+	        var sx = Math.sqrt(m[0] * m[0] + m[1] * m[1]);
+	        var sy = Math.sqrt(m[2] * m[2] + m[3] * m[3]);
+	        if (m[0] < 0) {
+	            sx = -sx;
+	        }
+	        if (m[3] < 0) {
+	            sy = -sy;
+	        }
+	        return [sx, sy];
+	    };
+	    /**
+	     * 变换坐标位置到 shape 的局部坐标空间
+	     * @method
+	     * @param {number} x
+	     * @param {number} y
+	     * @return {Array.<number>}
+	     */
+	    transformableProto.transformCoordToLocal = function (x, y) {
+	        var v2 = [x, y];
+	        var invTransform = this.invTransform;
+	        if (invTransform) {
+	            vector.applyTransform(v2, v2, invTransform);
+	        }
+	        return v2;
+	    };
+
+	    /**
+	     * 变换局部坐标位置到全局坐标空间
+	     * @method
+	     * @param {number} x
+	     * @param {number} y
+	     * @return {Array.<number>}
+	     */
+	    transformableProto.transformCoordToGlobal = function (x, y) {
+	        var v2 = [x, y];
+	        var transform = this.transform;
+	        if (transform) {
+	            vector.applyTransform(v2, v2, transform);
+	        }
+	        return v2;
+	    };
+
+	    module.exports = Transformable;
+
+
+
+/***/ },
+
+/***/ 1481:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -15216,8 +15216,8 @@ webpackJsonp([3],{
 
 
 
-	    var zrLog = __webpack_require__(732);
-	    var vmlCore = __webpack_require__(965);
+	    var zrLog = __webpack_require__(938);
+	    var vmlCore = __webpack_require__(1052);
 
 	    function parseInt10(val) {
 	        return parseInt(val, 10);
@@ -15405,28 +15405,28 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 1074:
+/***/ 1482:
 /***/ function(module, exports, __webpack_require__) {
 
 	// http://www.w3.org/TR/NOTE-VML
 	// TODO Use proxy like svg instead of overwrite brush methods
 
 
-	if (!__webpack_require__(78).canvasSupported) {
-	    var vec2 = __webpack_require__(43);
-	    var BoundingRect = __webpack_require__(66);
-	    var CMD = __webpack_require__(353).CMD;
-	    var colorTool = __webpack_require__(155);
-	    var textContain = __webpack_require__(110);
-	    var RectText = __webpack_require__(957);
-	    var Displayable = __webpack_require__(427);
-	    var ZImage = __webpack_require__(734);
-	    var Text = __webpack_require__(228);
-	    var Path = __webpack_require__(75);
+	if (!__webpack_require__(278).canvasSupported) {
+	    var vec2 = __webpack_require__(136);
+	    var BoundingRect = __webpack_require__(255);
+	    var CMD = __webpack_require__(936).CMD;
+	    var colorTool = __webpack_require__(1051);
+	    var textContain = __webpack_require__(430);
+	    var RectText = __webpack_require__(1049);
+	    var Displayable = __webpack_require__(465);
+	    var ZImage = __webpack_require__(1045);
+	    var Text = __webpack_require__(940);
+	    var Path = __webpack_require__(176);
 
-	    var Gradient = __webpack_require__(428);
+	    var Gradient = __webpack_require__(1468);
 
-	    var vmlCore = __webpack_require__(965);
+	    var vmlCore = __webpack_require__(1052);
 
 	    var round = Math.round;
 	    var sqrt = Math.sqrt;

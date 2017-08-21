@@ -5,9 +5,9 @@ webpackJsonp([3],{
 
 	'use strict';
 
-	var _css = __webpack_require__(71);
+	var _css = __webpack_require__(95);
 
-	var _table = __webpack_require__(68);
+	var _table = __webpack_require__(93);
 
 	var _table2 = _interopRequireDefault(_table);
 
@@ -31,23 +31,23 @@ webpackJsonp([3],{
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _jsonp = __webpack_require__(250);
+	var _jsonp = __webpack_require__(268);
 
 	var _jsonp2 = _interopRequireDefault(_jsonp);
 
 	var _global = __webpack_require__(12);
 
-	var _AiForm = __webpack_require__(27);
+	var _AiForm = __webpack_require__(30);
 
 	var _AiForm2 = _interopRequireDefault(_AiForm);
 
-	var _component = __webpack_require__(11);
+	var _component = __webpack_require__(14);
 
 	var _component2 = _interopRequireDefault(_component);
 
-	var _reactRouter = __webpack_require__(87);
+	var _reactRouter = __webpack_require__(88);
 
-	var _dataListV = __webpack_require__(1376);
+	var _dataListV = __webpack_require__(1129);
 
 	var _dataListV2 = _interopRequireDefault(_dataListV);
 
@@ -345,14 +345,14 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 255:
+/***/ 274:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(1028);
+	module.exports = __webpack_require__(1433);
 
 /***/ },
 
-/***/ 885:
+/***/ 544:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -362,9 +362,9 @@ webpackJsonp([3],{
 	});
 	exports.dlStateWarning = exports.selectedToFormArgs = undefined;
 
-	var _css = __webpack_require__(31);
+	var _css = __webpack_require__(37);
 
-	var _modal = __webpack_require__(30);
+	var _modal = __webpack_require__(36);
 
 	var _modal2 = _interopRequireDefault(_modal);
 
@@ -374,9 +374,9 @@ webpackJsonp([3],{
 
 	var _global = __webpack_require__(12);
 
-	var _config = __webpack_require__(268);
+	var _config = __webpack_require__(267);
 
-	var _history = __webpack_require__(36);
+	var _history = __webpack_require__(33);
 
 	var _history2 = _interopRequireDefault(_history);
 
@@ -422,7 +422,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 1011:
+/***/ 980:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -431,9 +431,9 @@ webpackJsonp([3],{
 	    value: true
 	});
 
-	var _css = __webpack_require__(31);
+	var _css = __webpack_require__(37);
 
-	var _modal = __webpack_require__(30);
+	var _modal = __webpack_require__(36);
 
 	var _modal2 = _interopRequireDefault(_modal);
 
@@ -457,23 +457,23 @@ webpackJsonp([3],{
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactAddonsCssTransitionGroup = __webpack_require__(255);
+	var _reactAddonsCssTransitionGroup = __webpack_require__(274);
 
 	var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
 
-	var _redux = __webpack_require__(48);
+	var _redux = __webpack_require__(56);
 
-	var _component = __webpack_require__(11);
+	var _component = __webpack_require__(14);
 
 	var _component2 = _interopRequireDefault(_component);
 
-	var _Aiform = __webpack_require__(1323);
+	var _Aiform = __webpack_require__(1086);
 
 	var _Aiform2 = _interopRequireDefault(_Aiform);
 
-	var _dataList2 = __webpack_require__(28);
+	var _dataList2 = __webpack_require__(29);
 
-	var _Loading = __webpack_require__(127);
+	var _Loading = __webpack_require__(115);
 
 	var _Loading2 = _interopRequireDefault(_Loading);
 
@@ -537,7 +537,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 1012:
+/***/ 981:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -562,13 +562,13 @@ webpackJsonp([3],{
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _DataListV = __webpack_require__(180);
+	var _DataListV = __webpack_require__(183);
 
 	var _DataListV2 = _interopRequireDefault(_DataListV);
 
-	var _dataList = __webpack_require__(28);
+	var _dataList = __webpack_require__(29);
 
-	var _component = __webpack_require__(11);
+	var _component = __webpack_require__(14);
 
 	var _component2 = _interopRequireDefault(_component);
 
@@ -610,7 +610,518 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 1028:
+/***/ 1086:
+30,
+
+/***/ 1125:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends2 = __webpack_require__(3);
+
+	var _extends3 = _interopRequireDefault(_extends2);
+
+	var _classCallCheck2 = __webpack_require__(4);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _possibleConstructorReturn2 = __webpack_require__(6);
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__(5);
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _AiForm = __webpack_require__(30);
+
+	var _AiForm2 = _interopRequireDefault(_AiForm);
+
+	var _component = __webpack_require__(14);
+
+	var _component2 = _interopRequireDefault(_component);
+
+	var _global = __webpack_require__(12);
+
+	var _dataList = __webpack_require__(29);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	var Add = function (_Component) {
+	    (0, _inherits3["default"])(Add, _Component);
+
+	    function Add(props) {
+	        (0, _classCallCheck3["default"])(this, Add);
+	        return (0, _possibleConstructorReturn3["default"])(this, _Component.call(this, props));
+	    }
+
+	    Add.prototype.componentDidMount = function componentDidMount() {
+	        if (this.props.params.id) {
+	            this.props.actions.requestDetailMsg(this.props.params.config, this.props.params.id, this.props.dlState.getDataListApi.data.detail.body); //json
+	        }
+	    };
+
+	    Add.prototype.render = function render() {
+	        var _this2 = this;
+
+	        var config = this.props.dlState.getDataListApi.data.add.initData.data;
+	        var jsonpArgs = {},
+	            detailValues = void 0;
+
+	        if (this.props.params.id) {
+	            if (!this.props.dlState.detailMsgDataApi || !this.props.dlState.detailMsgDataApi.data) {
+	                return _react2["default"].createElement(
+	                    'div',
+	                    null,
+	                    '\u7F3A\u5C11\u8BE6\u60C5\u4FE1\u606F'
+	                );
+	            }
+	            detailValues = this.props.dlState.detailMsgDataApi.data;
+	            config.jsonpArgs = (0, _extends3["default"])({}, config.jsonpArgs, { apiData: detailValues, type: "add" });
+	        }
+	        return _react2["default"].createElement(
+	            'div',
+	            null,
+	            _react2["default"].createElement(
+	                'div',
+	                null,
+	                this.props.dlState && this.props.actions && function () {
+	                    var config = _this2.props.dlState.getDataListApi.data.add.initData.data;
+	                    return _react2["default"].createElement(_AiForm2["default"], { id: 'dataListAdd1', config: config, onSubmit: function onSubmit(values) {
+	                            var apis = _this2.props.dlState.getDataListApi.data.add.onAddSubmitApi;
+	                            if (apis && apis.dataFormate) {
+	                                values = apis.dataFormate(values);
+	                                delete apis.dataFormate;
+	                            }
+	                            _this2.props.actions.requestAddData(_this2.props.params.config, apis, values);
+	                        } });
+	                }()
+	            )
+	        );
+	    };
+
+	    return Add;
+	}(_react.Component); /*{this.props.dlState && this.props.dlState.detailMsgDataApi &&  this.props.dlState.detailMsgDataApi.data && <div>
+	                     {
+	                     this.props.dlState  && this.props.actions &&
+	                     (()=>{
+	                     
+	                     if(this.props.dlState.detailMsgDataApi && this.props.dlState.detailMsgDataApi.data){
+	                     let detailValues = this.props.dlState.detailMsgDataApi.data;
+	                     
+	                     }
+	                     return <AddForm id="dataListAdd" config={config} onSubmit={(values)=>{
+	                     this.props.actions.requestAddData(this.props.params.dataListId,this.props.dlState.getDataListApi.data.add.onAddSubmitApi,values)
+	                     window.history.back(-1);
+	                     }}/>
+	                     })()
+	                     
+	                     }
+	                     </div>}*/
+	//import styles from './Contact.less';
+
+
+	exports["default"] = (0, _component2["default"])('dataListAdd', { requestAddData: _dataList.requestAddData, requestDetailMsg: _dataList.requestDetailMsg }, function (state, dispatchProps, ownProps) {
+	    return { dlState: state.dataList[ownProps.params.config] };
+	})(Add);
+	module.exports = exports['default'];
+
+/***/ },
+
+/***/ 1126:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports["default"] = undefined;
+
+	var _classCallCheck2 = __webpack_require__(4);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _possibleConstructorReturn2 = __webpack_require__(6);
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__(5);
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	var Delete = function (_Component) {
+	    (0, _inherits3["default"])(Delete, _Component);
+
+	    function Delete() {
+	        (0, _classCallCheck3["default"])(this, Delete);
+	        return (0, _possibleConstructorReturn3["default"])(this, _Component.apply(this, arguments));
+	    }
+
+	    Delete.prototype.render = function render() {
+	        return _react2["default"].createElement(
+	            'div',
+	            null,
+	            'Delete ids: ',
+	            this.props.params.ids
+	        );
+	    };
+
+	    return Delete;
+	}(_react.Component); //import styles from './Contact.less';
+
+
+	exports["default"] = Delete;
+	module.exports = exports['default'];
+
+/***/ },
+
+/***/ 1127:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends2 = __webpack_require__(3);
+
+	var _extends3 = _interopRequireDefault(_extends2);
+
+	var _classCallCheck2 = __webpack_require__(4);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _possibleConstructorReturn2 = __webpack_require__(6);
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__(5);
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _AiForm = __webpack_require__(30);
+
+	var _AiForm2 = _interopRequireDefault(_AiForm);
+
+	var _component = __webpack_require__(14);
+
+	var _component2 = _interopRequireDefault(_component);
+
+	var _dataList = __webpack_require__(29);
+
+	var _Utils = __webpack_require__(544);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	var Detail = function (_Component) {
+	    (0, _inherits3["default"])(Detail, _Component);
+
+	    function Detail(props) {
+	        (0, _classCallCheck3["default"])(this, Detail);
+	        return (0, _possibleConstructorReturn3["default"])(this, _Component.call(this, props));
+	    }
+
+	    Detail.prototype.componentDidMount = function componentDidMount() {
+	        this.props.actions.requestDetailMsg(this.props.params.config, this.props.params.id, this.props.dlState.getDataListApi.data.detail.body);
+	    };
+
+	    Detail.prototype.render = function render() {
+	        var _this2 = this;
+
+	        return _react2["default"].createElement(
+	            'div',
+	            null,
+	            this.props.dlState && this.props.dlState.detailMsgDataApi && this.props.dlState.detailMsgDataApi.data && function () {
+	                var config = _this2.props.dlState.getDataListApi.data.detail.initData.data;
+	                var detailValues = _this2.props.dlState.detailMsgDataApi.data;
+	                //if(config.apiName){
+	                config.jsonpArgs = (0, _extends3["default"])({}, config.jsonpArgs, { apiData: detailValues
+	                    //}
+	                });return _react2["default"].createElement(_AiForm2["default"], { id: 'dataListDetail', config: config /*onSubmit={(values)=>{
+	                                                                                                                 this.props.actions.requestUpateData(this.props.params.dataListIdthis.props.dlState.getDataListApi.data.editonUpdateSubmitApivalues)
+	                                                                                                                 {/!*window.history.back(-1);*!/}
+	                                                                                                                 }}*/ });
+	            }()
+	        );
+	    };
+
+	    return Detail;
+	}(_react.Component); //import styles from './Contact.less';
+
+
+	exports["default"] = (0, _component2["default"])('dataListDetail', { requestDetailMsg: _dataList.requestDetailMsg, requestUpateData: _dataList.requestUpateData }, function (state, dispatchProps, ownProps) {
+	    return { dlState: state.dataList[ownProps.params.config] };
+	})(Detail);
+	module.exports = exports['default'];
+
+/***/ },
+
+/***/ 1128:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends2 = __webpack_require__(3);
+
+	var _extends3 = _interopRequireDefault(_extends2);
+
+	var _classCallCheck2 = __webpack_require__(4);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _possibleConstructorReturn2 = __webpack_require__(6);
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__(5);
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _AiForm = __webpack_require__(30);
+
+	var _AiForm2 = _interopRequireDefault(_AiForm);
+
+	var _component = __webpack_require__(14);
+
+	var _component2 = _interopRequireDefault(_component);
+
+	var _dataList = __webpack_require__(29);
+
+	var _global = __webpack_require__(12);
+
+	var _Utils = __webpack_require__(544);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	//import styles from './Contact.less';
+	var Edit = function (_Component) {
+	    (0, _inherits3["default"])(Edit, _Component);
+
+	    function Edit(props) {
+	        (0, _classCallCheck3["default"])(this, Edit);
+
+	        var _this = (0, _possibleConstructorReturn3["default"])(this, _Component.call(this, props));
+
+	        _this.props.actions.requestDetailMsg(_this.props.params.config, _this.props.params.id, _this.props.dlState.getDataListApi.data.detail.body); //json
+	        return _this;
+	    }
+
+	    Edit.prototype.componentDidMount = function componentDidMount() {};
+
+	    Edit.prototype.render = function render() {
+	        var _this2 = this;
+
+	        return _react2["default"].createElement(
+	            'div',
+	            null,
+	            _react2["default"].createElement(
+	                'div',
+	                null,
+	                this.props.dlState && this.props.dlState.detailMsgDataApi && this.props.dlState.detailMsgDataApi.data && this.props.actions && this.props.actions.requestUpateData && function () {
+	                    var config = _this2.props.dlState.getDataListApi.data.edit.initData.data;
+	                    var detailValues = _this2.props.dlState.detailMsgDataApi.data;
+	                    config.jsonpArgs = (0, _extends3["default"])({}, config.jsonpArgs, { apiData: detailValues });
+	                    return _react2["default"].createElement(_AiForm2["default"], { id: 'dataListEdit', config: config, onSubmit: function onSubmit(values) {
+	                            var apis = _this2.props.dlState.getDataListApi.data.edit.onUpdateSubmitApi;
+	                            if (apis && apis.dataFormate) {
+	                                values = apis.dataFormate(values);
+	                                delete apis.dataFormate;
+	                            }
+	                            values.id = _this2.props.params.id;
+	                            _this2.props.actions.requestUpateData(_this2.props.params.config, apis, values);
+	                        } });
+	                }()
+	            )
+	        );
+	    };
+
+	    return Edit;
+	}(_react.Component);
+
+	exports["default"] = (0, _component2["default"])('dataList', { requestUpateData: _dataList.requestUpateData, requestDetailMsg: _dataList.requestDetailMsg }, function (state, dispatchProps, ownProps) {
+	    return { dlState: state.dataList[ownProps.params.config] };
+	})(Edit);
+	module.exports = exports['default'];
+
+/***/ },
+
+/***/ 1129:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _DataListCon = __webpack_require__(980);
+
+	var _DataListCon2 = _interopRequireDefault(_DataListCon);
+
+	var _List = __webpack_require__(981);
+
+	var _List2 = _interopRequireDefault(_List);
+
+	var _Add = __webpack_require__(1125);
+
+	var _Add2 = _interopRequireDefault(_Add);
+
+	var _Delete = __webpack_require__(1126);
+
+	var _Delete2 = _interopRequireDefault(_Delete);
+
+	var _Edit = __webpack_require__(1128);
+
+	var _Edit2 = _interopRequireDefault(_Edit);
+
+	var _Detail = __webpack_require__(1127);
+
+	var _Detail2 = _interopRequireDefault(_Detail);
+
+	var _Utils = __webpack_require__(544);
+
+	var _Utils2 = _interopRequireDefault(_Utils);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	exports["default"] = { DataListCon: _DataListCon2["default"], List: _List2["default"], Add: _Add2["default"], Delete: _Delete2["default"], Edit: _Edit2["default"], Detail: _Detail2["default"], Utils: _Utils2["default"] };
+	module.exports = exports['default'];
+
+/***/ },
+
+/***/ 1410:
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule CSSCore
+	 * @typechecks
+	 */
+
+	'use strict';
+
+	var invariant = __webpack_require__(10);
+
+	/**
+	 * The CSSCore module specifies the API (and implements most of the methods)
+	 * that should be used when dealing with the display of elements (via their
+	 * CSS classes and visibility on screen. It is an API focused on mutating the
+	 * display and not reading it as no logical state should be encoded in the
+	 * display of elements.
+	 */
+
+	var CSSCore = {
+
+	  /**
+	   * Adds the class passed in to the element if it doesn't already have it.
+	   *
+	   * @param {DOMElement} element the element to set the class on
+	   * @param {string} className the CSS className
+	   * @return {DOMElement} the element passed in
+	   */
+	  addClass: function (element, className) {
+	    !!/\s/.test(className) ?  true ? invariant(false, 'CSSCore.addClass takes only a single class name. "%s" contains ' + 'multiple classes.', className) : invariant(false) : undefined;
+
+	    if (className) {
+	      if (element.classList) {
+	        element.classList.add(className);
+	      } else if (!CSSCore.hasClass(element, className)) {
+	        element.className = element.className + ' ' + className;
+	      }
+	    }
+	    return element;
+	  },
+
+	  /**
+	   * Removes the class passed in from the element
+	   *
+	   * @param {DOMElement} element the element to set the class on
+	   * @param {string} className the CSS className
+	   * @return {DOMElement} the element passed in
+	   */
+	  removeClass: function (element, className) {
+	    !!/\s/.test(className) ?  true ? invariant(false, 'CSSCore.removeClass takes only a single class name. "%s" contains ' + 'multiple classes.', className) : invariant(false) : undefined;
+
+	    if (className) {
+	      if (element.classList) {
+	        element.classList.remove(className);
+	      } else if (CSSCore.hasClass(element, className)) {
+	        element.className = element.className.replace(new RegExp('(^|\\s)' + className + '(?:\\s|$)', 'g'), '$1').replace(/\s+/g, ' ') // multiple spaces to one
+	        .replace(/^\s*|\s*$/g, ''); // trim the ends
+	      }
+	    }
+	    return element;
+	  },
+
+	  /**
+	   * Helper to add or remove a class from an element based on a condition.
+	   *
+	   * @param {DOMElement} element the element to set the class on
+	   * @param {string} className the CSS className
+	   * @param {*} bool condition to whether to add or remove the class
+	   * @return {DOMElement} the element passed in
+	   */
+	  conditionClass: function (element, className, bool) {
+	    return (bool ? CSSCore.addClass : CSSCore.removeClass)(element, className);
+	  },
+
+	  /**
+	   * Tests whether the element has the class specified.
+	   *
+	   * @param {DOMNode|DOMWindow} element the element to set the class on
+	   * @param {string} className the CSS className
+	   * @return {boolean} true if the element has the class, false if not
+	   */
+	  hasClass: function (element, className) {
+	    !!/\s/.test(className) ?  true ? invariant(false, 'CSS.hasClass takes only a single class name.') : invariant(false) : undefined;
+	    if (element.classList) {
+	      return !!className && element.classList.contains(className);
+	    }
+	    return (' ' + element.className + ' ').indexOf(' ' + className + ' ') > -1;
+	  }
+
+	};
+
+	module.exports = CSSCore;
+
+/***/ },
+
+/***/ 1433:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -627,12 +1138,12 @@ webpackJsonp([3],{
 
 	'use strict';
 
-	var React = __webpack_require__(256);
+	var React = __webpack_require__(275);
 
-	var assign = __webpack_require__(14);
+	var assign = __webpack_require__(15);
 
-	var ReactTransitionGroup = __webpack_require__(1032);
-	var ReactCSSTransitionGroupChild = __webpack_require__(1029);
+	var ReactTransitionGroup = __webpack_require__(1437);
+	var ReactCSSTransitionGroupChild = __webpack_require__(1434);
 
 	function createTransitionTimeoutPropValidator(transitionType) {
 	  var timeoutPropName = 'transition' + transitionType + 'Timeout';
@@ -699,7 +1210,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 1029:
+/***/ 1434:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -716,13 +1227,13 @@ webpackJsonp([3],{
 
 	'use strict';
 
-	var React = __webpack_require__(256);
-	var ReactDOM = __webpack_require__(257);
+	var React = __webpack_require__(275);
+	var ReactDOM = __webpack_require__(276);
 
-	var CSSCore = __webpack_require__(1034);
-	var ReactTransitionEvents = __webpack_require__(1031);
+	var CSSCore = __webpack_require__(1410);
+	var ReactTransitionEvents = __webpack_require__(1436);
 
-	var onlyChild = __webpack_require__(420);
+	var onlyChild = __webpack_require__(460);
 
 	// We don't remove the element from the DOM until we receive an animationend or
 	// transitionend event. If the user screws up and forgets to add an animation
@@ -870,7 +1381,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 1030:
+/***/ 1435:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -887,7 +1398,7 @@ webpackJsonp([3],{
 
 	'use strict';
 
-	var flattenChildren = __webpack_require__(419);
+	var flattenChildren = __webpack_require__(459);
 
 	var ReactTransitionChildMapping = {
 	  /**
@@ -974,7 +1485,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 1031:
+/***/ 1436:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -990,7 +1501,7 @@ webpackJsonp([3],{
 
 	'use strict';
 
-	var ExecutionEnvironment = __webpack_require__(24);
+	var ExecutionEnvironment = __webpack_require__(26);
 
 	/**
 	 * EVENT_NAME_MAP is used to determine which event fired when a
@@ -1089,7 +1600,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 1032:
+/***/ 1437:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1105,11 +1616,11 @@ webpackJsonp([3],{
 
 	'use strict';
 
-	var React = __webpack_require__(256);
-	var ReactTransitionChildMapping = __webpack_require__(1030);
+	var React = __webpack_require__(275);
+	var ReactTransitionChildMapping = __webpack_require__(1435);
 
-	var assign = __webpack_require__(14);
-	var emptyFunction = __webpack_require__(53);
+	var assign = __webpack_require__(15);
+	var emptyFunction = __webpack_require__(55);
 
 	var ReactTransitionGroup = React.createClass({
 	  displayName: 'ReactTransitionGroup',
@@ -1297,517 +1808,6 @@ webpackJsonp([3],{
 	});
 
 	module.exports = ReactTransitionGroup;
-
-/***/ },
-
-/***/ 1034:
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule CSSCore
-	 * @typechecks
-	 */
-
-	'use strict';
-
-	var invariant = __webpack_require__(10);
-
-	/**
-	 * The CSSCore module specifies the API (and implements most of the methods)
-	 * that should be used when dealing with the display of elements (via their
-	 * CSS classes and visibility on screen. It is an API focused on mutating the
-	 * display and not reading it as no logical state should be encoded in the
-	 * display of elements.
-	 */
-
-	var CSSCore = {
-
-	  /**
-	   * Adds the class passed in to the element if it doesn't already have it.
-	   *
-	   * @param {DOMElement} element the element to set the class on
-	   * @param {string} className the CSS className
-	   * @return {DOMElement} the element passed in
-	   */
-	  addClass: function (element, className) {
-	    !!/\s/.test(className) ?  true ? invariant(false, 'CSSCore.addClass takes only a single class name. "%s" contains ' + 'multiple classes.', className) : invariant(false) : undefined;
-
-	    if (className) {
-	      if (element.classList) {
-	        element.classList.add(className);
-	      } else if (!CSSCore.hasClass(element, className)) {
-	        element.className = element.className + ' ' + className;
-	      }
-	    }
-	    return element;
-	  },
-
-	  /**
-	   * Removes the class passed in from the element
-	   *
-	   * @param {DOMElement} element the element to set the class on
-	   * @param {string} className the CSS className
-	   * @return {DOMElement} the element passed in
-	   */
-	  removeClass: function (element, className) {
-	    !!/\s/.test(className) ?  true ? invariant(false, 'CSSCore.removeClass takes only a single class name. "%s" contains ' + 'multiple classes.', className) : invariant(false) : undefined;
-
-	    if (className) {
-	      if (element.classList) {
-	        element.classList.remove(className);
-	      } else if (CSSCore.hasClass(element, className)) {
-	        element.className = element.className.replace(new RegExp('(^|\\s)' + className + '(?:\\s|$)', 'g'), '$1').replace(/\s+/g, ' ') // multiple spaces to one
-	        .replace(/^\s*|\s*$/g, ''); // trim the ends
-	      }
-	    }
-	    return element;
-	  },
-
-	  /**
-	   * Helper to add or remove a class from an element based on a condition.
-	   *
-	   * @param {DOMElement} element the element to set the class on
-	   * @param {string} className the CSS className
-	   * @param {*} bool condition to whether to add or remove the class
-	   * @return {DOMElement} the element passed in
-	   */
-	  conditionClass: function (element, className, bool) {
-	    return (bool ? CSSCore.addClass : CSSCore.removeClass)(element, className);
-	  },
-
-	  /**
-	   * Tests whether the element has the class specified.
-	   *
-	   * @param {DOMNode|DOMWindow} element the element to set the class on
-	   * @param {string} className the CSS className
-	   * @return {boolean} true if the element has the class, false if not
-	   */
-	  hasClass: function (element, className) {
-	    !!/\s/.test(className) ?  true ? invariant(false, 'CSS.hasClass takes only a single class name.') : invariant(false) : undefined;
-	    if (element.classList) {
-	      return !!className && element.classList.contains(className);
-	    }
-	    return (' ' + element.className + ' ').indexOf(' ' + className + ' ') > -1;
-	  }
-
-	};
-
-	module.exports = CSSCore;
-
-/***/ },
-
-/***/ 1323:
-27,
-
-/***/ 1372:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _extends2 = __webpack_require__(3);
-
-	var _extends3 = _interopRequireDefault(_extends2);
-
-	var _classCallCheck2 = __webpack_require__(4);
-
-	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-	var _possibleConstructorReturn2 = __webpack_require__(6);
-
-	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-	var _inherits2 = __webpack_require__(5);
-
-	var _inherits3 = _interopRequireDefault(_inherits2);
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _AiForm = __webpack_require__(27);
-
-	var _AiForm2 = _interopRequireDefault(_AiForm);
-
-	var _component = __webpack_require__(11);
-
-	var _component2 = _interopRequireDefault(_component);
-
-	var _global = __webpack_require__(12);
-
-	var _dataList = __webpack_require__(28);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-	var Add = function (_Component) {
-	    (0, _inherits3["default"])(Add, _Component);
-
-	    function Add(props) {
-	        (0, _classCallCheck3["default"])(this, Add);
-	        return (0, _possibleConstructorReturn3["default"])(this, _Component.call(this, props));
-	    }
-
-	    Add.prototype.componentDidMount = function componentDidMount() {
-	        if (this.props.params.id) {
-	            this.props.actions.requestDetailMsg(this.props.params.config, this.props.params.id, this.props.dlState.getDataListApi.data.detail.body); //json
-	        }
-	    };
-
-	    Add.prototype.render = function render() {
-	        var _this2 = this;
-
-	        var config = this.props.dlState.getDataListApi.data.add.initData.data;
-	        var jsonpArgs = {},
-	            detailValues = void 0;
-
-	        if (this.props.params.id) {
-	            if (!this.props.dlState.detailMsgDataApi || !this.props.dlState.detailMsgDataApi.data) {
-	                return _react2["default"].createElement(
-	                    'div',
-	                    null,
-	                    '\u7F3A\u5C11\u8BE6\u60C5\u4FE1\u606F'
-	                );
-	            }
-	            detailValues = this.props.dlState.detailMsgDataApi.data;
-	            config.jsonpArgs = (0, _extends3["default"])({}, config.jsonpArgs, { apiData: detailValues, type: "add" });
-	        }
-	        return _react2["default"].createElement(
-	            'div',
-	            null,
-	            _react2["default"].createElement(
-	                'div',
-	                null,
-	                this.props.dlState && this.props.actions && function () {
-	                    var config = _this2.props.dlState.getDataListApi.data.add.initData.data;
-	                    return _react2["default"].createElement(_AiForm2["default"], { id: 'dataListAdd1', config: config, onSubmit: function onSubmit(values) {
-	                            var apis = _this2.props.dlState.getDataListApi.data.add.onAddSubmitApi;
-	                            if (apis && apis.dataFormate) {
-	                                values = apis.dataFormate(values);
-	                                delete apis.dataFormate;
-	                            }
-	                            _this2.props.actions.requestAddData(_this2.props.params.config, apis, values);
-	                        } });
-	                }()
-	            )
-	        );
-	    };
-
-	    return Add;
-	}(_react.Component); /*{this.props.dlState && this.props.dlState.detailMsgDataApi &&  this.props.dlState.detailMsgDataApi.data && <div>
-	                     {
-	                     this.props.dlState  && this.props.actions &&
-	                     (()=>{
-	                     
-	                     if(this.props.dlState.detailMsgDataApi && this.props.dlState.detailMsgDataApi.data){
-	                     let detailValues = this.props.dlState.detailMsgDataApi.data;
-	                     
-	                     }
-	                     return <AddForm id="dataListAdd" config={config} onSubmit={(values)=>{
-	                     this.props.actions.requestAddData(this.props.params.dataListId,this.props.dlState.getDataListApi.data.add.onAddSubmitApi,values)
-	                     window.history.back(-1);
-	                     }}/>
-	                     })()
-	                     
-	                     }
-	                     </div>}*/
-	//import styles from './Contact.less';
-
-
-	exports["default"] = (0, _component2["default"])('dataListAdd', { requestAddData: _dataList.requestAddData, requestDetailMsg: _dataList.requestDetailMsg }, function (state, dispatchProps, ownProps) {
-	    return { dlState: state.dataList[ownProps.params.config] };
-	})(Add);
-	module.exports = exports['default'];
-
-/***/ },
-
-/***/ 1373:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports["default"] = undefined;
-
-	var _classCallCheck2 = __webpack_require__(4);
-
-	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-	var _possibleConstructorReturn2 = __webpack_require__(6);
-
-	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-	var _inherits2 = __webpack_require__(5);
-
-	var _inherits3 = _interopRequireDefault(_inherits2);
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-	var Delete = function (_Component) {
-	    (0, _inherits3["default"])(Delete, _Component);
-
-	    function Delete() {
-	        (0, _classCallCheck3["default"])(this, Delete);
-	        return (0, _possibleConstructorReturn3["default"])(this, _Component.apply(this, arguments));
-	    }
-
-	    Delete.prototype.render = function render() {
-	        return _react2["default"].createElement(
-	            'div',
-	            null,
-	            'Delete ids: ',
-	            this.props.params.ids
-	        );
-	    };
-
-	    return Delete;
-	}(_react.Component); //import styles from './Contact.less';
-
-
-	exports["default"] = Delete;
-	module.exports = exports['default'];
-
-/***/ },
-
-/***/ 1374:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _extends2 = __webpack_require__(3);
-
-	var _extends3 = _interopRequireDefault(_extends2);
-
-	var _classCallCheck2 = __webpack_require__(4);
-
-	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-	var _possibleConstructorReturn2 = __webpack_require__(6);
-
-	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-	var _inherits2 = __webpack_require__(5);
-
-	var _inherits3 = _interopRequireDefault(_inherits2);
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _AiForm = __webpack_require__(27);
-
-	var _AiForm2 = _interopRequireDefault(_AiForm);
-
-	var _component = __webpack_require__(11);
-
-	var _component2 = _interopRequireDefault(_component);
-
-	var _dataList = __webpack_require__(28);
-
-	var _Utils = __webpack_require__(885);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-	var Detail = function (_Component) {
-	    (0, _inherits3["default"])(Detail, _Component);
-
-	    function Detail(props) {
-	        (0, _classCallCheck3["default"])(this, Detail);
-	        return (0, _possibleConstructorReturn3["default"])(this, _Component.call(this, props));
-	    }
-
-	    Detail.prototype.componentDidMount = function componentDidMount() {
-	        this.props.actions.requestDetailMsg(this.props.params.config, this.props.params.id, this.props.dlState.getDataListApi.data.detail.body);
-	    };
-
-	    Detail.prototype.render = function render() {
-	        var _this2 = this;
-
-	        return _react2["default"].createElement(
-	            'div',
-	            null,
-	            this.props.dlState && this.props.dlState.detailMsgDataApi && this.props.dlState.detailMsgDataApi.data && function () {
-	                var config = _this2.props.dlState.getDataListApi.data.detail.initData.data;
-	                var detailValues = _this2.props.dlState.detailMsgDataApi.data;
-	                //if(config.apiName){
-	                config.jsonpArgs = (0, _extends3["default"])({}, config.jsonpArgs, { apiData: detailValues });
-	                //}
-	                return _react2["default"].createElement(_AiForm2["default"], { id: 'dataListDetail', config: config /*onSubmit={(values)=>{
-	                                                                                                              this.props.actions.requestUpateData(this.props.params.dataListIdthis.props.dlState.getDataListApi.data.editonUpdateSubmitApivalues)
-	                                                                                                              {/!*window.history.back(-1);*!/}
-	                                                                                                              }}*/ });
-	            }()
-	        );
-	    };
-
-	    return Detail;
-	}(_react.Component); //import styles from './Contact.less';
-
-
-	exports["default"] = (0, _component2["default"])('dataListDetail', { requestDetailMsg: _dataList.requestDetailMsg, requestUpateData: _dataList.requestUpateData }, function (state, dispatchProps, ownProps) {
-	    return { dlState: state.dataList[ownProps.params.config] };
-	})(Detail);
-	module.exports = exports['default'];
-
-/***/ },
-
-/***/ 1375:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _extends2 = __webpack_require__(3);
-
-	var _extends3 = _interopRequireDefault(_extends2);
-
-	var _classCallCheck2 = __webpack_require__(4);
-
-	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-	var _possibleConstructorReturn2 = __webpack_require__(6);
-
-	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-	var _inherits2 = __webpack_require__(5);
-
-	var _inherits3 = _interopRequireDefault(_inherits2);
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _AiForm = __webpack_require__(27);
-
-	var _AiForm2 = _interopRequireDefault(_AiForm);
-
-	var _component = __webpack_require__(11);
-
-	var _component2 = _interopRequireDefault(_component);
-
-	var _dataList = __webpack_require__(28);
-
-	var _global = __webpack_require__(12);
-
-	var _Utils = __webpack_require__(885);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-	//import styles from './Contact.less';
-	var Edit = function (_Component) {
-	    (0, _inherits3["default"])(Edit, _Component);
-
-	    function Edit(props) {
-	        (0, _classCallCheck3["default"])(this, Edit);
-
-	        var _this = (0, _possibleConstructorReturn3["default"])(this, _Component.call(this, props));
-
-	        _this.props.actions.requestDetailMsg(_this.props.params.config, _this.props.params.id, _this.props.dlState.getDataListApi.data.detail.body); //json
-	        return _this;
-	    }
-
-	    Edit.prototype.componentDidMount = function componentDidMount() {};
-
-	    Edit.prototype.render = function render() {
-	        var _this2 = this;
-
-	        return _react2["default"].createElement(
-	            'div',
-	            null,
-	            _react2["default"].createElement(
-	                'div',
-	                null,
-	                this.props.dlState && this.props.dlState.detailMsgDataApi && this.props.dlState.detailMsgDataApi.data && this.props.actions && this.props.actions.requestUpateData && function () {
-	                    var config = _this2.props.dlState.getDataListApi.data.edit.initData.data;
-	                    var detailValues = _this2.props.dlState.detailMsgDataApi.data;
-	                    config.jsonpArgs = (0, _extends3["default"])({}, config.jsonpArgs, { apiData: detailValues });
-	                    return _react2["default"].createElement(_AiForm2["default"], { id: 'dataListEdit', config: config, onSubmit: function onSubmit(values) {
-	                            var apis = _this2.props.dlState.getDataListApi.data.edit.onUpdateSubmitApi;
-	                            if (apis && apis.dataFormate) {
-	                                values = apis.dataFormate(values);
-	                                delete apis.dataFormate;
-	                            }
-	                            values.id = _this2.props.params.id;
-	                            _this2.props.actions.requestUpateData(_this2.props.params.config, apis, values);
-	                        } });
-	                }()
-	            )
-	        );
-	    };
-
-	    return Edit;
-	}(_react.Component);
-
-	exports["default"] = (0, _component2["default"])('dataList', { requestUpateData: _dataList.requestUpateData, requestDetailMsg: _dataList.requestDetailMsg }, function (state, dispatchProps, ownProps) {
-	    return { dlState: state.dataList[ownProps.params.config] };
-	})(Edit);
-	module.exports = exports['default'];
-
-/***/ },
-
-/***/ 1376:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _DataListCon = __webpack_require__(1011);
-
-	var _DataListCon2 = _interopRequireDefault(_DataListCon);
-
-	var _List = __webpack_require__(1012);
-
-	var _List2 = _interopRequireDefault(_List);
-
-	var _Add = __webpack_require__(1372);
-
-	var _Add2 = _interopRequireDefault(_Add);
-
-	var _Delete = __webpack_require__(1373);
-
-	var _Delete2 = _interopRequireDefault(_Delete);
-
-	var _Edit = __webpack_require__(1375);
-
-	var _Edit2 = _interopRequireDefault(_Edit);
-
-	var _Detail = __webpack_require__(1374);
-
-	var _Detail2 = _interopRequireDefault(_Detail);
-
-	var _Utils = __webpack_require__(885);
-
-	var _Utils2 = _interopRequireDefault(_Utils);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-	exports["default"] = { DataListCon: _DataListCon2["default"], List: _List2["default"], Add: _Add2["default"], Delete: _Delete2["default"], Edit: _Edit2["default"], Detail: _Detail2["default"], Utils: _Utils2["default"] };
-	module.exports = exports['default'];
 
 /***/ }
 

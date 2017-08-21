@@ -456,7 +456,6 @@ a {
   text-decoration: none;
   outline: none;
   cursor: pointer;
-  -webkit-transition: color .3s ease;
   transition: color .3s ease;
 }
 a:hover {
@@ -2809,7 +2808,6 @@ samp {
   overflow: hidden;
 }
 .ant-motion-collapse-active {
-  -webkit-transition: height 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
   transition: height 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .ant-search-input-wrapper {
@@ -3200,7 +3198,6 @@ fieldset[disabled] .ant-search-input:hover .ant-search-btn-noempty.active > a:on
   border: 1px solid #d9d9d9;
   border-radius: 6px;
   border-radius: 0;
-  -webkit-transition: border 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), box-shadow 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: border 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), box-shadow 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .ant-input::-moz-placeholder {
@@ -3386,7 +3383,6 @@ textarea.ant-input {
   border-radius: 14px;
   border-color: #d9d9d9;
   background-color: #fff;
-  -webkit-transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86);
   transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86);
 }
 .ant-radio-inner:after {
@@ -3405,7 +3401,6 @@ textarea.ant-input {
   -webkit-transform: scale(0);
       -ms-transform: scale(0);
           transform: scale(0);
-  -webkit-transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86);
   transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86);
 }
 .ant-radio-input {
@@ -3426,7 +3421,6 @@ textarea.ant-input {
       -ms-transform: scale(1);
           transform: scale(1);
   opacity: 1;
-  -webkit-transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86);
   transition: all 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86);
 }
 .ant-radio-disabled:hover .ant-radio-inner {
@@ -3456,7 +3450,6 @@ span.ant-radio + * {
   line-height: 26px;
   color: #666;
   display: inline-block;
-  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   cursor: pointer;
   border: 1px solid #d9d9d9;
@@ -3575,7 +3568,6 @@ span.ant-radio + * {
   border-radius: 3px;
   border-color: #d9d9d9;
   background-color: #fff;
-  -webkit-transition: border-color 0.1s cubic-bezier(0.71, -0.46, 0.29, 1.46), background-color 0.1s cubic-bezier(0.71, -0.46, 0.29, 1.46);
   transition: border-color 0.1s cubic-bezier(0.71, -0.46, 0.29, 1.46), background-color 0.1s cubic-bezier(0.71, -0.46, 0.29, 1.46);
 }
 .ant-checkbox-inner:after {
@@ -3592,7 +3584,6 @@ span.ant-radio + * {
   border-top: 0;
   border-left: 0;
   content: ' ';
-  -webkit-transition: all 0.1s cubic-bezier(0.71, -0.46, 0.88, 0.6);
   transition: all 0.1s cubic-bezier(0.71, -0.46, 0.88, 0.6);
 }
 .ant-checkbox-input {
@@ -3647,7 +3638,6 @@ span.ant-radio + * {
   border-top: 0;
   border-left: 0;
   content: ' ';
-  -webkit-transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
   transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
 }
 .ant-checkbox-disabled.ant-checkbox-checked:hover .ant-checkbox-inner {
@@ -3737,7 +3727,6 @@ span.ant-radio + * {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   position: relative;
   margin-right: 35px;
@@ -3758,7 +3747,6 @@ span.ant-radio + * {
 }
 .ant-btn:not([disabled]):active {
   outline: 0;
-  -webkit-transition: none;
   transition: none;
 }
 .ant-btn.disabled,
@@ -4420,7 +4408,6 @@ fieldset[disabled] .ant-btn-dashed.active > a:only-child:after {
   content: '';
   border-radius: inherit;
   z-index: 1;
-  -webkit-transition: opacity .2s;
   transition: opacity .2s;
   pointer-events: none;
   display: none;
@@ -4432,7 +4419,6 @@ fieldset[disabled] .ant-btn-dashed.active > a:only-child:after {
 }
 .ant-btn.ant-btn-loading .anticon {
   margin-left: -14px;
-  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .ant-btn.ant-btn-loading:before {
@@ -4578,7 +4564,6 @@ fieldset[disabled] .ant-btn-dashed.active > a:only-child:after {
 }
 .ant-select-arrow:before {
   content: '\E61D';
-  -webkit-transition: -webkit-transform 0.2s ease;
   transition: -webkit-transform 0.2s ease;
   transition: transform 0.2s ease;
   transition: transform 0.2s ease, -webkit-transform 0.2s ease;
@@ -4595,7 +4580,6 @@ fieldset[disabled] .ant-btn-dashed.active > a:only-child:after {
   border-radius: 6px;
   border-radius: 0;
   border: 1px solid #d9d9d9;
-  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .ant-select-selection:hover {
@@ -4628,7 +4612,6 @@ fieldset[disabled] .ant-btn-dashed.active > a:only-child:after {
   margin-top: -6px;
   line-height: 12px;
   cursor: pointer;
-  -webkit-transition: color 0.3s ease, opacity 0.15s ease;
   transition: color 0.3s ease, opacity 0.15s ease;
 }
 .ant-select-selection__clear:before {
@@ -4806,7 +4789,6 @@ fieldset[disabled] .ant-btn-dashed.active > a:only-child:after {
   max-width: 99%;
   position: relative;
   overflow: hidden;
-  -webkit-transition: padding 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: padding 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   padding: 0 20px 0 10px;
 }
@@ -4819,7 +4801,6 @@ fieldset[disabled] .ant-btn-dashed.active > a:only-child:after {
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%;
-  -webkit-transition: margin 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: margin 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .ant-select-selection--multiple .ant-select-selection__choice__remove {
@@ -4836,7 +4817,6 @@ fieldset[disabled] .ant-btn-dashed.active > a:only-child:after {
   line-height: inherit;
   cursor: pointer;
   font-weight: bold;
-  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   display: inline-block;
   font-size: 12px;
@@ -4899,7 +4879,6 @@ fieldset[disabled] .ant-btn-dashed.active > a:only-child:after {
   height: 100%;
   position: relative;
   z-index: 1;
-  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   box-shadow: none;
 }
@@ -4977,7 +4956,6 @@ fieldset[disabled] .ant-btn-dashed.active > a:only-child:after {
   cursor: pointer;
   white-space: nowrap;
   overflow: hidden;
-  -webkit-transition: background 0.3s ease;
   transition: background 0.3s ease;
 }
 .ant-select-dropdown-menu-item:hover,
@@ -5022,7 +5000,6 @@ fieldset[disabled] .ant-btn-dashed.active > a:only-child:after {
   /* IE6-IE8 */
   -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=1, M12=0, M21=0, M22=1)";
   zoom: 1;
-  -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
   position: absolute;
   right: 15px;
@@ -7418,7 +7395,6 @@ fieldset[disabled] .ant-btn-dashed.active > a:only-child:after {
   background-color: #fbfbfb;
   text-align: center;
   cursor: pointer;
-  -webkit-transition: border-color 0.3s ease;
   transition: border-color 0.3s ease;
   display: inline-block;
   vertical-align: top;
@@ -7430,7 +7406,6 @@ fieldset[disabled] .ant-btn-dashed.active > a:only-child:after {
 }
 .ant-upload.ant-upload-drag {
   border: 1px dashed #d9d9d9;
-  -webkit-transition: border-color 0.3s ease;
   transition: border-color 0.3s ease;
   cursor: pointer;
   border-radius: 6px;
@@ -7474,7 +7449,6 @@ fieldset[disabled] .ant-btn-dashed.active > a:only-child:after {
 }
 .ant-upload.ant-upload-drag .anticon-plus {
   font-size: 30px;
-  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   color: #ccc;
 }
@@ -7496,7 +7470,6 @@ fieldset[disabled] .ant-btn-dashed.active > a:only-child:after {
   height: 22px;
   line-height: 22px;
   padding: 0 4px;
-  -webkit-transition: background-color 0.3s ease;
   transition: background-color 0.3s ease;
 }
 .ant-upload-list-item-info .anticon-paper-clip {
@@ -7514,7 +7487,6 @@ fieldset[disabled] .ant-btn-dashed.active > a:only-child:after {
   /* IE6-IE8 */
   -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=1, M12=0, M21=0, M22=1)";
   zoom: 1;
-  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   opacity: 0;
   cursor: pointer;
@@ -7605,7 +7577,6 @@ fieldset[disabled] .ant-btn-dashed.active > a:only-child:after {
   white-space: nowrap;
   margin: 0 0 0 8px;
   line-height: 42px;
-  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   padding-left: 48px;
   padding-right: 8px;
@@ -7647,7 +7618,6 @@ fieldset[disabled] .ant-btn-dashed.active > a:only-child:after {
   position: absolute;
   z-index: 1;
   background-color: #808080;
-  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   opacity: 0;
   width: 100%;
@@ -7659,7 +7629,6 @@ fieldset[disabled] .ant-btn-dashed.active > a:only-child:after {
   left: 50%;
   top: 50%;
   z-index: 10;
-  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   cursor: pointer;
   font-size: 16px;
@@ -7777,7 +7746,6 @@ fieldset[disabled] .ant-btn-dashed.active > a:only-child:after {
 .ant-progress-bg {
   border-radius: 100px;
   background-color: #2db7f5;
-  -webkit-transition: all 0.4s cubic-bezier(0.08, 0.82, 0.17, 1) 0s;
   transition: all 0.4s cubic-bezier(0.08, 0.82, 0.17, 1) 0s;
   position: relative;
 }
@@ -7921,7 +7889,6 @@ fieldset[disabled] .ant-btn-dashed.active > a:only-child:after {
   margin-top: -6px;
   line-height: 12px;
   cursor: pointer;
-  -webkit-transition: color 0.3s ease, opacity 0.15s ease;
   transition: color 0.3s ease, opacity 0.15s ease;
 }
 .ant-cascader-picker-clear:hover {
@@ -7958,7 +7925,6 @@ fieldset[disabled] .ant-btn-dashed.active > a:only-child:after {
   font-size: 12px;
 }
 .ant-cascader-picker-arrow:before {
-  -webkit-transition: -webkit-transform 0.2s ease;
   transition: -webkit-transform 0.2s ease;
   transition: transform 0.2s ease;
   transition: transform 0.2s ease, -webkit-transform 0.2s ease;
@@ -8029,7 +7995,6 @@ fieldset[disabled] .ant-btn-dashed.active > a:only-child:after {
   padding: 7px 26px 7px 16px;
   cursor: pointer;
   white-space: nowrap;
-  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 .ant-cascader-menu-item:hover {
@@ -8104,7 +8069,6 @@ fieldset[disabled] .ant-btn-dashed.active > a:only-child:after {
   border-radius: 3px;
   border-color: #d9d9d9;
   background-color: #fff;
-  -webkit-transition: border-color 0.1s cubic-bezier(0.71, -0.46, 0.29, 1.46), background-color 0.1s cubic-bezier(0.71, -0.46, 0.29, 1.46);
   transition: border-color 0.1s cubic-bezier(0.71, -0.46, 0.29, 1.46), background-color 0.1s cubic-bezier(0.71, -0.46, 0.29, 1.46);
 }
 .ant-select-tree-checkbox-inner:after {
@@ -8121,7 +8085,6 @@ fieldset[disabled] .ant-btn-dashed.active > a:only-child:after {
   border-top: 0;
   border-left: 0;
   content: ' ';
-  -webkit-transition: all 0.1s cubic-bezier(0.71, -0.46, 0.88, 0.6);
   transition: all 0.1s cubic-bezier(0.71, -0.46, 0.88, 0.6);
 }
 .ant-select-tree-checkbox-input {
@@ -8176,7 +8139,6 @@ fieldset[disabled] .ant-btn-dashed.active > a:only-child:after {
   border-top: 0;
   border-left: 0;
   content: ' ';
-  -webkit-transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
   transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
 }
 .ant-select-tree-checkbox-disabled.ant-select-tree-checkbox-checked:hover .ant-select-tree-checkbox-inner {
@@ -8274,7 +8236,6 @@ fieldset[disabled] .ant-btn-dashed.active > a:only-child:after {
   text-decoration: none;
   vertical-align: top;
   color: #666;
-  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 .ant-select-tree li a:hover {
@@ -8342,7 +8303,6 @@ fieldset[disabled] .ant-btn-dashed.active > a:only-child:after {
   top: 1px;
   right: 4px;
   color: #666;
-  -webkit-transition: -webkit-transform .3s ease;
   transition: -webkit-transform .3s ease;
   transition: transform .3s ease;
   transition: transform .3s ease, -webkit-transform .3s ease;
@@ -8390,7 +8350,6 @@ fieldset[disabled] .ant-btn-dashed.active > a:only-child:after {
   top: 1px;
   right: 4px;
   color: #666;
-  -webkit-transition: -webkit-transform .3s ease;
   transition: -webkit-transform .3s ease;
   transition: transform .3s ease;
   transition: transform .3s ease, -webkit-transform .3s ease;
@@ -8460,7 +8419,6 @@ fieldset[disabled] .ant-btn-dashed.active > a:only-child:after {
   border: 1px solid #ccc;
   background-color: #ccc;
   cursor: pointer;
-  -webkit-transition: all 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
   transition: all 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -8483,7 +8441,6 @@ fieldset[disabled] .ant-btn-dashed.active > a:only-child:after {
   background-color: #fff;
   content: " ";
   cursor: pointer;
-  -webkit-transition: left 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86), width 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
   transition: left 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86), width 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
 }
 .ant-switch:active:after {
@@ -8551,7 +8508,6 @@ fieldset[disabled] .ant-btn-dashed.active > a:only-child:after {
   background-color: #fff;
   background-image: none;
   border-radius: 0;
-  -webkit-transition: border 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), box-shadow 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: border 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), box-shadow 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
   margin: 0;
   padding: 0;
@@ -8615,7 +8571,6 @@ textarea.ant-input-number {
   overflow: hidden;
   color: #999;
   position: relative;
-  -webkit-transition: all 0.1s linear;
   transition: all 0.1s linear;
   display: block;
   width: 100%;
@@ -8647,7 +8602,6 @@ textarea.ant-input-number {
   position: absolute;
   width: 12px;
   height: 12px;
-  -webkit-transition: all 0.1s linear;
   transition: all 0.1s linear;
   display: inline-block;
   font-size: 12px;
@@ -8703,7 +8657,6 @@ textarea.ant-input-number {
   -moz-appearance: textfield;
   line-height: 28px;
   height: 28px;
-  -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
   color: #666;
   border: 0;
@@ -8784,7 +8737,6 @@ textarea.ant-input-number {
   right: 0;
   opacity: 0;
   border-radius: 0 6px 6px 0;
-  -webkit-transition: opacity 0.24s linear 0.1s;
   transition: opacity 0.24s linear 0.1s;
 }
 .ant-input-number:hover .ant-input-number-handler-wrap {
@@ -8851,7 +8803,6 @@ textarea.ant-input-number {
   cursor: pointer;
   border-top: 4px solid #fff;
   border-bottom: 4px solid #fff;
-  -webkit-transition: background-color 0.3s ease;
   transition: background-color 0.3s ease;
 }
 .ant-slider-track {
@@ -8861,7 +8812,6 @@ textarea.ant-input-number {
   border-radius: 6px;
   background-color: #a3e1d4;
   z-index: 1;
-  -webkit-transition: background-color 0.3s ease;
   transition: background-color 0.3s ease;
 }
 .ant-slider:hover {
@@ -8884,7 +8834,6 @@ textarea.ant-input-number {
   border: solid 2px #8dd9ca;
   background-color: #fff;
   z-index: 2;
-  -webkit-transition: border-color 0.3s ease;
   transition: border-color 0.3s ease;
 }
 .ant-slider-handle:hover {
@@ -9130,7 +9079,6 @@ textarea.ant-input-number {
   display: inline-block;
   line-height: 1;
   width: 20px;
-  -webkit-transition: color 0.3s ease;
   transition: color 0.3s ease;
   font-family: 'anticon';
   text-rendering: optimizeLegibility;
@@ -9187,7 +9135,6 @@ textarea.ant-input-number {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  -webkit-transition: background 0.3s ease;
   transition: background 0.3s ease;
 }
 .ant-time-picker-panel-select li:last-child:after {
@@ -9238,7 +9185,6 @@ li.ant-time-picker-panel-select-option-disabled:hover {
   display: inline-block;
   outline: none;
   font-size: 12px;
-  -webkit-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
 }
 .ant-time-picker-input {
@@ -9256,7 +9202,6 @@ li.ant-time-picker-panel-select-option-disabled:hover {
   border: 1px solid #d9d9d9;
   border-radius: 6px;
   border-radius: 0;
-  -webkit-transition: border 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), box-shadow 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: border 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), box-shadow 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
   width: 100px;
 }
@@ -9321,7 +9266,6 @@ textarea.ant-time-picker-input {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   width: 12px;
   height: 12px;
@@ -9373,7 +9317,6 @@ textarea.ant-time-picker-input {
   display: inline-block;
   outline: none;
   font-size: 12px;
-  -webkit-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
 }
 .ant-calendar-picker > input {
@@ -9393,7 +9336,6 @@ textarea.ant-time-picker-input {
   margin-top: -7px;
   line-height: 14px;
   cursor: pointer;
-  -webkit-transition: color 0.3s ease, opacity 0.15s ease;
   transition: color 0.3s ease, opacity 0.15s ease;
 }
 .ant-calendar-picker-clear:hover {
@@ -9409,7 +9351,6 @@ textarea.ant-time-picker-input {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   width: 12px;
   height: 12px;
@@ -9584,7 +9525,6 @@ textarea.ant-time-picker-input {
   padding: 0;
   background: transparent;
   text-align: center;
-  -webkit-transition: background 0.3s ease;
   transition: background 0.3s ease;
 }
 .ant-calendar-date-panel {
@@ -9683,7 +9623,6 @@ textarea.ant-time-picker-input {
   line-height: 1;
   width: 20px;
   text-indent: 43px;
-  -webkit-transition: color 0.3s ease;
   transition: color 0.3s ease;
 }
 .ant-calendar .ant-calendar-clear-btn:hover:after {
@@ -9708,7 +9647,6 @@ textarea.ant-time-picker-input {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   position: relative;
   margin-right: 35px;
@@ -9735,7 +9673,6 @@ textarea.ant-time-picker-input {
 }
 .ant-calendar .ant-calendar-ok-btn:not([disabled]):active {
   outline: 0;
-  -webkit-transition: none;
   transition: none;
 }
 .ant-calendar .ant-calendar-ok-btn.disabled,
@@ -9999,7 +9936,6 @@ fieldset[disabled] .ant-calendar .ant-calendar-ok-btn.active > a:only-child:afte
   border: 1px solid #d9d9d9;
   border-radius: 6px;
   border-radius: 0;
-  -webkit-transition: border 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), box-shadow 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: border 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), box-shadow 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
   border-radius: 4px;
   height: 22px;
@@ -10248,7 +10184,6 @@ textarea.ant-calendar-range .ant-calendar-time-picker-input {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  -webkit-transition: background 0.3s ease;
   transition: background 0.3s ease;
 }
 .ant-calendar-time-picker-select li:last-child:after {
@@ -10427,7 +10362,6 @@ li.ant-calendar-time-picker-select-option-disabled:hover {
   line-height: 24px;
   padding: 0 6px;
   border-radius: 4px;
-  -webkit-transition: background 0.3s ease;
   transition: background 0.3s ease;
 }
 .ant-calendar-month-panel-month:hover {
@@ -10545,7 +10479,6 @@ li.ant-calendar-time-picker-select-option-disabled:hover {
   line-height: 24px;
   padding: 0 6px;
   border-radius: 4px;
-  -webkit-transition: background 0.3s ease;
   transition: background 0.3s ease;
 }
 .ant-calendar-year-panel-year:hover {
@@ -10686,7 +10619,6 @@ li.ant-calendar-time-picker-select-option-disabled:hover {
   line-height: 24px;
   padding: 0 6px;
   border-radius: 4px;
-  -webkit-transition: background 0.3s ease;
   transition: background 0.3s ease;
 }
 .ant-calendar-decade-panel-decade:hover {

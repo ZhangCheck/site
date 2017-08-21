@@ -8,15 +8,15 @@ webpackJsonp([3],[
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _aiFormTable = __webpack_require__(167);
+	var _aiFormTable = __webpack_require__(261);
 
-	var _framework = __webpack_require__(246);
+	var _framework = __webpack_require__(191);
 
-	var _jsonp = __webpack_require__(250);
+	var _jsonp = __webpack_require__(268);
 
 	var _jsonp2 = _interopRequireDefault(_jsonp);
 
-	var _AiFormTable = __webpack_require__(443);
+	var _AiFormTable = __webpack_require__(438);
 
 	var _AiFormTable2 = _interopRequireDefault(_AiFormTable);
 
