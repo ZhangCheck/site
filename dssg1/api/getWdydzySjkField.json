@@ -1,0 +1,49 @@
+{
+    "success": true,
+    "code": "0",
+    "message": "success",
+    "data": [
+        {
+            "columnName": "ID",
+            "columnCode": "ID",
+            "type": "VARCHAR",
+            "valueType": "12"
+        },
+        {
+            "columnName": "RESOURCE_ID",
+            "columnCode": "RESOURCE_ID",
+            "type": "VARCHAR",
+            "valueType": "12"
+        },
+        {
+            "columnName": "APPLY_REASON",
+            "columnCode": "APPLY_REASON",
+            "type": "VARCHAR",
+            "valueType": "12"
+        },
+        {
+            "columnName": "APPLY_TIME",
+            "columnCode": "APPLY_TIME",
+            "type": "DATETIME",
+            "valueType": "93"
+        },
+        {
+            "columnName": "APPLY_EQUIPMENT",
+            "columnCode": "APPLY_EQUIPMENT",
+            "type": "VARCHAR",
+            "valueType": "12"
+        },
+        {
+            "columnName": "STATE",
+            "columnCode": "STATE",
+            "type": "INT",
+            "valueType": "3"
+        },
+        {
+            "columnName": "PK",
+            "columnCode": "ID",
+            "type": null,
+            "valueType": null
+        }
+    ]
+}

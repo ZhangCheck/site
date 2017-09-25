@@ -1,0 +1,44 @@
+{
+	"success": true,
+	"code": "0",
+	"message": "success",
+	"data": {
+		"id": "5bb10d670e39463b9236ef41c5035ad4",
+		"resName": "SQLSERVER目录4",
+		"resEname": "TEST",
+		"resType": "1",
+		"resCode": "10004",
+		"resLevel": "1",
+		"themeType": "86be522e-4c77-4847-ac60-6310e81792f6",
+		"departmentType": "9db81c5f-c751-4cde-a84d-84d86a8215a1",
+		"dbJson": "[{\"name\":\"ID\",\"ename\":\"ID\",\"code\":\"10\",\"type\":\"12\",\"length\":\"20\",\"mandatory\":\"0\",\"index\":\"1\"}]",
+		"dispatchStrategyJson": "{\"dispatchType\":1,\"beginTime\":\"2016-01-01 12:10:10\",\"cycle\":3,\"dateTypeMin\":2,\"dateTypeMax\":\"\",\"day\":\"\",\"hour\":\"\",\"second\":\"\"}",
+		"metadataDTO": {
+			"restitle": null,
+			"abstracts": "SQLSERVER目录4",
+			"rporgname": null,
+			"address": "SQLSERVER目录4",
+			"keyword": "SQLSERVER目录4",
+			"subjectcarategory": null,
+			"departmentCategory": null,
+			"reason": null,
+			"resourceType": "0"
+		},
+		"processRecordDTO": {
+			"id": "d0c90824668b470eb0b3a922b4d897d3",
+			"resourceId": "5bb10d670e39463b9236ef41c5035ad4",
+			"applyUser": "1643e3ebc99a11e687eb24916c68c49d",
+			"applyTime": "2017-01-17 10:39:30",
+			"applyReason": "SQLSERVER目录4",
+			"reviewUser": "16499115c99a11e687eb24916c68c49d",
+			"reviewTime": "2017-01-17 10:42:09",
+			"reviewDesc": "test",
+			"result": "0",
+			"type": "0",
+			"effectiveData": null,
+			"deleteFlag": "-1"
+		},
+		"resSubscribeDTO": null,
+		"sysEquipmentSubscribeDTO": null
+	}
+}

@@ -1,0 +1,173 @@
+{
+	"success": true,
+	"code": "0",
+	"message": "success",
+	"data": [
+	    {   
+		    "name":"根域",
+			"id":"xxx",
+			"key":"xxx",
+			"children":[
+				{   
+					"name": "政法域",
+					"id": "aaa",
+					"key": "aaa",
+					"url":"/datalistV1/ftpMlgl/list/11/10",
+					"children": [
+						{
+							"name": "南京公安局",
+							"id": "bbb",
+							"key": "bbb",
+							"url": "/datalistV1/ftpMlgl2/list/11/10"
+						},
+						{
+							"name": "行政单位",
+							"id": "ddd",
+							"key": "ddd",
+							"url": "/datalistV1/ftpMlgl2/list/11/10"
+							
+						}
+					]
+				},
+				{   
+					"name": "政务域",
+					"id": "21",
+					"key": "21",
+					"url":"/datalistV1/ftpMlgl/list/11/10",
+					"children": [
+						{
+							"name": "省公安厅资源目录",
+							"id": "211",
+							"key": "211",
+							"url": "/datalistV1/ftpMlgl2/list/11/10"
+						},
+						{
+							"name": "省人力社保厅资源目录",
+							"id": "212",
+							"key": "212",
+							"url": "/datalistV1/ftpMlgl2/list/11/10"
+						},
+						{
+							"name": "省环保厅资源目录",
+							"id": "213",
+							"key": "213",
+							"url": "/datalistV1/ftpMlgl2/list/11/10"
+						}
+					]
+				},
+				{   
+					"name": "社会服务域",
+					"id": "31",
+					"url":"/datalistV1/ftpMlgl/list/11/10",
+					"key": "31"
+				},
+				{   
+					"name": "政法域",
+					"id": "zzz",
+					"key": "zzz",
+					"url":"/datalistV1/ftpMlgl/list/11/10",
+					"children": [
+						{
+							"name": "南京公安局",
+							"id": "www",
+							"key": "www",
+							"url": "/datalistV1/ftpMlgl2/list/11/10"
+						},
+						{
+							"name": "行政单位",
+							"id": "yyy",
+							"key": "yyy",
+							"url": "/datalistV1/ftpMlgl2/list/11/10"
+							
+						}
+					]
+				},
+				{   
+					"name": "政务域",
+					"id": "999",
+					"key": "999",
+					"url":"/datalistV1/ftpMlgl/list/11/10",
+					"children": [
+						{
+							"name": "省公安厅资源目录",
+							"id": "888",
+							"key": "888",
+							"url": "/datalistV1/ftpMlgl2/list/11/10"
+						},
+						{
+							"name": "省人力社保厅资源目录",
+							"id": "777",
+							"key": "777",
+							"url": "/datalistV1/ftpMlgl2/list/11/10"
+						},
+						{
+							"name": "省环保厅资源目录",
+							"id": "666",
+							"key": "666",
+							"url": "/datalistV1/ftpMlgl2/list/11/10"
+						}
+					]
+				},
+				{   
+					"name": "社会服务域",
+					"id": "555",
+					"url":"/datalistV1/ftpMlgl/list/11/10",
+					"key": "555"
+				},
+				{   
+					"name": "政法域",
+					"id": "444",
+					"key": "444",
+					"url":"/datalistV1/ftpMlgl/list/11/10",
+					"children": [
+						{
+							"name": "南京公安局",
+							"id": "333",
+							"key": "333",
+							"url": "/datalistV1/ftpMlgl2/list/11/10"
+						},
+						{
+							"name": "行政单位",
+							"id": "222",
+							"key": "222",
+							"url": "/datalistV1/ftpMlgl2/list/11/10"
+							
+						}
+					]
+				},
+				{   
+					"name": "政务域",
+					"id": "099",
+					"key": "099",
+					"url":"/datalistV1/ftpMlgl/list/11/10",
+					"children": [
+						{
+							"name": "省公安厅资源目录",
+							"id": "088",
+							"key": "088",
+							"url": "/datalistV1/ftpMlgl2/list/11/10"
+						},
+						{
+							"name": "省人力社保厅资源目录",
+							"id": "077",
+							"key": "077",
+							"url": "/datalistV1/ftpMlgl2/list/11/10"
+						},
+						{
+							"name": "省环保厅资源目录",
+							"id": "066",
+							"key": "066",
+							"url": "/datalistV1/ftpMlgl2/list/11/10"
+						}
+					]
+				},
+				{   
+					"name": "社会服务域",
+					"id": "055",
+					"url":"/datalistV1/ftpMlgl/list/11/10",
+					"key": "055"
+				}
+		    ]
+		}
+	]
+}

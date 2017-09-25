@@ -1,0 +1,47 @@
+{
+    "success": true,
+    "code": "0",
+    "message": "success",
+    "data": {
+        "roleName": "共享目录管理",
+        "myMenu": [
+            "78e7bca05dd941759d96fdfaaac23ae9",
+            "cfe2642d68884957b137a1bb18395804"
+        ],
+        "roleId": "a4a657e0dce94c518c489e6d48898727",
+        "allMenu": [
+            {
+                "value": "78e7bca05dd941759d96fdfaaac23ae9",
+                "key": "78e7bca05dd941759d96fdfaaac23ae9",
+                "label": "权限管理",
+                "children": [
+                    {
+                        "value": "dbb548a725294751ae0cafe36e8c0afe",
+                        "key": "dbb548a725294751ae0cafe36e8c0afe",
+                        "label": "用户管理",
+                        "children": []
+                    },
+                    {
+                        "value": "cfe2642d68884957b137a1bb18395804",
+                        "key": "cfe2642d68884957b137a1bb18395804",
+                        "label": "角色管理",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "value": "778c8a92df5849a2ad70845165aa1222",
+                "key": "778c8a92df5849a2ad70845165aa1222",
+                "label": "系统管理",
+                "children": [
+                    {
+                        "value": "ba29ffdcf44546c5a5d92afd242ebac8",
+                        "key": "ba29ffdcf44546c5a5d92afd242ebac8",
+                        "label": "参数配置",
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    }
+}

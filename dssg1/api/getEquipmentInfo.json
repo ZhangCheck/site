@@ -1,0 +1,145 @@
+{
+  "success": true,
+  "code": "0",
+  "message": "success",
+  "data": [
+    {
+      "cname": "南京永辉网络工程有限公司",
+      "pid": "0",
+      "id": "343290debd3842868596f88bde884548",
+      "equimentId": null,
+      "companyId": null,
+      "name": null,
+      "contacts": null,
+      "telphone": null,
+      "identifyication": null,
+      "equipmentIdentify": null,
+      "updateTime": null,
+      "iseq": "false",
+      "children": [
+        {
+          "cname": "南京立聪堂听觉康复有限公司",
+          "pid": "343290debd3842868596f88bde884548",
+          "id": "281e2547ae9b4350b614273ccdf16e10",
+          "equimentId": null,
+          "companyId": null,
+          "name": null,
+          "contacts": null,
+          "telphone": null,
+          "identifyication": null,
+          "equipmentIdentify": null,
+          "updateTime": null,
+          "iseq": "false",
+          "children": []
+        },
+        {
+          "cname": "南京云网汇联软件有限公司",
+          "pid": "343290debd3842868596f88bde884548",
+          "id": "481b8a0e3cf54f4fa2be2e014b432f23",
+          "equimentId": null,
+          "companyId": null,
+          "name": null,
+          "contacts": null,
+          "telphone": null,
+          "identifyication": null,
+          "equipmentIdentify": null,
+          "updateTime": null,
+          "iseq": "false",
+          "children": []
+        }
+      ]
+    },
+    {
+      "cname": "南京市雨花台区奇福仪器厂",
+      "pid": "0",
+      "id": "5b4490a3496c48a797eef4b29c3121af",
+      "equimentId": "bf25a78491c14d2c85517f86ed19caa7",
+      "companyId": "5b4490a3496c48a797eef4b29c3121af",
+      "name": "业务设备2",
+      "contacts": "周结论",
+      "telphone": "18989898989",
+      "identifyication": "1111",
+      "equipmentIdentify": "dddd-asa-dd",
+      "updateTime": "2017-04-18 15:09:17.0",
+      "iseq": "true",
+      "children": [
+        {
+          "cname": "南京纳加软件有限公司",
+          "pid": "5b4490a3496c48a797eef4b29c3121af",
+          "id": "f93a1e3f8eef45e8910eb89e6c0acf09",
+          "equimentId": null,
+          "companyId": null,
+          "name": null,
+          "contacts": null,
+          "telphone": null,
+          "identifyication": null,
+          "equipmentIdentify": null,
+          "updateTime": null,
+          "iseq": "false",
+          "children": [
+            {
+              "cname": "江苏省飞博科技股份自然人控股有限公司",
+              "pid": "f93a1e3f8eef45e8910eb89e6c0acf09",
+              "id": "a26018c878014b76a9ebd1927e087747",
+              "equimentId": null,
+              "companyId": null,
+              "name": null,
+              "contacts": null,
+              "telphone": null,
+              "identifyication": null,
+              "equipmentIdentify": null,
+              "updateTime": null,
+              "iseq": "false",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cname": "江苏南大先腾信息产业股份有限公司",
+      "pid": "0",
+      "id": "8c271e64321a40298db9cf07a91ee8be",
+      "equimentId": null,
+      "companyId": null,
+      "name": null,
+      "contacts": null,
+      "telphone": null,
+      "identifyication": null,
+      "equipmentIdentify": null,
+      "updateTime": null,
+      "iseq": "false",
+      "children": []
+    },
+    {
+      "cname": "南京紫翼电子科技有限公司",
+      "pid": "0",
+      "id": "98b3a22bffd245e8941b55f018fb7b01",
+      "equimentId": null,
+      "companyId": null,
+      "name": null,
+      "contacts": null,
+      "telphone": null,
+      "identifyication": null,
+      "equipmentIdentify": null,
+      "updateTime": null,
+      "iseq": "false",
+      "children": []
+    },
+    {
+      "cname": "南京神盾信息技术有限公司",
+      "pid": "0",
+      "id": "df1cacd6a9f540e290cc1b517bd71e6f",
+      "equimentId": null,
+      "companyId": null,
+      "name": null,
+      "contacts": null,
+      "telphone": null,
+      "identifyication": null,
+      "equipmentIdentify": null,
+      "updateTime": null,
+      "iseq": "false",
+      "children": []
+    }
+  ]
+}

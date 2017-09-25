@@ -1,0 +1,32 @@
+{
+  "success": true,
+  "code": "0",
+  "message": "success",
+  "data": [
+      {
+
+        "tableName": "res_category",
+        "tableData": [
+          {"columnName":"id","columnCode":"idabcdefghikgklmnopqrstabcdefghikgklmnopqrstabcdefghikgklmnopqrst","type":"int","valueType":"3","pk":false,"tableName":"tableName1"},
+          {"columnName":"name","columnCode":"name","type":"int","valueType":"3","pk":false,"tableName":"tableName1"}
+
+        ]
+      },
+      {
+        "tableName": "res_center_category",
+        "tableData": [
+          {"columnName":"id1","columnCode":"idabcdefghikgklmnopqrstabcdefghikgklmnopqrstabcdefghikgklmnopqrst1","type":"int","valueType":"3","pk":false,"tableName":"tableName2"},
+          {"columnName":"name1","columnCode":"name1","type":"int","valueType":"3","pk":false,"tableName":"tableName2"}
+
+        ]
+      },
+      {
+        "tableName": "res_center_company",
+        "tableData": [
+          {"columnName":"id3","columnCode":"id3","type":"int","valueType":"3","pk":false,"tableName":"tableName3"},
+          {"columnName":"name3","columnCode":"name3","type":"int","valueType":"3","pk":false,"tableName":"tableName3"}
+
+        ]
+      }
+  ]
+}

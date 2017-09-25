@@ -1,0 +1,17 @@
+{
+    "success": true,
+    "code": "0",
+    "message": "success",
+    "data": [
+        {
+            "CODE": "String(50)",
+            "PID": "String(50)",
+            "PK": "ID",
+            "ID": "String(36)",
+            "LEVEL": "Integer(1)",
+            "IDEX": "Integer(11)",
+            "NAME": "String(50)",
+            "CATEGORY_TYPE": "Integer(11)"
+        }
+    ]
+}

@@ -1,0 +1,88 @@
+{
+  "success": true,
+  "data":[{
+    "id":10,
+    "key": 910,
+    "name": "设备名称",
+    "code": "",
+    "contacts":"",
+    "telphone":"",
+    "time": "",
+    "children": [{
+      "id":101,
+      "key": 9101,
+      "name": "鼓楼设备",
+      "code": "DSSG10009810",
+      "contacts":"XXXX",
+      "telphone":"18765392922",
+      "time": "2016-12-16 12:00"
+    }, {
+      "id":102,
+      "key": 9102,
+      "name": "栖霞设备",
+      "code": "DSSG10009810",
+      "contacts":"XXXX",
+      "telphone":"18765392922",
+      "time": "2016-12-16 12:00"
+    }]
+  }, {
+    "id":20,
+    "key": 920,
+    "name": "市政公安局",
+    "code": "",
+    "contacts":"",
+    "telphone":"",
+    "time": "",
+    "children": [{
+      "id":201,
+      "key": 9201,
+      "name": "公交公司",
+      "code": "",
+      "contacts":"",
+      "telphone":"",
+      "time": "",
+      "children": [{
+        "id":211,
+        "key": 9211,
+        "name": "公交电机",
+        "code": "DSSG10009810",
+        "contacts":"XXXX",
+        "telphone":"18765392922",
+        "time": "2016-12-16 12:00"
+      }, {
+        "id":212,
+        "key": 9212,
+        "name": "公交座椅",
+        "code": "DSSG10009810",
+        "contacts":"XXXX",
+        "telphone":"18765392922",
+        "time": "2016-12-16 12:00"
+      }]
+    }]
+  },{
+    "id":30,
+    "key": 930,
+    "name": "刑事犯罪类",
+    "code": "",
+    "contacts":"",
+    "telphone":"",
+    "time": "",
+    "children": [{
+      "id":301,
+      "key": 9301,
+      "name": "鼓楼设备",
+      "code": "DSSG10009810",
+      "contacts":"XXXX",
+      "telphone":"18765392922",
+      "time": "2016-12-16 12:00"
+    }, {
+      "id":302,
+      "key": 9302,
+      "name": "鼓楼设备",
+      "code": "DSSG10009810",
+      "contacts":"XXXX",
+      "telphone":"18765392922",
+      "time": "2016-12-16 12:00"
+    }]
+  }]
+}

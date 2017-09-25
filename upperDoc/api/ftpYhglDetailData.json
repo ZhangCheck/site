@@ -1,0 +1,13 @@
+{
+  "success": true,
+  "code": "0",
+  "message": "success",
+  "data": {
+    "id": "3",
+    "name": "333",
+    "password": "333",
+    "confirmPassword": null,
+    "homeDirectory": "/",
+    "writePermission": "0"
+  }
+}

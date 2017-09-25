@@ -1,0 +1,7 @@
+.page1{    background-image: url(../images/iceBg.jpg);}
+.v2PreTitle{font-size:24px;font-weight: bold;color:#000;}
+.v2Subtitle{font-size:40px;background: #004c78;color:#fff;display:inline-block;padding: 5px 20px;margin-top:10px;}
+.v2Right{/* display:none; */height:100%;width:auto;position:absolute;right:0;top:0;}
+.page1Txt{left:11%;right:auto;text-align: left;}
+.page1Txt .parah-wrap{color:#fff; }
+.img-responsive{margin-top:10px;}

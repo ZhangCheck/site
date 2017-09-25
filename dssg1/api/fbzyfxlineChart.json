@@ -1,0 +1,30 @@
+{"success":true,"code":"0","message":"success","data":[
+	{
+		"xvalue":1,
+		"yvalue":100
+	},
+	{
+		"xvalue":2,
+		"yvalue":90
+	},
+	{
+		"xvalue":3,
+		"yvalue":94
+	},
+	{
+		"xvalue":4,
+		"yvalue":80
+	},
+	{
+		"xvalue":5,
+		"yvalue":88
+	},
+	{
+		"xvalue":6,
+		"yvalue":90
+	},
+	{
+		"xvalue":7,
+		"yvalue":100
+	}
+]}

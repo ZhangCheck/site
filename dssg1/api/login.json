@@ -1,0 +1,25 @@
+{
+    "success": true,
+    "code": "0",
+    "message": "success",
+    "data": {
+        "token": "563776a2-8da4-48f2-8b7f-5966108bf091",
+        "loginUserProfileDTO": {
+            "id": "00902b9ac99a11e687eb24916c68c49d",
+            "loginName": "admin@dssg1",
+            "name": "系统管理员",
+            "loginState": "2",
+            "roles": {
+                "id": "0c9704afc98d11e687eb24916c68c49d",
+                "code": "ROLE_ADMIN",
+                "name": "系统管理员",
+                "description": "系统管理员",
+                "pid": "",
+                "new": false
+            },
+			"centerDssgEnable":true,
+			"equimentDssgEnable":true, 
+			"settingWindowEnable":true  
+        }
+    }
+}

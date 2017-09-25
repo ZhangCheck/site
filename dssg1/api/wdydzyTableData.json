@@ -1,0 +1,32 @@
+{
+  "success": true,
+  "code": "0",
+  "message": "success",
+  "data": {
+    "content": [
+      {
+        "id":"34443aa",
+        "resName":"人口管理系统",
+        "resCode":"NB",
+        "resLevel":"一级",
+        "themeType":"治安",
+        "departmentType":"公安",
+        "resType":"数据库",
+        "cycle":"每月",
+        "publishDept":"江苏省公安厅",
+        "state":"2016-12-01 13:00:00",
+        "subscripPereosns":"xxx",
+        "applyTime":"2016-12-01 13:00:00"
+
+      }
+    ],
+    "totalPages": "0",
+    "last": true,
+    "totalElements": "0",
+    "sort": null,
+    "first": true,
+    "numberOfElements": "0",
+    "size": "20",
+    "number": "0"
+  }
+}

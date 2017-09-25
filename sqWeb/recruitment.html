@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>香港閃奇</title>
+<link href="css/common.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-1.7.2.min.js" type="text/javascript" language="javascript"></script>
+<script src="js/common.js" type="text/javascript" language="javascript"></script>
+<script type="text/javascript" language="javascript">
+$(function(){
+	var $div_li =$("#tab a");
+	$div_li.click(function(){
+		$(this).addClass("infotab_click") 
+			   .siblings().removeClass("infotab_click");  
+		var index =  $div_li.index(this);  
+		$("#tabcon > div") 
+				.eq(index).show()  
+				.siblings().hide(); 
+	}).hover(function(){
+		$(this).addClass("infotab_hover");
+	},function(){
+		$(this).removeClass("infotab_hover");
+	})
+})
+</script>
+</head>
+
+<body class="qii font_traditional">
+
+<!--头部-->
+<div class="head" id="head">
+     <div class="headmain"> 
+        <a href="index.html" class="logo"></a>
+        <div class="headdetail">
+              <p class="headnav">
+                 <a href="index.html">首頁</a>
+                 <a href="3payer.html">手遊支付</a>
+                 <a href="gaming3.html">手游發行</a>
+                 <a href="channels3.html">管道聯盟</a>
+                 <a href="http://www.3ucd.com/" target="_blank">交互設計</a>
+              </p>
+              <p class="headlink">
+                <a href="about.html">關於</a>
+                <em></em>
+                <a href="recruitment.html" class="head_click">招聘</a>
+                <em></em>
+                <a href="contact.html">聯繫</a>
+              </p>
+              <div class="headversion">
+                    <a href="javascript:void(0);">
+                      <span>中文繁體</span>
+                      <em></em>
+                    </a>
+                    <ul>
+                      <li><a href="index_en.html">ENGLISH</a></li>
+                      <li><a href="index.html">中文繁體</a></li>
+                      <li><a href="index_sim.html">中文簡體</a></li>
+                    </ul>
+              </div>
+        </div>
+     </div>
+</div>
+
+<!--内容-->
+<div class="middle"> 
+      <div class="recruitmenttitle">
+         <p>
+           <em></em>
+           <span>給自己站在更大的舞臺一個機會</span>
+         </p>
+         <ul>
+            <li>閃奇正在積極發展中，我們一直為優秀人才提供多元化的空間和在職培訓；</li>
+            <li>我們長期面向社會招募不同用戶體驗設計的專業人才，配合我們在深圳、北京、上海和成都設計中心的發展。</li>
+            <li>想加入我們的團隊？快把簡歷發到hr@3qii.com吧！</li>
+         </ul>
+      </div>
+      <div class="infotab"  id="tab">
+         <a href="javascript:void(0);" class="infotab_click">最新</a>
+         <a href="javascript:void(0);">商務</a>
+         <a href="javascript:void(0);">開發</a>
+         <a href="javascript:void(0);">設計</a>
+         <a href="javascript:void(0);">其他</a>         
+      </div>
+      <div id="tabcon">
+          <div>
+             <div class="info">
+                 <div class="infotitle">
+                     <em></em>
+                     <span>海外商務經理（印尼）（1名）</span>
+                 </div>
+                 <p>職責</p>
+                 <ul>
+                    <li>1、負責面向東南亞地區的移動應用商店和遊戲廠商的海外計費管道對接、代理發行、推廣管道、線下預裝和刷機業務規劃、拓展、客戶關係維繫、合同簽訂 、交付、結算、回款；</li>
+                    <li>2、深度挖掘重點客戶的潛在需求，為客戶提供滿意的解決方案；</li>
+                    <li>3、對潛在客戶進行定期跟蹤，定期回饋銷售進度，完成公司銷售目標；</li>
+                    <li>4、跟蹤整個銷售流程，回應客戶要求，接受客戶投訴，為客戶解決問題。</li>
+                 </ul>
+                 <p>要求</p>
+                 <ul>
+                    <li>1、本科及以上學歷，畢業一年以上，有一年以上協力廠商管道推廣經驗或者手機預裝經驗；</li>
+                    <li>2、熱愛移動互聯網行業，熱愛遊戲行業，對手機遊戲及應用產品有深刻的認識和熱情；</li>
+                    <li>3、具有良好的合作能力、溝通協調能力、高度的責任心以及團隊合作意識和專業進取精神；</li>
+                    <li>4、工作積極主動，具有較強的執行力和市場拓展能力；</li>
+                    <li>5、當地華人，熟練使用中文、印尼語，英文聽說讀寫良好；</li>
+                    <li>6、熟練使用office系列辦公軟體；</li>
+                    <li>7、有知名手機遊戲公司商務拓展或者應用商店公司相關工作經驗者優先；</li>
+                    <li>8、具有良好的文字功底，能夠獨立撰寫各種商務檔。</li>
+                    <li>簡歷請發至：hr@3qii.com</li>
+                 </ul>
+             </div>
+             <div class="info">
+                 <div class="infotitle">
+                     <em></em>
+                     <span>前端開發（若干）</span>
+                 </div>
+                 <p>職責</p>
+                 <ul>
+                    <li>1、熟練使用Java_script、HTML/HTML5/XML、CSS/CSS3、Ajax等前端開發技術,熟悉W3C標準；</li>
+                    <li>2、根據產品設計文檔和視覺檔，利用HTML5相關技術開發移動平臺的web前端頁面；</li>
+                    <li>3、基於HTML5.0標準進行頁面製作，編寫可複用的使用者介面元件；</li>
+                    <li>4、持續的優化前端體驗和頁面回應速度，並保證相容性和執行效率；</li>
+                    <li>5、配合後臺工程師一起研討技術實現方案，進行應用及系統整合。</li>
+                 </ul>
+                 <p>要求</p>
+                 <ul>
+                    <li>1、熟悉JQuery Mobile，Sencha Touch，PhoneGap等跨平臺移動應用中介軟體框架；</li>
+                    <li>2、瞭解PC不同流覽器的差異重點IE10 IE8 Google Mozilla Firefox Safari 等；</li>
+                    <li>3、有實際移動平臺web前端開發和HTML5實踐工作經驗優先考慮；</li>
+                    <li>4、有android、iphone、ipad等智慧手機和平板開發經驗優先考慮；</li>
+                    <li>5、有微信公眾平臺應用開發經驗者優先考慮；</li>
+                    <li>6、良好的邏輯思維能力和團隊合作能力，有快速分析和解決問題的能力；</li>
+                    <li>7、工作積極主動，責任心強，工作踏實嚴謹。</li>
+                    <li>簡歷請發至：hr@3qii.com</li>
+                 </ul>
+             </div>
+             <div class="info">
+                 <div class="infotitle">
+                     <em></em>
+                     <span>視覺設計師</span>
+                 </div>
+                 <p>職責</p>
+                 <ul>
+                    <li>1、為大型電子商務網站進行視覺風格推導並完成設計方案；</li>
+                    <li>2、為電子商務新產品與新功能提供創意策劃以及使用者介面的設計方案；</li>
+                    <li>3、為日常的運營活動及功能維護提供視覺支援；</li>
+                    <li>4、參與前瞻性產品的創意設計和動態DEMO的實現。</li>
+                 </ul>
+                 <p>要求</p>
+                 <ul>
+                    <li>1、本科或以上學歷，3年以上電子商務相關行業的工作經驗；</li>
+                    <li>2、熱愛設計、擁有寬廣的行業視野與審美標準；</li>
+                    <li>3、深厚的設計理論與嫺熟的設計技巧；</li>
+                    <li>4、強大的執行力與強烈的創新欲望；</li>
+                    <li>5、極具天賦的新人或激情不減的資深設計師；</li>
+                    <li>6、富有激情、積極主動、關注細節、學習能力強；</li>
+                    <li>7、良好的口頭表達能力和寫作能力。</li>
+                    <li>簡歷請發至：hr@3qii.com</li>
+                 </ul>
+             </div>
+             <div class="info">
+                 <div class="infotitle">
+                     <em></em>
+                     <span>交互設計師</span>
+                 </div>
+                 <p>職責</p>
+                 <ul>
+                    <li>1、對電子商務行業的發展及產品規劃有較深刻的理解；</li>
+                    <li>2、設計使用者行為及產品的資訊構架，保證產品的可用性；</li>
+                    <li>3、參與電子商務產品規劃構思，歸納使用者目標，使用者任務；</li>
+                    <li>4、參與使用者研究，根據使用者研究的結果對設計方案進行優化；</li>
+                    <li>5、對現有產品的可用性測試和評估提出改進方案，持續優化產品的使用者體驗；</li>
+                    <li>6、參與介面規範的制定與實施；</li>
+                    <li>7、參與組織建設交互設計團隊，負責培養新人。</li>
+                 </ul>
+                 <p>要求</p>
+                 <ul>
+                    <li>1、本科以上學歷，工業設計、電腦、心理學等相關專業，英語四級；</li>
+                    <li>2、3年以上的網頁、軟體行業交互設計工作經驗，並有成功案例；</li>
+                    <li>3、熟悉網站構建的相關流程，包括網站功能分析、用戶角色分析、原型設計、介面開發、易用性測試等；</li>
+                    <li>4、對電子商務行業有深入體驗經驗和理解；</li>
+                    <li>5、能夠提供高品質的產品原型、流程圖、線框圖等清晰的表達設計方案；</li>
+                    <li>6、熟練運用交互設計各種方法，對交互設計理論有較深的瞭解和認識；</li>
+                    <li>7、對業界最新的交互應用有深入的見解；</li>
+                    <li>8、對用戶體驗和易用性有敏銳的把握能力；</li>
+                    <li>9、個性樂觀開朗，善於和各種背景的人合作；</li>
+                    <li>10、富有激情、積極主動、關注細節、學習能力強；</li>
+                    <li>11、有良好的英語閱讀能力；</li>
+                    <li>簡歷請發至：hr@3qii.com</li>
+                 </ul>
+             </div>             
+          </div>
+          <div class="infotabcon">
+             <div class="info">
+                 <div class="infotitle">
+                     <em></em>
+                     <span>海外商務經理（印尼）（1名）</span>
+                 </div>
+                 <p>職責</p>
+                 <ul>
+                    <li>1、負責面向東南亞地區的移動應用商店和遊戲廠商的海外計費管道對接、代理發行、推廣管道、線下預裝和刷機業務規劃、拓展、客戶關係維繫、合同簽訂 、交付、結算、回款；</li>
+                    <li>2、深度挖掘重點客戶的潛在需求，為客戶提供滿意的解決方案；</li>
+                    <li>3、對潛在客戶進行定期跟蹤，定期回饋銷售進度，完成公司銷售目標；</li>
+                    <li>4、跟蹤整個銷售流程，回應客戶要求，接受客戶投訴，為客戶解決問題。</li>
+                 </ul>
+                 <p>要求</p>
+                 <ul>
+                    <li>1、本科及以上學歷，畢業一年以上，有一年以上協力廠商管道推廣經驗或者手機預裝經驗；</li>
+                    <li>2、熱愛移動互聯網行業，熱愛遊戲行業，對手機遊戲及應用產品有深刻的認識和熱情；</li>
+                    <li>3、具有良好的合作能力、溝通協調能力、高度的責任心以及團隊合作意識和專業進取精神；</li>
+                    <li>4、工作積極主動，具有較強的執行力和市場拓展能力；</li>
+                    <li>5、當地華人，熟練使用中文、印尼語，英文聽說讀寫良好；</li>
+                    <li>6、熟練使用office系列辦公軟體；</li>
+                    <li>7、有知名手機遊戲公司商務拓展或者應用商店公司相關工作經驗者優先；</li>
+                    <li>8、具有良好的文字功底，能夠獨立撰寫各種商務檔。</li>
+                    <li>簡歷請發至：hr@3qii.com</li>
+                 </ul>
+             </div>
+          </div>
+          <div class="infotabcon">
+             <div class="info">
+                 <div class="infotitle">
+                     <em></em>
+                     <span>前端開發（若干）</span>
+                 </div>
+                 <p>職責</p>
+                 <ul>
+                    <li>1、熟練使用Java_script、HTML/HTML5/XML、CSS/CSS3、Ajax等前端開發技術,熟悉W3C標準；</li>
+                    <li>2、根據產品設計文檔和視覺檔，利用HTML5相關技術開發移動平臺的web前端頁面；</li>
+                    <li>3、基於HTML5.0標準進行頁面製作，編寫可複用的使用者介面元件；</li>
+                    <li>4、持續的優化前端體驗和頁面回應速度，並保證相容性和執行效率；</li>
+                    <li>5、配合後臺工程師一起研討技術實現方案，進行應用及系統整合。</li>
+                 </ul>
+                 <p>要求</p>
+                 <ul>
+                    <li>1、熟悉JQuery Mobile，Sencha Touch，PhoneGap等跨平臺移動應用中介軟體框架；</li>
+                    <li>2、瞭解PC不同流覽器的差異重點IE10 IE8 Google Mozilla Firefox Safari 等；</li>
+                    <li>3、有實際移動平臺web前端開發和HTML5實踐工作經驗優先考慮；</li>
+                    <li>4、有android、iphone、ipad等智慧手機和平板開發經驗優先考慮；</li>
+                    <li>5、有微信公眾平臺應用開發經驗者優先考慮；</li>
+                    <li>6、良好的邏輯思維能力和團隊合作能力，有快速分析和解決問題的能力；</li>
+                    <li>7、工作積極主動，責任心強，工作踏實嚴謹。</li>
+                    <li>簡歷請發至：hr@3qii.com</li>
+                 </ul>
+             </div>
+          </div>
+          <div class="infotabcon">
+             <div class="info">
+                 <div class="infotitle">
+                     <em></em>
+                     <span>視覺設計師</span>
+                 </div>
+                 <p>職責</p>
+                 <ul>
+                    <li>1、為大型電子商務網站進行視覺風格推導並完成設計方案；</li>
+                    <li>2、為電子商務新產品與新功能提供創意策劃以及使用者介面的設計方案；</li>
+                    <li>3、為日常的運營活動及功能維護提供視覺支援；</li>
+                    <li>4、參與前瞻性產品的創意設計和動態DEMO的實現。</li>
+                 </ul>
+                 <p>要求</p>
+                 <ul>
+                    <li>1、本科或以上學歷，3年以上電子商務相關行業的工作經驗；</li>
+                    <li>2、熱愛設計、擁有寬廣的行業視野與審美標準；</li>
+                    <li>3、深厚的設計理論與嫺熟的設計技巧；</li>
+                    <li>4、強大的執行力與強烈的創新欲望；</li>
+                    <li>5、極具天賦的新人或激情不減的資深設計師；</li>
+                    <li>6、富有激情、積極主動、關注細節、學習能力強；</li>
+                    <li>7、良好的口頭表達能力和寫作能力。</li>
+                    <li>簡歷請發至：hr@3qii.com</li>
+                 </ul>
+             </div>
+          </div>
+          <div class="infotabcon">
+             <div class="info">
+                 <div class="infotitle">
+                     <em></em>
+                     <span>交互設計師</span>
+                 </div>
+                 <p>職責</p>
+                 <ul>
+                    <li>1、對電子商務行業的發展及產品規劃有較深刻的理解；</li>
+                    <li>2、設計使用者行為及產品的資訊構架，保證產品的可用性；</li>
+                    <li>3、參與電子商務產品規劃構思，歸納使用者目標，使用者任務；</li>
+                    <li>4、參與使用者研究，根據使用者研究的結果對設計方案進行優化；</li>
+                    <li>5、對現有產品的可用性測試和評估提出改進方案，持續優化產品的使用者體驗；</li>
+                    <li>6、參與介面規範的制定與實施；</li>
+                    <li>7、參與組織建設交互設計團隊，負責培養新人。</li>
+                 </ul>
+                 <p>要求</p>
+                 <ul>
+                    <li>1、本科以上學歷，工業設計、電腦、心理學等相關專業，英語四級；</li>
+                    <li>2、3年以上的網頁、軟體行業交互設計工作經驗，並有成功案例；</li>
+                    <li>3、熟悉網站構建的相關流程，包括網站功能分析、用戶角色分析、原型設計、介面開發、易用性測試等；</li>
+                    <li>4、對電子商務行業有深入體驗經驗和理解；</li>
+                    <li>5、能夠提供高品質的產品原型、流程圖、線框圖等清晰的表達設計方案；</li>
+                    <li>6、熟練運用交互設計各種方法，對交互設計理論有較深的瞭解和認識；</li>
+                    <li>7、對業界最新的交互應用有深入的見解；</li>
+                    <li>8、對用戶體驗和易用性有敏銳的把握能力；</li>
+                    <li>9、個性樂觀開朗，善於和各種背景的人合作；</li>
+                    <li>10、富有激情、積極主動、關注細節、學習能力強；</li>
+                    <li>11、有良好的英語閱讀能力；</li>
+                    <li>簡歷請發至：hr@3qii.com</li>
+                 </ul>
+             </div>
+          </div>
+       </div>
+</div>
+
+
+<!--底部-->
+<div class="bottom">
+	<div class="bottomdetail">
+       <div class="bottommain">
+            <ul>
+               <li class="bottomlogo"></li>
+               <li>香港閃奇資訊技術有限公司</li>
+               <li>Copyright 3qii.com. All rights reserved</li>
+               <li class="sitechoose">
+                   <a href="javascript:void(0);">
+                      <span>Family Sites</span>
+                      <em></em>
+                   </a>
+                   <dl>
+                      <dd><a href="http://3qii.com/">3qii.com</a></dd>
+                      <dd><a href="http://gaming3.com/">gaming3.com</a></dd>
+                      <dd><a href="http://3ucd.com/">3ucd.com</a></dd>
+                   </dl>
+               </li>
+            </ul>
+            <ul class="address address_hk">
+               <li class="addresspic addresspic_hk"></li>
+               <li class="addresslist">
+                 <dl>總部（香港）</dl>
+                 <dl><em>商务：</em>victor.hou@3qii.com</dl>
+                 <dl><em>电话：</em>+86 400 728 6033</dl>
+                 <dl><em>地址：</em>香港九龍灣臨興街32號美羅中心一期10樓19室</dl>
+               </li>
+            </ul>
+            <ul class="address address_nj">
+               <li class="addresspic addresspic_nj"></li>
+               <li class="addresslist">
+                 <dl>中國大陸辦公室（南京）</dl>
+                 <dl><em>商务：</em>victor.hou@3qii.com</dl>
+                 <dl><em>电话：</em>+86 025 82211553</dl>
+                 <dl><em>地址：</em>江蘇省南京市雨花臺區花神大道23號1號樓西603</dl>
+               </li>
+            </ul> 
+       </div> 
+	</div>        
+</div>
+
+
+</body>
+</html>

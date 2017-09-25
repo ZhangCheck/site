@@ -1,0 +1,154 @@
+{
+	"success": true,
+	"code": "0",
+	"message": "success",
+	"data": {
+		"content": [{
+			"id": "3ccba9708dc946f0b2710e3c5bdf3685",
+			"innerUserName": "ihamalftp",
+			"innerAddress": "/home/ihamalftp",
+			"outerUserName": "ohamalftp",
+			"outerAddress": "/home/ohamalftp",
+			"createUser": "1",
+			"createTime": "12342453454",
+			"userFlag": "0",
+			"password": "123456",
+			"updateTime": null,
+			"updateUser": null
+		},
+		{
+			"id": "5bb10d670e39463b9236ef41c5035ad4",
+			"innerUserName": "ihamalftp",
+			"innerAddress": "/home/ihamalftp",
+			"outerUserName": "ohamalftp",
+			"outerAddress": "/home/ohamalftp",
+			"createUser": "1",
+			"createTime": "12342453454",
+			"userFlag": "1",
+			"password": "123456",
+			"updateTime": null,
+			"updateUser": null
+
+		},
+		{
+			"id": "df2a1027f1dc4efd8dc052f4448327ba",
+			"innerUserName": "ihamalftp",
+			"innerAddress": "/home/ihamalftp",
+			"outerUserName": "ohamalftp",
+			"outerAddress": "/home/ohamalftp",
+			"createUser": "1",
+			"createTime": "12342453454",
+			"userFlag": "0",
+			"password": "123456",
+			"updateTime": null,
+			"updateUser": null
+
+		},
+		{
+			"id": "6be728ef01c4413aa8bf7f0bc559519b",
+			"innerUserName": "ihamalftp",
+			"innerAddress": "/home/ihamalftp",
+			"outerUserName": "ohamalftp",
+			"outerAddress": "/home/ohamalftp",
+			"createUser": "1",
+			"createTime": "12342453454",
+			"userFlag": "0",
+			"password": "123456",
+			"updateTime": null,
+			"updateUser": null
+
+		},
+		{
+			"id": "e5cbdb7e32af474aabc72679296c976e",
+			"innerUserName": "ihamalftp",
+			"innerAddress": "/home/ihamalftp",
+			"outerUserName": "ohamalftp",
+			"outerAddress": "/home/ohamalftp",
+			"createUser": "1",
+			"createTime": "12342453454",
+			"userFlag": "1",
+			"password": "123456",
+			"updateTime": null,
+			"updateUser": null
+
+		},
+		{
+			"id": "23c7f581929e4e0ebf2bb7c2ce988927",
+			"innerUserName": "ihamalftp",
+			"innerAddress": "/home/ihamalftp",
+			"outerUserName": "ohamalftp",
+			"outerAddress": "/home/ohamalftp",
+			"createUser": "1",
+			"createTime": "12342453454",
+			"userFlag": "1",
+			"password": "123456",
+			"updateTime": null,
+			"updateUser": null
+
+		},
+		{
+			"id": "d921c6c3a6484a958b3af571eeacbe9a",
+			"innerUserName": "ihamalftp",
+			"innerAddress": "/home/ihamalftp",
+			"outerUserName": "ohamalftp",
+			"outerAddress": "/home/ohamalftp",
+			"createUser": "1",
+			"createTime": "12342453454",
+			"userFlag": "0",
+			"password": "123456",
+			"updateTime": null,
+			"updateUser": null
+
+		},
+		{
+			"id": "ed6373be2c0e4620ab4c822722997b49",
+			"innerUserName": "ihamalftp",
+			"innerAddress": "/home/ihamalftp",
+			"outerUserName": "ohamalftp",
+			"outerAddress": "/home/ohamalftp",
+			"createUser": "1",
+			"createTime": "12342453454",
+			"userFlag": "1",
+			"password": "123456",
+			"updateTime": null,
+			"updateUser": null
+
+		},
+		{
+			"id": "8b19aa6736c842e69098ff9eded1a8a2",
+			"innerUserName": "inner",
+			"innerAddress": "/home/inner",
+			"outerUserName": "outer",
+			"outerAddress": "/home/outer",
+			"createUser": "1",
+			"createTime": "12342453454",
+			"userFlag": "1",
+			"password": "123456",
+			"updateTime": null,
+			"updateUser": null
+
+		},
+		{
+			"id": "36380f2941b54b438fc42e39a8389f7e",
+			"innerUserName": "inner",
+			"innerAddress": "/home/inner",
+			"outerUserName": "outer",
+			"outerAddress": "/home/outer",
+			"createUser": "1",
+			"createTime": "12342453454",
+			"userFlag": "0",
+			"password": "123456",
+			"updateTime": null,
+			"updateUser": null
+
+		}],
+		"last": true,
+		"totalPages": "1",
+		"totalElements": "10",
+		"size": "10",
+		"number": "0",
+		"sort": null,
+		"numberOfElements": "10",
+		"first": true
+	}
+}

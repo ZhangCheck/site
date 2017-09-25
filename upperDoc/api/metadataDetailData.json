@@ -1,0 +1,23 @@
+{
+  "success": true,
+  "code": "0",
+  "message": "success",
+  "data": {
+    "id": "3ccba9708dc946f0b2710e3c5bdf3685",
+    "metaName": "身份证号码",
+    "metaEname": "code",
+    "metaCode": "znb-0001",
+    "metaSort": "1",
+    "metaSortName": "人员类",
+    "metaType": "91",
+    "metaTypeName": "文本",
+    "metaLength": "12",
+    "version": "1.2",
+    "submitComp": "公安局",
+    "submitPeople": "XX",
+    "submitTime": "XX",
+    "state": "1",
+    "values": "1",
+    "beforeVersionJsonData": "[{\"metaName\": \"标识\",\"metaEname\": \"ID\",\"metaCode\":\"id\",\"metaSortName\": \"asd\",\"metaType\": \"12\",\"metaLength\": 12,\"version\": \"1.0\",\"submitComp\":\"公安局\",\"submitPeople\":\"李大伟\",\"addTime\":\"2017-03-04 12:00:00\"}]"
+  }
+}

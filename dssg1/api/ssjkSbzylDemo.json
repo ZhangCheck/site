@@ -1,0 +1,8 @@
+{
+	"success": true,
+    "code": "0",
+    "message": "success",
+    "data": { "name":["cpu","api","cipan","shujuku"],
+    		"value":[30,20,14,24]
+	}
+}

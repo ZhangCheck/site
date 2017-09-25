@@ -1,0 +1,14 @@
+{
+	"success":true,
+	"code":"0",
+	"message":"success",
+	"data":{
+		"id":"0d05b73c6ebf4b64b89d1030db6540b0",
+		"resName":"jiangpqtest2",
+		"resEname":"jiangpqtest2",
+		"resType":"1",
+		"resCode":"jiangpqtest2",
+		"resLevel":"2",
+		"themeType":"86be522e-4c77-4847-ac60-6310e81792f6",
+		"departmentType":"9db81c5f-c751-4cde-a84d-84d86a8215a1",
+		"themeTypeName":"三级分类测试111","departmentTypeName":"三级部门分类测试111","dbJson":"[{\"name\":\"userid\",\"ename\":\"userid\",\"code\":\"002\",\"type\":\"12\",\"length\":\"50\",\"mandatory\":\"0\",\"index\":\"1\"}]","dispatchStrategyJson":"{\"dispatchType\":1,\"beginTime\":\"2017-01-20 10:28:09\",\"cycle\":2,\"dateTypeMin\":1,\"dateTypeMax\":\"\",\"day\":\"\",\"hour\":\"\",\"second\":\"\"}","metadataDTO":{"restitle":"jiangpqtest2","abstracts":"jiangpqtest2","rporgname":"jiangpqtest2","address":"jiangpqtest2","keyword":"jiangpqtest2","subjectcarategory":"三级分类测试111","departmentcategory":"三级部门分类测试111","reason":null,"resourceType":"1"},"processRecordDTO":{"id":"03b6b438f2504f39b7a51d302ecfefcb","resourceId":"0d05b73c6ebf4b64b89d1030db6540b0","applyUser":"系统管理员","applyTime":"2017-01-20 10:29:13","applyReason":"jiangpqtest2","reviewUser":"系统管理员","reviewTime":"2017-01-20 10:29:31","reviewDesc":"123","result":"0","type":"0","effectiveData":null,"deleteFlag":"-1"},"resSubscribeDTO":{"id":"6d2bedc4cf6742799e1eec0598fde3dd","dbProcessStrategyJson":"{\"dataFilteing\":[],\"dataConversion\":[],\"dataDesen\":[]}","resourceId":"0d05b73c6ebf4b64b89d1030db6540b0","type":"2","targetDataSrcId":"ff463245f9a84b5e8b20b2eb7ee5fa4d","targetResourceType":"1","model":"1","targetTableName":"jiangpqtest21484880674139","subDataJson":"[{\"name\":\"userid\",\"ename\":\"userid\",\"code\":\"002\",\"type\":\"12\",\"length\":\"50\",\"mandatory\":\"0\",\"index\":\"1\"}]","targetTableFieldJson":"[{\"dataItemName\":\"userid\",\"dataItemCode\":\"002\",\"dataItemType\":\"12\",\"length\":\"50\",\"targetTable\":\"jiangpqtest21484880674139\",\"columnName\":\"userid\",\"showName\":\"userid\",\"index\":0,\"pk\":false},{\"table\":\"jiangpqtest21484880674139\",\"columnName\":\"id\",\"pk\":true,\"dataItemName\":\"id\",\"dataItemCode\":\"id\",\"dataItemType\":12,\"length\":\"36\"}]","subSendEquipment":"bdc396151ddd0cb87346737a4ff430gm","subRecvEquipment":"bdc396151ddd0cb87346737a4ff430bd","state":"1","applyReason":null,"applyTime":"2017-01-20 10:52:05","revokeTime":null,"approvalTime":"2017-01-20 10:52:44","revokeReason":null,"createUser":null,"createTime":null,"updateUser":null,"updateTime":null,"remark":null,"applyPerson":"数据管理员","revokePerson":null,"approvalOpinion":"审批意见"},"sysEquipmentSubscribeDTO":{"subSendEquipment":null,"name":"法院","company":"高院","level":"3","telphone":null,"applayReason":null,"applayTime":"2017-01-20 10:52:05"}}}

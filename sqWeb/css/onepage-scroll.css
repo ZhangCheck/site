@@ -1,0 +1,241 @@
+body, html {
+	overflow: hidden;
+	-webkit-transition: opacity 400ms;
+	-moz-transition: opacity 400ms;
+	transition: opacity 400ms;
+}
+body, .onepage-wrapper, html {
+	display: block;
+	position: static;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+.onepage-wrapper {
+	width: 100%;
+	height: 100%;
+	display: block;
+	position: relative;
+	padding: 0;
+	-webkit-transform-style: preserve-3d;
+}
+.onepage-wrapper .section {
+	width: 100%;
+	height: 100%;
+}
+.onepage-pagination {
+	position: absolute;
+	right: 20px;
+	top: 50%;
+	z-index: 5;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	margin-top: -30px;
+}
+.onepage-pagination li {
+	padding: 0;
+	text-align: center;
+}
+.onepage-pagination li a {
+	padding: 10px;
+	width: 4px;
+	height: 4px;
+	display: block;
+}
+.onepage-pagination li a:before {
+	content: '';
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	border: 1px solid #20cc20;
+	border-radius: 12px;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+}
+.onepage-pagination li a.active:before {
+	width: 10px;
+	height: 10px;
+	background: none;
+	background: rgba(32,203,32,0.85);
+	border-radius: 12px;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+}
+.disabled-onepage-scroll, .disabled-onepage-scroll .wrapper {
+	overflow: auto;
+}
+.disabled-onepage-scroll .onepage-wrapper .section {
+	position: relative !important;
+	top: auto !important;
+	left: auto !important;
+}
+.disabled-onepage-scroll .onepage-wrapper {
+	-webkit-transform: none !important;
+	-moz-transform: none !important;
+	transform: none !important;
+	-ms-transform: none !important;
+	min-height: 100%;
+}
+.disabled-onepage-scroll .onepage-pagination {
+	display: none;
+}
+body.disabled-onepage-scroll, .disabled-onepage-scroll .onepage-wrapper, html {
+	position: inherit;
+}
+
+
+.qii .head {
+	position: fixed;
+	top: 0px;
+}
+.qii .bottom {
+	position: absolute;
+	bottom: 0px;
+}
+.qii .design {
+w margin-top:40px;
+	margin-bottom: 30px;
+}
+.qii .design p {
+	height: 150px;
+}
+.qii .design p em {
+	height: 70px;
+	margin-top: 20px;
+}
+.qii .design p span {
+	margin-top: 10px;
+}
+.qii .slidebox {
+	height: 100%;
+}
+.qii .slidebox_in .slideboxbg {
+	background-position: center 90px;
+}
+.qii .slidebox_in .slidebox_main {
+	top:170px;
+}
+.qii .slidebox_de .slidebox_main {
+	top: 48%;
+	margin-top: -209px;
+}
+.qii .slidebox_word {
+	opacity: 0;
+	-webkit-transform: translate(0px, -100px);
+	-moz-transform: translate(0px, -100px);
+	-ms-transform: translate(0px, -100px);
+	-webkit-transition: all 0.3s ease-in-out 0.7s;
+	-moz-transition: all 0.3s ease-in-out 0.7s;
+	-ms-transition: all 0.3s ease-in-out 0.7s;
+}
+.qii .active .slidebox_word {
+	opacity: 1;
+	-webkit-transform: translate(0px, 0px);
+	-moz-transform: translate(0px, 0px);
+	-ms-transform: translate(0px, 0px);
+	-webkit-transition: all 0.3s ease-in-out 0.7s;
+	-moz-transition: all 0.3s ease-in-out 0.7s;
+	-ms-transition: all 0.3s ease-in-out 0.7s;
+}
+.qii .slidebox_in .slideboxbg {
+	opacity: 0;
+	-webkit-transform: translate(0px, 100px);
+	-moz-transform: translate(0px, 100px);
+	-ms-transform: translate(0px, 100px);
+	-webkit-transition: all 0.8s ease-in-out 0.8s;
+	-moz-transition: all 0.8s ease-in-out 0.8s;
+	-ms-transition: all 0.8s ease-in-out 0.8s;
+}
+.qii .active .slidebox_in .slideboxbg {
+	opacity: 1;
+	-webkit-transform: translate(0px, 0px);
+	-moz-transform: translate(0px, 0px);
+	-ms-transform: translate(0px, 0px);
+	-webkit-transition: all 0.8s ease-in-out 0.6s;
+	-moz-transition: all 0.8s ease-in-out 0.6s;
+	-ms-transition: all 0.8s ease-in-out 0.6s;
+}
+
+.qii .slideboxbg_top {
+	opacity: 0;
+	-webkit-transform: translate(0px, -200px);
+	-moz-transform: translate(0px, -200px);
+	-ms-transform: translate(0px, -200px);
+	-webkit-transition: all 0.8s ease-in-out 1.0s;
+	-moz-transition: all 0.8s ease-in-out 1.0s;
+	-ms-transition: all 0.8s ease-in-out 1.0s;
+}
+.qii .slideboxbg_bottom {
+	opacity: 0;
+	-webkit-transform: translate(0px, 200px);
+	-moz-transform: translate(0px, 200px);
+	-ms-transform: translate(0px, 200px);
+	-webkit-transition: all 0.5s ease-in-out 0.5s;
+	-moz-transition: all 0.5s ease-in-out 0.5s;
+	-ms-transition: all 0.5s ease-in-out 0.5s;
+}
+.qii .active .slideboxbg_top {
+	opacity: 1;
+	-webkit-transform: translate(0px, 0px);
+	-moz-transform: translate(0px, 0px);
+	-ms-transform: translate(0px, 0px);
+	-webkit-transition: all 0.8s ease-in-out 0.8s;
+	-moz-transition: all 0.8s ease-in-out 0.8s;
+	-ms-transition: all 0.8s ease-in-out 0.8s;
+}
+.qii .active .slideboxbg_bottom {
+	opacity: 1;
+	-webkit-transform: translate(0px, 0px);
+	-moz-transform: translate(0px, 0px);
+	-ms-transform: translate(0px, 0px);
+	-webkit-transition: all 0.8s ease-in-out 0.8s;
+	-moz-transition: all 0.8s ease-in-out 0.8s;
+	-ms-transition: all 0.8s ease-in-out 0.8s;
+}
+.qii .design p {
+	opacity: 0;
+	-webkit-transform: translate(0px, -100px);
+	-moz-transform: translate(0px, -100px);
+	-ms-transform: translate(0px, -100px);
+	-webkit-transition: all 0.5s ease-in-out 0.8s;
+	-moz-transition: all 0.5s ease-in-out 0.8s;
+	-ms-transition: all 0.5s ease-in-out 0.8s;
+}
+.qii .active .design p {
+	opacity: 1;
+	-webkit-transform: translate(0px, 0px);
+	-moz-transform: translate(0px, 0px);
+	-ms-transform: translate(0px, 0px);
+}
+.qii .active p.design_yh {
+	-webkit-transition: all 0.5s ease-in-out 0.6s;
+	-moz-transition: all 0.5s ease-in-out 0.6s;
+	-ms-transition: all 0.5s ease-in-out 0.6s;
+}
+.qii .active p.design_jh {
+	-webkit-transition: all 0.5s ease-in-out 0.7s;
+	-moz-transition: all 0.5s ease-in-out 0.7s;
+	-ms-transition: all 0.5s ease-in-out 0.7s;
+}
+.qii .active p.design_sj {
+	-webkit-transition: all 0.5s ease-in-out 0.8s;
+	-moz-transition: all 0.5s ease-in-out 0.8s;
+	-ms-transition: all 0.5s ease-in-out 0.8s;
+}
+.qii .designbtn {
+	opacity: 0;
+	-webkit-transition: all 0.8s ease-in-out 1.2s;
+	-moz-transition: all 0.8s ease-in-out 1.2s;
+	-ms-transition: all 0.8s ease-in-out 1.2s;
+}
+.qii .active .designbtn {
+	opacity: 1;
+	-webkit-transition: all 0.8s ease-in-out 1.2s;
+	-moz-transition: all 0.8s ease-in-out 1.2s;
+	-ms-transition: all 0.8s ease-in-out 1.2s;
+}
+
+
+
+

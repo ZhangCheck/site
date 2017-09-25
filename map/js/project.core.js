@@ -1,0 +1,1 @@
+define(["fb_lib/avalon.fb","text!../interfaceState.html","css!../css/project.core","domReady!"],function(fb,interfaceStateTemplate){try{fb.state(fb.fbMode,1)?fb.server="":fb.state(fb.fbMode,2)&&(fb.server="");avalon.mix(fb.config["interface"],{stateTemplate:interfaceStateTemplate})}catch(ex){fb.log("project.core Error:",ex,ex.stack?ex.stack:"")}return fb});

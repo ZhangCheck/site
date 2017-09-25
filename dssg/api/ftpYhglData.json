@@ -1,0 +1,39 @@
+{
+	"success": true,
+	"code": "0",
+	"message": "success",
+	"data": [
+		{
+			"id": "1",
+			"name": "1112",
+			"password": null,
+			"confirmPassword": null,
+			"homeDirectory": "/",
+			"writePermission": "0"
+		},
+		{
+			"id": "2",
+			"name": "string",
+			"password": "string",
+			"confirmPassword": null,
+			"homeDirectory": "/",
+			"writePermission": "0"
+		},
+		{
+			"id": "3",
+			"name": "333",
+			"password": "333",
+			"confirmPassword": null,
+			"homeDirectory": "/",
+			"writePermission": "1"
+		},
+		{
+			"id": "4",
+			"name": "444",
+			"password": "444",
+			"confirmPassword": null,
+			"homeDirectory": "/",
+			"writePermission": "1"
+		}
+	]
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template title="可爱女生相册模版" FacePic="user/username/albumname/cover.jpg" font="方正粗圆简体" scale="4.5" color="EEEEEE" userColor="FFFFFF" userScale="3" bgcolor="0x666666" isTitleSyc="true">
+	<mc url="net/dpdp/skins/sk03/bg.swf" title="bg" xpos="0" ypos="0" zindex="0" ></mc>
+	<mc url="net/dpdp/skins/sk03/albumtitle.swf" title="album_title" xpos="0" ypos="0" zindex="3"></mc>
+	<mc url="net/dpdp/skins/sk03/photodetails.swf" title="photo_details" xpos="0" ypos="0" zindex="2" ></mc>
+	<mc url="net/dpdp/skins/sk03/navigationbar.swf" title="nav" xpos="0" ypos="0" zindex="4" ></mc>
+</template>

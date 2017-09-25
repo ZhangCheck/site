@@ -1,0 +1,37 @@
+{
+    "success": true,
+    "data":{
+        "totalElements":100,
+        "content":[
+        {
+            "id":"abc1",
+            "resName":"资源名称1",
+            "resCode":"ZNB-009191",
+            "themeType":"治安",
+            "departmentType":"公安",
+            "resTypeName":"01",
+            "publishDept":"南京市公安局",
+            "hotRecommend":"01"
+        },
+        {
+            "id":"abc2",
+            "resName":"资源名称2",
+            "resCode":"ZNB-009192",
+            "themeType":"治安",
+            "departmentType":"公安",
+            "resTypeName":"01",
+            "publishDept":"南京市公安局",
+            "hotRecommend":"02"
+        },
+        {
+            "id":"abc3",
+            "resName":"资源名称3",
+            "resCode":"ZNB-009193",
+            "themeType":"治安",
+            "departmentType":"公安",
+            "resTypeName":"01",
+            "publishDept":"南京市公安局",
+            "hotRecommend":"01"
+        }
+    ]}
+}

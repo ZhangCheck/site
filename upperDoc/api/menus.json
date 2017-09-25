@@ -1,0 +1,266 @@
+{
+  "success": true,
+  "data": [
+    {
+      "label": "首页",
+      "key": "main",
+      "icon": "home"
+    },
+    {
+      "label": "项目安装",
+      "key": "install",
+      "icon": "metadata2",
+      "children": [
+        {
+          "label": "基础安装",
+          "key": "page/install",
+          "icon": "smile"
+        }
+      ]
+    },
+    {
+      "label": "项目结构",
+      "key": "structure",
+      "icon": "share-list",
+      "children": [
+        {
+          "label": "文件结构",
+          "key": "page/structure",
+          "icon": "smile"
+        },
+        {
+          "label": "开发环境配置",
+          "key": "page/env",
+          "icon": "smile"
+        },
+        {
+          "label": "运行流程",
+          "key": "page/fluid",
+          "icon": "smile"
+        },
+        {
+          "label": "路由配置",
+          "key": "page/router",
+          "icon": "smile"
+        }
+      ]
+    },
+    {
+      "label": "单向数据流",
+      "key": "page/data",
+      "icon": "metadata"
+    },
+    {
+      "label": "接口相关",
+      "key": "interfaces",
+      "icon": "metadata",
+      "children": [
+        {
+          "label": "接口使用",
+          "key": "page/interface",
+          "icon": "smile"
+        },
+        {
+          "label": "全局接口配置",
+          "key": "page/interfaceConfig",
+          "icon": "smile"
+        },
+        {
+          "label": "接口参数",
+          "key": "page/interfaceApi",
+          "icon": "smile"
+        }
+      ]
+    },
+    {
+      "label": "自定义页面",
+      "key": "page/page",
+      "icon": "metadata"
+    },
+    {
+      "label": "自定义组件",
+      "key": "page/component",
+      "icon": "log-analysis"
+    },
+    {
+      "label": "项目组件",
+      "key": "sub4",
+      "icon": "system-manage",
+      "children": [
+        {
+          "label": "AiForm",
+          "key": "page/aiFormDoc",
+          "icon": "smile"
+        },
+        {
+          "label": "DataList",
+          "key": "page/dataListDoc",
+          "icon": "smile"
+        },
+        {
+          "label": "Stepper",
+          "key": "page/stepperDoc",
+          "icon": "smile"
+        },
+        {
+          "label": "AiFormTable",
+          "key": "page/aiFormTableDoc",
+          "icon": "smile"
+        }
+      ]
+    },
+    {
+      "label": "样式相关",
+      "key": "style",
+      "icon": "log-analysis",
+      "children": [
+        {
+          "label": "样式基础",
+          "key": "page/stylePage",
+          "icon": "smile"
+        },
+        {
+          "label": "UI组件样式",
+          "key": "page/styleUI",
+          "icon": "smile"
+        }
+      ]
+    },
+    {
+      "label": "项目组件实例",
+      "key": "components",
+      "icon": "appstore",
+      "children": [
+        {
+          "label": "遗留问题",
+          "key": "issue",
+          "icon": "smile"
+        },
+        {
+          "label": "Component(Api)",
+          "key": "componentDemo",
+          "icon": "smile"
+        },
+        {
+          "label": "JsonpDemo(Page)",
+          "key": "page/pageDemo",
+          "icon": "smile"
+        },
+        {
+          "label": "DataListV1",
+          "key": "datalistV1/datalistDemo/list/11/10",
+          "icon": "smile"
+        },
+        {
+          "label": "AiForm-Base",
+          "key": "aiFormBaseDemo",
+          "icon": "smile"
+        },
+        {
+          "label": "AiForm-Link",
+          "key": "aiFormLinkDemo",
+          "icon": "smile"
+        },
+        {
+          "label": "AiForm-Table",
+          "key": "aiFormTableDemo",
+          "icon": "smile"
+        },
+        {
+          "label": "AiTree-Table",
+          "key": "datalistV1/aiTreeTableDemo/list/11/10",
+          "icon": "smile"
+        },
+        {
+          "label": "Stepper",
+          "key": "steperV1/steperConfigDemo/1",
+          "icon": "smile"
+        },
+        {
+          "label": "Topo",
+          "key": "topoDemo",
+          "icon": "smile"
+        }
+      ]
+    },
+    {
+      "label": "UI组件",
+      "key": "page/ui",
+      "icon": "appstore"
+    },
+    {
+      "label": "项目发布",
+      "key": "page/publish",
+      "icon": "appstore"
+    },
+    {
+      "label": "辅助工具",
+      "key": "tools",
+      "icon": "appstore",
+      "children": [
+        {
+          "label": "普通页面生成器",
+          "key": "page/addPage",
+          "icon": "appstore"
+        },
+        {
+          "label": "AiForm页面生成器",
+          "key": "page/addAiFormPage",
+          "icon": "appstore"
+        },
+        {
+          "label": "AiForm表单项生成器",
+          "key": "page/addAiFormItem",
+          "icon": "appstore"
+        },
+        {
+          "label": "DataList页面生成器",
+          "key": "page/addDataListPage",
+          "icon": "appstore"
+        },
+        {
+          "label": "DataList新增页面生成器",
+          "key": "page/addDataListPage_Add",
+          "icon": "appstore"
+        },
+        {
+          "label": "DataList编辑页面生成器",
+          "key": "page/addDataListPage_Edit",
+          "icon": "appstore"
+        },
+        {
+          "label": "DataList详情页面生成器",
+          "key": "page/addDataListPage_Detail",
+          "icon": "appstore"
+        },
+        {
+          "label": "分步页面生成器",
+          "key": "page/addStepperPage",
+          "icon": "appstore"
+        },
+        {
+          "label": "分步页面-AiForm子页面",
+          "key": "page/addAiFormPage?for=stepper",
+          "icon": "appstore"
+        },
+        {
+          "label": "分步页面-DataList子页面",
+          "key": "page/addDataListPage?for=stepper",
+          "icon": "appstore"
+        },
+        {
+          "label": "组件生成器",
+          "key": "page/addComponent",
+          "icon": "appstore"
+        },
+        {
+          "label": "接口生成器",
+          "key": "page/addInterface",
+          "icon": "appstore"
+        }
+      ]
+    }
+  ]
+}
+
+

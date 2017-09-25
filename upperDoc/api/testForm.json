@@ -1,0 +1,28 @@
+{
+    "success": true,
+    "data":[{
+        "title":"我是栏目1",
+        "showTitle":true,
+        "column":3,
+        "labelCol":8,
+        "wrapperCol":16,
+        "data":[
+           {"name":"性别3","type":"select","field":"sex2","dictId":"23","placeholder":"请选择..."},
+            {"name":"邮箱","type":"input","field":"email","defaultValue":"tiangb@fable.cn",
+                "validate": [{
+                    "type": "email", "message": "The input is not valid E-mail!"
+                },
+                    {
+                        "required": true, "message": "Please input your E-mail!"
+                    }]},
+            {"name":"checkbox","type":"checkbox","field":"sport","options":["篮球","足球","乒乓球"],"defaultValue":["篮球","乒乓球"]},
+            {"name":"switch","type":"switch","field":"switch","checkedChildren":"开", "unCheckedChildren":"关","defaultChecked":true},
+            {"name":"radio","type":"radio","field":"sport2","options":["篮球","足球","乒乓球"],"defaultValue":"足球"},
+            {"name":"radio","type":"radio1","field":"sport3","options":[{"value":"baskeball","lable":"篮球王子"},{"value":"football","lable":"足球"},{"value":"pingpang","lable":"乒乓球"}],"defaultValue":"football"},
+            {"name":"TimePicker","type":"timePicker","field":"timePicker","defaultValue":"12:40","help":"请填写信息"},
+            {"name":"rangePicker","type":"rangePicker","field":"rangePicker"},
+            {"type":"input","name":"电影" ,"field":"movie" ,"validate": [{"required": true, "message": "Please input !"}]},
+            {"type":"button","value":"submit" ,"btnType":"primary", "htmlType":"submit" }
+        ]
+    }]
+}

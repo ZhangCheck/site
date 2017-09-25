@@ -1,0 +1,32 @@
+{
+  "success": true,
+  "code": "0",
+  "message": "success",
+  "data": {
+    "id": "11",
+    "equipment": "1",
+    "resName": "测试信息11",
+    "resType": "1",
+    "metadataId": "06e4eff5-c101-4361-af9c-a8ff9c231a04",
+    "state": "2",
+    "dispatchStrategyJson": "{\"dispatchType\":1,\"beginTime\":\"2016-01-01 12:10:10\",\"cycle\":1,\"dateTypeMin\":1,\"dateTypeMax\":1,\"day\":1,\"hour\":1,\"second\":1}",
+    "remark": "大家好，我是remark ",
+    "createUser": "1233",
+    "createTime": "1482916404000",
+    "updateUser": "",
+    "updateTime": null,
+    "dbJson": "[{\"name\": \"标识\",\"ename\": \"ID\",\"code\":\"id\",\"type\": 0,\"length\": 50,\"mandatory\": \"0/1\",\"index\": 0},{\"name\": \"姓名\",\"ename\": \"name\",\"code\":\"xm\",\"type\": 0,\"length\": 50,\"mandatory\": \"0\",\"index\": 1}]",
+    "fileJson": "",
+    "apiJson": "",
+    "enableFlag": "0",
+    "deleteFlag": null,
+    "resCode": "3",
+    "resLevel": "1",
+    "themeType": "1",
+    "departmentType": "1",
+    "resEname": "test",
+    "themeName": "公安",
+    "departmentName": "网吧",
+    "new": false
+  }
+}

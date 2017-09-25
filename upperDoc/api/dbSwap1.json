@@ -1,0 +1,11 @@
+{
+  "success": true,
+  "data": {
+    "titleData":{
+      "titleName":"数据库交换",
+      "titleNumber":"128",
+      "iconType":"up"
+    },
+    "echartsData":[10, 72, 80, 134, 190, 10, 60]
+  }
+}

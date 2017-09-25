@@ -1,0 +1,23 @@
+﻿<root>
+	<loading>
+		<vipLoading source="http://www.dpdp.net/ViewAlbum/main/loading.jpg" navigator="http://www.dpdp.net"/>
+		<nomalLoading source="http://www.dpdp.net/ViewAlbum/main/loading2.jpg"/>
+	</loading>
+	
+	<rightContent>
+		<item name="www.dpdp.net | 多拍Flash相册2" navigator="http://www.baidu.com"/>
+	</rightContent>
+	
+	<enviroment>
+		<mainXmlUrl>http://www.dpdp.net/data/user/username/53/xml/main.xml</mainXmlUrl>
+		<listXmlUrl>http://www.dpdp.net/data/user/username/53/xml/list.xml</listXmlUrl>
+		<musicXmlUrl>http://www.dpdp.net/data/user/username/53/xml/music.xml</musicXmlUrl>
+		<tempXmlUrl>http://www.dpdp.net/data/user/username/53/xml/template.xml</tempXmlUrl>
+		<defaultPic>http://www.dpdp.net/template/defaultPicture/list.xml</defaultPic>
+        <templateServerPath>http://www.dpdp.net/</templateServerPath>
+		<homePagePath>http://www.dpdp.net/m/homepage.php</homePagePath>
+	</enviroment>
+	
+	
+</root>
+	

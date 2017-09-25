@@ -1,0 +1,84 @@
+{
+    "success": true,
+    "code": "0",
+    "message": "success",
+    "data": [
+        {
+            "id": "78e7bca05dd941759d96fdfaaac23ae9",
+            "code": "1",
+            "name": "权限管理",
+            "pid": "-1",
+            "description": "权限管理test",
+            "url": "/local/home",
+            "icon": "home",
+            "sortOrder": "1",
+            "sysFlag": null,
+            "level": "1",
+            "moduleCode": null,
+            "flag": false,
+            "children": [
+                {
+                    "id": "dbb548a725294751ae0cafe36e8c0afe",
+                    "code": "11",
+                    "name": "用户管理",
+                    "pid": "78e7bca05dd941759d96fdfaaac23ae9",
+                    "description": "用户管理",
+                    "url": "/local/user",
+                    "icon": "home",
+                    "sortOrder": "1",
+                    "sysFlag": null,
+                    "level": "2",
+                    "moduleCode": null,
+                    "flag": false,
+                    "children": []
+                },
+                {
+                    "id": "cfe2642d68884957b137a1bb18395804",
+                    "code": "12",
+                    "name": "角色管理",
+                    "pid": "78e7bca05dd941759d96fdfaaac23ae9",
+                    "description": "角色管理",
+                    "url": "/local/role",
+                    "icon": "home",
+                    "sortOrder": "2",
+                    "sysFlag": null,
+                    "level": "2",
+                    "moduleCode": null,
+                    "flag": false,
+                    "children": []
+                }
+            ]
+        },
+        {
+            "id": "778c8a92df5849a2ad70845165aa1222",
+            "code": "2",
+            "name": "系统管理",
+            "pid": "-1",
+            "description": "系统管理",
+            "url": "/local/sys",
+            "icon": "home",
+            "sortOrder": "2",
+            "sysFlag": null,
+            "level": "1",
+            "moduleCode": null,
+            "flag": false,
+            "children": [
+                {
+                    "id": "ba29ffdcf44546c5a5d92afd242ebac8",
+                    "code": "21",
+                    "name": "参数配置",
+                    "pid": "778c8a92df5849a2ad70845165aa1222",
+                    "description": "参数配置",
+                    "url": "/local/sys",
+                    "icon": "home",
+                    "sortOrder": "1",
+                    "sysFlag": null,
+                    "level": "2",
+                    "moduleCode": null,
+                    "flag": false,
+                    "children": []
+                }
+            ]
+        }
+    ]
+}

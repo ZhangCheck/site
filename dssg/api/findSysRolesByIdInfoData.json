@@ -1,0 +1,25 @@
+{
+  "success": true,
+  "code": "0",
+  "message": "success",
+  "data": {
+    "id": "a4a657e0dce94c518c489e6d48898727",
+    "code": "ROLE_SHARE_MANAGER",
+    "name": "共享目录管理",
+    "description": "共享目录管理11111",
+    "pid": null,
+    "sortOrder": null,
+    "visible": "0",
+    "creatorId": null,
+    "creatorName": null,
+    "createdTime": null,
+    "updateId": null,
+    "updateName": null,
+    "updatedTime": null,
+    "auto": "0",
+    "sysFlag": null,
+    "deleteFlag": "-1",
+    "new": false,
+    "treeData":["cfe2642d68884957b137a1bb18395804"]
+  }
+}

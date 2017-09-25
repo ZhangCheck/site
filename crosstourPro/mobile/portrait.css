@@ -1,0 +1,35 @@
+body.bg {background: url(../images/iceBg.jpg) no-repeat; background-size: 100% 100%; background-attachment: fixed; -moz-background-size:cover;-webkit-background-size: cover;-o-background-size: cover;background-size: cover;}
+
+.tl {width: 50vw; }
+.tr img {width: 27vw;}
+.br {position: fixed; bottom: -5px;}
+.br img {width: 100px; height: auto;}
+.parachute-wrap{position:absolute; bottom:-100%; left:-100%; width:75%;}
+.parachute-wrap.por_moved {bottom: 12%; left: -3%; transition: all 2s;}
+
+.page1Txt{position:absolute; top:15%; right: 5%; width:90%; text-align: center; z-index:30;}
+.page1Txt .parah-wrap{color:#666; font-size:1.2em;}
+.page1Txt .parah-wrap p{padding-top:1em;}
+.videoNav {position: absolute; bottom: 2%; left: 20%; width: 45%;}
+
+
+/* page2 */
+.page2Txt{position:absolute; top:18%; right: 5%; width:90%; text-align: center; z-index:30;}
+.page2Txt .video {margin: 2em 0 1em;}
+.page2Txt .parah-wrap p {font-size: 1.5em; font-style: italic; padding-bottom: 1em;}
+
+.v2PreTitle{font-size:16px;font-weight: bold;color:#000;}
+.v2Subtitle{font-size:20px;background: #004c78;color:#fff;display:inline-block;padding: 0px 20px;margin-top:10px;}
+.v2Right{/* display:none; */height:100%;width:auto;position:absolute;right:0;top:0;z-index: 100;}
+.v2RightOver{display:none;height:100%;width:auto;position:absolute;right:0;top:0;z-index: 100;}
+.page2Txt{left:5%;right:auto;text-align: left;}
+.page2Txt .parah-wrap{margin-top:20px;font-size:14px; }
+.page2Txt .img-responsive{margin-top:10px;}
+/* page3 */
+.page3Txt{position:absolute; top: 12%; width: 100%; z-index:30;}
+.page3Txt .headline {border-bottom: 1px solid #cdcdcd; padding: 0 5%; margin-bottom: 15px;}
+.page3Txt .headline h4 {font-weight: normal; font-size: 1em; font-style: italic; color: #363636; line-height: 2;}
+
+
+
+.page2Txt .parah-wrap p {font-size: 1.5em; font-style: italic; padding-bottom: 1em;}

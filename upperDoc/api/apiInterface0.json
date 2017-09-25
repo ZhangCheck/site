@@ -1,0 +1,44 @@
+{
+    "success": true,
+    "code": "0",
+    "message": "success",
+    "data": [
+        {
+          "key": "hotapi1",
+          "resourceName":"机动车驾驶证记分信息",
+          "userCount": "453",
+          "callNumber": "45442"
+        },
+        {
+          "key": "hotapi2",
+          "resourceName":"机动车驾驶证记分信息",
+          "userCount": "453",
+          "callNumber": "45442"
+        },
+      {
+        "key": "hotapi3",
+        "resourceName":"机动车驾驶证记分信息",
+        "userCount": "453",
+        "callNumber": "45442"
+      },
+      {
+        "key": "hotapi4",
+        "resourceName":"机动车驾驶证记分信息",
+        "userCount": "453",
+        "callNumber": "45442"
+      },
+      {
+        "key": "hotapi5",
+        "resourceName":"机动车驾驶证记分信息",
+        "userCount": "453",
+        "callNumber": "45442"
+      },
+      {
+        "key": "hotapi6",
+        "resourceName":"机动车驾驶证记分信息",
+        "userCount": "453",
+        "callNumber": "45442"
+      }
+
+    ]
+}

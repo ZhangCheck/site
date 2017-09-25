@@ -1,0 +1,54 @@
+{
+    "success": true,
+    "data": {
+        "demo":[{"value":"1","key":"webservice"},{"value":"2","key":"rest"}],
+        "aiFormItemType":[
+            {"value":"input","key":"input"},
+            {"value":"button","key":"button"},
+            {"value":"text","key":"text"},
+            {"value":"select_options","key":"select_静态"},
+            {"value":"select_字典","key":"select_字典"},
+            {"value":"select_字典接口","key":"select_字典接口"},
+            {"value":"treeSelect_字典接口","key":"treeSelect_字典接口"},
+            {"value":"checkbox_options","key":"checkbox_静态"},
+            {"value":"checkbox_字典","key":"checkbox_字典"},
+            {"value":"checkbox_字典接口","key":"checkbox_字典接口"},
+            {"value":"timePicker","key":"timePicker"},
+            {"value":"radio_options","key":"radio_静态"},
+            {"value":"radio_字典","key":"radio_字典"},
+            {"value":"radio_字典接口","key":"radio_字典接口"},
+            {"value":"timePicker","key":"timePicker"},
+            {"value":"datePicker","key":"datePicker"},
+            {"value":"rangePicker","key":"rangePicker"},
+            {"value":"rangePicker","key":"rangePicker"},
+            {"value":"inputNumber","key":"inputNumber"},
+            {"value":"upload","key":"upload"},
+            {"value":"switch","key":"switch"},
+            {"value":"slider","key":"slider"},
+            {"value":"residence","key":"residence"}
+
+
+
+        ],
+        "21":[{"value":"basketBall","key":"篮球"},{"value":"footBall","key":"足球"},{"value":"pingpang","key":"乒乓球"}],
+        "22":[{"value":"1","key":"aa"},{"value":"2","key":"bb"},{"value":"3","key":"cc"}],
+        "23":[{"value":"name1","key":"小强"},{"value":"name2","key":"大飞"},{"value":"name3","key":"小明"}],
+        "serviceType":[{"value":"1","key":"webservice"},{"value":"2","key":"rest"}],
+        "requestMode":[{"value":"get","key":"get"},{"value":"post","key":"post"},{"value":"put","key":"put"},{"value":"delect","key":"delect"}],
+        "typeDirectory":[{"value":"1","key":"无上级目录"},{"value":"2","key":"人口管理类"},{"value":"3","key":"道路交通类"},{"value":"4","key":"刑事犯罪类"}],
+        "sjylx":[{"value":"1","key":"aa"},{"value":"2","key":"bb"},{"value":"3","key":"cc"},{"value":"4","key":"dd"}],
+        "sjklx":[{"value":"1","key":"ww"},{"value":"2","key":"xx"},{"value":"3","key":"yy"},{"value":"4","key":"zz"}],
+        "ztfl":[{"value":"1","key":"ss"},{"value":"2","key":"tt"},{"value":"3","key":"yy"},{"value":"4","key":"zz"}],
+        "zt":[{"value":"1","key":"ss"},{"value":"2","key":"tt"},{"value":"3","key":"yy"},{"value":"4","key":"zz"}],
+        "fbsj":[{"value":"1","key":"全部"},{"value":"2","key":"最近一周"},{"value":"3","key":"最近一月"},{"value":"4","key":"最近三月"},{"value":"4","key":"最近一年"}],
+        "state":[{"value":"-1","key":"全部"},{"value":"0","key":"待审核"},{"value":"1","key":"已订阅"},{"value":"2","key":"未订阅"},{"value":"3","key":"已拒绝"}],
+        "dispatchModel":[{"value":1,"key":"周期模式"},{"value":2,"key":"定期模式"}],
+        "dispatchModel1":[{"value":"periodModel","key":"WebService"},{"value":"regularModel","key":"Restful"}],
+        "dispatchModel2":[{"value":"periodModel","key":"webService"},{"value":"regularModel","key":"rest"}],
+        "zyfbjgzq":[{"value":"1","key":"每月"},{"value":"2","key":"每周"},{"value":"3","key":"每天"}],
+        "timeType1":[{"value":1,"key":"时"},{"value":2,"key":"分"},{"value":3,"key":"秒"}],
+        "timeType2":[{"value":1,"key":"每月"},{"value":2,"key":"每周"},{"value":3,"key":"每天"}],
+        "fileLevel":[{"value":1,"key":"一级"},{"value":2,"key":"二级"},{"value":3,"key":"三级"}],
+        "tuijian":[{"value":"01","key":"是"},{"value":"02","key":"否"}]
+    }
+}

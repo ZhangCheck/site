@@ -1,0 +1,137 @@
+{
+  "success": true,
+  "code": "0",
+  "message": "success",
+  "data": {
+    "content": [
+      {
+        "pubResourceNum": "0",
+        "subEquipmentNum": "0",
+        "extractValue": "0B",
+        "extractCount": "0",
+        "extractTaskNum": "0",
+        "collectTime": "2017-07-05"
+      },
+      {
+        "pubResourceNum": "0",
+        "subEquipmentNum": "0",
+        "extractValue": "0B",
+        "extractCount": "0",
+        "extractTaskNum": "0",
+        "collectTime": "2017-07-06"
+      },
+      {
+        "pubResourceNum": "0",
+        "subEquipmentNum": "0",
+        "extractValue": "0B",
+        "extractCount": "0",
+        "extractTaskNum": "0",
+        "collectTime": "2017-07-07"
+      },
+      {
+        "pubResourceNum": "0",
+        "subEquipmentNum": "0",
+        "extractValue": "0B",
+        "extractCount": "0",
+        "extractTaskNum": "0",
+        "collectTime": "2017-07-08"
+      },
+      {
+        "pubResourceNum": "0",
+        "subEquipmentNum": "0",
+        "extractValue": "0B",
+        "extractCount": "0",
+        "extractTaskNum": "0",
+        "collectTime": "2017-07-09"
+      },
+      {
+        "pubResourceNum": "0",
+        "subEquipmentNum": "0",
+        "extractValue": "0B",
+        "extractCount": "0",
+        "extractTaskNum": "0",
+        "collectTime": "2017-07-10"
+      },
+      {
+        "pubResourceNum": "0",
+        "subEquipmentNum": "0",
+        "extractValue": "0B",
+        "extractCount": "0",
+        "extractTaskNum": "0",
+        "collectTime": "2017-07-11"
+      },
+      {
+        "pubResourceNum": "0",
+        "subEquipmentNum": "0",
+        "extractValue": "0B",
+        "extractCount": "0",
+        "extractTaskNum": "0",
+        "collectTime": "2017-07-12"
+      },
+      {
+        "pubResourceNum": "0",
+        "subEquipmentNum": "0",
+        "extractValue": "0B",
+        "extractCount": "0",
+        "extractTaskNum": "0",
+        "collectTime": "2017-07-13"
+      },
+      {
+        "pubResourceNum": "0",
+        "subEquipmentNum": "0",
+        "extractValue": "0B",
+        "extractCount": "0",
+        "extractTaskNum": "0",
+        "collectTime": "2017-07-14"
+      },
+      {
+        "pubResourceNum": "0",
+        "subEquipmentNum": "0",
+        "extractValue": "0B",
+        "extractCount": "0",
+        "extractTaskNum": "0",
+        "collectTime": "2017-07-15"
+      },
+      {
+        "pubResourceNum": "0",
+        "subEquipmentNum": "0",
+        "extractValue": "0B",
+        "extractCount": "0",
+        "extractTaskNum": "0",
+        "collectTime": "2017-07-16"
+      },
+      {
+        "pubResourceNum": "0",
+        "subEquipmentNum": "0",
+        "extractValue": "0B",
+        "extractCount": "0",
+        "extractTaskNum": "0",
+        "collectTime": "2017-07-17"
+      },
+      {
+        "pubResourceNum": "0",
+        "subEquipmentNum": "0",
+        "extractValue": "0B",
+        "extractCount": "0",
+        "extractTaskNum": "0",
+        "collectTime": "2017-07-18"
+      },
+      {
+        "pubResourceNum": "0",
+        "subEquipmentNum": "0",
+        "extractValue": "0B",
+        "extractCount": "0",
+        "extractTaskNum": "0",
+        "collectTime": "2017-07-19"
+      }
+    ],
+    "totalElements": "31",
+    "last": false,
+    "totalPages": "3",
+    "numberOfElements": "15",
+    "first": true,
+    "sort": null,
+    "size": "15",
+    "number": "0"
+  }
+}

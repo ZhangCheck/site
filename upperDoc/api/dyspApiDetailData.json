@@ -1,0 +1,110 @@
+{
+    "success": true,
+    "data":{
+      "id": "10",
+      "resName": "测试信息1",
+      "resEname": "test",
+      "resType": "1",
+      "resCode": "Tsge",
+      "resLevel": "1",
+      "themeType": "1",
+      "departmentType": "1",
+      "dbJson": "[{\"name\": \"标识\",\"ename\": \"ID\",\"code\":\"id\",\"type\": 0,\"length\": 50,\"mandatory\": \"0/1\",\"index\": 0},{\"name\": \"姓名\",\"ename\": \"name\",\"code\":\"xm\",\"type\": 0,\"length\": 50,\"mandatory\": \"0\",\"index\": 1}]",
+      "dispatchStrategyJson": "{\"dispatchType\":1,\"beginTime\":\"2016-01-01 12:10:10\",\"cycle\":1,\"dateTypeMin\":1,\"dateTypeMax\":1,\"day\":1,\"hour\":1,\"second\":1}",
+      "metadataDTO": {
+        "restitle":"人员信息",
+        "abstracts":"我是摘要",
+        "keyword":"ZNB",
+        "subjectcarategory":"治安",
+        "departmentCategory":"公安",
+        "resourceType":"0",
+        "rporgname":"江苏省公安厅",
+        "address":"楼后面"
+      },
+        "srcspz":[
+            {
+              "name":"access_token",
+              "isMust":"是",
+              "type":"String",
+              "remark":"根据appid和appsecret获取到的token"
+            }
+        ],
+      "sccspz":[
+              {
+              "name":"access_token",
+              "isMust":"是",
+              "type":"String",
+              "remark":"根据appid和appsecret获取到的token"
+             },{
+              "name":"query",
+              "isMust":"是",
+              "type":"String",
+              "remark":"输入文本串"
+        }],
+      "jkdzxx":{
+        "webUrl":"http://180.168.211.29:8080/jxwjk/services/JXWJK?wsdl",
+        "type":"webservice",
+        "webMethods":"xxx1、xxx2、xxx3 ",
+        "docx":"XXX.DOCX"
+      },
+      "apiGxdj":[
+        {
+          "level":"一级",
+          "aaa":"XXXXXX",
+          "bbb":"XXXXXX"
+        }
+      ],
+      "subscriber":[{
+        "subscriber":"周天文",
+        "subUnit":"南通市政务中心",
+        "level":"一级",
+        "applyCause":"XXXXXXXX",
+        "subscriptionTime":"2016-12-20 12:20",
+        "telPhone":"15957152366"
+      }],
+      "processRecordDTO": {
+        "id": "25fec5b2-0115-4917-8be8-2aa357f8049d",
+        "resourceId": "10",
+        "applyUser": "刘德华",
+        "applyTime": "2016-12-28 17:19:32",
+        "applyReason": "test",
+        "reviewUser": "大卫",
+        "reviewTime": "2016-12-28 17:24:54",
+        "reviewDesc": "sss",
+        "result": "0",
+        "type": "0",
+        "effectiveData": "2016-12-28 17:24:54",
+        "deleteFlag": "-1"
+      },
+      "resSubscribeDTO": {
+        "id": "7593b0e5-0d52-4915-999a-6b93d5fbf8b9",
+        "dbProcessStrategyJson": "{\"dataFilteing\":[{\"resourceName\": \"PeopleMessage\",\"columnName\": \"csrq\",\"columnType\": \"DATE\",\"columnEnName\": \"出生日期\",\"operators\": \">\",\"operatorsCode\": \"0\",\"value\":\"2010-03-26\"}],\"dataConversion\": [{\"resourceName\": \"PeopleMessage\",\"columnName\": \"sfzh\",\"columnEnName\": \"出生日期\",\"columnType\": \"VARCHAR\",\"content\": \"AA\",\"value\":\"BB\"}],\"dataDesen\": [{\"resourceName\": \"PeopleMessage\",\"columnName\": \"sfzh\",\"columnType\": \"VARCHAR\",\"ruleCode\": \"0\",\"rule\": \"(^[A-Za-z0-9]+)([A-Za-z0-9]{2}$)\",\"value\":\"$1**\"}]}",
+        "resourceId": "10",
+        "type": "1",
+        "targetDataSrcId": "f445a473-bf8a-4336-a0aa-5a92c3c23b26",
+        "targetResourceType": "1",
+        "model": "2",
+        "targetTableName": "test",
+        "subDataJson": "[{\"name\": \"标识\",\"ename\": \"ID\",\"code\":\"id\",\"type\": 0,\"length\": 50,\"mandatory\": \"0/1\",\"index\": 0}]",
+        "targetTableFieldJson": "{dataItemName=数据项名字, dataItemCode=数据项编码, targetTable=table_a, columnName=ID, index=0, type=0}",
+        "subSendEquipment": "1",
+        "subRecvEquipment": "2",
+        "state": "0",
+        "applyReason": "test",
+        "applyTime": "2016-12-28 17:26:44",
+        "revokeTime": "2016-12-28 17:26:44",
+        "approvalTime": "2016-12-28 17:26:44",
+        "revokeReason": "asdasdsadad",
+        "createUser": "asd",
+        "createTime": "1482917204000",
+        "updateUser": "asd",
+        "updateTime": "asd",
+        "remark": "asdad",
+        "applyPerson": "asdasdad",
+        "revokePerson": "asdasd",
+        "approvalOpinion": null
+      }
+    }
+
+
+}

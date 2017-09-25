@@ -1,0 +1,41 @@
+{
+  "success": true,
+  "data":[
+    {
+      "id":"a8d8ds8ss",
+      "sjymc":"人口管理",
+      "ipAddress":"192.168.6.2",
+      "port":"8080",
+      "sjylx":"数据库"
+    },
+    {
+      "id":"a8d8ds8sss",
+      "sjymc":"人口管理",
+      "ipAddress":"192.168.6.2",
+      "port":"8080",
+      "sjylx":"数据库"
+    },
+    {
+      "id":"a8d8ds8ssf",
+      "sjymc":"人口管理",
+      "ipAddress":"192.168.6.2",
+      "port":"8080",
+      "sjylx":"数据库"
+    },
+    {
+      "id":"a8d8ds8sst",
+      "sjymc":"人口管理",
+      "ipAddress":"192.168.6.2",
+      "port":"8080",
+      "sjylx":"数据库"
+    },
+    {
+      "id":"a8d8ds8ssh",
+      "sjymc":"人口管理",
+      "ipAddress":"192.168.6.2",
+      "port":"8080",
+      "sjylx":"数据库"
+    }
+
+  ]
+}

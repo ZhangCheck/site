@@ -1,0 +1,765 @@
+(function(){ var runed=0,temp,timer,time;webpackJsonp([3],{
+
+/***/ "./src/core/dataFormat.js":
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.remove = exports.backTypename = exports.isJson = exports.gettreeSelectName = exports.aiFormTableValue = exports.getAiFormTableValue = exports.getAiFormValue = exports.dataBrush = exports.dataHandle = exports.getTableData = exports.objToSelectOptions1 = exports.objToSelectOptions = exports.jsonToStr = exports.jsonStrToArray = undefined;
+
+	var _typeof2 = __webpack_require__("./node_modules/babel-runtime/helpers/typeof.js");
+
+	var _typeof3 = _interopRequireDefault(_typeof2);
+
+	var _getIterator2 = __webpack_require__("./node_modules/babel-runtime/core-js/get-iterator.js");
+
+	var _getIterator3 = _interopRequireDefault(_getIterator2);
+
+	var _extends2 = __webpack_require__("./node_modules/babel-runtime/helpers/extends.js");
+
+	var _extends3 = _interopRequireDefault(_extends2);
+
+	var _stringify = __webpack_require__("./node_modules/babel-runtime/core-js/json/stringify.js");
+
+	var _stringify2 = _interopRequireDefault(_stringify);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	/**
+	 *json字符串转换成json对象数组
+	 * @param callbackName 传入的json字符串
+	 * @returns {Array}
+	 */
+	var jsonStrToArray = exports.jsonStrToArray = function jsonStrToArray(callbackName) {
+
+	    if (callbackName == "") {
+	        return [];
+	    }
+	    var array = [];
+	    if (Array.isArray(JSON.parse(callbackName))) {
+	        array = JSON.parse(callbackName);
+	    } else {
+	        array.push(JSON.parse(callbackName));
+	    }
+	    return array;
+	};
+	/**
+	 * json转成字符串
+	 * @param callbackName
+	 */
+	var jsonToStr = exports.jsonToStr = function jsonToStr(callbackName) {
+	    return (0, _stringify2["default"])(callbackName);
+	};
+	var objToSelectOptions = exports.objToSelectOptions = function objToSelectOptions(obj) {
+	    var result = [];
+	    for (var p in obj) {
+	        result.push({ key: p, value: p });
+	    }
+	    return result;
+	};
+	/**
+	 * 对象转成数组
+	 * @param obj 传入的对象
+	 * @returns {Array}
+	 */
+	var objToSelectOptions1 = exports.objToSelectOptions1 = function objToSelectOptions1(obj) {
+	    var result = [];
+	    for (var p in obj) {
+	        result.push({ key: p, value: obj[p] });
+	    }
+	    return result;
+	};
+	/**
+	 * 共享目录信息表格数据组装
+	 * @param data
+	 * @returns {Array}
+	 */
+	var getTableData = exports.getTableData = function getTableData(data) {
+	    var array = {};
+	    var datas = [];
+	    array.resName = data.resName;
+	    array.resEname = data.resEname;
+	    array.resType = data.resType;
+	    array.resCode = data.resCode;
+	    array.resLevel = data.resLevel;
+	    array.themeType = data.themeType;
+	    array.departmentType = data.departmentType;
+	    datas.push(array);
+	    return datas;
+	};
+	/**我管理的目录
+	 *适用于可编辑表数据处理
+	 * @param data
+	 * @returns {Array} json字符串   dbJson => valueStr
+	 */
+	var dataHandle = exports.dataHandle = function dataHandle(data) {
+	    data["themeType"] = data.themeType;
+	    data["departmentType"] = data.departmentType;
+	    data["createTime"] = Date.parse(new Date());
+	    data["resLevel"] = data.resLevel;
+	    data["createUser"] = "此处需从session读，最后不上";
+	    var values = [],
+	        key = void 0;
+	    var dbJson = [];
+	    for (key in data) {
+	        if (key.indexOf("_field_") > 0) {
+	            var value = data[key];
+	            var str = key.substr(0, key.indexOf('_field_'));
+	            var index = parseInt(key.substr(key.indexOf('_field_') + 7));
+	            dbJson[index] = (0, _extends3["default"])({}, dbJson[index]);
+	            dbJson[index][str] = value;
+	            delete data[key];
+	        }
+	    }
+	    data.dbJson = (0, _stringify2["default"])(dbJson);
+	    return data;
+	};
+	/**
+	 *  *从json字符串中获取其中一个字段，组成数组返回
+	 * @param data传去的json字符串
+	 * @param name  要取的key值
+	 * @returns {Array}
+	 */
+	var dataBrush = exports.dataBrush = function dataBrush(datas, name) {
+	    if (datas.length == 0) {
+	        return [];
+	    }
+	    var options = [];
+	    var _iteratorNormalCompletion = true;
+	    var _didIteratorError = false;
+	    var _iteratorError = undefined;
+
+	    try {
+	        for (var _iterator = (0, _getIterator3["default"])(datas), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	            var d = _step.value;
+
+	            options.push(d[name]);
+	        }
+	    } catch (err) {
+	        _didIteratorError = true;
+	        _iteratorError = err;
+	    } finally {
+	        try {
+	            if (!_iteratorNormalCompletion && _iterator["return"]) {
+	                _iterator["return"]();
+	            }
+	        } finally {
+	            if (_didIteratorError) {
+	                throw _iteratorError;
+	            }
+	        }
+	    }
+
+	    return options;
+	};
+	/**
+	 *获取AiForm中的值
+	 * @param states  整棵state树
+	 * @param id      数据存储当前页面的id
+	 * @param index   数据存储当前页面的栏目的排序编号 ，从0开始
+	 * @returns {{}}
+	 */
+	var getAiFormValue = exports.getAiFormValue = function getAiFormValue(states, id, index) {
+	    var returnValue = {};
+	    if (states.aiForm[id].config.data[index] && states.aiForm[id].config.data[index].data) {
+	        var datas = states.aiForm[id].config.data[index].data;
+	        var _iteratorNormalCompletion2 = true;
+	        var _didIteratorError2 = false;
+	        var _iteratorError2 = undefined;
+
+	        try {
+	            for (var _iterator2 = (0, _getIterator3["default"])(datas), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	                var data = _step2.value;
+
+	                if (!data.ignore) {
+	                    var value = data.value ? data.value : data.defaultValue ? data.defaultValue : "";
+	                    returnValue[data.field] = value;
+	                }
+	            }
+	        } catch (err) {
+	            _didIteratorError2 = true;
+	            _iteratorError2 = err;
+	        } finally {
+	            try {
+	                if (!_iteratorNormalCompletion2 && _iterator2["return"]) {
+	                    _iterator2["return"]();
+	                }
+	            } finally {
+	                if (_didIteratorError2) {
+	                    throw _iteratorError2;
+	                }
+	            }
+	        }
+	    }
+	    return returnValue;
+	};
+	/**
+	 * 获取AiFormTable的数据
+	 * @param states   整棵state树
+	 * @param id       aiFormTable 的id
+	 * @returns {Array}  返回json对象数组
+	 */
+	var getAiFormTableValue = exports.getAiFormTableValue = function getAiFormTableValue(states, id) {
+	    var returnValue = [],
+	        key = void 0;
+	    if (states.aiFormTable[id] && states.aiFormTable[id].config && states.aiFormTable[id].config.dataSource) {
+	        var datas = states.aiFormTable[id].config.dataSource;
+	        for (var i = 0; i < datas.length; i++) {
+	            var data = datas[i];
+	            for (key in data) {
+	                if (key.indexOf("_field") > 0) {
+	                    delete data[key];
+	                    delete data["key"];
+	                }
+	            }
+	            returnValue.push(data);
+	        }
+	    }
+
+	    return returnValue;
+	};
+
+	/**
+	 * 流程中可编辑表的数据处理
+	 * @param data
+	 * @returns []
+	 */
+	var aiFormTableValue = exports.aiFormTableValue = function aiFormTableValue(data) {
+	    var key = void 0;
+	    var returnValue = [];
+	    for (key in data) {
+	        if (!key) {
+	            return returnValue;
+	        }
+	        if (key.indexOf("_field_") > 0) {
+	            var value = data[key];
+	            var str = key.substr(0, key.indexOf('_field_'));
+	            var index = parseInt(key.substr(key.indexOf('_field_') + 7));
+	            returnValue[index] = (0, _extends3["default"])({}, returnValue[index]);
+	            returnValue[index][str] = value;
+	        }
+	    }
+	    return returnValue;
+	};
+	/**
+	 * 获取tree的name值
+	 * @param state
+	 * @param id
+	 * @returns {{}}
+	 */
+	var gettreeSelectName = exports.gettreeSelectName = function gettreeSelectName(state, field, id) {
+	    if (!(state.dicts.treeSelect && state.dicts.treeSelect[field])) {
+	        return "";
+	    }
+	    var trees = state.dicts.treeSelect[field].data;
+	    var _iteratorNormalCompletion3 = true;
+	    var _didIteratorError3 = false;
+	    var _iteratorError3 = undefined;
+
+	    try {
+	        for (var _iterator3 = (0, _getIterator3["default"])(trees), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+	            var tree = _step3.value;
+
+	            if (tree.key == id) {
+	                return tree.label;
+	            } else if (tree.children && tree.children.length > 0) {
+	                var second = tree.children;
+	                var _iteratorNormalCompletion4 = true;
+	                var _didIteratorError4 = false;
+	                var _iteratorError4 = undefined;
+
+	                try {
+	                    for (var _iterator4 = (0, _getIterator3["default"])(tree.children), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+	                        var children = _step4.value;
+
+	                        if (children.key == id) {
+	                            return children.label;
+	                        } else if (second.children && second.children.length > 0) {
+	                            var _children = second.children;
+	                            var _iteratorNormalCompletion5 = true;
+	                            var _didIteratorError5 = false;
+	                            var _iteratorError5 = undefined;
+
+	                            try {
+	                                for (var _iterator5 = (0, _getIterator3["default"])(_children), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+	                                    var child = _step5.value;
+
+	                                    if (child.key == id) {
+	                                        return child.label;
+	                                    }
+	                                }
+	                            } catch (err) {
+	                                _didIteratorError5 = true;
+	                                _iteratorError5 = err;
+	                            } finally {
+	                                try {
+	                                    if (!_iteratorNormalCompletion5 && _iterator5["return"]) {
+	                                        _iterator5["return"]();
+	                                    }
+	                                } finally {
+	                                    if (_didIteratorError5) {
+	                                        throw _iteratorError5;
+	                                    }
+	                                }
+	                            }
+	                        }
+	                    }
+	                } catch (err) {
+	                    _didIteratorError4 = true;
+	                    _iteratorError4 = err;
+	                } finally {
+	                    try {
+	                        if (!_iteratorNormalCompletion4 && _iterator4["return"]) {
+	                            _iterator4["return"]();
+	                        }
+	                    } finally {
+	                        if (_didIteratorError4) {
+	                            throw _iteratorError4;
+	                        }
+	                    }
+	                }
+	            }
+	        }
+	    } catch (err) {
+	        _didIteratorError3 = true;
+	        _iteratorError3 = err;
+	    } finally {
+	        try {
+	            if (!_iteratorNormalCompletion3 && _iterator3["return"]) {
+	                _iterator3["return"]();
+	            }
+	        } finally {
+	            if (_didIteratorError3) {
+	                throw _iteratorError3;
+	            }
+	        }
+	    }
+	};
+
+	var isJson = exports.isJson = function isJson(str) {
+	    var isJson = (typeof obj === "undefined" ? "undefined" : (0, _typeof3["default"])(obj)) == "object" && Object.prototype.toString.call(obj).toLowerCase() == "[object object]" && !obj.length;
+	    return isJson;
+	};
+	/**
+	 *
+	 * @param type   下拉类型的value
+	 * @param field   id
+	 */
+	var backTypename = exports.backTypename = function backTypename(type, field) {
+	    if (!type || type == "") {
+	        return "";
+	    }
+	    // 资源类型
+	    if (field == "resType") {
+	        switch (type) {
+	            case "1":
+	                return "数据库";
+	            case "2":
+	                return "文件";
+	            case "3":
+	                return "API";
+	        }
+	    }
+	    // 资源状态
+	    if (field == "resourceType") {
+	        switch (type) {
+	            case "0":
+	                return "已发布";
+	            case "1":
+	                return "待审核";
+	            case "2":
+	                return "已拒绝";
+	            case "3":
+	                return "已暂停";
+	            case "4":
+	                return "已撤销";
+	        }
+	    }
+	};
+	/**
+	 * 删除数组中的一个元素
+	 * @param arrs
+	 */
+	var remove = exports.remove = function remove(arrs) {
+	    var index = undefined.indexOf(arrs);
+	    if (index > -1) {
+	        undefined.splice(index, 1);
+	    }
+	};
+
+/***/ },
+
+/***/ 0:
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__("./node_modules/webpack-hot-middleware-ie8/client.js?path=http:/127.0.0.1:8000/__webpack_hmr");
+	module.exports = __webpack_require__("1484118498000");if(!runed){
+            clearInterval(timer);
+            timer = setInterval(function(){
+                if(temp) {
+                    temp(module, exports, __webpack_require__);
+                    clearInterval(timer);
+                    delete temp;
+                    
+                }
+                time++;
+                if(time>500){
+                    clearInterval(timer);
+                    console.log('more than 500 times')
+                }
+            },500);
+        }
+
+
+/***/ },
+
+/***/ "1484118498000":
+/***/ temp=function(module, exports, __webpack_require__) {
+runed = true;
+
+	'use strict';
+
+	var _css = __webpack_require__("./src/ant_blue_theme/icon/style/css.js");
+
+	var _icon = __webpack_require__("./node_modules/antFB/lib/icon/index.js");
+
+	var _icon2 = _interopRequireDefault(_icon);
+
+	var _css2 = __webpack_require__("./src/ant_blue_theme/table/style/css.js");
+
+	var _table = __webpack_require__("./node_modules/antFB/lib/table/index.js");
+
+	var _table2 = _interopRequireDefault(_table);
+
+	var _react = __webpack_require__("./node_modules/react/react.js");
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _jsonp = __webpack_require__("./src/core/jsonp.js");
+
+	var _jsonp2 = _interopRequireDefault(_jsonp);
+
+	var _dataFormat = __webpack_require__("./src/core/dataFormat.js");
+
+	var _global = __webpack_require__("./src/core/global.js");
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	/**
+	 * Created by liy on 2016/12/19 0019.
+	 */
+	(0, _jsonp2["default"])("wfbdzySjkZyfbStep6")(function (args, callback) {
+	    var target = args.target;
+	    // let metadataDetail = (args && args.apiData) ? args.apiData.metadataDetail:{};
+	    // let pzgxcl = (args &&args.apiData) ? args.apiData.pzgxcl:[];
+	    // let gxmuxx = (args &&args.apiData) ? args.apiData.gxmuxx:[];
+	    // let gxmlsjx = (args &&args.apiData) ? args.apiData.gxmlsjx:[];
+	    // let zysqdyxx = (args &&args.apiData) ? args.apiData.zysqdyxx:[];
+	    var state = _global.Global.getState();
+	    // let fbr = getAiFormValue(state,'wfbdzySjkZyfbStep4',0);
+
+	    var fbr = state.aiForm.wfbdzySjkZyfbStep4.values;
+	    var gxmlxxDataSource = state.dataList.wfbdzySjkZyfbStep0.tableBodyDataApi.data.content;
+	    var gxmlsjxDataSource = (0, _dataFormat.jsonStrToArray)(state.connectDatasource.connectDataSourceDemo.requestDataItemContent.data.dbJson);
+	    // gxmlxxDataSource.push({
+	    //    "name":gxmlsjxAll.resName,
+	    //     "ename":gxmlsjxAll.resEname,
+	    //     "code":gxmlsjxAll.resCode,
+	    //     "type":gxmlsjxAll.resType,
+	    //
+	    // });
+	    var resultG = state.aiForm.wfbdzySjkZyfbStep5.values;
+	    var ddModelDatas = [];
+	    if (resultG.ddModel == 1) {
+	        ddModelDatas.push({ "dispatchType": "周期模式", "startTime": "2014-10-13", "cycle": resultG.zqIntervalCycle });
+	    } else {
+	        ddModelDatas.push({ "dispatchType": "定期模式", "cycle": "" });
+	    }
+
+	    var sourceColumns = [];
+	    gxmlsjxDataSource.forEach(function (item) {
+	        sourceColumns.push({
+	            "dataItemName": item.name,
+	            "dataItemCode": item.code,
+	            "table": state.connectDatasource.connectDataSourceDemo.requestTables.data.content[state.connectDatasource.connectDataSourceDemo.tableIds[0]].name,
+	            "columnName": item.name,
+	            "showName": item.name,
+	            "index": item.index,
+	            "type": item.type
+	        });
+	    });
+	    var dispatchStrategy = {};
+	    if (resultG.ddModel == 1) {
+	        dispatchStrategy.dispatchType = 1;
+	        dispatchStrategy.beginTime = "2016-01-01 12:10:10";
+	        dispatchStrategy.cycle = parseInt(resultG.zqIntervalCycle);
+	        dispatchStrategy.dateTypeMin = resultG.zqTimeUnit;
+	        dispatchStrategy.dateTypeMax = "";
+	        dispatchStrategy.day = "";
+	        dispatchStrategy.hour = "";
+	        dispatchStrategy.second = "";
+	    } else {
+	        dispatchStrategy.dispatchType = 2;
+	        dispatchStrategy.beginTime = "";
+	        dispatchStrategy.cycle = "";
+	        dispatchStrategy.dateTypeMin = "";
+	        dispatchStrategy.dateTypeMax = resultG.dqTimeUnit;
+	        dispatchStrategy.day = parseInt(resultG.dayTime);
+	        dispatchStrategy.hour = parseInt(resultG.hourTime);
+	        dispatchStrategy.second = parseInt(resultG.minTime);
+	    }
+
+	    var values = {
+	        "id": state.dataList.wfbdzySjkZyfbStep0.selectedRows[0],
+	        "dataSourceId": state.dataList.wfbdzySjkZyfbStep1.selectedRows[0],
+	        "dbPublishDataJson": {
+	            "table_releation": [],
+	            "pk": "id",
+	            "sourceColumns": sourceColumns
+	        },
+	        "dispatchStrategy": dispatchStrategy,
+	        "metadataDTO": {
+	            "restitle": fbr.resName,
+	            "abstracts": fbr.abstracts,
+	            "rporgname": fbr.rporgname,
+	            "address": fbr.address ? fbr.address : "no address",
+	            "subjectcarategory": fbr.themeType,
+	            "departmentCategory": fbr.departmentType,
+	            "keyword": fbr.keyword,
+	            "reason": fbr.applyReason,
+	            "resourceType": 1
+	        }
+	    };
+	    _global.Global.mark({
+	        'stepContainer': {
+	            stepValues: values
+	        }
+	    });
+
+	    //getAiFormValue(state,'wfbdzySjkZyfbStep5',0)
+	    // gxmlxxDataSource.push();
+	    var gxmlxxcolumns = [{
+	        title: "资源名称",
+	        dataIndex: 'resName',
+	        key: 'resName'
+	    }, {
+	        title: "资源英文名称",
+	        dataIndex: 'resEname',
+	        key: 'resEname'
+	    }, {
+	        title: "资源编码",
+	        dataIndex: 'resCode',
+	        key: 'resCode'
+	    }, {
+	        title: "资源类型",
+	        dataIndex: 'resType',
+	        key: 'resType',
+	        render: function render() {
+	            return '数据库';
+	        }
+	    }, {
+	        title: "主题分类",
+	        dataIndex: 'themeType',
+	        key: 'themeType'
+	    }, {
+	        title: "部门分类",
+	        dataIndex: 'departmentType',
+	        key: 'departmentType'
+	    }, {
+	        title: "资源等级",
+	        dataIndex: 'resLevel',
+	        key: 'resLevel'
+	    }];
+	    var gxmlsjxcolumns = [{
+	        title: "数据项名称",
+	        dataIndex: 'name',
+	        key: 'name'
+	    }, {
+	        title: "数据项英文名称",
+	        dataIndex: 'ename',
+	        key: 'ename'
+	    }, {
+	        title: "数据项编码",
+	        dataIndex: 'code',
+	        key: 'code'
+	    }, {
+	        title: "数据项类型",
+	        dataIndex: 'type',
+	        key: 'type'
+	    }, {
+	        title: "数据项长度",
+	        dataIndex: 'length',
+	        key: 'length'
+	    }, {
+	        title: "是否必选",
+	        dataIndex: 'mandatory',
+	        key: 'mandatory'
+	    }, {
+	        title: "发布级别",
+	        dataIndex: 'index',
+	        key: 'index'
+	    }];
+	    //更新策略
+
+	    var gxclCloumn_zq = [{
+	        title: "调度模式",
+	        dataIndex: 'dispatchType',
+	        key: 'dispatchType'
+	    }, {
+	        title: "开始时间",
+	        dataIndex: 'startTime',
+	        key: 'startTime'
+	    }, {
+	        title: "间隔周期",
+	        dataIndex: 'cycle',
+	        key: 'cycle',
+	        render: function render(text, record, index) {
+	            switch (resultG.zqTimeUnit) {
+	                case 1:
+	                    return _react2["default"].createElement(
+	                        'div',
+	                        null,
+	                        text,
+	                        '\u5C0F\u65F6'
+	                    );
+	                case 2:
+	                    return _react2["default"].createElement(
+	                        'div',
+	                        null,
+	                        text,
+	                        '\u5206\u949F'
+	                    );
+	                default:
+	                    return _react2["default"].createElement(
+	                        'div',
+	                        null,
+	                        text,
+	                        '\u79D2'
+	                    );
+	            }
+	        }
+	    }];
+
+	    var gxclCloumn_dq = [{
+	        title: "调度模式",
+	        dataIndex: 'dispatchType',
+	        key: 'dispatchType'
+	    }, {
+	        title: "间隔周期",
+	        dataIndex: 'cycle',
+	        key: 'cycle',
+	        render: function render(text, record, index) {
+	            var children = [_react2["default"].createElement(
+	                'span',
+	                { style: { paddingLeft: "20px", paddingRight: "20px" } },
+	                resultG.dayTime,
+	                '\u5929'
+	            ), _react2["default"].createElement(
+	                'span',
+	                { style: { paddingLeft: "20px", paddingRight: "20px" } },
+	                resultG.hourTime,
+	                '\u65F6'
+	            ), _react2["default"].createElement(
+	                'span',
+	                { style: { paddingLeft: "20px", paddingRight: "20px" } },
+	                resultG.minTime,
+	                '\u5206'
+	            )];
+	            switch (resultG.dqTimeUnit) {
+	                case 1:
+	                    return _react2["default"].createElement(
+	                        'div',
+	                        null,
+	                        _react2["default"].createElement(
+	                            'span',
+	                            { style: { paddingLeft: "20px", paddingRight: "20px" } },
+	                            '\u6BCF\u6708'
+	                        ),
+	                        children
+	                    );
+	                case 2:
+	                    return _react2["default"].createElement(
+	                        'div',
+	                        null,
+	                        _react2["default"].createElement(
+	                            'span',
+	                            { style: { paddingLeft: "20px", paddingRight: "20px" } },
+	                            '\u6BCF\u5468'
+	                        ),
+	                        children
+	                    );
+	                default:
+	                    return _react2["default"].createElement(
+	                        'div',
+	                        null,
+	                        _react2["default"].createElement(
+	                            'span',
+	                            { style: { paddingLeft: "20px", paddingRight: "20px" } },
+	                            '\u6BCF\u65E5'
+	                        ),
+	                        children
+	                    );
+	            }
+	        }
+	    }];
+	    callback({
+	        "success": true,
+	        "data": [{
+	            "title": "元数据基本信息", //栏目标题
+	            "column": 2,
+	            "showTitle": true,
+	            "titleIcon": "file-text",
+	            "data": [{ "type": "text", "name": "标题", "field": "zymc", "defaultValue": fbr.resName ? fbr.resName : "" }, { "type": "text", "name": "摘要", "field": "zy", "defaultValue": fbr.abstracts ? fbr.abstracts : "" }, { "type": "text", "name": "关键字", "field": "keyword", "defaultValue": fbr.keyword ? fbr.keyword : "" }, { "type": "text", "name": "国家主题分类", "field": "themeType", "defaultValue": fbr.themeType ? fbr.themeType : "" }, { "type": "text", "name": "部门主题分类", "field": "departmentType", "defaultValue": fbr.departmentType ? fbr.departmentType : "" }, { "type": "text", "name": "资源类型", "field": "dylx", "defaultValue": "数据库" }, { "type": "text", "name": "数据提供方单位", "field": "rporgname", "defaultValue": fbr.rporgname }, { "type": "text", "name": "数据提供方地址", "field": "address", "defaultValue": fbr.address }]
+	        }, {
+	            "title": "共享目录信息",
+	            "showTitle": true,
+	            "titleIcon": "bars",
+	            "data": function data() {
+	                return _react2["default"].createElement(_table2["default"], { columns: gxmlxxcolumns, dataSource: gxmlxxDataSource, bordered: true });
+	            }
+	        }, {
+	            "title": "共享目录数据项",
+	            "showTitle": true,
+	            "titleIcon": "bar-chart",
+	            "data": function data() {
+	                return _react2["default"].createElement(_table2["default"], { columns: gxmlsjxcolumns, dataSource: gxmlsjxDataSource, bordered: true });
+	            }
+	        }, {
+	            "title": "更新策略",
+	            "showTitle": true,
+	            "titleIcon": "copy",
+	            "data": function data() {
+	                return _react2["default"].createElement(
+	                    'div',
+	                    null,
+	                    _react2["default"].createElement(
+	                        'div',
+	                        { className: "tableTitle" },
+	                        _react2["default"].createElement(_icon2["default"], { type: 'appstore-o', className: "tableTitIcon" }),
+	                        _react2["default"].createElement(
+	                            'span',
+	                            null,
+	                            '\u8C03\u5EA6\u914D\u7F6E'
+	                        )
+	                    ),
+	                    _react2["default"].createElement(_table2["default"], { columns: resultG.ddModel == 1 ? gxclCloumn_zq : gxclCloumn_dq, dataSource: ddModelDatas, bordered: true })
+	                );
+	            }
+	        }, {
+	            "title": "资源申请发布信息", //栏目标题
+	            "column": 2,
+	            "showTitle": true,
+	            "titleIcon": "notification",
+	            "data": [{ "name": "发布原因", "type": "text", "field": "fbyy", "defaultValue": fbr.applyReason }, { "name": "申请人", "type": "text", "field": "proposer", "defaultValue": _global.Global.getState().framework.loginApi.data.loginUserProfileDTO.loginName }]
+	        }]
+	    });
+	});
+
+/***/ }
+
+});
+})()
+//# sourceMappingURL=pageArgs.js.map
