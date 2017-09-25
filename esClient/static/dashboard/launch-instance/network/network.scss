@@ -1,0 +1,37 @@
+[ng-controller="LaunchInstanceNetworkController as ctrl"] {
+  .table {
+    tr {
+      td:last-child {
+        overflow: initial;
+      }
+      .reorder{
+        max-width: 25px;
+        span{width: 10px;}
+      }
+    }
+  }
+}
+
+[ng-controller="LaunchInstanceNetworkPortController as ctrl"] {
+  .table {
+    tr {
+      td:last-child {
+        overflow: initial;
+      }
+    }
+  }
+}
+
+.create-instances{
+  .modal-dialog{
+    -webkit-transform: none !important;
+    -moz-transform: none !important;
+    -ms-transform: none !important;
+    -o-transform: none !important;
+    transform: none !important;
+    top:0;
+    right:0;
+    bottom: 0;
+    left:0;
+  }
+}

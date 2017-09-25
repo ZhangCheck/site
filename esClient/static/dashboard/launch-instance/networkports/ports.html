@@ -1,0 +1,160 @@
+<div ng-controller="LaunchInstanceNetworkPortController as ctrl">
+  <div class="content">
+    <div>
+      {$ ctrl.context.instruction $}
+    </div>
+    <transfer-table tr-model="ctrl.tableDataMulti" help-text="ctrl.tableHelpText" limits="ctrl.tableLimits">
+      <allocated ng-model="ctrl.tableDataMulti.allocated.length">
+        <table id="selected-ports"
+               st-table="ctrl.tableDataMulti.displayedAllocated"
+               st-safe-src="ctrl.tableDataMulti.allocated"
+               hz-table hopes-table-drag
+               class="table table-bordered table-hover table-th">
+          <thead>
+          　<tr class="hidden"></tr>
+            <tr>
+              <th class="hidden"></th>
+              <th st-sort="name" st-sort-default class="rsp-p1" translate>Name</th>
+              <th class="rsp-p2" translate>IP</th>
+              <th st-sort="status"
+                  class="rsp-p1"
+                  translate>
+                Status
+              </th>
+              <th class="actions_column"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-if="ctrl.tableDataMulti.allocated.length === 0">
+              <td colspan="8">
+                <div class="no-rows-help">
+                  {$ ctrl.context.AvailableSelectMessage $}
+                </div>
+              </td>
+            </tr>
+            <tr ng-repeat-start="item in ctrl.tableDataMulti.displayedAllocated track by item.id">
+              <td eagle-eye="data_col" class="expander" title="{$ ctrl.nameOrID(item) $}">
+                <span class="row-name">{$ ctrl.nameOrID(item) $}</span>
+                <span class="chevron-right chevron-fixed fr" hz-expand-detail="chevron-right chevron-down"
+                      title="{$ 'Click to see more details' $}"></span>
+              </td>
+              <td eagle-eye="data_col" title="{$ ctrl.formatIp(item) $}">{$ ctrl.formatIp(item) $}</td>
+              <td eagle-eye="data_col" title="{$ item.status | decode:ctrl.portStatuses $}">{$ item.status | decode:ctrl.portStatuses $}</td>
+              <td eagle-eye="button_action" class="action-col">
+                <action-list class="instance-btn">
+                  <action callback="trCtrl.deallocate"
+                          item="item"
+                          ng-disabled="item.status === 'ACTIVE'">
+                  <span class="icon remove_to"></span>
+                  </action>
+                </action-list>
+              </td>
+            </tr>
+            <tr ng-repeat-end class="detail-row">
+              <td colspan="4" class="detail">
+                <dl class="dl-horizontal">
+                  <dt>{$ ctrl.detailHeader['ID'] $}</dt>
+                  <dd>{$ item.id $}</dd>
+                  <dt>{$ ctrl.detailHeader['Project ID'] $}</dt>
+                  <dd>{$ item.tenant_id $}</dd>
+                  <dt>{$ ctrl.detailHeader['Network ID'] $}</dt>
+                  <dd>{$ item.network_id $}</dd>
+                  <dt>{$ ctrl.detailHeader['Network'] $}</dt>
+                  <dd>{$ item.network_name $}</dd>
+                  <dt>{$ ctrl.detailHeader['MAC Address'] $}</dt>
+                  <dd>{$ item.mac_address $}</dd>
+                  <dt>{$ ctrl.detailHeader['VNIC type'] $}</dt>
+                  <dd>{$ item['binding:vnic_type'] | decode:ctrl.vnicTypes $}</dd>
+                  <div ng-if="item['binding:host_id']">
+                    <dt>{$ ctrl.detailHeader['Host ID'] $}</dt>
+                    <dd>{$ item['binding:host_id'] $}</dd>
+                  </div>
+                </dl>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </allocated>
+
+      <available>
+      <table st-magic-search
+             id="network-list"
+             st-table="ctrl.tableDataMulti.displayedAvailable"
+             st-safe-src="ctrl.tableDataMulti.available"
+             hz-table hopes-table-drag
+             class="table table-bordered table-hover table-th">
+        <thead>
+          <tr class="hidden"></tr>
+          <tr>
+            <th class="hidden"></th>
+            <th eagle-eye="data_col"
+                st-sort="name"
+                st-sort-default
+                class="rsp-p1">
+              {$ ctrl.context.Name $}
+            </th>
+            <th eagle-eye="data_col">{$ ctrl.context.IP $}</th>
+            <th eagle-eye="data_col">{$ ctrl.context.Status $}</th>
+            <th eagle-eye="data_col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-if="trCtrl.numDisplayedAvailable() === 0">
+            <td colspan="8">
+              <div class="no-rows-help">
+                {$ ::trCtrl.helpText.noneAvailText $}
+              </div>
+            </td>
+          </tr>
+          <tr ng-repeat-start="item in ctrl.tableDataMulti.displayedAvailable track by item.id"
+              ng-if="!trCtrl.allocatedIds[item.id]">
+            <td eagle-eye="data_col" class="expender" title="{$ ctrl.nameOrID(item) $}">
+              <span class="row-name">{$ ctrl.nameOrID(item) $}</span>
+              <span class="chevron-right chevron-fixed fr" hz-expand-detail="chevron-right chevron-down"
+                    title="{$ 'Click to see more details' $}"></span>
+            </td>
+            <td eagle-eye="data_col" title="{$ ctrl.formatIp(item) $}">{$ ctrl.formatIp(item) $}</td>
+            <td eagle-eye="data_col" title="{$ item.status | decode:ctrl.portStatuses $}">{$ item.status | decode:ctrl.portStatuses $}</td>
+            <td eagle-eye="button_action" class="action-col">
+              <action-list ng-show="item.status !== 'ACTIVE'" class="instance-btn">
+                <action callback="trCtrl.allocate" item="item">
+                <span class="icon add_to"></span>
+                </action>
+              </action-list>
+              <span class="invalid fa fa-lg fa-exclamation-triangle"
+                    ng-show="item.status === 'ACTIVE'"
+                    popover="{$ ctrl.context.bindedWarning $}"
+                    popover-placement="top"
+                    popover-append-to-body="true"
+                    popover-trigger="mouseenter mouseleave">
+              </span>
+            </td>
+          </tr>
+          <tr ng-repeat-end class="detail-row">
+            <td colspan="4" class="detail">
+              <dl class="dl-horizontal">
+                  <dt>{$ ctrl.detailHeader['ID'] $}</dt>
+                  <dd>{$ item.id $}</dd>
+                  <dt>{$ ctrl.detailHeader['Project ID'] $}</dt>
+                  <dd>{$ item.tenant_id $}</dd>
+                  <dt>{$ ctrl.detailHeader['Network ID'] $}</dt>
+                  <dd>{$ item.network_id $}</dd>
+                  <dt>{$ ctrl.detailHeader['Network'] $}</dt>
+                  <dd>{$ item.network_name $}</dd>
+                  <dt>{$ ctrl.detailHeader['MAC Address'] $}</dt>
+                  <dd>{$ item.mac_address $}</dd>
+                  <dt>{$ ctrl.detailHeader['VNIC type'] $}</dt>
+                  <dd>{$ item['binding:vnic_type'] | decode:ctrl.vnicTypes $}</dd>
+                  <div ng-if="item['binding:host_id']">
+                    <dt>{$ ctrl.detailHeader['Host ID'] $}</dt>
+                    <dd>{$ item['binding:host_id'] $}</dd>
+                  </div>
+              </dl>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </transfer-table>
+
+  </div>
+</div>

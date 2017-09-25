@@ -1,0 +1,78 @@
+.toggle-directive {
+  position: relative;
+  width: 34px;
+  height: 10px;
+  border-radius: 15px;
+  margin: 3px;
+  span.label {
+    position: relative;
+    top: -12px;
+    left: -49px;
+    color: inherit;
+    font-size: 15px;
+    font-weight: normal;
+  }
+}
+.toggle-directive input[type='checkbox'] {
+  margin-left: -2000px;
+}
+.toggle-directive label {
+  display: inline-block;
+  cursor: pointer;
+}
+.toggle-directive .label-left,
+.toggle-directive .label-right {
+  z-index: 2;
+  position: absolute;
+  bottom: 0;
+  font-size: 18px;
+  height: 25px;
+  line-height: 25px;
+  color: #333;
+}
+.toggle-directive .label-left {
+  color: #567b24;
+  left: 7px;
+}
+.toggle-directive .label-right {
+  right: 7px;
+  color: #acacac;
+}
+.toggle-directive label:before, .toggle-directive label:after {
+  content: " ";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 15px;
+}
+.toggle-directive label:before {
+  z-index: 1;
+  background: linear-gradient(to right, #23CAD0 0%, #23CAD0 50%, #dfdfdf 50%, #dfdfdf 100%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  background-origin: border-box;
+  background-clip: border-box;
+  overflow: hidden;
+  transition: background-position 250ms ease-in-out;
+}
+.toggle-directive label:after {
+  z-index: 3;
+  transition: left 250ms ease-out;
+  background-color: #fbfbfb;
+  border: 1px solid #aaa;
+  width: 15px;
+  height: 15px;
+  top: -2px;
+  left: -1px;
+}
+.toggle-directive input:checked ~ label:before {
+  background-position: 0 0;
+  transition: background-position 250ms ease-in-out;
+}
+.toggle-directive input:checked ~ label:after {
+  left: 20px;
+  transition: left 250ms ease-in-out;
+}

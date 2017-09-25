@@ -1,0 +1,8 @@
+<div class="fl" st-pagination="" st-items-by-page="pageSize" st-displayed-pages="10"></div>
+<div class="fr select-page">
+  <span> {$ show $} </span>
+  <select ng-model='pageSize'
+    ng-options="item for item in pageSizeItem">
+  </select>
+  <span> {$ entries $} </span>
+</div>

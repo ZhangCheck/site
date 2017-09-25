@@ -1,0 +1,124 @@
+.hz_tree {
+  display: block;
+  border: 1px solid #ECEDF0;
+  padding: 5px;
+  min-height: 70%;
+  ol {
+    background: url($img-path + 'line1.gif') repeat-y;
+    li {
+      background: url($img-path + 'line2.gif') no-repeat 0 0;
+      //padding-top: 3px;
+      div {
+        cursor:auto;
+        position: relative;
+        .hide-tree-name {
+          width: 150px;
+          position: absolute;
+          left: 23px;
+          top: 1px;
+          display: block;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          font-weight: normal;
+        }
+        a {
+          color: #7e858f;
+          margin-left: 5px;
+          text-decoration: none;
+          cursor: pointer;
+          span.node-title{
+            padding: 10px 10px 9px 1px;
+          }
+          span.loading{
+            padding: 0;
+          }
+          span.hz-collapse {
+            display:inline-block;
+            width: 14px;
+            height: 14px;
+            background: url($img-path + 'collapse.png') no-repeat;
+            vertical-align: middle;
+          }
+          span.hz-collapse-plus {
+            background-position: 0 0;
+          }
+          span.hz-collapse-minus {
+            background-position: 0 -14px;
+          }
+          &:hover{
+            color: #60c0af;
+          }
+          &:active{
+            color: #60c0af;
+            font-weight: bold;
+          }
+          &:focus{
+            outline:none;
+          }
+          &.dis-click:hover{
+            color: #7e858f;
+            cursor: default;
+          }
+          &.active{
+            color: #60c0af;
+            font-weight: bold;
+          }
+        }
+
+        span.leaf {
+          display: inline-block;
+          margin-left: 21px;
+        }
+      }
+      .loading{
+        background: none;
+      }
+    }
+    .angular-ui-tree-node, .angular-ui-tree-handle {
+      min-height: 24px;
+      line-height: 24px;
+    }
+  }
+}
+
+#project-dropdown-tree{
+  .dropdown-content-tree {
+    display: none;
+    width: 180px;
+    height: 280px;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    top: 48px;
+    border: 1px solid #ccc;
+    .dropdown-search {
+      margin: 10px;
+    }
+    .dropdown-list {
+      height: 228px;
+    }
+    .hz_tree {
+      height: 212px;
+      border: 0;
+      border-top: 1px #dcdcdc solid;
+      ol li div .hide-tree-name {
+        width: 104px;
+      }
+      .angular-ui-tree-handle {
+        font-weight: normal;
+      }
+    }
+    .show-search-list {
+      .tree-smallC {
+        vertical-align: super;
+        margin-left: 14px;
+      }
+    }
+  }
+  .open {
+    .dropdown-content-tree {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+[ng-controller="LaunchInstanceSecurityGroupsCtrl as ctrl"] {
+  .table-rsp.security-group-details {
+    background: none;
+
+    th {
+      padding-left: 15px;
+    }
+
+    td {
+      background: none !important;
+      padding: 15px !important;
+      &:last-child {
+        overflow: hidden;
+      }
+    }
+  }
+  .table {
+    tr {
+      td:last-child {
+        overflow: initial;
+      }
+    }
+  }
+}

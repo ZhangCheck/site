@@ -1,0 +1,37 @@
+<form name="form" eid="form">
+    <div ng-controller="LaunchInstanceMetaDataController" eid="LaunchInstanceMetaDataController">
+        <div class="content">
+            <p class="metadata-title">{$ trans.TITLE $}</p>
+            <div class="metadata-datalists" ng-if="metadata.length">
+                <div class="metadata-datalist" ng-repeat="data in metadata track by $index ">
+                    <div class="form-group">
+                        <span>{$ trans.NAME $}</span>
+                        <input type="text" ng-model="data.key" ng-maxlength="255" name="key_{$$index$}"
+                               ng-pattern="/^[\u4e00-\u9fa5\\\\a-zA-Z0-9-_:. ]{1,255}$/" eid="key_{$$index$}">
+                        <p class="help-block alert alert-danger left26"
+                           ng-show="form['key_{$$index$}'].$error.maxlength">
+                            {$ trans.KEYLENGTHLESS $}
+                        </p>
+                        <p class="help-block alert alert-danger left26" ng-show="form['key_{$$index$}'].$error.pattern&&!form['key_{$$index$}'].$error.maxlength">{$
+                            trans.KEYINVALID $}</p>
+                    </div>
+                    <div class="form-group">
+                        <span>{$ trans.ATTR $}</span>
+                        <input type="text" ng-model="data.value" ng-maxlength="255" name="v_{$$index$}"
+                               ng-pattern="/^[\u4e00-\u9fa5\\\\a-zA-Z0-9-_:. ]{1,255}$/" eid="v_{$$index$}">
+                        <p class="help-block alert alert-danger left350"
+                           ng-show="form['v_{$$index$}'].$error.maxlength">
+                            {$ trans.VALUELENGTHLESS $}
+                        </p>
+                        <p class="help-block alert alert-danger left350" ng-show="form['v_{$$index$}'].$error.pattern&&!form['v_{$$index$}'].$error.maxlength">{$
+                            trans.VALUEINVALID $}</p>
+                    </div>
+                    <a class="icon remove_to metadata-remove-btn" ng-click="action.remove($index)" eid="btn_remove_{$$index$}"></a>
+                </div>
+            </div>
+            <p class="metadata-nodata-desc" ng-if="!metadata.length">{$ trans.NODATA $}</p>
+            <a class="metadata-add-btn" ng-click="action.add()" eid="btn_add">{$ trans.ADDDATA $}</a>
+        </div>
+    </div>
+</form>
+

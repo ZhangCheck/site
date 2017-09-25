@@ -1,0 +1,75 @@
+/**
+ ** Module : detail css
+ ** Author : xinwei
+ ** Date   : 2015-12-01
+**/
+
+/* detail css */
+.detail-left-icon {
+  width: 32px;
+  height: 80px;
+  position: absolute;
+  left: -32px;
+  top: 50%;
+  margin-top: -25px;
+  cursor: pointer;
+  background: url("/static/dashboard/img/detail-lefttop-icon.png") no-repeat;
+  &:hover { background-position: 0 -81px; }
+  &:active { background-position: 0 -81px; }
+}
+.detail-page {
+  padding: 10px 0;
+  .tab-content {
+    border-left: 0;
+    border-bottom: 0;
+    border-right: 0;
+  }
+}
+.detailContent {
+  left: initial;
+  top: 0;
+  .nav-justified {
+    padding-left: 10px;
+  }
+  .table-bordered { border: 0; }
+  .table-th-unline { border: none !important; }
+  .modal-dialog { width: 100%; }
+  .modal-content { border-radius: 0; }
+  .modal { overflow-y: hidden; }
+  .tab-content {
+    .tab-pane {
+      height: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+  }
+  .detail-title {
+    font-size:16px;
+  }
+
+  .table.table-unique {
+    //box-shadow:0px 1px 1px 0px rgba(0,0,0,0.20);
+    thead tr {
+      background: none;
+    }
+    thead tr th, td {
+      padding-left: 15px;
+    }
+    th {
+      color: #293742;
+      background: none;
+    }
+    td {
+      border: none;
+      border-bottom: 1px #EBEFF1 solid;
+    }
+    tbody {
+      /*tr:nth-child(odd) {
+        background: $gray-lighter;
+      }
+      tr:nth-child(even) {
+        background: #fff;
+      }*/
+    }
+  }
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="47px" height="47px" viewBox="0 0 47 47" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+    <title>server-red</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-Copy" transform="translate(-238.000000, -515.000000)">
+            <g id="server-red" transform="translate(239.000000, 516.000000)">
+                <circle id="Oval" stroke="#EE6B63" stroke-width="2" cx="22.5" cy="22.5" r="22.5"></circle>
+                <g id="Group-3" transform="translate(10.000000, 17.000000)">
+                    <g id="Group-4">
+                        <path d="M10,7 L10,10.65 L11,10.65 L11,7 L10,7 Z M7.5,7 L7.5,10.65 L8.5,10.65 L8.5,7 L7.5,7 Z M5,7 L5,10.65 L6,10.65 L6,7 L5,7 Z M2.5,7 L2.5,10.65 L3.5,10.65 L3.5,7 L2.5,7 Z M0,6 L25,6 L25,11.9805908 L0,11.9805908 L0,6 Z M21,8 C20.45,8 20,8.42857143 20,9 C20,9.57142857 20.45,10 21,10 C21.55,10 22,9.52380952 22,9 C22,8.42857143 21.55,8 21,8 Z" id="Combined-Shape" fill="#EE6B63"></path>
+                        <polygon id="Shape" fill="#BB5650" fill-rule="nonzero" points="21.5 0 25 4.75 0 4.75 3.5 0"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

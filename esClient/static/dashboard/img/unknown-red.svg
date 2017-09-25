@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="47px" height="47px" viewBox="0 0 47 47" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+    <title>unknown-red</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-Copy" transform="translate(-128.000000, -635.000000)">
+            <g id="unknown-red" transform="translate(129.000000, 636.000000)">
+                <rect id="Rectangle" stroke="#EE6B63" x="16.9102564" y="15.9871795" width="16.9487179" height="16.9487179"></rect>
+                <path d="M16.5512821,32.9041684 L16.5512821,15.7616524 L10.5,11.9108366 L10.5,29.1418972 L16.5512821,32.9041684 Z M16.5512821,32.9041684 L16.7235547,33.0112756 L16.459554,32.9358974 L17.0512821,32.9358974 L16.5512821,33.4358974 L16.5512821,32.9041684 Z" id="Rectangle" stroke="#EE6B63"></path>
+                <path d="M10.5002739,11.0149209 L10.5002739,11.6568266 L10.2832865,11.2446326 L16.7971979,15.7170873 L34.3702424,15.7170873 L33.870324,16.226122 L33.8579634,15.5421719 L34.0491949,15.9264722 L28.427906,11.5149209 L10.0002739,11.5149209 L10.5002739,11.0149209 Z" id="Rectangle" stroke="#EE6B63"></path>
+                <rect id="Rectangle-2" fill="#EE6B63" x="17.0512821" y="16.1282051" width="8.50340136" height="8.50340136"></rect>
+                <rect id="Rectangle-2" fill="#EE6B63" x="19.6153846" y="11.6410256" width="8.97435897" height="3.84615385"></rect>
+                <rect id="Rectangle-2" fill="#EE6B63" x="25.2145474" y="24.2914704" width="8.50340136" height="8.50340136"></rect>
+                <rect id="Rectangle-2" fill="#EE6B63" x="10.6410256" y="19.974359" width="5.76923077" height="8.97435897"></rect>
+                <circle id="Oval" stroke="#EE6B63" stroke-width="2" cx="22.5" cy="22.5" r="22.5"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

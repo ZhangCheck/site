@@ -1,0 +1,319 @@
+/**
+ ** Author :zhouqi
+ ** Module : sahara module css
+ ** Data   : 2016-09-27
+**/
+/** sahara **/
+
+@media only screen and (max-height: 800px) {
+  .saharaListContent {
+    .modal-dialog {
+      .modal-body {
+         max-height: calc(100vh - 280px);
+         overflow-x: hidden;
+         overflow-y: auto;
+      }
+      .def-tabs > ul.nav-tabs > li.active a {
+        border-left-width: 1.5px;
+        border-right-width: 1.5px;
+        left: -0.5px;
+      }
+     }
+  }
+}
+
+.saharaListContent {
+  .modal-dialog { width: auto; }
+  .modal-body {
+      padding-right: 30px;
+      padding-left: 24px;
+  }
+  .sahara-form-out { width: 575px; }
+  .form-group .form-group-right { width: 282px; }
+  .form-group .form-group-left { width: 150px; }
+  .form-group label { width: 80px; }
+  .form-group-template .form-group label { width: 100px; }
+  .cluster-form-Keypair { width: 252px !important;}
+  .sahara-form-left { float: left; }
+  .sahara-form-left {
+      float: left;
+      width: 400px;
+      padding-bottom: 5px;
+  }
+  .def-tabs > ul.nav-tabs > li.active a {
+      top: 0.5px;
+  }
+  .sahara-left-text {
+      width: 174px;
+      padding: 10px 10px 20px 10px;
+      background: #F4FFFE;
+      border: 1px solid rgba(98,192,176,0.70);
+      position:relative;
+      h3 {
+        line-height: 35px;
+        padding-left: 10px;
+        border-bottom: 1px solid rgba(98,192,176,0.50);
+        font-size : 14px;
+        color : #333;
+      }
+      ul {
+        padding-left: 10px;
+        font-size: 12px;
+        color : #666;
+        li {
+          line-height : 20px;
+          width: 130px;
+          display: block;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          color:#333;
+        }
+      }
+      .value {
+        font-family: MicrosoftYaHei-Bold;
+        font-size: 12px;
+        color: #62C0B0;
+        letter-spacing: 0px;
+        font-weight : bold;
+      }
+  }
+  .advance_part2{
+    margin-top:20px;
+  }
+  .Role{
+    margin-right: 110px;
+    margin-left: 80px;
+    font-size: 16px;
+    color: #333;
+  }
+  .Node_Installed{
+    font-size: 16px;
+    color: #333;
+  }
+
+  .plugins{
+    padding: 20px;
+    font-size: 14px;
+    li > input {
+      margin: 8px 12px 8px 0;
+    }
+  }
+  .form-group #ZooKeeper_service{
+    width:150px;
+  }
+  .form-group #HBase_Master{
+    width:150px;
+  }
+  .form-group-right-advance{
+    width:200px;
+    float:left;
+  }
+
+ .importKeypair{
+   position: absolute;
+   right: -30px;
+   top: 2px;
+  }
+}
+
+
+
+
+.saharalScaleContent{
+  .modal-dialog { width: auto; }
+  .modal-body { padding-right: 64px; padding-left: 24px;}
+  .form-group .form-group-right { width: 260px; }
+  .form-group .form-group-left { width: 150px; }
+
+  .form-control{
+    width:150px;
+    margin-left:30px;
+  }
+  .sahara-form-left { float: left; }
+  .sahara-left-text {
+      width: 174px;
+      padding: 10px 10px 20px 10px;
+      background: #F4FFFE;
+      border: 1px solid rgba(98,192,176,0.70);
+      position:relative;
+      left : 30px;
+      h3 {
+        line-height: 35px;
+        padding-left: 10px;
+        border-bottom: 1px solid rgba(98,192,176,0.50);
+        font-size : 14px;
+        color : #333;
+      }
+      ul {
+        padding-left: 10px;
+        font-size: 12px;
+        color : #666;
+        li {
+          line-height : 20px;
+          width: 130px;
+          display: block;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+      .value {
+        font-family: MicrosoftYaHei-Bold;
+        font-size: 12px;
+        color: #62C0B0;
+        letter-spacing: 0px;
+        font-weight : bold;
+      }
+  }
+}
+
+.saharaRowContent{
+    .form-group .form-group-right{
+        width:300px;
+    }
+}
+
+#clusterInstanceTable {
+    .noborder{
+        border:0px solid #fff;
+    }
+    thead tr th {
+        padding:0 8px;
+    }
+}
+
+.routerListContent{
+  .prompt-description {
+    padding: 8px 10px;
+    line-height: 18px;
+    margin: auto 10px 0 10px;
+    border-radius: 2px;
+    background: #c1e0f0;
+    color: #3c6e9f;
+    text-align: center;
+  }
+
+  .importKeypair{
+   position: absolute;
+   right: -30px;
+   top: 2px;
+  }
+}
+
+.saharaPromptContent{
+  .modal-dialog { width: auto; }
+  .modal-body { padding-right: 0px; padding-left: 0px;}
+  .modal-content{
+    width:500px;
+  }
+  .form-group {
+    margin-top:0px;
+  }
+  .tips{
+    color:#5896C7;
+    font-size: 13px;
+    background-color:#BBE2EF;
+    padding:10px 0px 10px 0px;
+    margin:10px 30px 20px 30px;
+    text-align:center;
+  }
+  .private-network{
+    overflow:hidden;
+    height: 21px;
+    margin-top:10px;
+  }
+  .private-network p{
+    margin-left:80px;
+    color:#333;
+    float:left;
+    font-size: 14px;
+  }
+  .form-group action-list{
+    display: block;
+    float: right;
+    margin-right: 100px;
+    cursor:pointer;
+  }
+  .form-group action-list button{
+    background-color: #fff;
+    border: 0px solid #fff;
+  }
+  .private-router{
+    margin-top:10px;
+    height: 21px;
+    overflow:hidden;
+  }
+  .private-router p{
+    margin-left:80px;
+    color:#333;
+    float:left;
+    font-size: 14px;
+  }
+  .network-router{
+    margin-top:10px;
+    height: 21px;
+    overflow:hidden;
+  }
+  .network-router p{
+    margin-left:80px;
+    color:#333;
+    float: left;
+    font-size: 14px;
+  }
+  .set-router{
+    overflow:hidden;
+    height: 21px;
+    margin-top:10px;
+  }
+  .set-router p{
+    margin-left:80px;
+    color:#333;
+    float: left;
+    font-size: 14px;
+  }
+  .form-group action-list button .icon-loading{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url(../static/bootstrap/img/loading.gif) center/35px no-repeat  ;
+    vertical-align: middle;
+  }
+  .form-group action-list button .ok{
+    width:16px;
+    height:16px;
+    border-radius:4px;
+    background-color: #000;
+    font-size: 16px;
+    position: relative;
+    display: block;
+    background: url(/static/bootstrap/img/icon_ok.png) no-repeat center ;
+  }
+
+  .form-group action-list button .operation{
+    font-size: 12px;
+    display: block;
+    width: 60px;
+    color: #3399FF;
+    text-align: center;
+  }
+  .form-group .operation-out{
+    margin-right: 78px;
+  }
+}
+
+.importKeypairsForm {
+  .import_keypairs {
+    margin-left: 45px;
+  }
+}
+
+.saharaNewKeyPair {
+  .alert-info {
+    padding: 18px !important;
+  }
+}
+
+.create-detail-margin {
+  margin: 20px 20px 30px;
+}

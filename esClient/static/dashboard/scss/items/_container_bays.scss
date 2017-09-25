@@ -1,0 +1,68 @@
+.container-bays {
+    .div_center {
+        text-align: center;
+    }
+    .div_outer {
+        margin: 50px 50px;
+    }
+    .create_cluster_font {
+        margin-top: 30px;
+        font-size: 24px;
+    }
+    .please_create_cluster_font {
+        margin-top: 10px;
+        font-size: 18px;
+    }
+    .div_add_btn {
+        margin-top: 30px;
+    }
+    .font_lable_css {
+        font-family: MicrosoftYaHei;
+        font-size: 14px;
+        color: #333333;
+        letter-spacing: 0;
+    }
+    .font_content_css {
+        font-family: MicrosoftYaHei;
+        font-size: 14px;
+        color: #999999;
+        letter-spacing: 0;
+    }
+    .table_margin {
+        margin-top: 10px;
+        tbody {
+            font-size: 12px;
+        }
+    }
+    .div_init_padding {
+        padding: 0;
+    }
+    .no-btn-group {
+        margin-right:0;
+    }
+    .bay-msg {
+        margin: 0;
+        padding: 0;
+        .col { padding: 0; }
+        .col-num { font-size: 12px; }
+        .row { margin: 10px 0 0 0; }
+        .row:first-child { margin-top: 0; }
+        .bay-msg-inner {
+           margin-top: 10px; font-size:14px;
+           .bar-wrap {
+              min-width:85%;
+              margin: 0 60px 0 0;
+           }
+        }
+        h4 {
+             font-weight: bold;
+             font-size: 16px;
+             color: #333;
+             border-bottom: 1px #e3e3e3 solid;
+             padding: 20px 0px 10px 0px;
+        }
+        font-size: 14px;
+        background: #fff;
+    }
+}
+

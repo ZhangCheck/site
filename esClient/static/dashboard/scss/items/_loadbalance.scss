@@ -1,0 +1,37 @@
+/**
+ ** Author :zhouqi
+ ** Module : loadbalancer module css
+ ** Data   : 2016-02-16
+**/
+/** loadbalancer **/
+.loadbalancersListContent {
+  .modal-dialog { width: 550px; }
+  .form-group .form-group-right { width: 400px; }
+}
+
+.loadbalanerPortlength{
+  width: 50%;
+}
+
+
+.poolListContent {
+  .modal-dialog {
+    .popover {
+        width:450px;
+        max-width: 450px;
+    }
+   }
+}
+
+.RowContent {
+  .form-group{
+    .form-group-right{
+      width: 282px;
+    }
+  }
+  .add-floatingip{
+    margin-left: 5px;
+    position: relative;
+    top: 3px;
+  }
+}

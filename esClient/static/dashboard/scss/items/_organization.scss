@@ -1,0 +1,225 @@
+/*
+ organization
+*/
+.org-identity {
+  .en-tree-btn {
+    .btn-col {
+      width: 100%;
+      .btn-group {
+        width: 100%;
+        margin-right: 0;
+      }
+      .btn-action {
+        width: 100%;
+      }
+    }
+  }
+  .domain-info, .project-info {
+       min-height: 180px;
+       min-width: 600px;
+       margin-bottom: 20px;
+       padding: 10px 20px 10px 20px;
+       font-size: 14px;
+       background: #fff;
+       border-radius: 4px;
+       box-shadow:0px 2px 0px 0px rgba(0,0,0,0.20);
+       .header {
+         border-bottom: 1px #e3e3e3 solid;
+         height: 40px;
+         .more {
+            text-align: right;
+         }
+         .col-md-2{
+           @media (min-width: 992px) {
+             width: 16.66667%;
+           }
+         }
+
+       .org-breadcrumb{
+         padding: 5px 0px;
+         .breadcrumb {
+           background-color: #fff;
+           margin-bottom: 0px;
+           padding: 0px;
+
+           >li {
+             line-height: 17px;
+             vertical-align: middle;
+           }
+           >li + li:before{
+              display: inline-block;
+              vertical-align:middle;
+           }
+           .org-text {
+             max-width: 150px;
+             vertical-align: middle;
+           }
+         }
+       }
+         h4 {
+           font-size: 16px;
+           color: #777;
+           padding: 10px 0px 10px 0px;
+         }
+       }
+       .content {
+         margin-top: 12px;
+         .row {
+           .col {
+             padding: 5px 0px 5px 0px;
+           }
+           .col-text-right {
+             text-align: right;
+             padding-right: 15px;
+           }
+           .desp {
+            font-size: 13px;
+            height: 110px;
+            overflow-y: auto;
+            word-break : break-all;
+           }
+         }
+       }
+    }
+
+  .org-content {
+    margin-left: 260px;
+    .search-bar {
+      min-width: 24%;
+    }
+  }
+
+  .tree-title {
+    padding: 14px;
+    color: #666;
+  }
+
+  .org-tree-panel {
+     padding: 10px;
+     background-color: #fff;
+     border-radius: 4px;
+     box-shadow:0px 2px 0px 0px rgba(0,0,0,0.20);
+     font-size: 12px;
+     width: 240px;
+     color: #666;
+     position: absolute;
+
+     .org-tree {
+       margin-left: 0px;
+       margin-right: 0px;
+     }
+
+     .hz_tree {
+      height: 95%;
+      overflow: auto;
+     }
+
+     .btn-col {
+      text-align: center;
+      padding: 5px 8px;
+
+      .btn-action {
+          min-width: 100px;
+          text-align: center;
+       }
+
+     }
+    .row {
+      margin: 0;
+    }
+    .angular-ui-tree-handle {
+      font-weight: normal;
+    }
+    .hz_tree ol li div .hide-tree-name {
+      width: 150px;
+    }
+  }
+
+  .org-domain-quota, .org-project-quota {
+    padding-bottom: 25px;
+    .quota-actions {
+      padding-top: 5px;
+      padding-bottom: 5px;
+
+      button {
+        margin-left: 15px;
+        padding: 0 15px;
+      }
+    }
+
+    .quota-items>.form-group {
+      text-align: left;
+      margin-top: 0px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      .form-group-right> input[type='checkbox'] {
+        margin-top:0px;
+        vertical-align: middle;
+      }
+
+      &:nth-child(odd) {
+        border-right: 1px solid #ECEDF0;
+      }
+    }
+
+    .quota-name {
+      width: 200px;
+      float: left;
+      display: inline-block;
+      text-align: left;
+      margin-right: 0px;
+
+      &>p {
+       line-height: 30px;
+      }
+
+    }
+    .quota-value {
+      float:left;
+      width: auto;
+      height: 30px;
+      text-align: right;
+      display: inline-block;
+      padding-right: 10px;
+      input[type='text'] {
+        width: 120px;
+      }
+      .project-quota-danger{
+        width : 200px;
+        p { text-align:left; }
+      }
+    }
+  }
+}
+
+ .form-group > .org-breadcrumb{
+   padding: 5px 0px;
+   .breadcrumb {
+     background-color: #fff;
+     margin-bottom: 0px;
+     padding: 0px 0px;
+
+     >li {
+       line-height: 17px;
+       font-size: 13px;
+     }
+     >li + li:before{
+        display: inline-block;
+        vertical-align:middle;
+     }
+     .org-text {
+       max-width: 80px;
+       vertical-align: middle;
+     }
+
+   }
+ }
+
+.users-right {
+ .btn-user-remove {
+    padding: 0px;
+    line-height: initial;
+ }
+
+}

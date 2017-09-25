@@ -1,0 +1,117 @@
+/**
+ ** Author : xinwei
+ ** Module : detail log bay module css
+ ** Data   : 2017-6-1
+**/
+.detail-log-wrap {
+  height: inherit;
+  .detail-log-select {
+    width: 300px;
+    margin: 30px 0 20px 0;
+  }
+
+  .detail-log-content {
+    width: 860px;
+    height: 100%;
+    margin-top: 10px;
+    pre {
+      height: inherit;
+      overflow: auto;
+    }
+  }
+}
+
+/**
+ ** Author :yingwei
+ ** Module : persistent volume bay module css
+ ** Data   : 2017-6-1
+**/
+.persistent-volume-form{
+  .modal-dialog {
+    width: 540px;
+    .form-group-right {
+       width: 360px;
+       .input_radio {
+          vertical-align: sub;
+       }
+    }
+  }
+}
+
+/**
+ ** Author : wagnzhaungnian
+ ** Module : create app ace bay module css
+ ** Data   : 2017-6-1
+**/
+.create-app-form {
+  .modal-dialog {
+      width: 800px;
+      .ace_editor {
+        height: 430px;
+        margin: 0px 20px 0px 20px;
+        font-size: 16px;
+      }
+      .lable_width {
+          width: 78px;
+      }
+  }
+}
+
+/**
+ ** Author : xinwei
+ ** Module : pod detail environment bay module css
+ ** Data   : 2017-6-1
+**/
+.pod-detail-environment-wrap {
+  .pod-detail-environment-list {
+    width: 400px; float: left; margin-right: 30px;
+  }
+  .pod-detail-environment-detail {
+    width: 425px; float: left;
+  }
+  .pod-detail-template-title {
+    font-size: 14px;
+    color: #333;
+    margin: 30px 0 10px 0;
+  }
+  .pod-detail-template-content {
+    padding: 10px;
+    background: #ebeff1;
+    border-radius: 2px;
+    line-height: 20px;
+  }
+}
+.pod-detail-content {
+  .pod-template {
+    .ace_editor {
+      height: 400px;
+      font-size: 14px;
+    }
+  }
+  .pod-monitor-input {
+    width: 140px;
+    margin-right: 10px;
+    button {
+      line-height: 30px;
+    }
+  }
+  .time-to {
+    line-height: 30px;
+    margin-right: 10px;
+  }
+  .monitor-alert .server-monitor {
+     height:250px;
+  }
+  .monitor-alert .chart {
+        height:240px;
+  }
+  .monitor-option {
+    margin-top: 30px;
+  }
+  .pod-detail-info-table {
+    margin-top: 20px;
+  }
+  .pod-detail-events-table {
+    margin-top: 30px;
+  }
+}

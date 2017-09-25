@@ -1,0 +1,269 @@
+.bill_wrapper {
+  .angular-ui-tree {
+    overflow: hidden;
+  }
+  .tree-title {
+    padding: 14px;
+    padding-top: 10px;
+    color: #666;
+  }
+  .bill-left {
+    width: 240px;
+    display: block;
+    min-height: 600px;
+    overflow-y: auto;
+    padding: 10px;
+    background: #ffffff;
+    position: absolute;
+    border-radius: 4px;
+  }
+  .bill-right {
+    padding-right: 0;
+    margin-left: 260px;
+    &.bill-mngmt{
+      margin-left: 0;
+    }
+    .bill-table {
+      padding: 15px 15px;
+      background: #ffffff;
+      border-radius: 4px;
+      #bill-tab {
+        ul.nav-tabs {
+          position: absolute;
+          margin-left: 29%;
+          z-index: 10;
+          margin-top: 26px;
+          border: none;
+          li {
+            margin-right: 0;
+            position: relative;
+            top: 2px;
+            a {
+              margin-right: 0;
+              display: inline-block;
+              margin-bottom: 0;
+              font-weight: normal;
+              height: 33px;
+              line-height: 33px;
+              text-align: center;
+              vertical-align: middle;
+              touch-action: manipulation;
+              cursor: pointer;
+              background-image: none;
+              border: 1px solid transparent;
+              white-space: nowrap;
+              padding: 0px 10px;
+              font-size: 14px;
+              border-radius: 2px;
+              -webkit-user-select: none;
+              -moz-user-select: none;
+              -ms-user-select: none;
+              user-select: none;
+              background-color: #fff;
+              border-color: #ECEDF0;
+              border-right: none;
+              border-top-right-radius: 0;
+              border-bottom-right-radius: 0;
+            }
+            &.active {
+              a {
+                color: #fff;
+                border-color: #23CAD0;;
+                background-color: #23CAD0;;
+              }
+            }
+            &.active + li {
+              a {
+                border-right-color: #ECEDF0;
+              }
+            }
+          }
+          li + li a {
+            border-left: none;
+            border-right: 1px solid #ECEDF0;
+            border-top-right-radius: 2px;
+            border-bottom-right-radius: 2px;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+          }
+        }
+        @media screen and (min-width:1380px){
+          ul.nav-tabs {
+            margin-left: 32%;
+          }
+        }
+        @media screen and (min-width:1470px){
+          ul.nav-tabs {
+            margin-left: 33%;
+          }
+        }
+        .tab-content {
+          border: none;
+          background: none;
+          .tab-pane-content {
+            margin: 0;
+          }
+          table {
+            &.table {
+              margin: 0;
+              div.col-md-6 {
+                padding : 0;
+                margin: 0;
+                &.mb5 {
+                  margin-bottom: 5px;
+                }
+                &.mt26 {
+                  margin-top: 28px;
+                }
+                &.mb10 {
+                  margin-bottom: 10px;
+                }
+                &.query-padding {
+                margin-left: -10px;
+                }
+              }
+              div.col-md-2 {
+                padding : 0;
+                margin: 0;
+                position: relative;
+                z-index: 11;
+                &.query-label-2 {
+                  margin-left: 15px;
+                }
+                input {
+                  width: 113%;
+                  text-align: center;
+                }
+              }
+            }
+            thead th div {
+              &.query-search {
+                padding-right: 0;
+                .col-md-3 {
+                  margin-left: 18%;
+                  padding: 0 0;
+                }
+                .search-bar {
+                  min-width: 40%;
+                  max-width: 40%;
+                }
+              }
+              .query-area {
+                input {
+                  width: 82%;
+                  position: relative;
+                  z-index: 11;
+                }
+                select {
+                  width: 82%;
+                  position: relative;
+                  z-index: 11;
+                }
+              }
+              .query-label {
+                width: 86px;
+                font-size: 14px;
+                font-weight: normal;
+                height: 30px;
+                line-height: 30px;
+              }
+              .query-btn {
+                position: relative;
+                padding: 0 10px;
+                margin-top: 14px;
+                margin-left: -30px;
+                button {
+                  position: relative;
+                  z-index: 11;
+                }
+              }
+              .query-btn-2 {
+                margin-left: -10px;
+              }
+              label {
+                width: 66px;
+              }
+            }
+          }
+        }
+        &.bill-mngmt {
+          ul.nav-tabs {
+            margin-left: 42%;
+          }
+          .tab-content table thead th div.query-search .search-bar {
+            min-width: 46%;
+            max-width: initial;
+          }
+          @media screen and (min-width:1380px){
+            ul.nav-tabs {
+              margin-left: 42%;
+            }
+          }
+          @media screen and (min-width:1470px){
+            ul.nav-tabs {
+              margin-left: 42%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.bill-level-wrapper{
+  .query-search{
+    .col-md-3{
+      margin-left: 32% !important;
+    }
+  }
+}
+
+
+.admin_price_wrapper{
+  .bill-left{
+    .change-pricezone {
+      margin-top : 5px;
+      margin-bottom : 10px;
+    }
+  }
+  .hz_tree {
+    height: 95%;
+    overflow: auto;
+  }
+  .detail-page{
+    .return { padding-bottom: 10px;}
+    a { font-size: 14px;}
+  }
+}
+
+,movePricezoneContent {
+  form { color : #888;}
+  .select-info { padding : 15px;}
+}
+.movePricezoneContent{
+    .modal-dialog {
+        width: 730px;
+    }
+    .content{
+        width:600px;
+        margin : 50px auto;
+        .action { width: 46px; }
+        .content-title{
+            font-size: 14px;
+            p:last-child{ padding : 20px 0px 20px 0px;}
+            .domain-info {
+                width: 153px;
+                display: inline-block;
+            }
+        }
+    }
+    form { color : #888;}
+    .select-info {
+        padding-bottom : 13px;
+        font-size : 14px;
+    }
+}
+
+.createPricefixContent{
+  .delete-ins-one { padding : 0px;}
+}
