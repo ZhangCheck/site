@@ -224,7 +224,11 @@ webpackJsonp([0],{
 	  $locationProvider.html5Mode(true);
 	
 	  $urlRouterProvider.otherwise(function ($injector, $location) {
-	    window.location.href = $location.absUrl();
+	    try {
+	      window.location.href = $location.absUrl();
+	    } catch (ex) {
+	      console.log('app.js', ex);
+	    }
 	  });
 	
 	  $tooltipProvider.setTriggers({ 'tooltipTriggerEvent': 'tooltipTriggerEvent' });
@@ -281,10 +285,6 @@ webpackJsonp([0],{
 	var _navbar2 = _interopRequireDefault(_navbar);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	_angular2.default.module('x', []).controller('xx', ['horizon.framework.util.i18n.gettext', function (gettext) {
-	  gettext('good');
-	}]);
 	
 	var commonModule = _angular2.default.module('app.common', ['gettext',
 	//'horizon.auth',
