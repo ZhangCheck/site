@@ -9,26 +9,28 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="description" content="NG6-Starter by @AngularClass">
   <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-  <link rel="stylesheet" href="./data/ui-grid.css">
-  <!--<link rel="stylesheet" href="987d705f20af.css">
-  <link rel="stylesheet" href="f5f8be97769e.css">
-  <link rel="stylesheet" href="0e9c2581fe60.css">-->
-  <base href="/site/esClient/">
+  <!--<link rel="stylesheet" href="data/ui-grid.css">-->
+  <base href="/">
 
-  <script src="./static/register/js/jquery-1.11.2.js"></script>
+  <script src="static/register/js/jquery-1.11.2.js"></script>
   <script>
-    window.gettext = function(text){
+    window.getText = window.gettext = function(text){
       return text;
     }
     window.WEBROOT = '';
+    window.interpolate = function(pattern, match) {
+      return pattern.replace(/\$(\$|\d{1,2})/, function (m, what) {
+        return match[what === '$' ? 0 : Number(what)];
+      });
+    }
   </script>
 
 </head>
-<body ng-app="app" ng-strict-di ng-cloak>
+<body ng-app="app" ng-cloak><!--ng-strict-di-->
 
 <app>
   Loading...
 </app>
 
-<script src="./vendor.bundle.js?a38d7f131fd4accdb943"></script><script src="./app.bundle.js?a38d7f131fd4accdb943"></script></body>
+<script src="vendor.bundle.js?d8ee8d997ff537bf6a8d"></script><script src="app.bundle.js?d8ee8d997ff537bf6a8d"></script></body>
 </html>
