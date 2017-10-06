@@ -1,0 +1,28 @@
+.host-live-migrate {
+    .width40 {width: 40%}
+    .width52 {width: 52%}
+    .modal-content {
+        width: 600px;
+    }
+
+    .danger-message {
+      background-color: #f2dede;
+      color: #e36159;
+    }
+
+    #server-list {
+      margin-bottom: 1px;
+    }
+
+    .form-group > label {
+      text-align : left;
+      padding-left : 10px;
+      width : 67px;
+    }
+}
+.icon-live-migrate {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background: url('/static/dashboard/img/live-migrate.png') no-repeat;
+}

@@ -1,0 +1,21 @@
+<div ui-tree-handle class="tree-node tree-node-content">
+    <a class="" ng-if="node.nodes && node.nodes.length > 0" data-nodrag
+       ng-click="toggle(this);fetchChild(this);"><span
+            class="hz-collapse"
+            ng-class="{
+      'hz-collapse-minus': !collapsed,
+      'hz-collapse-plus': collapsed}"></span></a>
+    <span class="leaf" ng-if="node.nodes && node.nodes.length == 0"></span>
+    <a href="javascript:;" ng-click="nodeClick(node)" ng-class="{
+        'active': node.id == aId && node.id != ' ',
+        'dis-click': node.forbidden == true ,
+        'tree-project': node.node_type == 'project',
+        'tree-1': node.node_type == 'domain'}"
+        class="hide-tree-name">
+        <span class="node-title" ng-class="{'fa fa-refresh fa-spin ml5 loading': node.name == ' '}" title="{$ node.name $}">{$ node.name $}</span>
+    </a>
+</div>
+<ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
+    <li ng-repeat="node in node.nodes" data-collapsed="node.collapsed" ui-tree-node ng-include="path + 'nodes_renderer.html'" ng-class="{'loading':  node.name == ' '}" title="{$ node.name $}">
+    </li>
+</ol>

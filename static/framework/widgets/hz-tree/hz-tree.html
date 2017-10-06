@@ -1,0 +1,9 @@
+<div ng-if="!treeData" ><img class="load-detail" src="/static/bootstrap/img/loading.gif"  alt="" /></div>
+<div class="hz_tree" id="hz-tree" ng-if='treeData'>
+    <div ui-tree id="tree-root" data-drag-enabled="false">
+        <ol ui-tree-nodes ng-model="treeData">
+            <li ng-repeat="node in treeData" data-collapsed="node.collapsed" ui-tree-node ng-include="path + 'nodes_renderer.html' " ></li>
+        </ol>
+    </div>
+</div>
+

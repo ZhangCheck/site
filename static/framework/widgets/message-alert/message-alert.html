@@ -1,0 +1,6 @@
+<div ng-repeat="alert in alert.get()">
+  <div class="alert-notice-message">
+    <a class="close" ng-click="alert.cancel($index)"><span class="fa fa-times"></span></a>
+    <div>{$ alert.msg $}</div>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<div ng-repeat="toast in toast.get()">
+  <div class="alert alert-{$ ::toast.type $}">
+    <a class="close" ng-click="toast.cancel($index)"><span class="fa fa-times"></span></a>
+      <div ng-if="toast.newTransToast" translate="{$ toast.msg.msg $}" translate-values="{ name: '{$ toast.msg.name $}' }"></div>
+      <div ng-if="!toast.newTransToast">{$ toast.msg | translate $}</div>
+  </div>
+</div>

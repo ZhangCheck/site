@@ -1,0 +1,27 @@
+<div class="stripWarp clearfix">
+  <div class="strip_element">
+    <div class="slider-horiz">
+      <div class="slider-track js-drag-wrap">
+        <div class="slider-selection js-seleced-bg"></div>
+        <div class="slider-handle js-drag-btn"></div>
+      </div>
+   </div>
+   <span class="preview">
+     <input class="js-drag-input form-control" required
+       ng-show="config.isShowInput === 'show'"
+       eid="{$ name $}"
+       type="number"
+       name="{$ name $}"
+       ng-pattern="pattern"
+       ng-min="config.min"
+       ng-max="config.max"
+       ng-disabled="forbidden"
+       ng-model="inputValue"/>
+     <span ng-show="config.unit">{$ config.unit $}</span>
+     <span ng-show="config.comment">{$ config.comment $}</span>
+   </span>
+   <p class="help" ng-show="config.isShowTip === 'show'">
+     {$ loadPrompt() $}
+   </p>
+ </div>
+</div>

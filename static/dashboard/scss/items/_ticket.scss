@@ -1,0 +1,552 @@
+/**
+ ** Author :chenglongfei
+ ** Module : ticket module css
+ ** Data   : 2016-07-01
+**/
+
+.display-group {
+  .default {
+    float: left;
+    color: $gray-dark;
+    background-color: #fff;
+    border:1px #ccc solid;
+    border-right: none;
+    border-radius: 0;
+    &:first-child {
+      border-top-left-radius: $border-radius-base;
+      border-bottom-left-radius: $border-radius-base;
+    }
+    &:last-of-type {
+      border-right:1px #ccc solid;
+      border-top-right-radius: $border-radius-base;
+      border-bottom-right-radius: $border-radius-base;
+    }
+  }
+
+  .btn.default:hover {
+    color: $brand-primary;
+    background-color: none;
+  }
+  .btn[disabled]{
+    cursor: pointer;
+  }
+  .btn.default.active {
+    color: #fff;
+    background-color: $btn-primary-bg;
+    opacity: 1;
+    border-color: $btn-primary-bg;
+    &:hover {
+      color: #fff;
+      background-color: $btn-primary-bg;
+    }
+    & + .default {
+      border-left-color: $btn-primary-bg;
+    }
+  }
+  .form-group {
+    label {
+      width: auto;
+      margin-left: 20px;
+    }
+    margin-top: 0px;
+    .form-group-right {
+      width:100px;
+      margin-right: 20px;
+    }
+  }
+  .ticket-state-group {
+    label {
+      margin-left: 0;
+    }
+  }
+}
+
+.ticket-reply-tab {
+  margin-left: 5px;
+  padding-right: 10px;
+  .reply-row {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .loading-bar {
+    text-align: center;
+  }
+
+  .tips {
+    text-align: center;
+    margin: 10px;
+  }
+
+  .clear:after {
+    content: " ";
+    display: table;
+    clear: both;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px solid #eee;
+  }
+
+  .heading {
+    font-size: 12px;
+    & > span {
+      display: inline-block;
+      line-height: 20px;
+      margin-right: 15px;
+      margin-bottom: 10px;
+    }
+  }
+  .content,.content > p {
+    text-align: justify;
+    word-break: break-all;
+    white-space: pre-wrap;
+  }
+
+  .reply-title {
+    padding-right:10px;
+    h1 {
+      display: inline-block;
+      line-height: 32px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width: 100%;
+    }
+
+    .ticket-title {
+      padding-left: 0px;
+    }
+    .title-btn {
+      text-align: right;
+      padding-right: 0px;
+    }
+  }
+
+  .reply-desc {
+    .content {
+      padding: 8px;
+      height: 64px;
+      overflow-y: auto;
+      background: #f8f8f8;
+      border-radius: $border-radius-base;
+      margin-top: 5px;
+      color: #999;
+    }
+  }
+
+  .reply-list {
+    height: 250px;
+    overflow-y: auto;
+    .reply-item {
+      border: 1px solid #eee;
+      padding: 5px 10px;
+      margin: 10px 5px;
+      border-radius: 14px;
+    }
+    .reply-item.left{
+      margin-right: 50px;
+      background-color: #fdf3d9;
+      display: inline-block;
+      float: left;
+      box-shadow: 0 2px 0 0 rgba(204,102,0,0.30);
+      .replies-title, .replies-time {
+        color:#cc6600
+      }
+    }
+    .reply-item.right{
+      margin-left: 50px;
+      background-color: #d8f1fd;
+      display: inline-block;
+      float: right;
+      .replies-title, .replies-time {
+        color:#3c6e9f
+      }
+    }
+  }
+  .reply-list-height {
+    height: 100px;
+  }
+
+  .replay-form {
+    text-align: right;
+    .reply-btn{
+      margin-top:10px;
+      margin-right:20px;
+    }
+
+    textarea {
+      height: 80px;
+      background-color: #fafafa;
+    }
+  }
+  .replies-box {
+    overflow: hidden;
+  }
+
+  .attachment-total {
+    font-size: 10px;
+    color: #999;
+  }
+  .attachment-wrap {
+    height: 160px;
+    overflow-y: auto;
+    margin-top: 30px;
+    li {
+      padding-left: 15px;
+      border: 1px #e8e8e8 solid;
+      border-left: 6px #60c0af solid;
+      height: 30px;
+      line-height: 30px;
+      margin-bottom: 10px;
+      border-radius: 2px;
+    }
+    .attachment-name {
+      display: inline-block;
+      width: 50%;
+    }
+    .attachment-time {
+      display: inline-block;
+      width: 25%;
+    }
+    .attachment-action {
+      display: inline-block;
+      width: 10%;
+    }
+  }
+}
+
+.ticketAllotContent {
+  .modal-dialog {
+    width: 530px;
+  }
+  .allot-title {
+    font-size: 16px;
+    line-height: 14px;
+    width : 150px;
+    padding-top : 3px;
+  }
+  fieldset {
+    width: 430px;
+    margin-left : 38px;
+    margin-top: 24px;
+  }
+
+  .ticket-table {
+      margin-bottom: 12px;
+      thead tr {
+       display:block;
+       th {
+         border: 0;
+         border-bottom: 1px #f4f4f4 solid;
+       }
+      }
+      .table-tbody {
+        display: block;
+        max-height: 280px;
+        overflow-y: auto;
+        td {
+          max-width: none;
+          border-top: 0;
+        }
+      }
+      .allot-name {
+        width: 360px;
+        line-height: 34px;
+        position: relative;
+        top: 2px;
+      }
+      .w30 { width : 30px;}
+      .w430 { width : 430px;}
+      .w400 { width : 400px;}
+    }
+}
+
+.ticketContent {
+  .form-group-right{
+    width:264px;
+  }
+}
+
+.ticket-detail-button{
+  .btn-danger{
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active { background-color: #ee6b63; opacity: 0.4; border-color: none; }
+  }
+}
+}
+
+
+.file {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    text-indent: 0;
+    width:50px;
+    height:50px;
+    background: url(/static/dashboard/img/attchment-form-icon.png) no-repeat;
+    background-position:0px -360px;
+    margin-top: 10px;
+}
+.file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    width:50px;
+    height:50px;
+}
+
+.upload-attchment{
+  margin-left:108px;
+  width:285px;
+  .attchment-icon{
+    width:50px;height:50px;float:left;margin-left:11px;position:relative;
+    margin: 10px 10px 10px 11px;
+    background: url(/static/dashboard/img/attchment-form-icon.png) no-repeat;
+  }
+  .attchment-other { background-position:0px 0px; }
+  .attchment-txt { background-position:0px -60px; }
+  .attchment-doc { background-position:0px -120px; }
+  .attchment-excel { background-position:0px -180px; }
+  .attchment-pdf { background-position:0px -240px; }
+  .attchment-jpg { background-position:0px -300px; }
+  .attchment-error { background-position:0px -420px; }
+  .delete-attchment {
+    width:13px;
+    height:13px;
+    background: url(/static/dashboard/img/attchment-form-icon.png) no-repeat;
+    background-position:0px -545px;
+    position:absolute;
+    top:-6px;
+    right:-6px;
+  }
+  .reupload-attchment{
+    width:18px;
+    height:18px;
+    background: url(/static/dashboard/img/attchment-form-icon.png) no-repeat;
+    background-position:0px -491px;
+    position:absolute;
+    top:15px;
+    right:16px;
+  }
+  .downlad-attchment {
+    width : 18px;
+    height : 18px;
+    background: url(/static/dashboard/img/attchment-form-icon.png) no-repeat;
+    background-position:0px -518px;
+    position:absolute;
+    top:15px;
+    right:16px;
+  }
+  .error-hover{
+    display : none;
+  }
+  .upload-error:hover .error-hover{
+    display : block;
+  }
+  .upload-error {
+    width:50px;height:50px;position:absolute;top:0px;font-size:12px;
+  }
+  .hover-bg {
+    width:50px;height:50px;position:absolute;top:0px;background:#000;opacity:0.4;
+  }
+}
+
+.upload-attchment-detail{
+  .attchment-icon{
+    width:70px;height:70px;float:left;margin-left:20px;position:relative;
+    margin-top:10px;
+    background: url(/static/dashboard/img/attchment-detail-icon.png) no-repeat;
+  }
+  .attchment-other { background-position:0px 0px; }
+  .attchment-txt { background-position:0px -80px; }
+  .attchment-doc { background-position:0px -160px; }
+  .attchment-excel { background-position:0px -240px; }
+  .attchment-pdf { background-position:0px -320px; }
+  .attchment-jpg { background-position:0px -400px; }
+  .attchment-error { background-position:0px -560px; }
+  .delete-attchment {
+    width:15px;
+    height:15px;
+    background: url(/static/dashboard/img/attchment-detail-icon.png) no-repeat;
+    background-position:0px -720px;
+    position:absolute;
+    top:-6px;
+    right:-6px;
+  }
+  .reupload-attchment{
+    width:27px;
+    height:27px;
+    background: url(/static/dashboard/img/attchment-detail-icon.png) no-repeat;
+    background-position:0px -650px;
+    position:absolute;
+    top:22px;
+    right:21px;
+  }
+  .downlad-attchment {
+    width:27px;
+    height:27px;
+    background: url(/static/dashboard/img/attchment-detail-icon.png) no-repeat;
+    background-position:0px -685px;
+    position:absolute;
+    top:22px;
+    right:21px;
+  }
+  .file {
+    width:70px;
+    height:70px;
+    background: url(/static/dashboard/img/attchment-detail-icon.png) no-repeat;
+    background-position:0px -480px;
+  }
+  .file input {
+    width:70px;
+    height:70px;
+  }
+  .error-hover{
+    display : none;
+  }
+  .upload-error:hover .error-hover{
+    display : block;
+  }
+  .upload-error {
+    width:70px;height:70px;position:absolute;top:0px;font-size:12px;
+  }
+  .hover-bg {
+    width:70px;height:70px;position:absolute;top:0px;background:#000;opacity:0.4;
+  }
+}
+
+.quota-ticket-content {
+  .modal-dialog {
+    width: 750px;
+    .form-group-right {
+      width: 580px;
+    }
+  }
+}
+.quota-wrap {
+  .quota-list {
+    width: 710px;
+    margin-left: 20px;
+    height: 380px;
+    overflow-y: auto;
+  }
+  .quota-row {
+    position: relative;
+    margin-top: 20px;
+    width: 346px;
+
+    label {
+      width: 190px;
+      font-size: 14px;
+      font-weight: normal;
+      color: #333;
+      p {
+        padding-left: 30px;
+      }
+    }
+    input {
+      width: 90px;
+      border-radius: 2px;
+    }
+    .help-block {
+      left: 192px;
+    }
+  }
+}
+
+// Quota management
+.quota-header {
+  text-align: right;
+  padding-right: 2px;
+  .quota-header-approved, .quota-header-new, .quota-header-exceed {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+  .quota-header-approved {
+    background: #628AC0;
+  }
+  .quota-approved-text {
+    margin-right: 30px;
+  }
+  .quota-header-new {
+    background: #60C0AF;
+  }
+  .quota-header-exceed {
+    background: #E36159;
+    margin-left: 30px;
+  }
+}
+.quota-content {
+  width: 760px;
+  height: 248px;
+  overflow-y: auto;
+  .quota-blue {
+    background: #628AC0;
+  }
+  .quota-green {
+    background: #60C0AF;
+  }
+  .quota-red {
+    background: #E36159;
+  }
+  .quota-blue-color {
+    color: #628AC0;
+  }
+  .quota-green-color {
+    color: #60C0AF;
+  }
+  .quota-red-color {
+    color: #E36159;
+  }
+  .quota-content-list {
+    float: left;
+    margin-top: 10px;
+    height: 40px;
+    .quota-content-list-name {
+      width: 130px;
+    }
+    .quota-content-list-scale {
+      width: 220px;
+      height: 12px;
+      background: #edeff0;
+      margin-right: 8px;
+      margin-top: 3px;
+      overflow: hidden;
+      border-radius: 2px;
+    }
+    .quota-content-list-total {
+      width: 220px;
+      margin-left: 130px;
+      text-align: right;
+    }
+    .quota-scale-approved, .quota-scale-new {
+      font-size: 10px;
+      height: 12px;
+      line-height: 12px;
+      text-align: center;
+      color: #fff;
+      float: left;
+    }
+    /*.quota-scale-approved {
+      background: #628AC0;
+    }
+    .quota-scale-new {
+      background: #60C0AF;
+    }*/
+  }
+}

@@ -1,0 +1,33 @@
+<hz-magic-search-context style="display:block;height:100%;position:relative;" filter-facets="{$hzGridOptions.filterFacets$}">
+
+    <hz-grid-head>
+        <hz-grid-control>
+            <div ng-transclude></div>
+        </hz-grid-control>
+        <hz-grid-search/>
+    </hz-grid-head>
+
+    <hz-grid-body>
+
+    </hz-grid-body>
+
+    <div class="hz-pager clearfix">
+        <pagination
+                boundary-links="false"
+                direction-links="false"
+                total-items="hzGridOptions.totalItems"
+                items-per-page="hzGridOptions.paginationPageSize"
+                ng-model="currentPage"
+                class="pagination-sm"
+                previous-text="&lsaquo;"
+                next-text="&rsaquo;"
+                first-text="&laquo;"
+                last-text="&raquo;"
+                max-size="hzGridOptions.maxPageSize"
+                num-pages="hzGridOptions.numPages"
+                ng-change="pageChanged()"
+        >
+        </pagination>
+    </div>
+
+</hz-magic-search-context>

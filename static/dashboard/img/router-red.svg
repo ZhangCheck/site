@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="47px" height="47px" viewBox="0 0 47 47" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+    <title>router-red</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-Copy" transform="translate(-128.000000, -575.000000)">
+            <g id="router-red" transform="translate(129.000000, 576.000000)">
+                <circle id="Oval" stroke="#EE6B63" stroke-width="2" cx="22.5" cy="22.5" r="22.5"></circle>
+                <path d="M23.7940094,27.3311688 L27.5282449,31.0227273 L25.5182606,33.012987 L35,34.7142857 L33.2757488,25.3409091 L31.2624803,27.3311688 L27.5282449,23.6363636 L23.7940094,27.3311688 Z M21.4950079,17.6720779 L17.4717551,13.6915585 L19.4850236,11.7045455 L10,10 L11.7242512,19.3733766 L13.7342354,17.3863636 L17.4684708,21.0811688 L21.4917236,17.6720779 L21.4950079,17.6720779 Z M17.7607724,23.6363636 L13.7375197,27.6136364 L12.0132685,25.6266234 L10.2890173,35 L19.7707567,33.2954545 L17.7607724,31.3084415 L21.4950079,27.6136364 L17.7607724,23.6363636 Z M27.5282449,21.3636364 L31.2624803,17.6688312 L33.2757488,19.6590909 L35,10.2824676 L25.8039937,11.9902597 L27.8172622,13.9772727 L23.7940094,17.6720779 L27.5282449,21.3636364 L27.5282449,21.3636364 Z" id="路由器-red" fill="#EE6B63" fill-rule="nonzero"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,273 @@
+/**
+ ** Author : limeili
+ ** Module : Database instance module css
+ ** Data   : 2016-09-29
+**/
+
+// mysql module
+// Author : limeili
+// Date   : 2015-09-29
+
+.databasesListContent{
+    .modal-dialog {
+        width: 500px;
+    }
+    .form-group {
+        label { width : 126px;}
+    }
+    .user-database {
+        width:270px;
+    }
+    .add-database {
+        margin-left: 5px;
+        position: relative;
+        top: 2px;
+    }
+    .form-group .form-group-right {
+        width: 282px;
+    }
+    .select-falvor {
+      input { width : 282px; }
+      .form-group-right { width : 320px; }
+      .add_to{
+        margin-left : 5px;
+        margin-top : 3px;
+      }
+    }
+    .delete-ins-one { padding : 0px;}
+    .sizeLoading { height: 30px; }
+}
+.selectConfigureContent{
+    .modal-dialog {
+        width: 730px;
+    }
+    .content{
+        width:600px;
+        margin : 50px auto;
+        .action { width: 46px; }
+        .btn-group {
+          margin-right : 0px;
+          margin-left : 3px;
+        }
+        .table {
+          margin-bottom : 0px;
+        }
+        .action-remove {
+          border-right: 1px solid rgba(225, 229, 232, 0.95);
+        }
+    }
+}
+
+
+/**
+ ** Author : limeili
+ ** Module : Database cluster module css
+ ** Data   : 2017-05-09
+**/
+
+// mongodb module
+// Author : limeili
+// Date   : 2017-05-09
+.databaseClusterListContent{
+  .count {
+    input { width : 70px;}
+  }
+  .node-count {
+    line-height : 30px;
+    padding-left  :20px;
+  }
+  .modal-dialog {
+    width: 500px;
+  }
+  .form-group {
+    label { width : 126px;}
+  }
+  .form-node{
+    margin-top: 5px;
+    height: 22px;
+  }
+  .cluster-node{
+    font-size: 12px;
+    line-height: 19px;
+    width:100%;
+    color: #777;
+    height: 30px;
+    display: inline-block;
+    box-shadow: none;
+    padding: 6px 6px 6px 0;
+  }
+  .alert-node{
+    display: block;
+    margin: 28px 0 10px 144px;
+    color: #a6a6a6;
+    height: 20px;
+  }
+  .user-database {
+    width:270px;
+  }
+  .add-database {
+    margin-left: 5px;
+    position: relative;
+    top: 2px;
+  }
+  .form-group .form-group-right {
+    width: 282px;
+  }
+  .select-falvor {
+    input { width : 282px; }
+    .form-group-right { width : 320px; }
+    .add_to{
+      margin-left : 5px;
+      margin-top : 3px;
+    }
+  }
+  .sizeLoading { height: 30px; }
+}
+
+.redis-configure {
+  width : 325px;
+}
+
+.databaseConfigurationContent {
+  .modal-dialog {
+    width: auto;
+    min-width: 462px;
+  }
+  .form-group {
+     form-group-right{
+         width : 280px;
+     }
+  }
+  .modal-description {
+    margin: 0px 0px 10px 0px;
+  }
+  .modal-footer { margin-top : 0px;}
+  .configration-table{
+      margin-bottom: 12px;
+      thead tr {
+       display:block;
+       th {
+         border: 0;
+         width: 375px;
+         padding-left: 10px;
+         border-bottom: 1px #f4f4f4 solid;
+       }
+       th:first-child{
+         border-right: 1px solid #e1e5e8;
+       }
+      }
+      .table-tbody {
+        width: 752px;
+        display: block;
+        max-height: 349px;
+        overflow-y: auto;
+        .form-group {
+          width : 360px;
+          position : relative;
+          margin-top: 0px;
+          .form-control {
+            height : 36px;
+            border : none;
+          }
+        }
+        .data-input { padding: 0px;}
+        td {
+          max-width: none;
+          border-top: 0;
+          span{
+            position: relative;
+            top: 2px;
+          }
+        }
+        .configuration-key{
+            width: 358px;
+        }
+      }
+      .require-info{
+        color : #e36159;
+        font-size: 20px;
+        padding-left: 20px;
+        margin-top: 5px;
+      }
+      .error-info{
+        color: #e36159;
+        position: absolute;
+        right: 0px;
+        width: 290px;
+        text-align: right;
+        padding-right: 10px;
+        line-height: 26px;
+      }
+  }
+  .tab-content{
+    .tab-pane-content { margin: 10px;}
+  }
+}
+
+.configurationDetailContent{
+   .btn-primary{
+     padding: 0 10px;
+   }
+   .icon{ height: 15px;}
+   .icon-save {
+     background-position: -35px -252px;
+   }
+   .configration-table{
+      .table-tbody {
+        .form-group {
+          width : 426px;
+          margin-top: 0px;
+          position: relative;
+          .form-control {
+            height : 36px;
+            border : none;
+          }
+        }
+        .data-input { padding: 0px;}
+        td {
+          max-width: none;
+          border-top: 0;
+          span{
+            position: relative;
+            top: 2px;
+          }
+        }
+      }
+      .modal-description{
+        margin: 10px 0px 20px 0px;
+      }
+      .require-info{
+        color : #e36159;
+        font-size: 20px;
+        padding-left: 20px;
+        margin-top: 5px;
+      }
+      .error-info{
+        color: #e36159;
+        position: absolute;
+        right: 0px;
+        width: 326px;
+        text-align: right;
+        padding-right: 10px;
+        line-height: 26px;
+      }
+  }
+}
+
+.database-detail-table {
+  .detail {
+    padding-right: 40px;
+    border: 1px #e1e5e8 solid;
+    .detail-expanded {
+      width: 100% !important;
+      margin: 10px 20px 40px 20px !important;
+      background: #f1f3f6 !important;
+      border: 0px !important;
+      tbody {
+        background: #fff;
+      }
+    }
+  }
+}
+
+

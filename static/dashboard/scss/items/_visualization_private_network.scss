@@ -1,0 +1,94 @@
+.private-network-modal-dialog {
+    width: 292px;
+    .visualization_property {
+        font-family: "MicrosoftYaHei";
+        font-size: 14px;
+        color: #505050;
+    }
+    .title {
+        height: 36px;
+        background: #F7F7F8;
+        line-height: 36px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        p {
+            font-family: MicrosoftYaHei;
+            font-size: 14px;
+            color: #505050;
+            letter-spacing: 2.62px;
+            padding: 0 14px;
+        }
+        i {
+            padding-right: 14px;
+            font-size: 20px;
+        }
+    }
+    .private-network-modal-container {
+        padding: 0 14px;
+        .modal-footer {
+            background: transparent;
+            padding: 10px 0px;
+        }
+
+        form {
+            .modal-body {
+                padding: 0;
+                .form-group {
+                    display: flex;
+                    flex-direction: row;
+                    padding: 10px 0;
+                    margin: 0;
+                    border-bottom: 1px solid #E6E6E6;
+                    label {
+                        overflow: hidden;
+                        display: block;
+                        text-align: left;
+                        margin-right: 0;
+                        flex: 1;
+                        p {
+                            padding: 0;
+                            font-size: 12px;
+                            color: #505050;
+                            line-height: 30px;
+                        }
+                    }
+                    .form-group-right {
+                        flex: 3.5;
+                        input[name="networkName"], input[name="defaultSubnetName"] {
+                            border: none;
+                        }
+                        input[type="radio"], input[type="checkbox"] {
+                            margin: 0;
+                        }
+                        .address-w {
+                            width: 29px;
+                            padding: 2px 0;
+                        }
+                        .no-name {
+                            width: 0;
+                        }
+                        .gateway_ip {
+                            width: 66%;
+                        }
+                        .gatewayInfo {
+                            height: 30px;
+                            display: flex;
+                            align-items: center;
+                        }
+                        .network-list {
+                            height: auto;
+                        }
+                    }
+                    .dhcp_right {
+                        height: 30px;
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+    }
+
+}

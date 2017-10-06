@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="47px" height="47px" viewBox="0 0 47 47" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+    <title>stack -gray</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-Copy" transform="translate(-183.000000, -285.000000)">
+            <g id="stack--gray" transform="translate(184.000000, 286.000000)">
+                <circle id="Oval" stroke="#78828B" stroke-width="2" cx="22.5" cy="22.5" r="22.5"></circle>
+                <g id="Group-3" transform="translate(10.000000, 10.250000)">
+                    <path d="M10,13 L10,16.65 L11,16.65 L11,13 L10,13 Z M7.5,13 L7.5,16.65 L8.5,16.65 L8.5,13 L7.5,13 Z M5,13 L5,16.65 L6,16.65 L6,13 L5,13 Z M2.5,13 L2.5,16.65 L3.5,16.65 L3.5,13 L2.5,13 Z M0,12 L25,12 L25,17.9805908 L0,17.9805908 L0,12 Z M21,14 C20.45,14 20,14.4285714 20,15 C20,15.5714286 20.45,16 21,16 C21.55,16 22,15.5238095 22,15 C22,14.4285714 21.55,14 21,14 Z" id="Combined-Shape" fill="#78828B"></path>
+                    <path d="M0,18.5 L25,18.5 L25,24.5 L0,24.5 L0,18.5 Z M4.5,20.5 L21,20.5 L21,20 L4.5,20 L4.5,20.5 Z M4.5,22 L21,22 L21,21.5 L4.5,21.5 L4.5,22 Z M4.5,23.5 L21,23.5 L21,23 L4.5,23 L4.5,23.5 Z" id="Combined-Shape" fill="#78828B"></path>
+                    <path d="M25,11.4805908 L0,11.4805908 L0,5.55 C0,5.55 0,5.55 0,5.5 L25,5.5 C25,5.5 25,7.49353027 25,11.4805908 Z M18.25,8.75 C18.25,8.2 17.8,7.75 17.25,7.75 C16.7,7.75 16.25,8.2 16.25,8.75 C16.25,9.3 16.7,9.75 17.25,9.75 C17.8,9.75 18.25,9.3 18.25,8.75 Z M13.75,8.75 C13.75,8.2 13.3,7.75 12.75,7.75 C12.2,7.75 11.75,8.2 11.75,8.75 C11.75,9.3 12.2,9.75 12.75,9.75 C13.3,9.75 13.75,9.3 13.75,8.75 Z M9.25,8.75 C9.25,8.2 8.8,7.75 8.25,7.75 C7.7,7.75 7.25,8.2 7.25,8.75 C7.25,9.3 7.7,9.75 8.25,9.75 C8.8,9.75 9.25,9.3 9.25,8.75 Z" id="Shape" fill="#78828B" fill-rule="nonzero"></path>
+                    <polygon id="Shape" fill="#5B6269" fill-rule="nonzero" points="21.5 0.2 25 4.95 0 4.95 3.5 0.2"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

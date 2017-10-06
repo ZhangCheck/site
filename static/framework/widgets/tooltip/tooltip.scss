@@ -1,0 +1,14 @@
+.tooltip-wrap {
+  .in {opacity: 1;}
+  .tooltip {
+     font-size: 12px;
+    .tooltip-arrow {
+       border-top-color: #ffb2b2;
+       border-right-color: #ffb2b2;
+    }
+    .tooltip-inner {
+      text-align: left;
+      background-color: #ffb2b2;
+    }
+  }
+}

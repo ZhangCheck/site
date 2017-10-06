@@ -1,0 +1,24 @@
+<div class="modal-header clearfix">
+  <h3 class="modal-title"><span>{$ modalCtrl.context.title | translate $}</span></h3>
+  <p class="modal-colsed" ng-click="modalCtrl.cancel()">
+    <i class="modal-colsed-icon"></i>
+  </p>
+</div>
+
+<div class="modal-body delete-body">
+  <p ng-if="!modalCtrl.context.newTransToast"  id="tips-text" class="txt-c cut" ng-bind="::modalCtrl.context.body" title="{$ modalCtrl.context.body $}"></p>
+  <p ng-if="modalCtrl.context.newTransToast" id="tips-text" class="txt-c" translate="{$ modalCtrl.context.body.msg $}" translate-values="{ name: '{$ modalCtrl.context.body.name $}' }"></p>
+  <p class="txt-c">{$ modalCtrl.context.tips| translate $}</p>
+</div>
+<div class="modal-footer modal-footer-wrap">
+  <button id="cancel-button" class="btn btn-primary"
+    ng-if="!modalCtrl.context.setButton"
+    type="button" ng-click="modalCtrl.cancel()">
+    <span ng-bind="::modalCtrl.context.cancel"></span>
+  </button>
+  <button id="submit-button" class="btn"
+    ng-class="{ 'btn-primary': modalCtrl.context.setButton, 'btn-action btn-danger': !modalCtrl.context.setButton }"
+    type="button" ng-click="modalCtrl.submit()" ng-disabled="modalCtrl.context.disable">
+    <span ng-bind="::modalCtrl.context.submit"></span>
+  </button>
+</div>
