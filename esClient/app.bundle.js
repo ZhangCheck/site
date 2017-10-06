@@ -1183,10 +1183,10 @@ webpackJsonp([0],[
 	      window.gridApi = gridApi; //todo:remove
 	    },
 	    countApi: {
-	      url: '../../static/easystack_dashboard/json/hz-grid-count.json'
+	      url: 'static/easystack_dashboard/json/hz-grid-count.json'
 	    },
 	    listApi: {
-	      url: '../../static/easystack_dashboard/json/hz-grid.json'
+	      url: 'static/easystack_dashboard/json/hz-grid.json'
 	    },
 	    add: {
 	      templateUrl: 'edit.html',
@@ -1624,10 +1624,10 @@ webpackJsonp([0],[
 	      window.gridApi0 = gridApi;
 	    },
 	    countApi: {
-	      url: '../../static/easystack_dashboard/json/hz-grid-count.json'
+	      url: 'static/easystack_dashboard/json/hz-grid-count.json'
 	    },
 	    listApi: {
-	      url: '../../static/easystack_dashboard/json/instances.json'
+	      url: 'static/easystack_dashboard/json/instances.json'
 	    },
 	    add: {
 	      templateUrl: 'edit.html',
