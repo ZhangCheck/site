@@ -12,15 +12,15 @@
            ng-init="userID = '{{ request.user.id }}'"
            disabled="disabled"
            st-magic-search
-           class="table table-bordered table-hover"
+           class="table table-bordered table-hover {$hzGridOptions.showHeader?'':'noHeader'$}"
     >
-      <thead>
 
+      <thead>
       <!--
         Table-batch-actions:
         This is where batch actions like searching, creating, and deleting.
       -->
-      <tr>
+      <tr ng-if="hzGridOptions.showHeader">
         <th colspan="100" class="bare">
           <div class="table_actions clearfix">
             <span ng-transclude></span>
@@ -39,14 +39,14 @@
         for performing batch actions.
       -->
       <tr eagle-eye="table_heads">
-        <th class="select-col" eagle-eye="select_col">
+        <th ng-if="hzGridOptions.selectble" class="select-col" eagle-eye="select_col">
           <input type="checkbox"
                  hz-select-page="instances-group"
                  ng-model="selectedAllInstance"
           />
           <!--ng-model="grid.selection.selectAll"-->
         </th>
-        <th ng-repeat="col in hzGridOptions.columnDefs">
+        <th ng-repeat="col in hzGridOptions.columnDefs" style="width:{$col.width||'auto'$}">
           <span st-sort="{$'entity.'+(col.field||col.name)$}" eagle-eye="data_col">{$ col.name $}</span>
         </th>
 
@@ -72,7 +72,7 @@
           User can select and unselect this row by clicking on this checkbox.
           Batch actions can then be perform on selected rows.
         -->
-        <td class="select-col" eagle-eye="select_col">
+        <td ng-if="hzGridOptions.selectble" class="select-col" eagle-eye="select_col">
           <input type="checkbox"
             hz-select="row"
             ng-model="selected[row.id].checked"
