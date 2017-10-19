@@ -70,6 +70,9 @@
   background: none;
 }
 .table-bordered {
+  &.noHeader thead tr:first-child th{
+    padding:0 8px;
+  }
   border:0;
   //.bare { border-top: 1px #f4f4f4 solid !important; }
   thead tr {
@@ -102,6 +105,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+  tbody tr th {
+    padding:0 8px;
   }
   tfoot tr td {
     height: 58px;
