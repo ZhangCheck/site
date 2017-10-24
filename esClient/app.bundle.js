@@ -577,11 +577,17 @@ webpackJsonp([0],[
 	    if (window._docTimer) {
 	      window._docTimer = clearInterval(window._docTimer);
 	    }
+	    window._docTimerTime = 0;
 	    window._docTimer = setInterval(function () {
+	      window._docTimerTime++;
+	      if (window._docTimerTime > 10) {
+	        window._docTimer = clearInterval(window._docTimer);
+	        return;
+	      }
 	      $('pre code').each(function (i, block) {
 	        window.hljs && window.hljs.highlightBlock(block);
 	      });
-	    }, 500, 10);
+	    }, 500);
 	  }
 	
 	  function routeChangeStart(event) {
@@ -1621,6 +1627,10 @@ webpackJsonp([0],[
 	'use strict';
 	
 	(function () {
+	  /**
+	   * @ngModule hz.dashboard.project.hz_grid_demo
+	   * @description Hz-grid page demo
+	   */
 	  angular.module('hz.dashboard.project.hz_grid_demo').controller('datalistCtrl1', datalistCtrl);
 	
 	  datalistCtrl.$inject = ['$scope', '$timeout', '$interval', 'horizon.framework.widgets.modal.service', 'horizon.framework.util.http.service', 'horizon.framework.widgets.toast.service', 'partedModalAction'];
@@ -9660,6 +9670,11 @@ webpackJsonp([0],[
 	    this.patch = function (url, data, config) {
 	      return httpCall('PATCH', url, data, config);
 	    };
+	
+	    /**
+	     * Request api dynamicly
+	     * @param config
+	     */
 	    this.http = function (config) {
 	      var url = config.url;
 	      var data = config.data;
