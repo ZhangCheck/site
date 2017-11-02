@@ -1,8 +1,19 @@
-  <hz-magic-search-context filter-facets="gridApi.options.filterFacets" style="display:block;padding:20px;">
+  <hz-magic-search-context filter-facets="gridApi.options.filterFacets" style="{$gridApi.options.padding&&('padding:'+gridApi.options.padding)||''$}" class="hz-grid-wrap">
+    <!--Hz-grid head-->
+    <div class="table_actions clearfix hz-grid-head">
+      <span ng-transclude></span>
+      <div ng-if="gridApi.options.showSearchBar" class="fr search-bar">
+        <hz-magic-search-bar id="search" eid="search">
+
+        </hz-magic-search-bar>
+      </div>
+    </div>
+
     <!--
-        Hz-table start here,like hz-table.
+        Hz-grid start here,like hz-table.
       -->
     <table id="table-row"
+           eid="gridApi.options.id"
            hz-table
            ng-cloak
            hopes-table-drag
@@ -15,24 +26,7 @@
            st-magic-search
            class="table table-bordered table-hover {$gridApi.options.showHeader?'':'noHeader'$}"
     >
-
       <thead>
-      <!--
-        Table-batch-actions:
-        This is where batch actions like searching, creating, and deleting.
-      -->
-      <tr ng-if="gridApi.options.showHeader">
-        <th colspan="100" class="bare">
-          <div class="table_actions clearfix">
-            <span ng-transclude></span>
-            <div ng-if="gridApi.options.showSearchBar" class="fr search-bar">
-              <hz-magic-search-bar id="search" eid="search">
-
-              </hz-magic-search-bar>
-            </div>
-          </div>
-        </th>
-      </tr>
       <!--
         Table-column-headers:
         This is where we declaratively define the table column headers.
@@ -45,12 +39,13 @@
                  hz-select-page="{$gridApi.options.id$}"
                  ng-model="selectedAllInstance"
           />
-          <!--ng-model="gridApi.grid.selection.selectAll"-->
         </th>
-        <th ng-repeat="col in gridApi.options.columnDefs" style="width:{$col.width||'auto'$}">
+        <th ng-repeat="col in gridApi.options.columnDefs" style="{$col.width&&('width:'+col.width)||''$}">
           <span st-sort="{$'entity.'+(col.field||col.name)$}" eagle-eye="data_col">{$ col.name $}</span>
         </th>
       </tr>
+
+
       </thead>
 
       <tbody>
@@ -62,14 +57,13 @@
       </tr>
 
       <tr ng-if="gridApi.options.data.length==0 && !loading" eagle-eye="empty_table">
-        <td colspan="100">no data</td>
+        <td colspan="100">{$gridApi.options.context.noData||'No Data'$}</td>
       </tr>
 
       <tr ng-if="gridApi.options.rowTemplate"
           compile="gridApi.options.rowTemplate"
           replace
-      >
-      </tr>
+      ></tr>
 
 
       <!--Default row template-->
@@ -82,9 +76,8 @@
       </tr>
 
 
-
       </tbody>
-      <tfoot ng-if="gridApi.options.data.length > 10">
+      <tfoot ng-if="gridApi.options.data.length > gridApi.options.footThreshold">
       <tr>
         <td colspan="100" eagle-eye="data_page">
           <table-footer></table-footer>
