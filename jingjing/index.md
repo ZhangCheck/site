@@ -9,4 +9,6 @@
 
 [第二课：变量与语句](https://zhangcheck.github.io/site/jingjing/day2)
 
+[第三课：函数和编程模式](https://zhangcheck.github.io/site/jingjing/day3)
+
 以上
